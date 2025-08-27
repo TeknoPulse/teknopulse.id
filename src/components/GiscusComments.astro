@@ -1,0 +1,56 @@
+---
+// Environment variables for Giscus configuration
+const {
+  GISCUS_REPO = '',
+  GISCUS_REPO_ID = '',
+  GISCUS_CATEGORY = '',
+  GISCUS_CATEGORY_ID = '',
+  GISCUS_MAPPING = 'pathname',
+  GISCUS_LANG = 'id',
+  GISCUS_REACTIONS_ENABLED = '1',
+  GISCUS_EMIT_METADATA = '0',
+  GISCUS_INPUT_POSITION = 'bottom',
+  GISCUS_THEME = 'preferred_color_scheme',
+} = import.meta.env;
+
+const hasGiscusConfig = GISCUS_REPO && GISCUS_REPO_ID && GISCUS_CATEGORY && GISCUS_CATEGORY_ID;
+---
+
+{
+  hasGiscusConfig ? (
+    <section class="mt-12">
+      <h2 class="mb-6 text-2xl font-bold">Comments</h2>
+      <div
+        class="giscus"
+        data-repo={GISCUS_REPO}
+        data-repo-id={GISCUS_REPO_ID}
+        data-category={GISCUS_CATEGORY}
+        data-category-id={GISCUS_CATEGORY_ID}
+        data-mapping={GISCUS_MAPPING}
+        data-strict="0"
+        data-reactions-enabled={GISCUS_REACTIONS_ENABLED}
+        data-emit-metadata={GISCUS_EMIT_METADATA}
+        data-input-position={GISCUS_INPUT_POSITION}
+        data-theme={GISCUS_THEME}
+        data-lang={GISCUS_LANG}
+        crossorigin="anonymous"
+        async
+      />
+
+      <script src="https://giscus.app/client.js" async />
+      <script src="/assets/giscus.js" is:inline />
+    </section>
+  ) : (
+    import.meta.env.DEV && (
+      <section class="mt-12 rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-900/20">
+        <h3 class="mb-2 text-lg font-semibold text-yellow-800 dark:text-yellow-200">
+          Comments Unavailable
+        </h3>
+        <p class="text-sm text-yellow-700 dark:text-yellow-300">
+          Giscus comments are not configured. Please set the required environment variables:
+          GISCUS_REPO, GISCUS_REPO_ID, GISCUS_CATEGORY, and GISCUS_CATEGORY_ID.
+        </p>
+      </section>
+    )
+  )
+}

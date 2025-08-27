@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection('posts'))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+  const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+  return allTags.flatMap((tag) => {
+    const tagPosts = posts.filter((post) => post.data.tags.includes(tag));
+    return paginate(tagPosts, {
+      params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
+      pageSize: 6,
+    });
+  });
+}
+
+const { page } = Astro.props;
+const { tag } = Astro.params;
+const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+---
+
+<Layout title={`${tagName} - TeknoPulse`} description={`Posts tagged with ${tagName}`}>
+  <main class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+      <h1 class="mb-4 text-4xl font-bold">#{tagName}</h1>
+      <p class="text-gray-600 dark:text-gray-400">
+        Posts tagged with "{tagName}"
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {page.data.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <Pagination
+      currentPage={page.currentPage}
+      totalPages={page.lastPage}
+      baseUrl={`/tags/${tag}`}
+    />
+  </main>
+</Layout>

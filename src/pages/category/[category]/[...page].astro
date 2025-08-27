@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection('posts'))
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+  const categories = [...new Set(posts.map((post) => post.data.category))];
+
+  return categories.flatMap((category) => {
+    const categoryPosts = posts.filter((post) => post.data.category === category);
+    return paginate(categoryPosts, {
+      params: { category: category.toLowerCase() },
+      pageSize: 6,
+    });
+  });
+}
+
+const { page } = Astro.props;
+const { category } = Astro.params;
+const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+---
+
+<Layout
+  title={`${categoryName} - TeknoPulse`}
+  description={`Latest ${categoryName} news and articles`}
+>
+  <main class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+      <h1 class="mb-4 text-4xl font-bold">{categoryName}</h1>
+      <p class="text-gray-600 dark:text-gray-400">
+        Latest news and articles about {categoryName}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {page.data.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <Pagination
+      currentPage={page.currentPage}
+      totalPages={page.lastPage}
+      baseUrl={`/category/${category}`}
+    />
+  </main>
+</Layout>

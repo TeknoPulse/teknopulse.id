@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const { post } = Astro.props;
+---
+
+<a
+  href={`/posts/${post.slug}`}
+  class="block overflow-hidden rounded-lg bg-white shadow-md transition-shadow duration-300 ease-in-out hover:shadow-lg dark:bg-gray-800"
+>
+  {
+    post.data.coverImage && (
+      <img src={post.data.coverImage} alt={post.data.title} class="h-48 w-full object-cover" />
+    )
+  }
+  <div class="p-6">
+    <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+      {post.data.title}
+    </h3>
+    <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+      {post.data.summary}
+    </p>
+    <div class="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+      <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')} </span>
+      <span>{post.data.readingTime} min read</span>
+    </div>
+  </div>
+</a>

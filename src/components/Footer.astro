@@ -1,0 +1,48 @@
+---
+import { site } from '../config';
+---
+
+<footer class="mt-16 bg-gray-100 dark:bg-gray-800">
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex flex-col items-center justify-between md:flex-row">
+      <div class="mb-4 md:mb-0">
+        <p class="text-gray-600 dark:text-gray-400">
+          © 2025 {site.name}. All rights reserved.
+        </p>
+      </div>
+
+      <div class="flex space-x-6">
+        <a
+          href="/rss.xml"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          RSS
+        </a>
+        <a
+          href="/feed.json"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          JSON Feed
+        </a>
+        <a
+          href="/sitemap.xml"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          Sitemap
+        </a>
+        <a
+          href="/about"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          About
+        </a>
+        <a
+          href="/contact"
+          class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact - TeknoPulse" description="Get in touch with the TeknoPulse team">
+  <main class="container mx-auto px-4 py-8">
+    <div class="mx-auto max-w-4xl">
+      <h1 class="mb-8 text-4xl font-bold">Contact Us</h1>
+
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div>
+          <h2 class="mb-6 text-2xl font-semibold">Get in Touch</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="mb-2 text-lg font-semibold">Editorial</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                Untuk tips berita, press release, atau kolaborasi editorial.
+              </p>
+              <a href="mailto:editorial@teknopulse.com" class="text-blue-600 hover:text-blue-800">
+                editorial@teknopulse.com
+              </a>
+            </div>
+
+            <div>
+              <h3 class="mb-2 text-lg font-semibold">General Inquiries</h3>
+              <p class="text-gray-600 dark:text-gray-400">Untuk pertanyaan umum dan feedback.</p>
+              <a href="mailto:hello@teknopulse.com" class="text-blue-600 hover:text-blue-800">
+                hello@teknopulse.com
+              </a>
+            </div>
+
+            <div>
+              <h3 class="mb-2 text-lg font-semibold">Technical Support</h3>
+              <p class="text-gray-600 dark:text-gray-400">Untuk masalah teknis dengan website.</p>
+              <a href="mailto:support@teknopulse.com" class="text-blue-600 hover:text-blue-800">
+                support@teknopulse.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="mb-6 text-2xl font-semibold">Send us a Message</h2>
+          <form class="space-y-4">
+            <div>
+              <label for="name" class="mb-2 block text-sm font-medium">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="mb-2 block text-sm font-medium">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="mb-2 block text-sm font-medium">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800"
+              />
+            </div>
+
+            <div>
+              <label for="message" class="mb-2 block text-sm font-medium">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:border-gray-600 dark:bg-gray-800"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

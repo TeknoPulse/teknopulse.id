@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const trendingPosts = posts
+  .filter(
+    (post) => (new Date().getTime() - post.data.publishedAt.getTime()) / (1000 * 60 * 60 * 24) < 14
+  )
+  .slice(0, 5);
+
+const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
+---
+
+<Layout>
+  <main class="container mx-auto px-4 py-8">
+    <section class="py-16 text-center">
+      <h1 class="text-5xl font-bold">TeknoPulse</h1>
+      <p class="mt-4 text-xl">Berita harian teknologi dan AI: cepat, ringkas, kontekstual.</p>
+    </section>
+
+    <section>
+      <h2 class="mb-8 text-3xl font-bold">Trending</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {trendingPosts.map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="mb-8 text-3xl font-bold">Latest Posts</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.slice(0, 6).map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+
+    <section class="mt-16">
+      <h2 class="mb-8 text-3xl font-bold">Tag Cloud</h2>
+      <div class="flex flex-wrap gap-4">
+        {
+          allTags.map((tag) => (
+            <a href={`/tags/${tag}`} class="rounded-full bg-gray-200 px-4 py-2 dark:bg-gray-700">
+              {tag}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>
