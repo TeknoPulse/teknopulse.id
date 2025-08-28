@@ -1,21 +1,24 @@
+// src/pages/og/[slug].png.ts
 import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import OgTemplate from '../../components/og-template';
 
-export async function getStaticPaths() {
-  const posts = await getCollection('posts');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
-}
+// ⚠️ Tidak perlu getStaticPaths() di API route
 
-export async function GET({ props }) {
-  const { post } = props;
+export const prerender = false;
+
+export async function GET({ params }: { params: { slug: string } }) {
+  const { slug } = params;
 
   try {
-    // Generate SVG using Satori
+    const posts = await getCollection('posts');
+    const post = posts.find((p) => p.slug === slug);
+
+    if (!post) {
+      return new Response('Post not found', { status: 404 });
+    }
+
     const svg = await satori(
       OgTemplate({
         title: post.data.title,
@@ -29,19 +32,19 @@ export async function GET({ props }) {
         fonts: [
           {
             name: 'Inter',
-            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf').then((res) => res.arrayBuffer()),
+            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf').then(res => res.arrayBuffer()),
             weight: 400,
             style: 'normal',
           },
           {
             name: 'Inter',
-            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf').then((res) => res.arrayBuffer()),
+            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf').then(res => res.arrayBuffer()),
             weight: 600,
             style: 'normal',
           },
           {
             name: 'Inter',
-            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf').then((res) => res.arrayBuffer()),
+            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf').then(res => res.arrayBuffer()),
             weight: 700,
             style: 'normal',
           },
@@ -49,7 +52,6 @@ export async function GET({ props }) {
       }
     );
 
-    // Convert SVG to PNG using Resvg
     const resvg = new Resvg(svg, {
       background: 'rgba(31, 41, 55, 1)',
     });
@@ -65,13 +67,6 @@ export async function GET({ props }) {
     });
   } catch (error) {
     console.error('OG Image generation failed:', error);
-
-    // Fallback to a simple text-based response or redirect to static image
-    return new Response('OG Image generation failed', {
-      status: 500,
-      headers: {
-        'Content-Type': 'text/plain',
-      },
-    });
+    return new Response('OG Image generation failed', { status: 500 });
   }
 }
