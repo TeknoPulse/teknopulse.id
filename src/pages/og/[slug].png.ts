@@ -32,19 +32,25 @@ export async function GET({ params }: { params: { slug: string } }) {
         fonts: [
           {
             name: 'Inter',
-            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf').then(res => res.arrayBuffer()),
+            data: await fetch(
+              'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf'
+            ).then((res) => res.arrayBuffer()),
             weight: 400,
             style: 'normal',
           },
           {
             name: 'Inter',
-            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf').then(res => res.arrayBuffer()),
+            data: await fetch(
+              'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf'
+            ).then((res) => res.arrayBuffer()),
             weight: 600,
             style: 'normal',
           },
           {
             name: 'Inter',
-            data: await fetch('https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf').then(res => res.arrayBuffer()),
+            data: await fetch(
+              'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf'
+            ).then((res) => res.arrayBuffer()),
             weight: 700,
             style: 'normal',
           },

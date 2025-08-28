@@ -13,7 +13,8 @@ draft: false
 Jakarta, 20 Agustus 2025 — Kecerdasan Buatan (AI) kini bukan lagi sekadar alat bantu, tetapi calon pengubah aturan main di berbagai industri. Menurut laporan **Stanford AI Index 2025**, sistem AI diperkirakan akan melampaui kapabilitas manusia dalam tugas-tugas tertentu pada awal dekade 2030. Hal ini diperkuat oleh riset McKinsey (Juli 2025) yang menyebutkan 40% perusahaan global telah mengintegrasikan AI generatif dalam proses inti bisnis mereka.
 
 **Fakta kunci:**
-- Stanford AI Index 2025: AI akan melampaui manusia dalam *image recognition* dan diagnosis medis sebelum 2030.
+
+- Stanford AI Index 2025: AI akan melampaui manusia dalam _image recognition_ dan diagnosis medis sebelum 2030.
 - McKinsey (Juli 2025): 40% perusahaan global sudah mengadopsi AI generatif untuk operasi inti.
 - OECD (Mei 2025): 60% pekerja muda percaya AI akan memengaruhi pilihan karier mereka dalam 5 tahun ke depan.
 

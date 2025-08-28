@@ -8,7 +8,7 @@ import { site } from '../config';
       {site.name}
     </a>
 
-    <div class="hidden md:flex items-center space-x-6">
+    <div class="hidden items-center space-x-6 md:flex">
       <a
         href="/"
         class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
@@ -66,24 +66,59 @@ import { site } from '../config';
     </div>
 
     <div class="md:hidden">
-      <button id="mobile-menu-button" class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
+      <button
+        id="mobile-menu-button"
+        class="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+      >
         <span class="sr-only">Open main menu</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </div>
   </nav>
 
   <div id="mobile-menu" class="hidden md:hidden">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">Home</a>
-      <a href="/category/ai" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">AI</a>
-      <a href="/category/cloud" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">Cloud</a>
-      <a href="/category/security" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">Security</a>
-      <a href="/category/devtools" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">DevTools</a>
-      <a href="/category/policy" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">Policy</a>
-      <a href="/search" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800">Search</a>
+    <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
+      <a
+        href="/"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >Home</a
+      >
+      <a
+        href="/category/ai"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >AI</a
+      >
+      <a
+        href="/category/cloud"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >Cloud</a
+      >
+      <a
+        href="/category/security"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >Security</a
+      >
+      <a
+        href="/category/devtools"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >DevTools</a
+      >
+      <a
+        href="/category/policy"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >Policy</a
+      >
+      <a
+        href="/search"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-white"
+        >Search</a
+      >
     </div>
   </div>
 </header>

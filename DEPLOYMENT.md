@@ -33,6 +33,7 @@ git push -u origin main
    - **Install Command**: `pnpm install`
 
 5. Set environment variables (optional):
+
    ```
    GISCUS_REPO=yourusername/teknopulse
    GISCUS_REPO_ID=your-repo-id
@@ -59,8 +60,8 @@ export const site = {
   socials: {
     x: 'https://x.com/teknopulse',
     threads: 'https://threads.net/@teknopulse',
-    github: 'https://github.com/yourusername/teknopulse'
-  }
+    github: 'https://github.com/yourusername/teknopulse',
+  },
 };
 ```
 
@@ -102,6 +103,7 @@ export const site = {
 ### 2. Enable Analytics (Optional)
 
 For Plausible Analytics:
+
 1. Sign up at https://plausible.io
 2. Add your domain
 3. Set `PLAUSIBLE_DOMAIN` environment variable
@@ -123,8 +125,8 @@ export const site = {
   socials: {
     x: 'https://x.com/yourhandle',
     threads: 'https://threads.net/@yourhandle',
-    github: 'https://github.com/yourusername/yourrepo'
-  }
+    github: 'https://github.com/yourusername/yourrepo',
+  },
 };
 ```
 
@@ -144,15 +146,15 @@ This creates a new Markdown file with proper frontmatter in `src/content/posts/`
 
 ```yaml
 ---
-title: "Your Post Title"
-slug: "your-post-slug" # Optional, auto-generated from filename
-summary: "Brief description of your post"
+title: 'Your Post Title'
+slug: 'your-post-slug' # Optional, auto-generated from filename
+summary: 'Brief description of your post'
 publishedAt: 2025-08-25T10:00:00Z
 updatedAt: 2025-08-25T10:00:00Z # Optional
-tags: ["AI", "Technology"]
+tags: ['AI', 'Technology']
 category: AI # AI, Cloud, Security, DevTools, Policy
-author: "Author Name"
-coverImage: "https://example.com/image.jpg" # Optional
+author: 'Author Name'
+coverImage: 'https://example.com/image.jpg' # Optional
 draft: false # Set to true to hide from public
 ---
 ```
@@ -160,6 +162,7 @@ draft: false # Set to true to hide from public
 ### Categories
 
 Available categories:
+
 - **AI**: Artificial Intelligence news and developments
 - **Cloud**: Cloud computing and infrastructure
 - **Security**: Cybersecurity and data protection
@@ -171,6 +174,7 @@ Available categories:
 ### Lighthouse Scores
 
 The site is optimized for excellent Lighthouse scores:
+
 - Performance: 95+
 - Accessibility: 100
 - Best Practices: 100
@@ -201,6 +205,7 @@ The site is optimized for excellent Lighthouse scores:
 ### Meta Tags
 
 Each page includes:
+
 - Open Graph tags for social sharing
 - Twitter Card tags
 - Structured data (JSON-LD)
@@ -216,6 +221,7 @@ Open Graph images are generated dynamically for each post using the post title a
 ### Error Monitoring
 
 Consider adding error monitoring services:
+
 - Sentry
 - LogRocket
 - Bugsnag
@@ -238,6 +244,7 @@ Consider adding error monitoring services:
 ### Database-Free Architecture
 
 TeknoPulse uses a static site architecture with no database dependencies, making it:
+
 - Highly reliable
 - Easy to backup
 - Fast to restore
@@ -259,6 +266,7 @@ TeknoPulse uses a static site architecture with no database dependencies, making
 ### Environment Variables
 
 Never commit sensitive information:
+
 - Use environment variables for API keys
 - Keep `.env` files out of version control
 - Use Vercel's environment variable management
@@ -298,11 +306,13 @@ Never commit sensitive information:
 ### Regular Updates
 
 1. **Dependencies**: Update monthly
+
    ```bash
    pnpm update
    ```
 
 2. **Security**: Monitor for security advisories
+
    ```bash
    pnpm audit
    ```
@@ -313,6 +323,7 @@ Never commit sensitive information:
 ### Automated Workflows
 
 Consider setting up GitHub Actions for:
+
 - Automated testing
 - Dependency updates
 - Security scanning
@@ -323,6 +334,7 @@ Consider setting up GitHub Actions for:
 ### Traffic Growth
 
 The static site architecture scales automatically with CDN:
+
 - Vercel Edge Network handles global distribution
 - No server capacity planning needed
 - Automatic scaling during traffic spikes
@@ -342,4 +354,3 @@ The static site architecture scales automatically with CDN:
 ---
 
 For additional support, please refer to the main [README.md](README.md) and [CONTRIBUTING.md](CONTRIBUTING.md) files.
-
