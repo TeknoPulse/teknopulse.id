@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://teknopulse.vercel.app/sitemap.xml
+Sitemap: https://teknopulse.vercel.app/news-sitemap.xml
 
