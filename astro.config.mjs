@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://teknopulse.vercel.app',
+  site: 'https://teknopulse.id',
   output: 'server',
   integrations: [tailwind(), sitemap(), react(), vercel()],
   build: {
