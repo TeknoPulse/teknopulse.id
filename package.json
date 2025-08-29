@@ -9,7 +9,7 @@
   "packageManager": "pnpm@10.15.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist --output-path public/pagefind",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . && prettier --check .",
