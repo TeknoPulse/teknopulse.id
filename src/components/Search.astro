@@ -1,6 +1,7 @@
 ---
-
 ---
+
+<script src="/pagefind/pagefind.js" is:inline></script>
 
 <div id="search">
   <input
@@ -17,17 +18,34 @@
 </div>
 
 <script>
-  // Basic search functionality placeholder
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const searchResults = document.getElementById('search-results');
 
-  if (searchInput && searchResults) {
-    searchInput.addEventListener('input', (e) => {
+  if (searchInput && searchResults && typeof Pagefind !== 'undefined') {
+    searchInput.addEventListener('input', async (e) => {
       const query = (e.target as HTMLInputElement).value;
-      if (query.length > 2) {
-        searchResults.innerHTML = `<p class="text-gray-500 dark:text-gray-400 text-sm">Searching for "${query}"... (Pagefind integration pending)</p>`;
+
+      if (query.length > 1) {
+        searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">Searching...</p>';
+        const search = await Pagefind.search(query);
+
+        if (search.results.length > 0) {
+          let resultsHtml = '';
+          for (const result of search.results) {
+            const data = await result.data();
+            resultsHtml += `
+              <a href="${data.url}" class="block rounded-md p-4 hover:bg-gray-100 dark:hover:bg-gray-800">
+                <h3 class="font-semibold text-lg text-gray-900 dark:text-white">${data.meta.title}</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">${data.excerpt}</p>
+              </a>
+            `;
+          }
+          searchResults.innerHTML = resultsHtml;
+        } else {
+          searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">No results found.</p>';
+        }
       } else {
-        searchResults.innerHTML = `<p class="text-gray-500 dark:text-gray-400 text-sm">Search functionality will be available after deployment with Pagefind integration.</p>`;
+        searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
       }
     });
   }
