@@ -9,12 +9,13 @@
   "packageManager": "pnpm@10.15.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist --output-path temp-pagefind && shx cp -r temp-pagefind dist/pagefind && shx rm -rf temp-pagefind",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint . --fix && prettier --write .",
-    "post:new": "node scripts/new-post.js"
+    "post:new": "node scripts/new-post.js",
+    "postbuild": "pagefind --site dist --output-path dist/pagefind"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",
