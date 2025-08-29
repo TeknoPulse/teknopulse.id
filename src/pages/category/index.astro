@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { collections } from '../../content/config';
+
+const categories = collections.posts.schema.shape.category.options;
+
+const title = 'All Categories';
+const description = 'Browse posts by category.';
+---
+
+<Layout title={title} description={description}>
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">{title}</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        categories.map((category) => (
+          <a
+            href={`/category/${category.toLowerCase()}`}
+            class="block p-6 border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 dark:border-gray-700 dark:bg-gray-800"
+          >
+            <h2 class="text-2xl font-semibold mb-2">{category}</h2>
+            <p class="text-gray-600 dark:text-gray-400">View all posts in {category} category.</p>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
