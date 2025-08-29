@@ -16,9 +16,11 @@ export interface Props {
     tags: string[];
   };
   canonical?: string;
+  postCategory?: string;
+  postTitle?: string;
 }
 
-const { title, description, image, article, canonical } = Astro.props;
+const { title, description, image, article, canonical, postCategory, postTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -39,7 +41,7 @@ const { title, description, image, article, canonical } = Astro.props;
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
     <Header />
-    <Breadcrumbs />
+    <Breadcrumbs postCategory={postCategory} postTitle={postTitle} />
     <slot />
     <Footer />
   </body>
