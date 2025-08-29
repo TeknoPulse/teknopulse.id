@@ -9,7 +9,7 @@
   "packageManager": "pnpm@10.15.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist --output-path public/pagefind",
+    "build": "astro build && pagefind --site dist --output-path temp-pagefind && shx cp -r temp-pagefind dist/pagefind && shx rm -rf temp-pagefind",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint . && prettier --check .",
@@ -42,6 +42,7 @@
     "astro-eslint-parser": "^1.2.2",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.14"
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "shx": "^0.3.4"
   }
 }
