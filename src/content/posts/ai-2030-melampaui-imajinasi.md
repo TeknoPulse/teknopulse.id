@@ -6,7 +6,7 @@ publishedAt: 2025-08-20T17:00:00+07:00
 tags: ['AI', 'Prediksi 2030', 'Etika Teknologi']
 category: AI
 author: 'TeknoPulse'
-coverImage: 'https://via.placeholder.com/1200x630/FF5733/FFFFFF?text=AI+2030'
+coverImage: '../../assets/images/ai2030.png'
 draft: false
 ---
 
