@@ -10,7 +10,7 @@ export default defineConfig({
   site: 'https://teknopulse.id',
   // Mode SSR
   output: 'server',
-  integrations: [tailwind(), sitemap(), react(), vercel()],
+  integrations: [tailwind(), sitemap(), react()],
   build: {
     inlineStylesheets: 'auto',
   },
