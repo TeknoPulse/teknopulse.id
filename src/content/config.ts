@@ -1,9 +1,8 @@
 import { defineCollection, z } from 'astro:content';
-import { image } from 'astro:assets';
 
 const posts = defineCollection({
   type: 'content',
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     slug: z.string().optional(), // Astro auto-generates slug from filename
     summary: z.string(),
