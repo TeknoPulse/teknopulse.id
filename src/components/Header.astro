@@ -2,7 +2,7 @@
 import { site } from '../config';
 ---
 
-<header class="bg-background shadow-sm dark:bg-background-dark">
+<header class="sticky top-0 z-50 bg-background shadow-sm dark:bg-background-dark">
   <nav class="container mx-auto flex items-center justify-between px-4 py-4">
     <a href="/" class="text-2xl font-bold text-primary dark:text-accent">
       {site.name}
@@ -15,36 +15,50 @@ import { site } from '../config';
       >
         Home
       </a>
-      <a
-        href="/category/ai"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        AI
-      </a>
-      <a
-        href="/category/cloud"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        Cloud
-      </a>
-      <a
-        href="/category/security"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        Security
-      </a>
-      <a
-        href="/category/devtools"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        DevTools
-      </a>
-      <a
-        href="/category/policy"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        Policy
-      </a>
+
+      <div class="group relative">
+        <button
+          class="flex items-center text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+        >
+          Categories
+          <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.061l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <div
+          class="absolute left-0 mt-2 hidden w-40 rounded-md bg-background py-2 shadow-lg group-focus-within:block group-hover:block dark:bg-background-dark"
+        >
+          <a
+            href="/category/ai"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >AI</a
+          >
+          <a
+            href="/category/cloud"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >Cloud</a
+          >
+          <a
+            href="/category/security"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >Security</a
+          >
+          <a
+            href="/category/devtools"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >DevTools</a
+          >
+          <a
+            href="/category/policy"
+            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >Policy</a
+          >
+        </div>
+      </div>
+
       <a
         href="/search"
         class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
@@ -89,31 +103,47 @@ import { site } from '../config';
         class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
         >Home</a
       >
-      <a
-        href="/category/ai"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >AI</a
-      >
-      <a
-        href="/category/cloud"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >Cloud</a
-      >
-      <a
-        href="/category/security"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >Security</a
-      >
-      <a
-        href="/category/devtools"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >DevTools</a
-      >
-      <a
-        href="/category/policy"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >Policy</a
-      >
+      <div>
+        <button
+          id="mobile-categories-button"
+          class="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+        >
+          Categories
+          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.061l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <div id="mobile-categories-menu" class="mt-1 hidden space-y-1">
+          <a
+            href="/category/ai"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >AI</a
+          >
+          <a
+            href="/category/cloud"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >Cloud</a
+          >
+          <a
+            href="/category/security"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >Security</a
+          >
+          <a
+            href="/category/devtools"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >DevTools</a
+          >
+          <a
+            href="/category/policy"
+            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+            >Policy</a
+          >
+        </div>
+      </div>
       <a
         href="/search"
         class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
@@ -142,5 +172,12 @@ import { site } from '../config';
 
   mobileMenuButton?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
+  });
+
+  const mobileCategoriesButton = document.getElementById('mobile-categories-button');
+  const mobileCategoriesMenu = document.getElementById('mobile-categories-menu');
+
+  mobileCategoriesButton?.addEventListener('click', () => {
+    mobileCategoriesMenu?.classList.toggle('hidden');
   });
 </script>
