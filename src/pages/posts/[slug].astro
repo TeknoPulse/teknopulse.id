@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import { calculateReadingTime } from '../../utils/readingTime';
 import ShareButtons from '../../components/ShareButtons.astro';
 import GiscusComments from '../../components/GiscusComments.astro';
+import { Image } from 'astro:assets';
 
 // ✅ Wajib: agar getStaticPaths() jalan
 export const prerender = true;
@@ -57,9 +58,11 @@ const relatedPosts = allPosts
     <article class="mx-auto max-w-4xl">
       <header class="mb-8">
         {post.data.coverImage && (
-          <img
+          <Image
             src={post.data.coverImage}
             alt={post.data.title}
+            width={1024}
+            height={426}
             class="mb-6 h-64 w-full rounded-lg object-cover"
           />
         )}

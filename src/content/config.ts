@@ -1,4 +1,5 @@
 import { defineCollection, z } from 'astro:content';
+import { image } from 'astro:assets';
 
 const posts = defineCollection({
   type: 'content',
@@ -12,7 +13,7 @@ const posts = defineCollection({
     category: z.enum(['AI', 'Cloud', 'Security', 'DevTools', 'Policy']),
     author: z.string(),
     draft: z.boolean().default(false),
-    coverImage: z.string().url().optional(),
+    coverImage: image().optional(),
     readingTime: z.number().optional(), // This will be auto-generated
   }),
 });

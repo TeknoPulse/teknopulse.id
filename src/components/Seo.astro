@@ -4,7 +4,7 @@ import { site } from '../config';
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  image?: any; // Allow both string and image object
   article?: {
     publishedTime: string;
     modifiedTime?: string;
@@ -24,7 +24,15 @@ const {
 
 const fullTitle = title === site.name ? title : `${title} - ${site.name}`;
 const canonicalUrl = canonical || new URL(Astro.url.pathname, site.url).href;
-const ogImage = image.startsWith('http') ? image : `${site.url}${image}`;
+
+let ogImage;
+if (typeof image === 'string') {
+  ogImage = image.startsWith('http') ? image : new URL(image, site.url).href;
+} else if (image && typeof image === 'object' && 'src' in image) {
+  ogImage = new URL(image.src, site.url).href;
+} else {
+  ogImage = new URL('/og-default.png', site.url).href;
+}
 
 // JSON-LD structured data
 const jsonLd = article
