@@ -79,7 +79,7 @@ const relatedPosts = allPosts
         <div class="mb-6 flex flex-wrap gap-2">
           {post.data.tags?.map((tag) => (
             <a
-              href={`/tags/${tag}`}
+              href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
               class="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200"
             >
               {tag}
