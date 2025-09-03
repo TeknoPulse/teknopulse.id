@@ -3,14 +3,14 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
-// 1. Impor adapter Vercel
-import vercel from '@astrojs/vercel/serverless'; // Gunakan '/serverless' untuk SSR
+// 1. Perbarui import adapter Vercel (tanpa '/serverless')
+import vercel from '@astrojs/vercel'; // <-- Perubahan utama di sini
 
 export default defineConfig({
-  site: 'https://teknopulse.id', // Diperbaiki: Spasi dihapus
+  site: 'https://teknopulse.id', // Pastikan tidak ada spasi tambahan
   output: 'server', // Mode SSR
   // 2. Tambahkan adapter Vercel ke integrations
-  integrations: [tailwind(), sitemap(), react(), vercel()],
+  integrations: [tailwind(), sitemap(), react(), vercel()], // <-- Pastikan ada di sini
   build: {
     inlineStylesheets: 'auto',
   },
@@ -20,6 +20,5 @@ export default defineConfig({
     },
   },
   // Opsional: Konfigurasi tambahan untuk adapter Vercel jika diperlukan
-  // Lihat dokumentasi @astrojs/vercel untuk opsi konfigurasi
-  // adapter: vercel({ /* opsi konfigurasi */ })
+  // adapter: vercel({ /* opsi konfigurasi spesifik Vercel */ })
 });
