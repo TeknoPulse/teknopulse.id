@@ -1,15 +1,13 @@
 ---
-title: "Komdigi Gunakan AI untuk Patroli Siber dan Deteksi Konten Negatif"
-slug: "komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif"
-date: "2025-09-24T14:21:49+07:00"
-category: "AI"
-tags: ["AI", "Security", "Policy"]
-description: "Dirjen Komdigi ungkap sistem crawling AI untuk penelusuran konten melanggar UU ITE, meski masih perlu verifikasi manual dari tim."
-canonical: "https://www.cnbcindonesia.com/tech/20250924142149-37-669849/antisipasi-perkembangan-teknologi-komdigi-lakukan-hal-ini"
+title: 'Komdigi Gunakan AI untuk Patroli Siber dan Deteksi Konten Negatif'
+slug: 'komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif'
+summary: 'Dirjen Komdigi ungkap sistem crawling AI untuk penelusuran konten melanggar UU ITE, meski masih perlu verifikasi manual dari tim.'
+publishedAt: 2025-09-24T14:21:49+07:00
+tags: ['AI', 'Security', 'Policy']
+category: AI
+author: 'TeknoPulse'
+coverImage: '../../assets/images/komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif-16x9.png'
 draft: false
-coverImage: "../../assets/images/komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif-16x9.png"
-coverImageAlt: "TeknoPulse.id"
-og_image: "../../assets/images/komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif-16x9.png"
 ---
 
 Dirjen Komdigi ungkap sistem crawling AI untuk penelusuran konten melanggar UU ITE, meski masih perlu verifikasi manual dari tim.
