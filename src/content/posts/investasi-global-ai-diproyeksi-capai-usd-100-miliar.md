@@ -1,15 +1,13 @@
 ---
-title: "Investasi Global AI Diproyeksi Capai USD 100 Miliar"
-slug: "investasi-global-ai-diproyeksi-capai-usd-100-miliar"
-date: "2025-09-24T23:00:00+07:00"
-category: "AI"
-tags: ["AI", "Policy"]
-description: "Menko Airlangga sebut teknologi AI buka peluang lapangan kerja baru dengan proyeksi investasi mencapai Rp1,6 kuadriliun."
-canonical: "https://megapolitan.antaranews.com/berita/443144/menko-airlangga-sebut-teknologi-buka-peluang-lapangan-pekerjaan-baru"
+title: 'Investasi Global AI Diproyeksi Capai USD 100 Miliar'
+slug: 'investasi-global-ai-diproyeksi-capai-usd-100-miliar'
+summary: 'Menko Airlangga sebut teknologi AI buka peluang lapangan kerja baru dengan proyeksi investasi mencapai Rp1,6 kuadriliun.'
+publishedAt: 2025-09-24T23:00:00+07:00
+tags: ['AI', 'Policy']
+category: AI
+author: 'TeknoPulse'
+coverImage: '../../assets/images/investasi-global-ai-diproyeksi-capai-usd-100-miliar-16x9.png'
 draft: false
-coverImage: "../../assets/images/investasi-global-ai-diproyeksi-capai-usd-100-miliar-16x9.png"
-coverImageAlt: "TeknoPulse.id"
-og_image: "../../assets/images/investasi-global-ai-diproyeksi-capai-usd-100-miliar-16x9.png"
 ---
 
 Menko Airlangga sebut teknologi AI buka peluang lapangan kerja baru dengan proyeksi investasi mencapai Rp1,6 kuadriliun.
