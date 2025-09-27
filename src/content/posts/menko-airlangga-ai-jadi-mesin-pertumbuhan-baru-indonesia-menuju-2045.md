@@ -1,15 +1,13 @@
 ---
-title: "Menko Airlangga: AI Jadi Mesin Pertumbuhan Baru Indonesia Menuju 2045"
-slug: "menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045"
-date: "2025-09-24T23:43:00+07:00"
-category: "AI"
-tags: ["AI", "Policy"]
-description: "Pemerintah percepat transformasi digital dengan AI Data Center di KEK Nongsa dan target 10,7 juta talenta digital hingga 2030."
-canonical: "https://www.ekon.go.id/publikasi/detail/6576/kecerdasan-artifisial-jadi-mesin-pertumbuhan-baru-pemerintah-mantapkan-langkah-transformasi-ekonomi-digital"
+title: 'Menko Airlangga: AI Jadi Mesin Pertumbuhan Baru Indonesia Menuju 2045'
+slug: 'menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045'
+summary: 'Pemerintah percepat transformasi digital dengan AI Data Center di KEK Nongsa dan target 10,7 juta talenta digital hingga 2030.'
+publishedAt: 2025-09-24T23:43:00+07:00
+tags: ['AI', 'Policy']
+category: AI
+author: 'TeknoPulse'
+coverImage: '../../assets/images/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045-16x9.png'
 draft: false
-coverImage: "../../assets/images/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045-16x9.png"
-coverImageAlt: "TeknoPulse.id"
-og_image: "../../assets/images/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045-16x9.png"
 ---
 
 Pemerintah percepat transformasi digital dengan AI Data Center di KEK Nongsa dan target 10,7 juta talenta digital hingga 2030.
