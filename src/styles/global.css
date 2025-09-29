@@ -2,20 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Performance optimizations */
+/* Import Inter font for better performance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Design System - Base Layer */
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* Improve font rendering */
+  /* Enhanced font rendering with Inter */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: theme('colors.background');
-    color: theme('colors.gray.900');
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    background-color: hsl(210, 95%, 98%);
+    color: hsl(210, 15%, 20%);
+    font-size: 16px;
   }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    color: hsl(210, 15%, 20%);
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
 
   /* Reduce layout shifts */
   img {
@@ -23,20 +46,120 @@
     max-width: 100%;
   }
 
-  /* Focus styles for accessibility */
+  /* Enhanced focus styles for accessibility */
   *:focus-visible {
-    outline: 2px solid theme('colors.accent');
+    outline: 2px solid hsl(210, 95%, 50%);
     outline-offset: 2px;
+    border-radius: theme('borderRadius.sm');
+  }
+
+  /* Selection styles */
+  ::selection {
+    background-color: rgba(14, 165, 233, 0.2);
+    color: hsl(210, 95%, 50%);
   }
 }
 
-/* Dark mode improvements */
-@media (prefers-color-scheme: dark) {
-  html:not(.light) {
-    color-scheme: dark;
+/* Design System - Component Layer */
+@layer components {
+  /* Category badge styles */
+  .category-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    @apply transition-colors duration-200;
   }
-  html:not(.light) body {
-    background-color: theme('colors.background-dark');
-    color: theme('colors.gray.100');
+
+  .category-ai { @apply bg-category-ai/10 text-category-ai hover:bg-category-ai/20; }
+  .category-cloud { @apply bg-category-cloud/10 text-category-cloud hover:bg-category-cloud/20; }
+  .category-security { @apply bg-category-security/10 text-category-security hover:bg-category-security/20; }
+  .category-devtools { @apply bg-category-devtools/10 text-category-devtools hover:bg-category-devtools/20; }
+  .category-policy { @apply bg-category-policy/10 text-category-policy hover:bg-category-policy/20; }
+
+  /* Card styles */
+  .card {
+    @apply bg-surface rounded-lg border border-gray-200/50;
+    @apply shadow-sm hover:shadow-md transition-all duration-300;
+    @apply dark:bg-surface-dark dark:border-gray-800/50;
   }
+
+  .card-elevated {
+    @apply shadow-lg hover:shadow-xl;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-white font-medium;
+    @apply px-6 py-3 rounded-lg transition-colors duration-200;
+    @apply shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary/10 hover:bg-secondary/20 text-secondary font-medium;
+    @apply px-6 py-3 rounded-lg border border-secondary/20;
+    @apply transition-all duration-200 hover:shadow-sm;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(210, 95%, 50%), hsl(195, 80%, 50%));
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(210, 95%, 50% / 0.1), transparent);
+  }
+
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(270, 80%, 60%), hsl(210, 95%, 50%));
+  }
+}
+
+/* Dark mode improvements - using Tailwind's class-based dark mode */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: hsl(210, 25%, 8%);
+  color: hsl(210, 15%, 85%);
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: hsl(210, 15%, 95%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(210, 95%, 98%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.5);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: hsl(210, 25%, 8%);
+}
+
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.4);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.6);
 }

@@ -11,9 +11,9 @@ import { site } from '../config';
     <div class="hidden items-center space-x-6 md:flex">
       <a
         href="/"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent font-medium transition-colors duration-200"
       >
-        Home
+        Beranda
       </a>
 
       <div class="group relative">
@@ -60,10 +60,24 @@ import { site } from '../config';
       </div>
 
       <a
-        href="/search"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+        href="/tags"
+        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent font-medium transition-colors duration-200"
       >
-        Search
+        Tag
+      </a>
+
+      <a
+        href="/about"
+        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent font-medium transition-colors duration-200"
+      >
+        Tentang
+      </a>
+
+      <a
+        href="/search"
+        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent font-medium transition-colors duration-200"
+      >
+        Cari
       </a>
       <button
         id="theme-toggle"
@@ -100,8 +114,8 @@ import { site } from '../config';
     <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
       <a
         href="/"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >Home</a
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary transition-colors duration-200"
+        >Beranda</a
       >
       <div>
         <button
@@ -145,9 +159,19 @@ import { site } from '../config';
         </div>
       </div>
       <a
+        href="/tags"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary transition-colors duration-200"
+        >Tag</a
+      >
+      <a
+        href="/about"
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary transition-colors duration-200"
+        >Tentang</a
+      >
+      <a
         href="/search"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-        >Search</a
+        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary transition-colors duration-200"
+        >Cari</a
       >
     </div>
   </div>

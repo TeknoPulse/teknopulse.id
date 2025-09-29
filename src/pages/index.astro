@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import PostCard from '../components/PostCard.astro';
+import CategoryPills from '../components/CategoryPills.astro';
+import TrendingStrip from '../components/TrendingStrip.astro';
+import EditorsPicks from '../components/EditorsPicks.astro';
+import NewsletterCTA from '../components/NewsletterCTA.astro';
 
 const posts = (await getCollection('posts'))
   .filter((post) => !post.data.draft)
@@ -13,41 +17,129 @@ const trendingPosts = posts
   )
   .slice(0, 5);
 
+const latestPosts = posts.slice(0, 6);
+const editorsPicks = posts.slice(0, 3);
 const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <Layout>
-  <main class="container mx-auto px-4 py-8">
-    <section class="py-16 text-center">
-      <h1 class="text-5xl font-bold">TeknoPulse</h1>
-      <p class="mt-4 text-xl">Berita harian teknologi dan AI: cepat, ringkas, kontekstual.</p>
-    </section>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden">
+      <!-- Subtle gradient background -->
+      <div class="absolute inset-0 gradient-hero"></div>
 
-    <section>
-      <h2 class="mb-8 text-3xl font-bold">Trending</h2>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {trendingPosts.map((post) => <PostCard post={post} />)}
+      <div class="relative container mx-auto px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+          <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-text-primary dark:text-gray-100 mb-6 leading-tight">
+            Tekno<span class="text-primary">Pulse</span>
+          </h1>
+          <p class="text-lg md:text-xl lg:text-2xl text-text-secondary dark:text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
+            Berita harian teknologi & AI — cepat, ringkas, kontekstual
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div class="flex items-center bg-surface dark:bg-surface-dark rounded-full px-6 py-3 shadow-lg">
+              <span class="text-2xl mr-3">🔥</span>
+              <span class="text-text-primary dark:text-gray-100 font-medium">
+                {posts.length} artikel terbaru
+              </span>
+            </div>
+            <div class="flex items-center bg-surface dark:bg-surface-dark rounded-full px-6 py-3 shadow-lg">
+              <span class="text-2xl mr-3">⚡</span>
+              <span class="text-text-primary dark:text-gray-100 font-medium">
+                Update setiap hari
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="mt-16">
-      <h2 class="mb-8 text-3xl font-bold">Latest Posts</h2>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts.slice(0, 6).map((post) => <PostCard post={post} />)}
+    <!-- Category Pills -->
+    <CategoryPills />
+
+    <!-- Latest Grid Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-text-primary dark:text-gray-100">
+            📚 Artikel Terbaru
+          </h2>
+          <a href="/posts" class="text-primary hover:text-primary-hover font-medium">
+            Lihat Semua →
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {latestPosts.map((post, index) => (
+            <PostCard post={post} featured={index === 0} />
+          ))}
+        </div>
       </div>
     </section>
 
-    <section class="mt-16">
-      <h2 class="mb-8 text-3xl font-bold">Tag Cloud</h2>
-      <div class="flex flex-wrap gap-4">
-        {
-          allTags.map((tag) => (
-            <a href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`} class="rounded-full bg-gray-200 px-4 py-2 dark:bg-gray-700">
-              {tag}
+    <!-- Trending Strip -->
+    <TrendingStrip posts={trendingPosts} />
+
+    <!-- Editor's Picks -->
+    <EditorsPicks posts={editorsPicks} />
+
+    <!-- Newsletter CTA -->
+    <NewsletterCTA />
+
+    <!-- Tag Cloud Section (Footer) -->
+    <section class="py-16 bg-gray-50/50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-semibold text-text-primary dark:text-gray-100 mb-6 text-center">
+          🔖 Topik Populer
+        </h2>
+        <div class="flex flex-wrap justify-center gap-3">
+          {
+            allTags.slice(0, 20).map((tag) => (
+              <a
+                href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                class="bg-surface dark:bg-surface-dark hover:bg-primary hover:text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:shadow-md hover:scale-105"
+              >
+                #{tag}
+              </a>
+            ))
+          }
+        </div>
+        {allTags.length > 20 && (
+          <div class="text-center mt-6">
+            <a href="/tags" class="text-primary hover:text-primary-hover font-medium">
+              Lihat semua {allTags.length} tag →
             </a>
-          ))
-        }
+          </div>
+        )}
       </div>
     </section>
   </main>
 </Layout>
+
+<style>
+  /* Enhanced hero section */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(210, 95%, 50% / 0.05), hsl(270, 80%, 60% / 0.05));
+  }
+
+  :global(.dark) .gradient-hero {
+    background: linear-gradient(135deg, hsl(210, 95%, 50% / 0.1), hsl(270, 80%, 60% / 0.1));
+  }
+
+  /* Smooth animations */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Enhanced tag styles */
+  .tag-link {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tag-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+</style>
