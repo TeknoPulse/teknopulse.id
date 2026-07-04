@@ -1,6 +1,31 @@
+# TeknoPulse — https://teknopulse.id
+# Open to all crawlers, including AI/LLM crawlers. Explicit AI-crawler allow
+# mirrors benihkode.web.id (AI-SEO parity).
+
 User-agent: *
 Allow: /
 
-Sitemap: https://teknopulse.id/sitemap.xml
-Sitemap: https://teknopulse.id/news-sitemap.xml
+# Explicit AI/LLM crawler welcome (parity with benihkode.web.id)
+User-agent: GPTBot
+Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://teknopulse.id/sitemap-index.xml
+Sitemap: https://teknopulse.id/news-sitemap.xml

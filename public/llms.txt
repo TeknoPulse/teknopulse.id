@@ -1,0 +1,38 @@
+# TeknoPulse
+
+> TeknoPulse adalah situs berita harian teknologi dan AI berbahasa Indonesia: cepat, ringkas, kontekstual. Tribun untuk pembaca teknologi umum — bukan tutorial developer. Kategori: AI, Cloud, Security, DevTools, Policy.
+
+Setiap artikel merangkum satu berita atau rilis penting dalam bahasa Indonesia yang jelas: apa yang terjadi, mengapa penting, dan konteksnya. Konten dibuat untuk dibaca cepat oleh pembaca awam hingga menengah.
+
+## Halaman inti
+
+- [Beranda](https://teknopulse.id/)
+- [Tentang](https://teknopulse.id/about/)
+- [Kontak](https://teknopulse.id/contact/)
+- [Kategori](https://teknopulse.id/category/)
+- [Tag](https://teknopulse.id/tags/)
+- [Cari](https://teknopulse.id/search/)
+
+## Kategori
+
+- [AI](https://teknopulse.id/category/ai/)
+- [Cloud](https://teknopulse.id/category/cloud/)
+- [Security](https://teknopulse.id/category/security/)
+- [DevTools](https://teknopulse.id/category/devtools/)
+- [Policy](https://teknopulse.id/category/policy/)
+
+## Tulisan pilihan
+
+- [AI 2030: Saat Mesin Mulai Melampaui Imajinasi Kita](https://teknopulse.id/posts/ai-2030-melampaui-imajinasi/)
+- [Indonesia Harus Mandiri Kembangkan AI agar Tak Bergantung Teknologi Asing](https://teknopulse.id/posts/indonesia-harus-mandiri-kembangkan-ai-agar-tak-bergantung-teknologi-asing/)
+- [Investasi Global AI Diproyeksi Capai USD 100 Miliar](https://teknopulse.id/posts/investasi-global-ai-diproyeksi-capai-usd-100-miliar/)
+- [Menko Airlangga: AI Jadi Mesin Pertumbuhan Baru Indonesia Menuju 2045](https://teknopulse.id/posts/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045/)
+- [AICO Community Gelar Workshop Bikin AI dari Nol untuk 400 Peserta](https://teknopulse.id/posts/aico-community-gelar-workshop-bikin-ai-dari-nol-untuk-400-peserta/)
+- [Komdigi Gunakan AI untuk Patroli Siber dan Deteksi Konten Negatif](https://teknopulse.id/posts/komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif/)
+
+## Opsional
+
+- [Daftar lengkap artikel (llms-full.txt)](https://teknopulse.id/llms-full.txt)
+- [Sitemap](https://teknopulse.id/sitemap-index.xml)
+- [RSS feed](https://teknopulse.id/rss.xml)
+- [JSON Feed](https://teknopulse.id/feed.json)

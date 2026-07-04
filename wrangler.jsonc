@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "teknopulseid",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    "html_handling": "auto-trailing-slashes",
+    "not_found_handling": "404-page"
+  }
+  // Static-asset-only deployment. There is intentionally NO `main` field:
+  // this project is not a Worker, so Wrangler's runAutoConfig must not
+  // auto-inject the @astrojs/cloudflare SSR adapter (which would force
+  // mode:"server" and try to bundle @resvg/resvg-js's native .node into
+  // the server entry — the exact failure this PR is fixing).
+  // Astro builds ./dist with static output; Wrangler serves it as-is.
+}

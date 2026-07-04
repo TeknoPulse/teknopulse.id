@@ -4,7 +4,15 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import OgTemplate from '../../components/og-template';
 
-export const prerender = false;
+// Prerendered at build time: one PNG per non-draft post. @resvg/resvg-js runs
+// under Node during `astro build`; the emitted PNGs are served statically, so
+// no native addon ships to the runtime (Cloudflare Pages friendly).
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({ params: { slug: post.slug } }));
+}
 
 export async function GET({ params }: { params: { slug: string } }) {
   const { slug } = params;
