@@ -1,30 +1,17 @@
 # TeknoPulse — https://teknopulse.id
-# Open to all crawlers, including AI/LLM crawlers. Explicit AI-crawler allow
-# mirrors benihkode.web.id (AI-SEO parity).
+#
+# AI-crawler policy is MANAGED by Cloudflare AI Audit (Content-Signal:
+# search=yes, ai-train=no, use=reference). Cloudflare prepends a managed
+# robots.txt block at serve time that Disallows known AI-training crawlers
+# (GPTBot, ClaudeBot, Google-Extended, Applebot-Extended, CCBot, Bytespider,
+# meta-externalagent, Amazonbot). We intentionally do NOT re-allow those bots
+# here — that would contradict the policy, and by first-match precedence the
+# managed block wins regardless.
+#
+# Stance (founder decision 2026-07-04): allow AI search/grounding, block AI
+# training. Diverges from benihkode.web.id, which welcomes all AI crawlers.
 
 User-agent: *
-Allow: /
-
-# Explicit AI/LLM crawler welcome (parity with benihkode.web.id)
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://teknopulse.id/sitemap-index.xml
