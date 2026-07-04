@@ -2,15 +2,14 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "teknopulseid",
   "compatibility_date": "2025-09-01",
-  "assets": {
-    "directory": "./dist",
-    "html_handling": "auto-trailing-slashes",
-    "not_found_handling": "404-page"
-  }
-  // Static-asset-only deployment. There is intentionally NO `main` field:
-  // this project is not a Worker, so Wrangler's runAutoConfig must not
-  // auto-inject the @astrojs/cloudflare SSR adapter (which would force
-  // mode:"server" and try to bundle @resvg/resvg-js's native .node into
-  // the server entry — the exact failure this PR is fixing).
-  // Astro builds ./dist with static output; Wrangler serves it as-is.
+  "pages_build_output_dir": "./dist"
+  // Cloudflare Pages static deployment. `pages_build_output_dir` is the
+  // Pages-specific property that points Wrangler at Astro's static output.
+  //
+  // There is intentionally NO `main` field / Worker entry: this project is
+  // served as static assets only. Without a Worker, Wrangler's runAutoConfig
+  // does not auto-inject the @astrojs/cloudflare SSR adapter, so Astro is not
+  // forced into mode:"server" and @resvg/resvg-js's native .node is never
+  // pulled into a server bundle (the failure this PR is fixing: Rollup
+  // parsing the ELF binary as JS — "Unexpected character '\\u{7f}'").
 }
