@@ -1,0 +1,4 @@
+Contact: mailto:security@teknopulse.id
+Expires: 2027-07-07T06:00:00.000Z
+Preferred-Languages: id, en
+Canonical: https://teknopulse.id/.well-known/security.txt

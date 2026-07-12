@@ -3,5 +3,6 @@ export const site = {
   description: 'Berita harian teknologi dan AI: cepat, ringkas, kontekstual.',
   url: 'https://teknopulse.id',
   defaultLocale: 'id-ID',
-  socials: { x: '', threads: '', github: '' },
+  socials: { x: 'teknopulse_id', threads: 'teknopulse.id', github: 'TeknoPulse' },
 };
+
