@@ -57,7 +57,7 @@ export async function GET({ params }: { params: { slug: string } }) {
     );
 
     const resvg = new Resvg(svg, {
-      background: 'rgba(31, 41, 55, 1)',
+      background: 'rgba(28, 25, 23, 1)',
     });
 
     const pngData = resvg.render();

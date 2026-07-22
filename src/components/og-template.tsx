@@ -15,8 +15,8 @@ export default function OgTemplate({ title, category, author, publishedAt }: OgT
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        backgroundColor: '#1f2937',
-        backgroundImage: 'linear-gradient(135deg, #1f2937 0%, #111827 100%)',
+        backgroundColor: '#1c1917',
+        backgroundImage: 'linear-gradient(135deg, #1c1917 0%, #0c0a09 100%)',
         padding: '60px',
         fontFamily: 'Inter, system-ui, sans-serif',
       }}
@@ -45,7 +45,7 @@ export default function OgTemplate({ title, category, author, publishedAt }: OgT
         {category && (
           <div
             style={{
-              backgroundColor: '#3b82f6',
+              backgroundColor: '#f97316',
               color: '#ffffff',
               padding: '8px 16px',
               borderRadius: '20px',
@@ -94,11 +94,11 @@ export default function OgTemplate({ title, category, author, publishedAt }: OgT
       >
         <div
           style={{
-            color: '#9ca3af',
+            color: '#a8a29e',
             fontSize: '20px',
           }}
         >
-          Berita harian teknologi dan AI
+          Review dan analisis teknologi
         </div>
         {(author || publishedAt) && (
           <div

@@ -33,9 +33,9 @@
   - [x] Search all CSS files for hardcoded blue HSL values (`hsl(210,`)
   - [x] Replace with corresponding warm palette values
   - [x] Verify no color references bypass Tailwind tokens
-- [ ] Task: Update OG image template colors in `src/pages/og/[slug].png.ts`
-  - [ ] Check for hardcoded color values in the Satori template
-  - [ ] Update to use warm brand palette colors
+- [x] Task: Update OG image template colors in `src/pages/og/[slug].png.ts`
+  - [x] Check for hardcoded color values in the Satori template
+  - [x] Update to use warm brand palette colors
 - [ ] Task: Conductor - User Manual Verification 'Site Branding Updates' (Protocol in workflow.md)
 
 ## Phase 3: Verification & Polish
