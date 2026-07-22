@@ -13,11 +13,11 @@
     - [x] Update `background` to warm off-white `hsl(30, 20%, 97%)`
     - [x] Update `background-dark` to warm gray `hsl(25, 15%, 10%)`
     - [x] Update `surface-dark` to warm charcoal `hsl(25, 12%, 14%)`
-- [ ] Task: Update text and gray colors in `tailwind.config.cjs`
-    - [ ] Update `text-primary` to `hsl(25, 10%, 15%)`
-    - [ ] Update `text-secondary` to `hsl(25, 8%, 40%)`
-    - [ ] Update `text-muted` to `hsl(25, 6%, 55%)`
-    - [ ] Update gray scale from blue-tinted `hsl(210, *)` to warm `hsl(25, *)`
+- [x] Task: Update text and gray colors in `tailwind.config.cjs`
+    - [x] Update `text-primary` to `hsl(25, 10%, 15%)`
+    - [x] Update `text-secondary` to `hsl(25, 8%, 40%)`
+    - [x] Update `text-muted` to `hsl(25, 6%, 55%)`
+    - [x] Update gray scale from blue-tinted `hsl(210, *)` to warm `hsl(25, *)`
 - [ ] Task: Update gradients and shadows in `tailwind.config.cjs`
     - [ ] Update `gradient-primary` to warm orange → amber gradient
     - [ ] Update `gradient-hero` to warm orange with transparency

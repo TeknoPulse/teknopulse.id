@@ -61,22 +61,22 @@ module.exports = {
         'surface-dark': 'hsl(25, 12%, 14%)',    // Warm charcoal surface
 
         // Text Colors
-        'text-primary': 'hsl(210, 15%, 20%)',
-        'text-secondary': 'hsl(210, 10%, 40%)',
-        'text-muted': 'hsl(210, 10%, 60%)',
+        'text-primary': 'hsl(25, 10%, 15%)',
+        'text-secondary': 'hsl(25, 8%, 40%)',
+        'text-muted': 'hsl(25, 6%, 55%)',
 
-        // Legacy colors for backward compatibility
+        // Legacy colors for backward compatibility (warm gray scale)
         'gray': {
-          50: 'hsl(210, 20%, 98%)',
-          100: 'hsl(210, 15%, 95%)',
-          200: 'hsl(210, 10%, 85%)',
-          300: 'hsl(210, 10%, 75%)',
-          400: 'hsl(210, 10%, 65%)',
-          500: 'hsl(210, 10%, 50%)',
-          600: 'hsl(210, 15%, 35%)',
-          700: 'hsl(210, 15%, 25%)',
-          800: 'hsl(210, 20%, 15%)',
-          900: 'hsl(210, 25%, 10%)',
+          50: 'hsl(25, 20%, 98%)',
+          100: 'hsl(25, 15%, 95%)',
+          200: 'hsl(25, 10%, 85%)',
+          300: 'hsl(25, 10%, 75%)',
+          400: 'hsl(25, 10%, 65%)',
+          500: 'hsl(25, 10%, 50%)',
+          600: 'hsl(25, 15%, 35%)',
+          700: 'hsl(25, 15%, 25%)',
+          800: 'hsl(25, 20%, 15%)',
+          900: 'hsl(25, 25%, 10%)',
         },
       },
       fontFamily: {
