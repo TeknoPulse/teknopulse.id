@@ -18,11 +18,11 @@
     - [x] Update `text-secondary` to `hsl(25, 8%, 40%)`
     - [x] Update `text-muted` to `hsl(25, 6%, 55%)`
     - [x] Update gray scale from blue-tinted `hsl(210, *)` to warm `hsl(25, *)`
-- [ ] Task: Update gradients and shadows in `tailwind.config.cjs`
-    - [ ] Update `gradient-primary` to warm orange → amber gradient
-    - [ ] Update `gradient-hero` to warm orange with transparency
-    - [ ] Update `gradient-accent` to terracotta → warm orange
-    - [ ] Update `glow` shadow from blue to warm orange
+- [x] Task: Update gradients and shadows in `tailwind.config.cjs`
+    - [x] Update `gradient-primary` to warm orange → amber gradient
+    - [x] Update `gradient-hero` to warm orange with transparency
+    - [x] Update `gradient-accent` to terracotta → warm orange
+    - [x] Update `glow` shadow from blue to warm orange
 - [ ] Task: Conductor - User Manual Verification 'Core Design Token Migration' (Protocol in workflow.md)
 
 ## Phase 2: Site Branding Updates
