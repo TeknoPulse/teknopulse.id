@@ -27,8 +27,8 @@
 
 ## Phase 2: Site Branding Updates
 
-- [ ] Task: Update site description in `src/config.ts`
-  - [ ] Change `description` to: "Review dan analisis teknologi untuk pengguna Indonesia."
+- [x] Task: Update site description in `src/config.ts`
+  - [x] Change `description` to: "Review dan analisis teknologi untuk pengguna Indonesia."
 - [ ] Task: Scan and update hardcoded color references in `src/styles/`
   - [ ] Search all CSS files for hardcoded blue HSL values (`hsl(210,`)
   - [ ] Replace with corresponding warm palette values
