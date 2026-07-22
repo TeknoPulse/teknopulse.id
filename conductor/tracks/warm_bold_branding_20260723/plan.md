@@ -29,10 +29,10 @@
 
 - [x] Task: Update site description in `src/config.ts`
   - [x] Change `description` to: "Review dan analisis teknologi untuk pengguna Indonesia."
-- [ ] Task: Scan and update hardcoded color references in `src/styles/`
-  - [ ] Search all CSS files for hardcoded blue HSL values (`hsl(210,`)
-  - [ ] Replace with corresponding warm palette values
-  - [ ] Verify no color references bypass Tailwind tokens
+- [x] Task: Scan and update hardcoded color references in `src/styles/`
+  - [x] Search all CSS files for hardcoded blue HSL values (`hsl(210,`)
+  - [x] Replace with corresponding warm palette values
+  - [x] Verify no color references bypass Tailwind tokens
 - [ ] Task: Update OG image template colors in `src/pages/og/[slug].png.ts`
   - [ ] Check for hardcoded color values in the Satori template
   - [ ] Update to use warm brand palette colors
