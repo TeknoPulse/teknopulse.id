@@ -55,10 +55,10 @@ module.exports = {
         'category-policy': 'hsl(38, 90%, 55%)',  // Orange for Policy articles
 
         // Background Colors
-        'background': 'hsl(210, 95%, 98%)',      // Light blue-tinted background
-        'background-dark': 'hsl(210, 25%, 8%)',  // Dark blue-gray background
+        'background': 'hsl(30, 20%, 97%)',       // Warm off-white background
+        'background-dark': 'hsl(25, 15%, 10%)',  // Deep warm gray background
         'surface': '#ffffff',
-        'surface-dark': 'hsl(210, 20%, 12%)',
+        'surface-dark': 'hsl(25, 12%, 14%)',    // Warm charcoal surface
 
         // Text Colors
         'text-primary': 'hsl(210, 15%, 20%)',

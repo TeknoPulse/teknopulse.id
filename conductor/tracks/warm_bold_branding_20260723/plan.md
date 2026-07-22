@@ -9,10 +9,10 @@
 - [x] Task: Update secondary and accent color scales in `tailwind.config.cjs`
     - [x] Replace secondary `hsl(195, 80%, *)` with warm amber `hsl(38, 85%, *)`
     - [x] Replace accent `hsl(270, 80%, *)` with terracotta `hsl(12, 75%, *)`
-- [ ] Task: Update background and surface colors in `tailwind.config.cjs`
-    - [ ] Update `background` to warm off-white `hsl(30, 20%, 97%)`
-    - [ ] Update `background-dark` to warm gray `hsl(25, 15%, 10%)`
-    - [ ] Update `surface-dark` to warm charcoal `hsl(25, 12%, 14%)`
+- [x] Task: Update background and surface colors in `tailwind.config.cjs`
+    - [x] Update `background` to warm off-white `hsl(30, 20%, 97%)`
+    - [x] Update `background-dark` to warm gray `hsl(25, 15%, 10%)`
+    - [x] Update `surface-dark` to warm charcoal `hsl(25, 12%, 14%)`
 - [ ] Task: Update text and gray colors in `tailwind.config.cjs`
     - [ ] Update `text-primary` to `hsl(25, 10%, 15%)`
     - [ ] Update `text-secondary` to `hsl(25, 8%, 40%)`
