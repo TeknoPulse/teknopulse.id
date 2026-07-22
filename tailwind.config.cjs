@@ -6,20 +6,20 @@ module.exports = {
       colors: {
         // Brand Colors - Tech Blue Theme
         'primary': {
-          DEFAULT: 'hsl(210, 95%, 50%)',      // #0EA5E9 - Main brand color
-          50: 'hsl(210, 95%, 95%)',
-          100: 'hsl(210, 95%, 90%)',
-          200: 'hsl(210, 95%, 80%)',
-          300: 'hsl(210, 95%, 70%)',
-          400: 'hsl(210, 95%, 60%)',
-          500: 'hsl(210, 95%, 50%)',
-          600: 'hsl(210, 95%, 45%)',
-          700: 'hsl(210, 95%, 40%)',
-          800: 'hsl(210, 95%, 30%)',
-          900: 'hsl(210, 95%, 20%)',
+          DEFAULT: 'hsl(24, 90%, 55%)',       // Warm orange - Main brand color
+          50: 'hsl(24, 90%, 95%)',
+          100: 'hsl(24, 90%, 90%)',
+          200: 'hsl(24, 90%, 80%)',
+          300: 'hsl(24, 90%, 70%)',
+          400: 'hsl(24, 90%, 60%)',
+          500: 'hsl(24, 90%, 55%)',
+          600: 'hsl(24, 90%, 50%)',
+          700: 'hsl(24, 90%, 45%)',
+          800: 'hsl(24, 90%, 35%)',
+          900: 'hsl(24, 90%, 25%)',
         },
-        'primary-hover': 'hsl(210, 95%, 45%)', // Darker blue for interactions
-        'primary-light': 'hsl(210, 95%, 95%)', // Very light blue backgrounds
+        'primary-hover': 'hsl(24, 90%, 45%)', // Darker orange for interactions
+        'primary-light': 'hsl(24, 90%, 95%)', // Light orange backgrounds
         'secondary': {
           DEFAULT: 'hsl(195, 80%, 50%)',     // Cyan blue accent
           50: 'hsl(195, 80%, 95%)',

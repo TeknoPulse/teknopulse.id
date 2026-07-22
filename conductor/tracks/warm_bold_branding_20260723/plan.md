@@ -2,10 +2,10 @@
 
 ## Phase 1: Core Design Token Migration
 
-- [ ] Task: Update primary color scale in `tailwind.config.cjs`
-    - [ ] Replace `hsl(210, 95%, *)` primary scale with warm orange `hsl(24, 90%, *)`
-    - [ ] Update `primary-hover` to `hsl(24, 90%, 45%)`
-    - [ ] Update `primary-light` to `hsl(24, 90%, 95%)`
+- [x] Task: Update primary color scale in `tailwind.config.cjs`
+    - [x] Replace `hsl(210, 95%, *)` primary scale with warm orange `hsl(24, 90%, *)`
+    - [x] Update `primary-hover` to `hsl(24, 90%, 45%)`
+    - [x] Update `primary-light` to `hsl(24, 90%, 95%)`
 - [ ] Task: Update secondary and accent color scales in `tailwind.config.cjs`
     - [ ] Replace secondary `hsl(195, 80%, *)` with warm amber `hsl(38, 85%, *)`
     - [ ] Replace accent `hsl(270, 80%, *)` with terracotta `hsl(12, 75%, *)`
