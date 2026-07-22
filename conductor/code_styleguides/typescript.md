@@ -1,20 +1,21 @@
 # TypeScript Style Guide: TeknoPulse
 
 ## Configuration
+
 - Extends `astro/tsconfigs/strict` — treat strict errors as real
 - `@typescript-eslint/no-explicit-any` is `warn` (allowed but discouraged)
 - Unused vars/args must be prefixed with `_` (ESLint rule)
 
 ## Naming Conventions
 
-| Construct | Convention | Example |
-|-----------|-----------|---------|
-| Variables / functions | camelCase | `getPostsByTag`, `formatDate` |
-| Constants | UPPER_SNAKE_CASE | `MAX_POSTS_PER_PAGE`, `DEFAULT_LOCALE` |
-| Types / Interfaces | PascalCase | `Category`, `PostFrontmatter` |
-| Enums | PascalCase (members: PascalCase) | `PostFormat.Berita` |
-| Files (utilities) | camelCase | `readingTime.ts`, `categories.ts` |
-| Files (components) | PascalCase | `PostCard.astro`, `Header.astro` |
+| Construct             | Convention                       | Example                                |
+| --------------------- | -------------------------------- | -------------------------------------- |
+| Variables / functions | camelCase                        | `getPostsByTag`, `formatDate`          |
+| Constants             | UPPER_SNAKE_CASE                 | `MAX_POSTS_PER_PAGE`, `DEFAULT_LOCALE` |
+| Types / Interfaces    | PascalCase                       | `Category`, `PostFrontmatter`          |
+| Enums                 | PascalCase (members: PascalCase) | `PostFormat.Berita`                    |
+| Files (utilities)     | camelCase                        | `readingTime.ts`, `categories.ts`      |
+| Files (components)    | PascalCase                       | `PostCard.astro`, `Header.astro`       |
 
 ## Type Practices
 

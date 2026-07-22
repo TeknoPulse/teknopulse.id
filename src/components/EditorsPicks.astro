@@ -12,90 +12,86 @@ const featuredPosts = posts.slice(0, 3);
 
 <section class="py-16">
   <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between mb-8">
-      <h2 class="text-3xl font-bold text-text-primary dark:text-gray-100">
-        ✨ Editor's Picks
-      </h2>
-      <a href="/posts" class="text-primary hover:text-primary-hover font-medium">
-        Lihat Semua →
-      </a>
+    <div class="mb-8 flex items-center justify-between">
+      <h2 class="text-3xl font-bold text-text-primary dark:text-gray-100">✨ Editor's Picks</h2>
+      <a href="/posts" class="font-medium text-primary hover:text-primary-hover"> Lihat Semua → </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {featuredPosts.map((post, index) => (
-        <div class={`group cursor-pointer ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
-          <div class="card card-elevated h-full relative overflow-hidden">
-            {/* Featured badge for first item */}
-            {index === 0 && (
-              <div class="absolute top-4 right-4 z-10">
-                <span class="bg-accent text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
-                  Featured
-                </span>
-              </div>
-            )}
-
-            {post.data.coverImage && (
-              <div class="relative overflow-hidden rounded-lg">
-                <Image
-                  src={post.data.coverImage}
-                  alt={post.data.title}
-                  width={index === 0 ? 600 : 400}
-                  height={index === 0 ? 300 : 200}
-                  class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                    index === 0 ? 'h-64 md:h-72' : 'h-48'
-                  }`}
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            )}
-
-            <div class="p-6">
-              {/* Category badge */}
-              <div class="mb-3">
-                <span
-                  class={`category-badge category-${post.data.category.toLowerCase()}`}
-                >
-                  {post.data.category}
-                </span>
-              </div>
-
-              <h3 class={`font-bold text-text-primary dark:text-gray-100 mb-3 group-hover:text-primary transition-colors line-clamp-3 ${
-                index === 0 ? 'text-xl md:text-2xl' : 'text-lg'
-              }`}>
-                {post.data.title}
-              </h3>
-
-              <p class="text-text-secondary dark:text-gray-400 mb-4 text-sm leading-relaxed line-clamp-2">
-                {post.data.summary}
-              </p>
-
-              <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
-                <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')}</span>
-                <span>{post.data.readingTime} min read</span>
-              </div>
-
-              {/* Author info for featured post */}
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        featuredPosts.map((post, index) => (
+          <div class={`group cursor-pointer ${index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
+            <div class="card card-elevated relative h-full overflow-hidden">
+              {/* Featured badge for first item */}
               {index === 0 && (
-                <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <div class="flex items-center">
-                    <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white text-sm font-medium mr-3">
-                      {post.data.author.charAt(0).toUpperCase()}
-                    </div>
-                    <div>
-                      <p class="text-sm font-medium text-text-primary dark:text-gray-100">
-                        {post.data.author}
-                      </p>
-                      <p class="text-xs text-text-muted dark:text-gray-500">
-                        Tech Journalist
-                      </p>
-                    </div>
-                  </div>
+                <div class="absolute top-4 right-4 z-10">
+                  <span class="rounded-full bg-accent px-3 py-1 text-xs font-medium text-white shadow-lg">
+                    Featured
+                  </span>
                 </div>
               )}
+
+              {post.data.coverImage && (
+                <div class="relative overflow-hidden rounded-lg">
+                  <Image
+                    src={post.data.coverImage}
+                    alt={post.data.title}
+                    width={index === 0 ? 600 : 400}
+                    height={index === 0 ? 300 : 200}
+                    class={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                      index === 0 ? 'h-64 md:h-72' : 'h-48'
+                    }`}
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </div>
+              )}
+
+              <div class="p-6">
+                {/* Category badge */}
+                <div class="mb-3">
+                  <span class={`category-badge category-${post.data.category.toLowerCase()}`}>
+                    {post.data.category}
+                  </span>
+                </div>
+
+                <h3
+                  class={`line-clamp-3 mb-3 font-bold text-text-primary transition-colors group-hover:text-primary dark:text-gray-100 ${
+                    index === 0 ? 'text-xl md:text-2xl' : 'text-lg'
+                  }`}
+                >
+                  {post.data.title}
+                </h3>
+
+                <p class="line-clamp-2 mb-4 text-sm leading-relaxed text-text-secondary dark:text-gray-400">
+                  {post.data.summary}
+                </p>
+
+                <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
+                  <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')}</span>
+                  <span>{post.data.readingTime} min read</span>
+                </div>
+
+                {/* Author info for featured post */}
+                {index === 0 && (
+                  <div class="mt-4 border-t border-gray-200 pt-4 dark:border-gray-700">
+                    <div class="flex items-center">
+                      <div class="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-sm font-medium text-white">
+                        {post.data.author.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <p class="text-sm font-medium text-text-primary dark:text-gray-100">
+                          {post.data.author}
+                        </p>
+                        <p class="text-xs text-text-muted dark:text-gray-500">Tech Journalist</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>

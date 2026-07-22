@@ -9,55 +9,55 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<section class="py-8 bg-gray-50/50 dark:bg-gray-900/50">
+<section class="bg-gray-50/50 py-8 dark:bg-gray-900/50">
   <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between mb-6">
+    <div class="mb-6 flex items-center justify-between">
       <h2 class="text-2xl font-semibold text-text-primary dark:text-gray-100">
         🔥 Trending Minggu Ini
       </h2>
-      <a href="/posts" class="text-primary hover:text-primary-hover font-medium text-sm">
+      <a href="/posts" class="text-sm font-medium text-primary hover:text-primary-hover">
         Lihat Semua →
       </a>
     </div>
 
-    <div class="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-      {posts.map((post) => (
-        <div class="flex-shrink-0 w-80 group cursor-pointer">
-          <div class="card card-elevated h-full">
-            {post.data.coverImage && (
-              <div class="relative overflow-hidden rounded-t-lg">
-                <Image
-                  src={post.data.coverImage}
-                  alt={post.data.title}
-                  width={320}
-                  height={160}
-                  class="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <div class="absolute top-3 left-3">
-                  <span
-                    class={`category-badge category-${post.data.category.toLowerCase()}`}
-                  >
-                    {post.data.category}
-                  </span>
+    <div class="scrollbar-hide flex gap-6 overflow-x-auto pb-4">
+      {
+        posts.map((post) => (
+          <div class="group w-80 flex-shrink-0 cursor-pointer">
+            <div class="card card-elevated h-full">
+              {post.data.coverImage && (
+                <div class="relative overflow-hidden rounded-t-lg">
+                  <Image
+                    src={post.data.coverImage}
+                    alt={post.data.title}
+                    width={320}
+                    height={160}
+                    class="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div class="absolute top-3 left-3">
+                    <span class={`category-badge category-${post.data.category.toLowerCase()}`}>
+                      {post.data.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
-            <div class="p-4">
-              <h3 class="font-semibold text-text-primary dark:text-gray-100 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                {post.data.title}
-              </h3>
-              <p class="text-sm text-text-secondary dark:text-gray-400 mb-3 line-clamp-2">
-                {post.data.summary}
-              </p>
-              <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
-                <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')}</span>
-                <span>{post.data.readingTime} min read</span>
+              <div class="p-4">
+                <h3 class="line-clamp-2 mb-2 font-semibold text-text-primary transition-colors group-hover:text-primary dark:text-gray-100">
+                  {post.data.title}
+                </h3>
+                <p class="line-clamp-2 mb-3 text-sm text-text-secondary dark:text-gray-400">
+                  {post.data.summary}
+                </p>
+                <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
+                  <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')}</span>
+                  <span>{post.data.readingTime} min read</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>

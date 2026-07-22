@@ -17,12 +17,15 @@ Indonesian tech enthusiasts — developers, IT professionals, students, and gene
 ## Core Content Pillars
 
 ### 1. Tool Reviews & Comparisons
+
 The primary content focus: hands-on reviews and head-to-head comparisons of tools, services, and platforms. Content helps readers choose the right tools for their needs — from development environments to cloud services to AI assistants.
 
 ### 2. Opinionated Tech Analysis
-Strong editorial perspective on technology trends, industry shifts, and policy decisions. TeknoPulse doesn't just report — it takes a stance and helps readers understand *why* things matter.
+
+Strong editorial perspective on technology trends, industry shifts, and policy decisions. TeknoPulse doesn't just report — it takes a stance and helps readers understand _why_ things matter.
 
 ### 3. Flexible Topic Coverage (Tag-Based)
+
 Instead of rigid categories, content is organized through a flexible **tag-based taxonomy**. Posts can be tagged with multiple topics, allowing articles to span domains naturally. Current high-level topic areas include (but are not limited to):
 
 - **AI & Machine Learning** — Models, tools, research, practical applications
@@ -39,12 +42,12 @@ New tags can be introduced organically as topics emerge without requiring code o
 
 ## Content Formats
 
-| Format | Indonesian Label | Purpose |
-|--------|-----------------|----------|
-| News | `berita` | Fast, concise daily updates |
-| Roundup | `rangkuman` | Curated summaries of key developments |
-| Analysis | `konteks` | In-depth contextual analysis with editorial opinion |
-| Reader Guide | `panduan-pembaca` | Practical guides and tutorials for tools/topics |
+| Format       | Indonesian Label  | Purpose                                             |
+| ------------ | ----------------- | --------------------------------------------------- |
+| News         | `berita`          | Fast, concise daily updates                         |
+| Roundup      | `rangkuman`       | Curated summaries of key developments               |
+| Analysis     | `konteks`         | In-depth contextual analysis with editorial opinion |
+| Reader Guide | `panduan-pembaca` | Practical guides and tutorials for tools/topics     |
 
 ## Editorial Voice
 

@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "teknopulseid",
   "compatibility_date": "2025-09-01",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
   // Cloudflare Pages static deployment. `pages_build_output_dir` is the
   // Pages-specific property that points Wrangler at Astro's static output.
   //

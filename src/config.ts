@@ -5,4 +5,3 @@ export const site = {
   defaultLocale: 'id-ID',
   socials: { x: 'teknopulse_id', threads: 'teknopulse.id', github: 'TeknoPulse' },
 };
-

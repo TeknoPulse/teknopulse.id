@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       colors: {
         // Brand Colors - Tech Blue Theme
-        'primary': {
-          DEFAULT: 'hsl(24, 90%, 55%)',       // Warm orange - Main brand color
+        primary: {
+          DEFAULT: 'hsl(24, 90%, 55%)', // Warm orange - Main brand color
           50: 'hsl(24, 90%, 95%)',
           100: 'hsl(24, 90%, 90%)',
           200: 'hsl(24, 90%, 80%)',
@@ -20,8 +20,8 @@ module.exports = {
         },
         'primary-hover': 'hsl(24, 90%, 45%)', // Darker orange for interactions
         'primary-light': 'hsl(24, 90%, 95%)', // Light orange backgrounds
-        'secondary': {
-          DEFAULT: 'hsl(38, 85%, 50%)',      // Warm amber accent
+        secondary: {
+          DEFAULT: 'hsl(38, 85%, 50%)', // Warm amber accent
           50: 'hsl(38, 85%, 95%)',
           100: 'hsl(38, 85%, 90%)',
           200: 'hsl(38, 85%, 80%)',
@@ -33,8 +33,8 @@ module.exports = {
           800: 'hsl(38, 85%, 30%)',
           900: 'hsl(38, 85%, 20%)',
         },
-        'accent': {
-          DEFAULT: 'hsl(12, 75%, 55%)',       // Terracotta accent
+        accent: {
+          DEFAULT: 'hsl(12, 75%, 55%)', // Terracotta accent
           50: 'hsl(12, 75%, 95%)',
           100: 'hsl(12, 75%, 90%)',
           200: 'hsl(12, 75%, 80%)',
@@ -48,17 +48,17 @@ module.exports = {
         },
 
         // Category Color System
-        'category-ai': 'hsl(270, 80%, 60%)',      // Purple for AI articles
-        'category-cloud': 'hsl(195, 80%, 50%)',   // Cyan for Cloud articles
+        'category-ai': 'hsl(270, 80%, 60%)', // Purple for AI articles
+        'category-cloud': 'hsl(195, 80%, 50%)', // Cyan for Cloud articles
         'category-security': 'hsl(0, 85%, 60%)', // Red for Security articles
         'category-devtools': 'hsl(140, 70%, 45%)', // Green for DevTools articles
-        'category-policy': 'hsl(38, 90%, 55%)',  // Orange for Policy articles
+        'category-policy': 'hsl(38, 90%, 55%)', // Orange for Policy articles
 
         // Background Colors
-        'background': 'hsl(30, 20%, 97%)',       // Warm off-white background
-        'background-dark': 'hsl(25, 15%, 10%)',  // Deep warm gray background
-        'surface': '#ffffff',
-        'surface-dark': 'hsl(25, 12%, 14%)',    // Warm charcoal surface
+        background: 'hsl(30, 20%, 97%)', // Warm off-white background
+        'background-dark': 'hsl(25, 15%, 10%)', // Deep warm gray background
+        surface: '#ffffff',
+        'surface-dark': 'hsl(25, 12%, 14%)', // Warm charcoal surface
 
         // Text Colors
         'text-primary': 'hsl(25, 10%, 15%)',
@@ -66,7 +66,7 @@ module.exports = {
         'text-muted': 'hsl(25, 6%, 55%)',
 
         // Legacy colors for backward compatibility (warm gray scale)
-        'gray': {
+        gray: {
           50: 'hsl(25, 20%, 98%)',
           100: 'hsl(25, 15%, 95%)',
           200: 'hsl(25, 10%, 85%)',
@@ -80,34 +80,34 @@ module.exports = {
         },
       },
       fontFamily: {
-        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        'primary': ['Inter', 'sans-serif'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        primary: ['Inter', 'sans-serif'],
       },
       fontWeight: {
-        'normal': 400,
-        'medium': 500,
-        'semibold': 600,
-        'bold': 700,
+        normal: 400,
+        medium: 500,
+        semibold: 600,
+        bold: 700,
       },
       borderRadius: {
-        'sm': '0.5rem',
-        'DEFAULT': '0.75rem',
-        'md': '1rem',
-        'lg': '1.5rem',
+        sm: '0.5rem',
+        DEFAULT: '0.75rem',
+        md: '1rem',
+        lg: '1.5rem',
       },
       spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
+        18: '4.5rem',
+        88: '22rem',
+        128: '32rem',
       },
       boxShadow: {
-        'sm': '0 1px 2px rgba(0, 0, 0, 0.05)',
-        'DEFAULT': '0 4px 6px rgba(0, 0, 0, 0.07)',
-        'md': '0 4px 6px rgba(0, 0, 0, 0.07)',
-        'lg': '0 10px 15px rgba(0, 0, 0, 0.1)',
-        'xl': '0 20px 25px rgba(0, 0, 0, 0.1)',
+        sm: '0 1px 2px rgba(0, 0, 0, 0.05)',
+        DEFAULT: '0 4px 6px rgba(0, 0, 0, 0.07)',
+        md: '0 4px 6px rgba(0, 0, 0, 0.07)',
+        lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
+        xl: '0 20px 25px rgba(0, 0, 0, 0.1)',
         '2xl': '0 25px 50px rgba(0, 0, 0, 0.15)',
-        'glow': '0 0 20px hsl(24, 90%, 55%)',
+        glow: '0 0 20px hsl(24, 90%, 55%)',
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, hsl(24, 90%, 55%), hsl(38, 85%, 50%))',

@@ -9,9 +9,7 @@ import OgTemplate from '../../components/og-template';
 // no native addon ships to the runtime (Cloudflare Pages friendly).
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts
-    .filter((post) => !post.data.draft)
-    .map((post) => ({ params: { slug: post.slug } }));
+  return posts.filter((post) => !post.data.draft).map((post) => ({ params: { slug: post.slug } }));
 }
 
 export async function GET({ params }: { params: { slug: string } }) {
@@ -27,15 +25,17 @@ export async function GET({ params }: { params: { slug: string } }) {
 
     // ✅ URL tanpa spasi
     const fontUrls = {
-      regular: 'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf',
-      medium:  'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf',
-      bold:    'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf',
+      regular:
+        'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf',
+      medium:
+        'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf',
+      bold: 'https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf',
     };
 
     const fonts = await Promise.all([
-      fetch(fontUrls.regular).then(res => res.arrayBuffer()),
-      fetch(fontUrls.medium).then(res => res.arrayBuffer()),
-      fetch(fontUrls.bold).then(res => res.arrayBuffer()),
+      fetch(fontUrls.regular).then((res) => res.arrayBuffer()),
+      fetch(fontUrls.medium).then((res) => res.arrayBuffer()),
+      fetch(fontUrls.bold).then((res) => res.arrayBuffer()),
     ]);
 
     const svg = await satori(

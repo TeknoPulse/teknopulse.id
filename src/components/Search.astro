@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <script src="/pagefind/pagefind.js" is:inline></script>
@@ -19,16 +20,19 @@
 
   if (searchInput && searchResults) {
     if (typeof Pagefind === 'undefined') {
-      searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">Search functionality will be available after deployment with Pagefind integration.</p>';
+      searchResults.innerHTML =
+        '<p class="text-gray-500 dark:text-gray-400 text-sm">Search functionality will be available after deployment with Pagefind integration.</p>';
     } else {
-      searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
+      searchResults.innerHTML =
+        '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
     }
 
     searchInput.addEventListener('input', async (e) => {
       const query = (e.target as HTMLInputElement).value;
 
       if (query.length > 1) {
-        searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">Searching...</p>';
+        searchResults.innerHTML =
+          '<p class="text-gray-500 dark:text-gray-400 text-sm">Searching...</p>';
         const search = await Pagefind.search(query);
 
         if (search.results.length > 0) {
@@ -44,10 +48,12 @@
           }
           searchResults.innerHTML = resultsHtml;
         } else {
-          searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">No results found.</p>';
+          searchResults.innerHTML =
+            '<p class="text-gray-500 dark:text-gray-400 text-sm">No results found.</p>';
         }
       } else {
-        searchResults.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
+        searchResults.innerHTML =
+          '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
       }
     });
   }

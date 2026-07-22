@@ -9,11 +9,13 @@ Migrate TeknoPulse's visual identity from the current Tech Blue palette to a **W
 TeknoPulse was originally conceived as a daily tech news site ("Berita harian teknologi dan AI: cepat, ringkas, kontekstual"). The product vision has evolved to emphasize **tool reviews and comparisons** with **strong editorial perspective**. The visual identity and branding should reflect this shift.
 
 ### Current State
+
 - **Color palette:** Tech Blue (`hsl(210, 95%, *)`) with cyan secondary and purple accent
 - **Tagline:** "Berita harian teknologi dan AI: cepat, ringkas, kontekstual."
 - **Dark mode:** Supported via Tailwind `class` strategy with blue-tinted dark backgrounds
 
 ### Target State
+
 - **Color palette:** Warm & Bold editorial palette (warm orange primary, amber secondary, terracotta accent)
 - **Tagline:** "Review dan analisis teknologi untuk pengguna Indonesia."
 - **Dark mode:** Warm charcoal/gray dark backgrounds instead of blue-tinted
@@ -21,6 +23,7 @@ TeknoPulse was originally conceived as a daily tech news site ("Berita harian te
 ## Scope
 
 ### In Scope
+
 1. **Tailwind config color update** — Replace primary/secondary/accent/background/surface/text color scales in `tailwind.config.cjs`
 2. **Site config branding** — Update `description` in `src/config.ts` to reflect new tagline
 3. **Dark mode tokens** — Update dark mode background and surface colors to warm tones
@@ -30,6 +33,7 @@ TeknoPulse was originally conceived as a daily tech news site ("Berita harian te
 7. **Global styles** — Update any hardcoded color references in `src/styles/`
 
 ### Out of Scope
+
 - Category colors (remain as-is per `src/utils/categories.ts`)
 - Tag-based taxonomy migration (separate track)
 - Content changes

@@ -16,23 +16,25 @@ const currentCategory = Astro.url.pathname.split('/').pop() || '';
         class={`category-badge ${currentCategory === '' ? 'ring-2 ring-primary ring-offset-2' : ''}`}
         class:list={[
           'bg-primary-100 text-primary hover:bg-primary-200',
-          currentCategory === '' && 'bg-primary text-white hover:bg-primary-hover'
+          currentCategory === '' && 'bg-primary text-white hover:bg-primary-hover',
         ]}
       >
         Semua
       </a>
-      {categories.map((category) => (
-        <a
-          href={`/category/${category.slug}`}
-          class={`category-badge category-${category.slug} ${currentCategory === category.slug ? 'ring-2 ring-offset-2' : ''}`}
-          class:list={[
-            currentCategory === category.slug && 'ring-2',
-            currentCategory === category.slug && 'ring-primary'
-          ]}
-        >
-          {category.name}
-        </a>
-      ))}
+      {
+        categories.map((category) => (
+          <a
+            href={`/category/${category.slug}`}
+            class={`category-badge category-${category.slug} ${currentCategory === category.slug ? 'ring-2 ring-offset-2' : ''}`}
+            class:list={[
+              currentCategory === category.slug && 'ring-2',
+              currentCategory === category.slug && 'ring-primary',
+            ]}
+          >
+            {category.name}
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

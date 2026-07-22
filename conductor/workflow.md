@@ -3,7 +3,9 @@
 ## Development Methodology
 
 ### Test-Driven Development (TDD)
+
 All feature development follows TDD principles:
+
 1. **Write Tests First** — Define expected behavior before implementation
 2. **Implement Feature** — Write the minimum code to pass tests
 3. **Refactor** — Clean up while keeping tests green
@@ -11,6 +13,7 @@ All feature development follows TDD principles:
 > **Note:** TeknoPulse currently has no test framework configured. When tests are added, `pnpm build` (which runs `astro build`) serves as the canonical correctness gate. Type errors surface via the build process.
 
 ### Build Verification
+
 - **Canonical gate:** `pnpm build` must succeed before any task is considered complete
 - **Lint check:** `pnpm lint` must pass (ESLint + Prettier)
 - **Fix lint:** `pnpm lint:fix` to auto-fix issues before committing
@@ -24,11 +27,13 @@ All feature development follows TDD principles:
 ## Commit Strategy
 
 ### Per-Task Commits
+
 - Commit after **every completed task** in a plan
 - Each commit should be atomic and self-contained
 - Use conventional commit format: `feat:`, `fix:`, `docs:`, `style:`, `refactor:`, `test:`, `chore:`
 
 ### Commit Message Format
+
 ```
 <type>(<scope>): <description>
 
@@ -36,6 +41,7 @@ All feature development follows TDD principles:
 ```
 
 Example:
+
 ```
 feat(search): add Pagefind integration for client-side search
 
@@ -44,6 +50,7 @@ into dist/pagefind/ after astro build completes.
 ```
 
 ### Branch Strategy
+
 - Default branch: `main`
 - Feature work: branch before committing (`feature/<name>`, `fix/<name>`)
 
@@ -66,7 +73,9 @@ This protocol ensures that each phase produces a stable, buildable state before 
 ## File Resolution Protocol
 
 ### Tracks Directory
+
 All track artifacts are stored under `conductor/tracks/`. Each track has its own subdirectory:
+
 ```
 conductor/tracks/<track_id>/
 ├── spec.md         # Track specification

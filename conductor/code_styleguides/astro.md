@@ -15,11 +15,13 @@ src/
 ## Component Conventions
 
 ### Naming
+
 - Component files: **PascalCase** (`PostCard.astro`, `CategoryBadge.astro`)
 - Layout files: **PascalCase** (`Layout.astro`)
 - Page files: **lowercase/kebab** matching the URL slug
 
 ### Structure
+
 ```astro
 ---
 // 1. Imports
@@ -47,6 +49,7 @@ const { title, summary, category } = post.data;
 ```
 
 ### Props
+
 - Always define a `Props` interface in the frontmatter
 - Use default values via destructuring, not conditional logic in the template
 - Keep props minimal — pass only what the component needs
@@ -60,17 +63,20 @@ const { title, summary, category } = post.data;
 ## Page Patterns
 
 ### Dynamic Routes
+
 - Use `[...page].astro` for paginated routes
 - Use `getStaticPaths()` for all dynamic content
 - Remember: static output only — no SSR
 
 ### Content Queries
+
 ```astro
 ---
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+);
 ---
 ```
 
@@ -87,6 +93,7 @@ const posts = (await getCollection('posts', ({ data }) => !data.draft))
 ## Generated Routes (Do Not Hand-Edit)
 
 These routes auto-regenerate on every build from the `posts` collection:
+
 - `rss.xml.ts`, `feed.json.ts`
 - `news-sitemap.xml.ts`
 - `llms-full.txt.ts`

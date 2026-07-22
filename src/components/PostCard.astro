@@ -10,10 +10,7 @@ interface Props {
 const { post, featured = false } = Astro.props;
 ---
 
-<a
-  href={`/posts/${post.slug}`}
-  class="group block overflow-hidden card card-elevated h-full"
->
+<a href={`/posts/${post.slug}`} class="card card-elevated group block h-full overflow-hidden">
   {
     post.data.coverImage && (
       <div class="relative overflow-hidden rounded-t-lg">
@@ -26,9 +23,7 @@ const { post, featured = false } = Astro.props;
         />
         {/* Category badge overlay */}
         <div class="absolute top-3 left-3">
-          <span
-            class={`category-badge category-${post.data.category.toLowerCase()}`}
-          >
+          <span class={`category-badge category-${post.data.category.toLowerCase()}`}>
             {post.data.category}
           </span>
         </div>
@@ -36,7 +31,7 @@ const { post, featured = false } = Astro.props;
         {/* Featured badge */}
         {featured && (
           <div class="absolute top-3 right-3">
-            <span class="bg-accent text-white px-2 py-1 rounded-full text-xs font-medium shadow-lg">
+            <span class="rounded-full bg-accent px-2 py-1 text-xs font-medium text-white shadow-lg">
               Featured
             </span>
           </div>
@@ -46,13 +41,15 @@ const { post, featured = false } = Astro.props;
   }
 
   <div class="p-6">
-    <h3 class={`mb-3 font-semibold text-text-primary dark:text-gray-100 group-hover:text-primary transition-colors line-clamp-2 ${
-      featured ? 'text-xl' : 'text-lg'
-    }`}>
+    <h3
+      class={`mb-3 font-semibold text-text-primary dark:text-gray-100 group-hover:text-primary transition-colors line-clamp-2 ${
+        featured ? 'text-xl' : 'text-lg'
+      }`}
+    >
       {post.data.title}
     </h3>
 
-    <p class="mb-4 text-sm text-text-secondary dark:text-gray-400 leading-relaxed line-clamp-3">
+    <p class="line-clamp-3 mb-4 text-sm leading-relaxed text-text-secondary dark:text-gray-400">
       {post.data.summary}
     </p>
 
@@ -62,15 +59,17 @@ const { post, featured = false } = Astro.props;
     </div>
 
     {/* Tags */}
-    {post.data.tags.length > 0 && (
-      <div class="mt-4 flex flex-wrap gap-2">
-        {post.data.tags.slice(0, 3).map((tag) => (
-          <span class="inline-block bg-gray-100 dark:bg-gray-800 text-text-muted dark:text-gray-400 px-2 py-1 rounded text-xs">
-            #{tag}
-          </span>
-        ))}
-      </div>
-    )}
+    {
+      post.data.tags.length > 0 && (
+        <div class="mt-4 flex flex-wrap gap-2">
+          {post.data.tags.slice(0, 3).map((tag) => (
+            <span class="inline-block rounded bg-gray-100 px-2 py-1 text-xs text-text-muted dark:bg-gray-800 dark:text-gray-400">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
   </div>
 </a>
 
