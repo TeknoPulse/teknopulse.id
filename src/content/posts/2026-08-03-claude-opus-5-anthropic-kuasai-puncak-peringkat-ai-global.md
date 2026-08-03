@@ -1,5 +1,6 @@
 ---
 title: "Claude Opus 5: Anthropic Kuasai Puncak Peringkat AI Global"
+coverImage: "../../assets/images/2026-08-03-claude-opus-5-anthropic-kuasai-puncak-peringkat-ai-global-16x9.png"
 summary: "Claude Opus 5 resmi meluncur dengan skor tertinggi di Artificial Analysis, mampu saingi GPT-o1 dan Gemini 2.5 Ultra dengan harga separuh lebih murah. Apa artinya bagi pengguna Indonesia?"
 publishedAt: 2026-08-03
 category: "AI"
