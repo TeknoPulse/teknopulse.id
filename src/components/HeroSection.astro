@@ -1,0 +1,141 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+  leadPost: CollectionEntry<'posts'>;
+  secondaryPosts: CollectionEntry<'posts'>[];
+}
+
+const { leadPost, secondaryPosts } = Astro.props;
+
+// Date formatter
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('id-ID', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+};
+---
+
+<section aria-label="Berita Utama" class="mb-12">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    
+    <!-- Lead Story (Left Side - 60%) -->
+    <div class="lg:col-span-7 xl:col-span-8">
+      <article class="relative group h-full">
+        <a href={`/posts/${leadPost.slug}`} class="block h-full card hover:shadow-lg transition-shadow duration-300">
+          <div class="relative w-full overflow-hidden rounded-t-xl aspect-video">
+            {leadPost.data.coverImage ? (
+              <Image 
+                src={leadPost.data.coverImage} 
+                alt={leadPost.data.title}
+                width={800}
+                height={450}
+                loading="eager"
+                fetchpriority="high"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            ) : (
+              <div class="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                <span class="text-gray-400 dark:text-gray-600">Gambar tidak tersedia</span>
+              </div>
+            )}
+            
+            <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
+            
+            <div class="absolute top-4 left-4">
+              <span class={`category-badge category-${leadPost.data.category.toLowerCase()}`}>
+                {leadPost.data.category}
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
+              {leadPost.data.title}
+            </h1>
+            
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3 text-lg">
+              {leadPost.data.summary}
+            </p>
+            
+            <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-4">
+              <span>{leadPost.data.author}</span>
+              <span>&bull;</span>
+              <time datetime={leadPost.data.publishedAt.toISOString()}>
+                {formatDate(leadPost.data.publishedAt)}
+              </time>
+              {leadPost.data.readingTime && (
+                <>
+                  <span>&bull;</span>
+                  <span>{leadPost.data.readingTime} mnt baca</span>
+                </>
+              )}
+            </div>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <!-- Secondary Stories (Right Side - 40%) -->
+    <div class="lg:col-span-5 xl:col-span-4 flex flex-col justify-between">
+      <div class="space-y-0 h-full flex flex-col">
+        {secondaryPosts.slice(0, 4).map((post, index) => (
+          <article class={`flex-1 flex flex-col justify-center py-4 ${index !== Math.min(3, secondaryPosts.length - 1) ? 'border-b border-gray-200 dark:border-gray-800' : ''}`}>
+            <a href={`/posts/${post.slug}`} class="group flex items-start space-x-4">
+              <div class="flex-shrink-0 w-20 h-20 overflow-hidden rounded-lg aspect-square">
+                {post.data.coverImage ? (
+                  <Image 
+                    src={post.data.coverImage} 
+                    alt={post.data.title}
+                    width={80}
+                    height={80}
+                    loading="lazy"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+                    <span class="text-xs text-gray-400 dark:text-gray-600">No img</span>
+                  </div>
+                )}
+              </div>
+              
+              <div class="flex-1 min-w-0">
+                <div class="mb-1">
+                  <span class={`category-badge category-${post.data.category.toLowerCase()} !px-2 !py-0.5 !text-[10px]`}>
+                    {post.data.category}
+                  </span>
+                </div>
+                <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                  {post.data.title}
+                </h2>
+                <time datetime={post.data.publishedAt.toISOString()} class="text-xs text-gray-500 dark:text-gray-400">
+                  {formatDate(post.data.publishedAt)}
+                </time>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
