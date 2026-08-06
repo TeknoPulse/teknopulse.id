@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import HeroSection from '../components/HeroSection.astro';
 import PostCard from '../components/PostCard.astro';
 import CategoryPills from '../components/CategoryPills.astro';
-import TrendingStrip from '../components/TrendingStrip.astro';
+import TrendingList from '../components/TrendingList.astro';
 import EditorsPicks from '../components/EditorsPicks.astro';
 import NewsletterCTA from '../components/NewsletterCTA.astro';
 
@@ -11,63 +13,39 @@ const posts = (await getCollection('posts'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
+// Hero: pick featured post or latest as lead, next 4 as secondary
+const featuredPost = posts.find((p) => p.data.featured) ?? posts[0];
+const heroSecondary = posts.filter((p) => p.slug !== featuredPost.slug).slice(0, 4);
+
+// Latest articles: skip the ones already shown in hero
+const heroSlugs = new Set([featuredPost.slug, ...heroSecondary.map((p) => p.slug)]);
+const latestPosts = posts.filter((p) => !heroSlugs.has(p.slug)).slice(0, 7);
+
+// Trending: recent posts from last 14 days
 const trendingPosts = posts
   .filter(
     (post) => (new Date().getTime() - post.data.publishedAt.getTime()) / (1000 * 60 * 60 * 24) < 14
   )
   .slice(0, 5);
 
-const latestPosts = posts.slice(0, 6);
 const editorsPicks = posts.slice(0, 3);
 const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 ---
 
 <Layout>
   <main class="min-h-screen">
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden py-20 lg:py-28">
-      <!-- Subtle gradient background -->
-      <div class="gradient-hero absolute inset-0"></div>
-
-      <div class="container relative mx-auto px-4 text-center">
-        <div class="mx-auto max-w-4xl">
-          <h1
-            class="mb-6 text-4xl font-bold leading-tight text-text-primary dark:text-gray-100 md:text-6xl lg:text-7xl"
-          >
-            Tekno<span class="text-primary">Pulse</span>
-          </h1>
-          <p
-            class="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-text-secondary dark:text-gray-300 md:text-xl lg:text-2xl"
-          >
-            Berita harian teknologi & AI — cepat, ringkas, kontekstual
-          </p>
-          <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <div
-              class="flex items-center rounded-full bg-surface px-6 py-3 shadow-lg dark:bg-surface-dark"
-            >
-              <span class="mr-3 text-2xl">🔥</span>
-              <span class="font-medium text-text-primary dark:text-gray-100">
-                {posts.length} artikel terbaru
-              </span>
-            </div>
-            <div
-              class="flex items-center rounded-full bg-surface px-6 py-3 shadow-lg dark:bg-surface-dark"
-            >
-              <span class="mr-3 text-2xl">⚡</span>
-              <span class="font-medium text-text-primary dark:text-gray-100">
-                Update setiap hari
-              </span>
-            </div>
-          </div>
-        </div>
+    <!-- Hero: Lead Story + Secondary Articles -->
+    <section class="py-8 lg:py-12">
+      <div class="container mx-auto px-4">
+        <HeroSection leadPost={featuredPost} secondaryPosts={heroSecondary} />
       </div>
     </section>
 
     <!-- Category Pills -->
     <CategoryPills />
 
-    <!-- Latest Grid Section -->
-    <section class="py-16">
+    <!-- Latest Articles - Asymmetric Grid: 1 big + 3-col medium -->
+    <section class="py-12">
       <div class="container mx-auto px-4">
         <div class="mb-8 flex items-center justify-between">
           <h2 class="text-3xl font-bold text-text-primary dark:text-gray-100">
@@ -77,14 +55,68 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
             Lihat Semua →
           </a>
         </div>
+
+        {/* Featured latest card - full width */}
+        {latestPosts.length > 0 && (
+          <div class="mb-8">
+            <a
+              href={`/posts/${latestPosts[0].slug}`}
+              class="card card-elevated group block overflow-hidden md:grid md:grid-cols-2 md:gap-0"
+            >
+              {latestPosts[0].data.coverImage && (
+                <div class="relative overflow-hidden">
+                  <Image
+                    src={latestPosts[0].data.coverImage}
+                    alt={latestPosts[0].data.title}
+                    width={600}
+                    height={340}
+                    loading="lazy"
+                    class="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-full"
+                    style="aspect-ratio: 16/9;"
+                  />
+                  <div class="absolute top-3 left-3">
+                    <span
+                      class={`category-badge category-${latestPosts[0].data.category.toLowerCase()}`}
+                    >
+                      {latestPosts[0].data.category}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div class="flex flex-col justify-center p-6 md:p-8">
+                <h3 class="mb-3 text-xl font-bold text-text-primary transition-colors group-hover:text-primary dark:text-gray-100 md:text-2xl">
+                  {latestPosts[0].data.title}
+                </h3>
+                <p class="mb-4 text-text-secondary line-clamp-3 dark:text-gray-400">
+                  {latestPosts[0].data.summary}
+                </p>
+                <div class="flex items-center gap-3 text-sm text-text-muted dark:text-gray-500">
+                  <span>{latestPosts[0].data.author}</span>
+                  <span>&bull;</span>
+                  <time datetime={latestPosts[0].data.publishedAt.toISOString()}>
+                    {new Date(latestPosts[0].data.publishedAt).toLocaleDateString('id-ID')}
+                  </time>
+                  {latestPosts[0].data.readingTime && (
+                    <>
+                      <span>&bull;</span>
+                      <span>{latestPosts[0].data.readingTime} mnt baca</span>
+                    </>
+                  )}
+                </div>
+              </div>
+            </a>
+          </div>
+        )}
+
+        {/* Remaining articles in 3-column grid */}
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {latestPosts.map((post, index) => <PostCard post={post} featured={index === 0} />)}
+          {latestPosts.slice(1).map((post) => <PostCard post={post} />)}
         </div>
       </div>
     </section>
 
-    <!-- Trending Strip -->
-    <TrendingStrip posts={trendingPosts} />
+    <!-- Trending: Numbered Ranking List -->
+    <TrendingList posts={trendingPosts} />
 
     <!-- Editor's Picks -->
     <EditorsPicks posts={editorsPicks} />
@@ -92,7 +124,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
     <!-- Newsletter CTA -->
     <NewsletterCTA />
 
-    <!-- Tag Cloud Section (Footer) -->
+    <!-- Tag Cloud Section -->
     <section
       class="border-t border-gray-200 bg-gray-50/50 py-16 dark:border-gray-800 dark:bg-gray-900/50"
     >
@@ -127,31 +159,10 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
 </Layout>
 
 <style>
-  /* Enhanced hero section */
-  .gradient-hero {
-    background: linear-gradient(135deg, hsl(24, 90%, 55% / 0.05), hsl(12, 75%, 55% / 0.05));
-  }
-
-  :global(.dark) .gradient-hero {
-    background: linear-gradient(135deg, hsl(24, 90%, 55% / 0.1), hsl(12, 75%, 55% / 0.1));
-  }
-
-  /* Smooth animations */
-  * {
-    transition-property:
-      color, background-color, border-color, text-decoration-color, fill, stroke, opacity,
-      box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 200ms;
-  }
-
-  /* Enhanced tag styles */
-  .tag-link {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .tag-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>
