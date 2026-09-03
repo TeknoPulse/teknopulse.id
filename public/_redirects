@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects
+# Policy pillar dihapus 2026-09 — arahkan URL lama ke kategori terdekat
+/category/policy/* /category/ai/:splat 301
+/category/policy /category/ai 301

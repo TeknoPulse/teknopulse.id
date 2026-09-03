@@ -89,7 +89,7 @@ summary: 'Brief description of your post'
 publishedAt: 2025-08-25T10:00:00Z
 updatedAt: 2025-08-25T10:00:00Z
 tags: ['AI', 'Technology']
-category: AI # AI, Cloud, Security, DevTools, Policy
+category: AI # AI, OpenSource, Cloud, Security, DevTools
 author: 'Author Name'
 coverImage: 'https://example.com/image.jpg'
 draft: false
@@ -177,10 +177,10 @@ pnpm build
 ## Content Categories
 
 - **AI**: Artificial Intelligence news and developments
+- **OpenSource**: Open source tools, self-hosting, and free alternatives
 - **Cloud**: Cloud computing and infrastructure
 - **Security**: Cybersecurity and data protection
 - **DevTools**: Development tools and methodologies
-- **Policy**: Technology policy and regulations
 
 ## Performance
 

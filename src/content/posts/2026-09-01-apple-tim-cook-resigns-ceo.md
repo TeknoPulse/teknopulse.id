@@ -3,7 +3,7 @@ title: "Era Baru Apple Dimulai, Tim Cook Resmi Pensiun Setelah 15 Tahun Memimpin
 summary: "Setelah 15 tahun membangun Apple menjadi raksasa teknologi bernilai 4 triliun dolar AS, Tim Cook secara resmi mengakhiri masa jabatannya sebagai CEO pada 1 September 2026. Penggantinya, John Ternus, siap menghadapi tantangan besar di era kecerdasan buatan."
 publishedAt: 2026-09-01T17:00:00+07:00
 tags: ["Apple", "Tim Cook", "Teknologi", "CEO"]
-category: "Policy"
+category: "AI"
 author: "TeknoPulse Redaksi"
 draft: false
 coverImage: "../../assets/images/2026-09-01-apple-tim-cook-resigns-ceo-16x9.png"

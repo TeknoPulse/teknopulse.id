@@ -103,9 +103,6 @@
   .category-devtools {
     @apply bg-category-devtools/10 text-category-devtools hover:bg-category-devtools/20;
   }
-  .category-policy {
-    @apply bg-category-policy/10 text-category-policy hover:bg-category-policy/20;
-  }
   .category-open-source {
     @apply bg-category-open-source/10 text-category-open-source hover:bg-category-open-source/20;
   }

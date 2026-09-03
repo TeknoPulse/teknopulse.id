@@ -48,14 +48,6 @@ export const categories: Record<string, Category> = {
     hoverColor: 'hsl(140, 70%, 45% / 0.2)',
     description: 'Development tools, workflows, and productivity',
   },
-  Policy: {
-    name: 'Policy',
-    slug: 'policy',
-    color: 'hsl(38, 90%, 55%)', // Orange
-    bgColor: 'hsl(38, 90%, 55% / 0.1)',
-    hoverColor: 'hsl(38, 90%, 55% / 0.2)',
-    description: 'Technology regulations, compliance, and legal',
-  },
 };
 
 export const getCategoryByName = (name: string): Category | undefined => {

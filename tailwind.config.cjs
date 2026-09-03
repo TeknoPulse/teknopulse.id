@@ -53,7 +53,6 @@ module.exports = {
         'category-cloud': 'hsl(195, 80%, 50%)', // Cyan for Cloud articles
         'category-security': 'hsl(0, 85%, 60%)', // Red for Security articles
         'category-devtools': 'hsl(140, 70%, 45%)', // Green for DevTools articles
-        'category-policy': 'hsl(38, 90%, 55%)', // Orange for Policy articles
 
         // Background Colors
         background: 'hsl(30, 20%, 97%)', // Warm off-white background
