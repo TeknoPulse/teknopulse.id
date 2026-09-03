@@ -24,22 +24,6 @@ export const categories: Record<string, Category> = {
     hoverColor: 'hsl(220, 80%, 55% / 0.2)',
     description: 'Open source tools, self-hosting, and free alternatives',
   },
-  Cloud: {
-    name: 'Cloud',
-    slug: 'cloud',
-    color: 'hsl(195, 80%, 50%)', // Cyan
-    bgColor: 'hsl(195, 80%, 50% / 0.1)',
-    hoverColor: 'hsl(195, 80%, 50% / 0.2)',
-    description: 'Cloud infrastructure, services, and pricing',
-  },
-  Security: {
-    name: 'Security',
-    slug: 'security',
-    color: 'hsl(0, 85%, 60%)', // Red
-    bgColor: 'hsl(0, 85%, 60% / 0.1)',
-    hoverColor: 'hsl(0, 85%, 60% / 0.2)',
-    description: 'Cybersecurity, vulnerabilities, and compliance',
-  },
   DevTools: {
     name: 'DevTools',
     slug: 'devtools',

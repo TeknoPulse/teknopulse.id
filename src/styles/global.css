@@ -94,12 +94,6 @@
   .category-ai {
     @apply bg-category-ai/10 text-category-ai hover:bg-category-ai/20;
   }
-  .category-cloud {
-    @apply bg-category-cloud/10 text-category-cloud hover:bg-category-cloud/20;
-  }
-  .category-security {
-    @apply bg-category-security/10 text-category-security hover:bg-category-security/20;
-  }
   .category-devtools {
     @apply bg-category-devtools/10 text-category-devtools hover:bg-category-devtools/20;
   }

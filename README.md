@@ -89,7 +89,7 @@ summary: 'Brief description of your post'
 publishedAt: 2025-08-25T10:00:00Z
 updatedAt: 2025-08-25T10:00:00Z
 tags: ['AI', 'Technology']
-category: AI # AI, OpenSource, Cloud, Security, DevTools
+category: AI # AI, OpenSource, DevTools
 author: 'Author Name'
 coverImage: 'https://example.com/image.jpg'
 draft: false
@@ -178,8 +178,6 @@ pnpm build
 
 - **AI**: Artificial Intelligence news and developments
 - **OpenSource**: Open source tools, self-hosting, and free alternatives
-- **Cloud**: Cloud computing and infrastructure
-- **Security**: Cybersecurity and data protection
 - **DevTools**: Development tools and methodologies
 
 ## Performance

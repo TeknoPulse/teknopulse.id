@@ -1,6 +1,6 @@
 # TeknoPulse
 
-> TeknoPulse adalah situs berita harian teknologi dan AI berbahasa Indonesia: cepat, ringkas, kontekstual. Tribun untuk pembaca teknologi umum — bukan tutorial developer. Kategori: AI, Open Source, Cloud, Security, DevTools. Artikel diproduksi dengan bantuan AI dan diverifikasi editor manusia sebelum terbit.
+> TeknoPulse adalah situs berita harian teknologi dan AI berbahasa Indonesia: cepat, ringkas, kontekstual. Tribun untuk pembaca teknologi umum — bukan tutorial developer. Kategori: AI, Open Source, DevTools. Artikel diproduksi dengan bantuan AI dan diverifikasi editor manusia sebelum terbit.
 
 Setiap artikel merangkum satu berita atau rilis penting dalam bahasa Indonesia yang jelas: apa yang terjadi, mengapa penting, dan konteksnya. Konten dibuat untuk dibaca cepat oleh pembaca awam hingga menengah.
 
@@ -17,8 +17,6 @@ Setiap artikel merangkum satu berita atau rilis penting dalam bahasa Indonesia y
 
 - [AI](https://teknopulse.id/category/ai/)
 - [Open Source](https://teknopulse.id/category/open-source/)
-- [Cloud](https://teknopulse.id/category/cloud/)
-- [Security](https://teknopulse.id/category/security/)
 - [DevTools](https://teknopulse.id/category/devtools/)
 
 ## Tulisan pilihan
