@@ -6,6 +6,8 @@ interface Props {
 
 const { postCategory, postTitle } = Astro.props;
 
+import { getCategorySlug } from '../utils/categories';
+
 const pathname = Astro.url.pathname;
 const segments = pathname.split('/').filter((s) => s !== '');
 
@@ -15,7 +17,7 @@ if (pathname.startsWith('/posts/') && postCategory && postTitle) {
   // Handle post pages: Home / Category / Post Title
   breadcrumbs.push({
     name: postCategory,
-    url: `/category/${postCategory.toLowerCase()}`,
+    url: `/category/${getCategorySlug(postCategory)}`,
   });
   breadcrumbs.push({
     name: postTitle,

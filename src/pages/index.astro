@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCategoryLabel, getCategoryToken } from '../utils/categories';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import HeroSection from '../components/HeroSection.astro';
@@ -76,9 +77,9 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
                   />
                   <div class="absolute top-3 left-3">
                     <span
-                      class={`category-badge category-${latestPosts[0].data.category.toLowerCase()}`}
+                      class={`category-badge category-${getCategoryToken(latestPosts[0].data.category)}`}
                     >
-                      {latestPosts[0].data.category}
+                      {getCategoryLabel(latestPosts[0].data.category)}
                     </span>
                   </div>
                 </div>

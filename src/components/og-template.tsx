@@ -53,7 +53,7 @@ export default function OgTemplate({ title, category, author, publishedAt }: OgT
               fontWeight: '600',
             }}
           >
-            {category}
+            {category === 'OpenSource' ? 'Open Source' : category}
           </div>
         )}
       </div>

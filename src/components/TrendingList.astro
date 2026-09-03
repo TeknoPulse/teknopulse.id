@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCategoryLabel, getCategoryToken } from '../utils/categories';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -31,8 +32,8 @@ const { posts } = Astro.props;
             
             <div class="flex-grow min-w-0">
               <div class="flex items-center gap-2 mb-1">
-                <span class={`category-badge category-${post.data.category.toLowerCase()}`}>
-                  {post.data.category}
+                <span class={`category-badge category-${getCategoryToken(post.data.category)}`}>
+                  {getCategoryLabel(post.data.category)}
                 </span>
               </div>
               <h3 class="text-base lg:text-lg font-semibold text-gray-900 dark:text-white line-clamp-2 mb-1 group-hover:text-primary dark:group-hover:text-orange-400 transition-colors">

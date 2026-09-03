@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCategoryLabel, getCategoryToken } from '../utils/categories';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -23,8 +24,8 @@ const { post, featured = false } = Astro.props;
         />
         {/* Category badge overlay */}
         <div class="absolute top-3 left-3">
-          <span class={`category-badge category-${post.data.category.toLowerCase()}`}>
-            {post.data.category}
+          <span class={`category-badge category-${getCategoryToken(post.data.category)}`}>
+            {getCategoryLabel(post.data.category)}
           </span>
         </div>
 
@@ -123,6 +124,11 @@ const { post, featured = false } = Astro.props;
     color: hsl(38, 90%, 55%);
   }
 
+  .category-open-source {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: hsl(220, 80%, 55%);
+  }
+
   /* Dark mode category styles */
   :global(.dark) .category-ai {
     background-color: rgba(139, 92, 246, 0.15);
@@ -147,6 +153,11 @@ const { post, featured = false } = Astro.props;
   :global(.dark) .category-policy {
     background-color: rgba(251, 146, 60, 0.15);
     color: hsl(38, 90%, 65%);
+  }
+
+  :global(.dark) .category-open-source {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: hsl(220, 80%, 65%);
   }
 
   /* Category badge hover animation */

@@ -16,6 +16,14 @@ export const categories: Record<string, Category> = {
     hoverColor: 'hsl(270, 80%, 60% / 0.2)',
     description: 'Machine Learning, AI models, research, and tools',
   },
+  OpenSource: {
+    name: 'Open Source',
+    slug: 'open-source',
+    color: 'hsl(220, 80%, 55%)', // Blue
+    bgColor: 'hsl(220, 80%, 55% / 0.1)',
+    hoverColor: 'hsl(220, 80%, 55% / 0.2)',
+    description: 'Open source tools, self-hosting, and free alternatives',
+  },
   Cloud: {
     name: 'Cloud',
     slug: 'cloud',
@@ -60,6 +68,25 @@ export const getCategoryBySlug = (slug: string): Category | undefined => {
 
 export const getAllCategories = (): Category[] => {
   return Object.values(categories);
+};
+
+// URL slug for a category name; falls back to lowercase name for unknown values.
+export const getCategorySlug = (name: string): string => {
+  return getCategoryByName(name)?.slug ?? name.toLowerCase();
+};
+
+// Display label (e.g. 'OpenSource' -> 'Open Source').
+export const getCategoryLabel = (name: string): string => {
+  return getCategoryByName(name)?.name ?? name;
+};
+
+// CSS token used by category-badge classes (token = slug).
+export const getCategoryToken = (name: string): string => {
+  return getCategorySlug(name);
+};
+
+export const getCategoryUrl = (name: string): string => {
+  return `/category/${getCategorySlug(name)}`;
 };
 
 export const getCategoryColorClasses = (categoryName: string): string => {
