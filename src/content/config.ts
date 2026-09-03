@@ -10,7 +10,7 @@ const posts = defineCollection({
       publishedAt: z.date(),
       updatedAt: z.date().optional(),
       tags: z.array(z.string()),
-      category: z.enum(['AI', 'Cloud', 'Security', 'DevTools', 'Policy']),
+      category: z.enum(['AI', 'OpenSource', 'Cloud', 'Security', 'DevTools', 'Policy']),
       author: z.string(),
       draft: z.boolean().default(false),
       coverImage: image().optional(),

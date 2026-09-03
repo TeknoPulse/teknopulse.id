@@ -1,22 +1,24 @@
 ---
 import { getCollection } from 'astro:content';
+import { getAllCategories, getCategoryBySlug } from '../../../utils/categories';
 import Layout from '../../../layouts/Layout.astro';
 import PostCard from '../../../components/PostCard.astro';
 import Pagination from '../../../components/Pagination.astro';
 
 export const prerender = true;
 
+// Generate a page for EVERY registered category (from categories.ts), even
+// ones with no posts yet, so header/footer links never 404. Slug is the
+// canonical URL key (e.g. 'open-source'), not the raw enum value.
 export async function getStaticPaths({ paginate }) {
   const posts = (await getCollection('posts'))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
-  const categories = [...new Set(posts.map((post) => post.data.category))];
-
-  return categories.flatMap((category) => {
-    const categoryPosts = posts.filter((post) => post.data.category === category);
+  return getAllCategories().flatMap((category) => {
+    const categoryPosts = posts.filter((post) => post.data.category === category.name);
     return paginate(categoryPosts, {
-      params: { category: category.toLowerCase() },
+      params: { category: category.slug },
       pageSize: 6,
     });
   });
@@ -24,20 +26,31 @@ export async function getStaticPaths({ paginate }) {
 
 const { page } = Astro.props;
 const { category } = Astro.params;
-const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+const categoryMeta = getCategoryBySlug(category);
+const categoryName = categoryMeta?.name ?? category;
 ---
 
 <Layout
   title={`${categoryName} - TeknoPulse`}
-  description={`Latest ${categoryName} news and articles`}
+  description={categoryMeta?.description ?? `Latest ${categoryName} news and articles`}
 >
   <main class="container mx-auto px-4 py-8">
     <div class="mb-8">
       <h1 class="mb-4 text-4xl font-bold">{categoryName}</h1>
       <p class="text-gray-600 dark:text-gray-400">
-        Latest news and articles about {categoryName}
+        {categoryMeta?.description ?? `Latest news and articles about ${categoryName}`}
       </p>
     </div>
+
+    {
+      page.data.length === 0 && (
+        <div class="rounded-lg border border-dashed border-gray-300 p-10 text-center dark:border-gray-700">
+          <p class="text-gray-500 dark:text-gray-400">
+            Belum ada artikel di kategori ini. Cek lagi segera!
+          </p>
+        </div>
+      )
+    }
 
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
       {page.data.map((post) => <PostCard post={post} />)}

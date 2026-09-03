@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCategoryLabel, getCategoryToken } from '../utils/categories';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -46,8 +47,8 @@ const formatDate = (date: Date) => {
             <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
             
             <div class="absolute top-4 left-4">
-              <span class={`category-badge category-${leadPost.data.category.toLowerCase()}`}>
-                {leadPost.data.category}
+              <span class={`category-badge category-${getCategoryToken(leadPost.data.category)}`}>
+                {getCategoryLabel(leadPost.data.category)}
               </span>
             </div>
           </div>
@@ -104,8 +105,10 @@ const formatDate = (date: Date) => {
               
               <div class="flex-1 min-w-0">
                 <div class="mb-1">
-                  <span class={`category-badge category-${post.data.category.toLowerCase()} !px-2 !py-0.5 !text-[10px]`}>
-                    {post.data.category}
+                  <span
+                    class={`category-badge category-${getCategoryToken(post.data.category)} !px-2 !py-0.5 !text-[10px]`}
+                  >
+                    {getCategoryLabel(post.data.category)}
                   </span>
                 </div>
                 <h2 class="text-base font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-primary transition-colors line-clamp-2">

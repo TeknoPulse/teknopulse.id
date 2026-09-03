@@ -1,12 +1,11 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getAllCategories } from '../../utils/categories';
 
-// Derive the category list from actual posts rather than introspecting the
-// Zod schema (collections.posts.schema is a factory fn, not a Zod object, so
-// .shape was undefined and threw under static prerender).
-const posts = await getCollection('posts');
-const categories = [...new Set(posts.map((post) => post.data.category))].sort();
+// Single source of truth: categories.ts (slug, display name, description).
+// Previously this derived the list from posts, which silently dropped
+// categories that had no articles yet.
+const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name));
 
 const title = 'All Categories';
 const description = 'Browse posts by category.';
@@ -19,11 +18,11 @@ const description = 'Browse posts by category.';
       {
         categories.map((category) => (
           <a
-            href={`/category/${category.toLowerCase()}`}
+            href={`/category/${category.slug}`}
             class="block rounded-lg border border-gray-200 p-6 shadow-md transition-shadow duration-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
           >
-            <h2 class="mb-2 text-2xl font-semibold">{category}</h2>
-            <p class="text-gray-600 dark:text-gray-400">View all posts in {category} category.</p>
+            <h2 class="mb-2 text-2xl font-semibold">{category.name}</h2>
+            <p class="text-gray-600 dark:text-gray-400">{category.description}</p>
           </a>
         ))
       }

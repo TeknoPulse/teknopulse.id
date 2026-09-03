@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { getCategoryLabel, getCategoryToken } from '../utils/categories';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -49,8 +50,8 @@ const featuredPosts = posts.slice(0, 3);
               <div class="p-6">
                 {/* Category badge */}
                 <div class="mb-3">
-                  <span class={`category-badge category-${post.data.category.toLowerCase()}`}>
-                    {post.data.category}
+                  <span class={`category-badge category-${getCategoryToken(post.data.category)}`}>
+                    {getCategoryLabel(post.data.category)}
                   </span>
                 </div>
 
