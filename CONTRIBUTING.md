@@ -103,7 +103,7 @@ When contributing blog posts:
    - **Title**: Clear and descriptive
    - **Summary**: 1-2 sentences explaining the post
    - **Tags**: Relevant keywords (3-5 tags)
-   - **Category**: One of: AI, OpenSource, Cloud, Security, DevTools
+   - **Category**: One of: AI, OpenSource, DevTools
    - **Content**: Well-structured with headings and paragraphs
 
 3. Content quality standards:
@@ -117,8 +117,6 @@ When contributing blog posts:
 
 - **AI**: Artificial Intelligence, Machine Learning, Neural Networks
 - **OpenSource**: Open source tools, self-hosting, free alternatives
-- **Cloud**: Cloud Computing, AWS, Azure, GCP, Infrastructure
-- **Security**: Cybersecurity, Data Protection, Privacy, Compliance
 - **DevTools**: Development Tools, IDEs, Frameworks, Libraries
 
 ## Component Development

@@ -50,8 +50,6 @@ module.exports = {
         // Category Color System
         'category-ai': 'hsl(270, 80%, 60%)', // Purple for AI articles
         'category-open-source': 'hsl(220, 80%, 55%)', // Blue for Open Source articles
-        'category-cloud': 'hsl(195, 80%, 50%)', // Cyan for Cloud articles
-        'category-security': 'hsl(0, 85%, 60%)', // Red for Security articles
         'category-devtools': 'hsl(140, 70%, 45%)', // Green for DevTools articles
 
         // Background Colors

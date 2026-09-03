@@ -3,7 +3,7 @@ title: "Azure Ramai-Lampaui $100 Miliar, Microsoft Kembali Pukulgila di Era AI"
 summary: "Microsoft Azure mencatat pertumbuhan 43% YoY pada Q4 FY2026, mendorong pendapatan tahunan melewati $100 miliar untuk pertama kalinya. Saham MSFT naik 25% dalam tiga hari."
 publishedAt: 2026-08-04T17:00:00+07:00
 tags: ["Microsoft", "Azure", "Cloud", "AI", "Tech"]
-category: Cloud
+category: AI
 author: "TeknoPulse Redaksi"
 coverImage: "../../assets/images/azure-ramai-100-miliar-16x9.png"
 draft: false

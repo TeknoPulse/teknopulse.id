@@ -35,7 +35,7 @@ This site is **static-output only**. SSR was intentionally dropped:
 ### Content layer
 
 - Posts: `src/content/posts/*.md`, schema in `src/content/config.ts`.
-- `category` is a **fixed enum**: `AI | OpenSource | Cloud | Security | DevTools`. The Policy pillar was removed 2026-09 (`/category/policy` 301-redirects to `/category/ai` via `public/_redirects`). To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `OpenSource` → `/category/open-source`).
+- `category` is a **fixed enum**: `AI | OpenSource | DevTools`. The Policy pillar was removed 2026-09 and Security + Cloud followed shortly after — their content lives in AI (security/cloud news is AI news; see `public/_redirects` for the 301 map). To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `OpenSource` → `/category/open-source`).
 - `draft: true` posts are excluded from builds, RSS, feeds, sitemaps, OG generation, and `llms-full.txt`. Set `draft: false` to publish.
 - Slug is derived from the filename; `slug` frontmatter is optional.
 - Cover images live in `src/assets/images/` and are referenced via Astro's `image()` helper. Many filenames begin with `=` (an artifact of a past slugifying bug) — leave them unless explicitly asked to clean up.

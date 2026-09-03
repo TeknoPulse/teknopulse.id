@@ -1,4 +1,11 @@
 # Cloudflare Pages redirects
-# Policy pillar dihapus 2026-09 — arahkan URL lama ke kategori terdekat
+# Konsolidasi pilar 2026-09:
+#   - Policy dihapus (PR #6)
+#   - Security & Cloud dihapus (PR #7) — konten security/AI-berita & cloud-berita
+#     memang hidup di kategori AI
 /category/policy/* /category/ai/:splat 301
 /category/policy /category/ai 301
+/category/security/* /category/ai/:splat 301
+/category/security /category/ai 301
+/category/cloud/* /category/ai/:splat 301
+/category/cloud /category/ai 301
