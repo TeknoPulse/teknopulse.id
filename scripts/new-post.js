@@ -26,7 +26,7 @@ const slug = title
 const now = new Date();
 const publishedAt = now.toISOString();
 
-const categories = ['AI', 'OpenSource', 'Cloud', 'Security', 'DevTools', 'Policy'];
+const categories = ['AI', 'OpenSource', 'Cloud', 'Security', 'DevTools'];
 console.log('Available categories:', categories.join(', '));
 const category = 'AI'; // Default category, can be changed manually
 
