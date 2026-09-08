@@ -1,0 +1,418 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NewsletterCTA from '../components/NewsletterCTA.astro';
+
+const lastUpdated = '8 September 2026';
+
+type Tool = {
+  name: string;
+  url: string;
+  pricing: 'Gratis' | 'Freemium' | 'Berbayar';
+  priceNote: string;
+  why: string;
+};
+
+type Section = {
+  id: string;
+  title: string;
+  blurb: string;
+  tools: Tool[];
+};
+
+const sections: Section[] = [
+  {
+    id: 'asisten-chatbot',
+    title: 'Asisten AI & Chatbot',
+    blurb: 'Untuk tanya-jawab, brainstorming, dan bantuan tugas harian.',
+    tools: [
+      {
+        name: 'ChatGPT',
+        url: 'https://chatgpt.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Plus mulai sekitar US$20/bulan',
+        why: 'Standar de-facto AI asisten. Memahami bahasa Indonesia dengan baik dan cukup serbaguna untuk menulis, menganalisis data, belajar, hingga generate gambar.',
+      },
+      {
+        name: 'Claude',
+        url: 'https://claude.ai',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Pro mulai sekitar US$20/bulan',
+        why: 'Favorit untuk menulis dan menganalisis dokumen panjang. Gaya bahasanya natural sehingga nyaman dipakai menyunting konten bahasa Indonesia.',
+      },
+      {
+        name: 'Gemini',
+        url: 'https://gemini.google.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; paket AI Pro berbayar tersedia',
+        why: 'Terintegrasi dengan ekosistem Google — Gmail, Docs, dan Android. Pilihan praktis jika kerja harianmu berlangsung di Google Workspace.',
+      },
+      {
+        name: 'Microsoft Copilot',
+        url: 'https://copilot.microsoft.com',
+        pricing: 'Gratis',
+        priceNote: 'Gratis',
+        why: 'Bawaan Windows dan Bing. Kuat untuk ringkasan web real-time dan terintegrasi dengan aplikasi Microsoft 365.',
+      },
+      {
+        name: 'DeepSeek',
+        url: 'https://chat.deepseek.com',
+        pricing: 'Gratis',
+        priceNote: 'Gratis; API dengan biaya sangat kompetitif',
+        why: 'Model reasoning dengan biaya paling agresif di pasaran. Alternatif gratis yang layak saat kuota tool berbayar habis.',
+      },
+      {
+        name: 'Grok',
+        url: 'https://grok.com',
+        pricing: 'Freemium',
+        priceNote: 'Tersedia paket gratis terbatas; SuperGrok berbayar',
+        why: 'Asisten AI dari xAI dengan akses informasi real-time dari X. Menarik jika kamu aktif berdiskusi di platform tersebut.',
+      },
+      {
+        name: 'Sahabat-AI',
+        url: 'https://huggingface.co/GoToCompany',
+        pricing: 'Gratis',
+        priceNote: 'Gratis dan open-source',
+        why: 'LLM buatan GoTo dan Indosat Ooredoo Hutchison yang dilatih khusus untuk bahasa Indonesia dan bahasa daerah. Pilihan lokal untuk developer yang butuh model dengan konteks Indonesia.',
+      },
+    ],
+  },
+  {
+    id: 'riset-menulis',
+    title: 'Riset & Menulis',
+    blurb: 'Untuk mencari informasi, merangkum, dan menyunting tulisan.',
+    tools: [
+      {
+        name: 'Perplexity',
+        url: 'https://www.perplexity.ai',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Pro sekitar US$20/bulan',
+        why: 'Mesin jawaban dengan sitasi sumber yang bisa ditelusuri. Mempercepat riset karena setiap klaim mudah diverifikasi.',
+      },
+      {
+        name: 'NotebookLM',
+        url: 'https://notebooklm.google.com',
+        pricing: 'Gratis',
+        priceNote: 'Gratis dengan akun Google',
+        why: 'Rangkum dan tanya-jawab dokumen milikmu sendiri, dari paper sampai catatan rapat. Fitur Audio Overview mengubah materi jadi diskusi ala podcast.',
+      },
+      {
+        name: 'Notion AI',
+        url: 'https://www.notion.so',
+        pricing: 'Berbayar',
+        priceNote: 'Add-on berbayar di atas paket Notion',
+        why: 'Menulis, meringkas, dan menata proyek langsung di workspace tempat kerjamu berlangsung. Praktis jika tim sudah memakai Notion.',
+      },
+      {
+        name: 'Grammarly',
+        url: 'https://www.grammarly.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Premium berbayar',
+        why: 'Korektor tulisan bahasa Inggris — berguna untuk email, CV, atau konten internasional. Bukan alat untuk menyunting bahasa Indonesia.',
+      },
+    ],
+  },
+  {
+    id: 'gambar-desain',
+    title: 'Gambar & Desain',
+    blurb: 'Untuk membuat ilustrasi, poster, thumbnail, dan aset visual.',
+    tools: [
+      {
+        name: 'Canva Magic Studio',
+        url: 'https://www.canva.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Pro berbayar',
+        why: 'Suite desain paling populer di Indonesia. Fitur AI-nya seperti Magic Write dan Magic Edit menyatu dengan alur kerja desain harian.',
+      },
+      {
+        name: 'Midjourney',
+        url: 'https://www.midjourney.com',
+        pricing: 'Berbayar',
+        priceNote: 'Berlangganan, tanpa paket gratis',
+        why: 'Kualitas visual tertinggi untuk ilustrasi dan konsep. Pilihan utama desainer profesional dengan anggaran khusus.',
+      },
+      {
+        name: 'Leonardo AI',
+        url: 'https://leonardo.ai',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis setiap hari',
+        why: 'Generator gambar dengan kuota gratis harian. Alternatif realistis sebelum memutuskan berlangganan tool premium.',
+      },
+      {
+        name: 'Ideogram',
+        url: 'https://ideogram.ai',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; paket Plus berbayar',
+        why: 'Paling andal menampilkan teks yang rapi di dalam gambar — cocok untuk poster, spanduk, dan thumbnail dengan tulisan.',
+      },
+    ],
+  },
+  {
+    id: 'video-suara-musik',
+    title: 'Video, Suara & Musik',
+    blurb: 'Untuk produksi konten video, voice-over, dan audio.',
+    tools: [
+      {
+        name: 'CapCut',
+        url: 'https://www.capcut.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Pro berbayar',
+        why: 'Editor video dengan banyak fitur AI seperti auto-caption dan background remover. Standar de-facto kreator TikTok dan Reels di Indonesia.',
+      },
+      {
+        name: 'ElevenLabs',
+        url: 'https://elevenlabs.io',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis; paket mulai sekitar US$5/bulan',
+        why: 'Text-to-speech paling natural dan mendukung bahasa Indonesia. Cocok untuk voice-over video, audiobook, dan podcast.',
+      },
+      {
+        name: 'Suno',
+        url: 'https://suno.com',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis harian; paket berbayar tersedia',
+        why: 'Membuat lagu lengkap dari prompt teks — dari jingle podcast sampai musik latar untuk konten.',
+      },
+      {
+        name: 'Runway',
+        url: 'https://runwayml.com',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis; paket berbayar tersedia',
+        why: 'Video generatif kelas produksi untuk b-roll dan efek yang sulit dibuat manual. Butuh waktu belajar, hasilnya sepadan.',
+      },
+      {
+        name: 'HeyGen',
+        url: 'https://www.heygen.com',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis terbatas; paket berbayar tersedia',
+        why: 'Avatar video AI dan terjemahan video dengan sinkronisasi bibir, mendukung bahasa Indonesia. Efisien untuk konten multi-bahasa.',
+      },
+    ],
+  },
+  {
+    id: 'produktivitas-bisnis',
+    title: 'Produktivitas & Bisnis',
+    blurb: 'Untuk rapat, presentasi, dan otomasi pekerjaan.',
+    tools: [
+      {
+        name: 'Gamma',
+        url: 'https://gamma.app',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis; Pro berbayar',
+        why: 'Menghasilkan presentasi yang rapi dari satu prompt. Penghemat waktu terbesar untuk kebutuhan presentasi mingguan.',
+      },
+      {
+        name: 'Zapier',
+        url: 'https://zapier.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis untuk paket dasar',
+        why: 'Menghubungkan ratusan aplikasi dengan langkah AI di tengah alurnya. Otomasi tanpa perlu coding.',
+      },
+      {
+        name: 'Notta',
+        url: 'https://www.notta.ai',
+        pricing: 'Freemium',
+        priceNote: 'Gratis terbatas; Pro berbayar',
+        why: 'Transkripsi rapat dan wawancara yang mendukung bahasa Indonesia. Rekam sekalian jadi dokumen yang bisa dicari.',
+      },
+    ],
+  },
+  {
+    id: 'coding-development',
+    title: 'Coding & Development',
+    blurb: 'Untuk programmer yang ingin menulis dan merapikan kode lebih cepat.',
+    tools: [
+      {
+        name: 'GitHub Copilot',
+        url: 'https://github.com/features/copilot',
+        pricing: 'Freemium',
+        priceNote: 'Paket gratis terbatas untuk akun individu',
+        why: 'Asisten coding langsung di dalam editor. Free tier resminya membuatnya jadi titik awal paling mudah.',
+      },
+      {
+        name: 'Cursor',
+        url: 'https://cursor.com',
+        pricing: 'Freemium',
+        priceNote: 'Gratis; Pro sekitar US$20/bulan',
+        why: 'Code editor AI-first yang populer di kalangan developer. Mampu memahami konteks seluruh proyek untuk perubahan lintas file.',
+      },
+      {
+        name: 'v0',
+        url: 'https://v0.dev',
+        pricing: 'Freemium',
+        priceNote: 'Kuota gratis; Premium berbayar',
+        why: 'Menghasilkan komponen UI siap pakai dari deskripsi teks. Praktis untuk prototipe frontend dalam hitungan menit.',
+      },
+    ],
+  },
+];
+
+const totalTools = sections.reduce((sum, s) => sum + s.tools.length, 0);
+
+const badgeClass: Record<Tool['pricing'], string> = {
+  Gratis: 'shrink-0 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
+  Freemium:
+    'shrink-0 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
+  Berbayar:
+    'shrink-0 rounded-full bg-rose-100 px-2.5 py-0.5 text-xs font-medium text-rose-800 dark:bg-rose-900/40 dark:text-rose-300',
+};
+
+const faqs = [
+  {
+    q: 'AI tools mana yang paling cocok untuk pemula?',
+    a: 'Mulailah dari ChatGPT atau Gemini. Keduanya punya paket gratis, serbaguna, dan memahami bahasa Indonesia dengan baik. Setelah terbiasa, tambahkan tool spesifik sesuai kebutuhan — misalnya Canva untuk desain atau CapCut untuk video.',
+  },
+  {
+    q: 'Apakah semua tool di daftar ini mendukung bahasa Indonesia?',
+    a: 'Mayoritas asisten dan tool menulis memahami bahasa Indonesia dengan baik. Beberapa memang dikhususkan untuk bahasa Inggris seperti Grammarly, dan hal itu sudah kami tandai dengan jelas di setiap entri.',
+  },
+  {
+    q: 'Berapa biaya rata-rata untuk memakai AI tools?',
+    a: 'Hampir semua tool di daftar ini punya paket gratis atau kuota gratis harian. Paket berbayar umumnya berkisar US$5 sampai US$20 per bulan. Harga bisa berubah sewaktu-waktu, jadi selalu cek situs resminya sebelum berlangganan.',
+  },
+  {
+    q: 'Bagaimana cara TeknoPulse mengkurasi daftar ini?',
+    a: 'Setiap tool dinilai dari kualitas output, dukungan bahasa Indonesia, nilai versus harga, dan kemudahan untuk mulai dipakai. Daftar ini dikurasi manual dan diperbarui secara berkala — tool yang tidak lagi relevan akan kami keluarkan.',
+  },
+  {
+    q: 'Apakah aman memakai AI tools untuk data pekerjaan?',
+    a: 'Hindari memasukkan data sensitif atau rahasia perusahaan ke tool gratis tanpa membaca kebijakan privasinya. Gunakan paket bisnis yang menawarkan kontrol data lebih ketat bila datamu memang sensitif.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
+---
+
+<Layout
+  title={`${totalTools} AI Tools Terbaik untuk Pengguna Indonesia (2026)`}
+  description={`Kurasi ${totalTools} AI tools terbaik untuk pengguna Indonesia: chatbot, desain, video, produktivitas, dan coding. Ada opsi gratis, catatan dukungan bahasa Indonesia, dan tips memilih.`}
+>
+  <main class="container mx-auto px-4 py-8">
+    <div class="mx-auto max-w-5xl">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-primary dark:text-accent">
+        Direktori AI Tools
+      </p>
+      <h1 class="mb-4 text-4xl font-bold md:text-5xl">
+        {totalTools} AI Tools Terbaik untuk Pengguna Indonesia
+      </h1>
+      <div
+        class="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 dark:text-gray-400"
+      >
+        <span>Terakhir diperbarui: {lastUpdated}</span>
+        <span aria-hidden="true">•</span>
+        <span>Dikurasi manual oleh tim TeknoPulse</span>
+      </div>
+      <p class="mb-8 max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+        Bukan sekadar daftar panjang. Setiap tool di halaman ini dipilih dan dinilai dari sisi yang
+        paling relevan buat pengguna Indonesia: kualitas hasil, dukungan bahasa Indonesia, harga
+        termasuk opsi gratisnya, dan mudah tidaknya mulai dipakai. Pilih kategorinya, lalu temukan
+        yang paling cocok dengan kebutuhanmu.
+      </p>
+
+      <nav aria-label="Kategori AI tools" class="mb-10 flex flex-wrap gap-2">
+        {
+          sections.map((section) => (
+            <a
+              href={`#${section.id}`}
+              class="rounded-full border border-gray-200 bg-surface px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary dark:border-gray-800 dark:bg-surface-dark dark:text-gray-300 dark:hover:border-accent dark:hover:text-accent"
+            >
+              {section.title}
+              <span class="text-gray-400 dark:text-gray-500"> ({section.tools.length})</span>
+            </a>
+          ))
+        }
+      </nav>
+
+      {
+        sections.map((section) => (
+          <section id={section.id} class="scroll-mt-24 py-8">
+            <h2 class="mb-2 text-2xl font-bold md:text-3xl">{section.title}</h2>
+            <p class="mb-6 text-gray-600 dark:text-gray-400">{section.blurb}</p>
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {section.tools.map((tool) => (
+                <article class="flex flex-col rounded-lg border border-gray-200 bg-surface p-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-surface-dark">
+                  <div class="mb-2 flex items-start justify-between gap-2">
+                    <h3 class="text-lg font-semibold">
+                      <a
+                        href={tool.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="transition-colors hover:text-primary dark:hover:text-accent"
+                      >
+                        {tool.name}
+                      </a>
+                    </h3>
+                    <span class={badgeClass[tool.pricing]}>{tool.pricing}</span>
+                  </div>
+                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">{tool.priceNote}</p>
+                  <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                    {tool.why}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      <section
+        class="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-6 dark:border-gray-800 dark:bg-surface-dark"
+      >
+        <h2 class="mb-3 text-xl font-bold">Cara kami mengkurasi daftar ini</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+          <li>Tool dites langsung oleh tim, bukan sekadar kumpulan nama dari daftar lain.</li>
+          <li>
+            Dinilai dari kualitas output, dukungan bahasa Indonesia, nilai versus harga, dan
+            kemudahan awal untuk mulai dipakai.
+          </li>
+          <li>Hanya tool yang masih aktif dan relevan per tanggal pembaruan yang masuk daftar.</li>
+          <li>
+            Harga dan fitur tool AI berubah cepat — selalu cek situs resmi sebelum berlangganan.
+          </li>
+        </ul>
+      </section>
+
+      <section class="py-10">
+        <h2 class="mb-6 text-2xl font-bold md:text-3xl">Pertanyaan Umum</h2>
+        <div class="space-y-3">
+          {
+            faqs.map((faq) => (
+              <details class="rounded-lg border border-gray-200 bg-surface p-4 dark:border-gray-800 dark:bg-surface-dark">
+                <summary class="cursor-pointer font-semibold">{faq.q}</summary>
+                <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+                  {faq.a}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </section>
+
+      <section
+        class="mb-8 rounded-lg border border-gray-200 bg-surface p-6 text-center dark:border-gray-800 dark:bg-surface-dark"
+      >
+        <h2 class="mb-2 text-xl font-bold">Ikuti Perkembangan AI Lebih Jauh</h2>
+        <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+          Berita, analisis, dan update terbaru dunia AI untuk pengguna Indonesia.
+        </p>
+        <a
+          href="/category/ai"
+          class="btn-primary inline-block rounded-lg px-6 py-2.5 font-semibold text-white transition-colors hover:bg-primary-hover"
+        >
+          Lihat Berita AI Terbaru
+        </a>
+      </section>
+
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    </div>
+
+    <NewsletterCTA />
+  </main>
+</Layout>
