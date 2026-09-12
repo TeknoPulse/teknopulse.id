@@ -17,22 +17,36 @@ export async function getStaticPaths({ paginate }) {
     const tagPosts = posts.filter((post) => post.data.tags.includes(tag));
     return paginate(tagPosts, {
       params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
+      // tagLabel = nama tag asli (bukan versi slug); tagCount untuk noindex
+      // halaman tipis (TEKAA-3 P1-8).
+      props: { tagLabel: tag, tagCount: tagPosts.length },
       pageSize: 6,
     });
   });
 }
 
-const { page } = Astro.props;
+const { page, tagLabel, tagCount = 0 } = Astro.props;
 const { tag } = Astro.params;
-const tagName = tag.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+const tagName = tagLabel ?? tag.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+
+// Judul unik per paginasi + noindex untuk halaman tipis/paginasi
+// (TEKAA-3 P1-8): tag ≤1 artikel dan halaman ≥2 tidak punya nilai unik —
+// dikeluarkan dari sitemap (scripts/sitemap-exclusions.mjs) dan noindex.
+const isPaginated = page.currentPage > 1;
+const isThin = tagCount <= 1;
+const title = isPaginated ? `${tagName} — Halaman ${page.currentPage}` : tagName;
+const description = `Kumpulan artikel TeknoPulse dengan topik "${tagName}"${
+  isPaginated ? `, halaman ${page.currentPage}` : ''
+}.`;
+const robots = isPaginated || isThin ? 'noindex, follow' : 'index, follow';
 ---
 
-<Layout title={`${tagName} - TeknoPulse`} description={`Posts tagged with ${tagName}`}>
+<Layout title={title} description={description} robots={robots}>
   <main class="container mx-auto px-4 py-8">
     <div class="mb-8">
       <h1 class="mb-4 text-4xl font-bold">#{tagName}</h1>
       <p class="text-gray-600 dark:text-gray-400">
-        Posts tagged with "{tagName}"
+        Kumpulan artikel dengan topik "{tagName}"
       </p>
     </div>
 

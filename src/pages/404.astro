@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Halaman 404 (TEKAA-3 P0-1). Tanpa file ini Cloudflare Pages menjalankan
+// SPA-fallback ke index.html — URL apa pun balik HTTP 200 dengan konten
+// homepage (soft-404). `dist/404.html` otomatis disajikan Pages dengan
+// status 404 untuk path yang tidak dikenal.
+const title = 'Halaman Tidak Ditemukan';
+const description =
+  'Halaman yang Anda cari tidak ditemukan atau sudah dipindahkan. Jelajahi berita teknologi terbaru di TeknoPulse.';
+---
+
+<Layout title={title} description={description}>
+  <main
+    class="container mx-auto flex min-h-[50vh] flex-col items-center justify-center px-4 py-16 text-center"
+  >
+    <p class="text-7xl font-bold text-primary">404</p>
+    <h1 class="mt-4 text-3xl font-bold text-text-primary dark:text-gray-100">
+      Halaman tidak ditemukan
+    </h1>
+    <p class="mt-3 max-w-md text-gray-600 dark:text-gray-400">
+      Alamat yang Anda buka tidak ada atau sudah dipindahkan. Coba mulai dari beranda atau cari
+      artikel lain.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a
+        href="/"
+        class="rounded-md bg-primary px-5 py-2.5 font-medium text-white transition-colors hover:bg-primary-hover"
+      >
+        Ke Beranda
+      </a>
+      <a
+        href="/search"
+        class="rounded-md border border-gray-300 px-5 py-2.5 font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800"
+      >
+        Cari Artikel
+      </a>
+    </div>
+  </main>
+</Layout>

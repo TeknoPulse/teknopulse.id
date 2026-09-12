@@ -1,0 +1,11 @@
+# Cloudflare Pages custom headers (TEKAA-3 P1-6).
+#
+# Aset ber-hash (nama file berubah tiap build) aman di-cache setahun immutable.
+# Sebelumnya semua /_astro/* hanya max-age=14400 (4 jam) — repeat visit
+# mengunduh ulang CSS/gambar yang sama. HTML sengaja tidak diatur di sini:
+# Pages memakai max-age=0 + must-revalidate sehingga deploy langsung live.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/pagefind/*
+  Cache-Control: public, max-age=31536000, immutable

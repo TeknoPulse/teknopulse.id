@@ -1,0 +1,48 @@
+---
+// Analytics privasi-friendly (kelas Plausible/Umami) untuk seluruh halaman —
+// dirender sekali di <head> Layout.astro (TEKAA-3).
+//
+// Tidak ada skrip yang dirender sampai provider diaktifkan lewat env var
+// build, sehingga situs tetap zero-JS sampai akun analytics tersedia.
+// Aktifasi: set env var di Cloudflare Pages → Settings → Variables:
+//
+//   Plausible (cloud, berlangganan):
+//     PUBLIC_ANALYTICS_PROVIDER=plausible
+//     PUBLIC_ANALYTICS_DOMAIN=teknopulse.id
+//
+//   Umami (cloud free / self-host):
+//     PUBLIC_ANALYTICS_PROVIDER=umami
+//     PUBLIC_ANALYTICS_SRC=https://<host-umami>/script.js
+//     PUBLIC_ANALYTICS_ID=<website-id>
+//
+//   Cloudflare Web Analytics (gratis, satu dashboard dengan Pages):
+//     PUBLIC_ANALYTICS_PROVIDER=cloudflare
+//     PUBLIC_ANALYTICS_ID=<beacon-token>
+const env = import.meta.env;
+const provider = env.PUBLIC_ANALYTICS_PROVIDER;
+const domain = env.PUBLIC_ANALYTICS_DOMAIN; // Plausible: situs yang dilacak
+const src = env.PUBLIC_ANALYTICS_SRC; // Umami: URL script.js instance
+const id = env.PUBLIC_ANALYTICS_ID; // Umami: website id · Cloudflare: beacon token
+
+const active =
+  (provider === 'plausible' && !!domain) ||
+  (provider === 'umami' && !!src && !!id) ||
+  (provider === 'cloudflare' && !!id);
+---
+
+{
+  active && provider === 'plausible' && (
+    <script is:inline defer data-domain={domain} src="https://plausible.io/js/script.js" />
+  )
+}
+{active && provider === 'umami' && <script is:inline defer src={src} data-website-id={id} />}
+{
+  active && provider === 'cloudflare' && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={JSON.stringify({ token: id })}
+    />
+  )
+}

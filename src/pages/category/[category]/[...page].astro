@@ -19,21 +19,29 @@ export async function getStaticPaths({ paginate }) {
     const categoryPosts = posts.filter((post) => post.data.category === category.name);
     return paginate(categoryPosts, {
       params: { category: category.slug },
+      props: { categoryCount: categoryPosts.length },
       pageSize: 6,
     });
   });
 }
 
-const { page } = Astro.props;
+const { page, categoryCount = 0 } = Astro.props;
 const { category } = Astro.params;
 const categoryMeta = getCategoryBySlug(category);
 const categoryName = categoryMeta?.name ?? category;
+
+// Judul unik per paginasi (TEKAA-3 P1-8); paginasi & kategori kosong
+// noindex,follow dan dikeluarkan dari sitemap (scripts/sitemap-exclusions.mjs).
+const isPaginated = page.currentPage > 1;
+const isEmpty = categoryCount === 0;
+const title = isPaginated ? `${categoryName} — Halaman ${page.currentPage}` : categoryName;
+const description = `${categoryMeta?.description ?? `Latest news and articles about ${categoryName}`}${
+  isPaginated ? ` — Halaman ${page.currentPage}.` : ''
+}`;
+const robots = isPaginated || isEmpty ? 'noindex, follow' : 'index, follow';
 ---
 
-<Layout
-  title={`${categoryName} - TeknoPulse`}
-  description={categoryMeta?.description ?? `Latest ${categoryName} news and articles`}
->
+<Layout title={title} description={description} robots={robots}>
   <main class="container mx-auto px-4 py-8">
     <div class="mb-8">
       <h1 class="mb-4 text-4xl font-bold">{categoryName}</h1>
