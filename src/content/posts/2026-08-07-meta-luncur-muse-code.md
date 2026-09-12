@@ -1,12 +1,12 @@
 ﻿---
-title: "Meta Luncurkan Muse Code, AI Coding Agent dengan Harga Menggiurkan"
-summary: "Muse Code menawarkan kemampuan coding berbasis AI dengan harga jauh lebih murah dari kompetitornya, langsung menantang Claude Code dan Codex."
+title: 'Meta Luncurkan Muse Code, AI Coding Agent dengan Harga Menggiurkan'
+summary: 'Muse Code menawarkan kemampuan coding berbasis AI dengan harga jauh lebih murah dari kompetitornya, langsung menantang Claude Code dan Codex.'
 publishedAt: 2026-08-07T06:00:00+07:00
-tags: ["AI", "Meta", "Coding", "Developer"]
+tags: ['AI', 'Meta', 'Coding', 'Developer']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-08-07-meta-luncur-muse-code-16x9.png"
+coverImage: '../../assets/images/2026-08-07-meta-luncur-muse-code-16x9.png'
 ---
 
 # Meta Luncurkan Muse Code, AI Coding Agent dengan Harga Menggiurkan

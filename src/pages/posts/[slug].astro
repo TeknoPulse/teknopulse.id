@@ -3,6 +3,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { calculateReadingTime } from '../../utils/readingTime';
+import { getAuthor, getAuthorUrl } from '../../utils/authors';
 import ShareButtons from '../../components/ShareButtons.astro';
 import GiscusComments from '../../components/GiscusComments.astro';
 import { Image } from 'astro:assets';
@@ -12,17 +13,32 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+
+  // og:image harus unik per artikel (TEKAA-5): coverImage yang dipakai
+  // bersama oleh ≥2 artikel tidak boleh jadi og:image — ganti dengan kartu
+  // OG hasil generate `/og/<slug>.png` yang unik per slug.
+  const coverUsage = new Map<string, number>();
+  for (const p of posts) {
+    const src = p.data.coverImage?.src;
+    if (src) coverUsage.set(src, (coverUsage.get(src) ?? 0) + 1);
+  }
+
+  return posts.map((post) => {
+    const coverSrc = post.data.coverImage?.src;
+    const coverShared = !!coverSrc && (coverUsage.get(coverSrc) ?? 0) > 1;
+    const ogImage =
+      post.data.ogImage ??
+      (post.data.coverImage && !coverShared ? post.data.coverImage : `/og/${post.slug}.png`);
+    return { params: { slug: post.slug }, props: { post, ogImage } };
+  });
 }
 
 interface Props {
   post: CollectionEntry<'posts'>;
+  ogImage: CollectionEntry<'posts'>['data']['coverImage'] | string;
 }
 
-const { post } = Astro.props;
+const { post, ogImage } = Astro.props;
 
 if (!post) {
   return Astro.redirect('/404');
@@ -31,29 +47,53 @@ if (!post) {
 // ✅ Render konten Markdown
 const { Content } = await post.render();
 
-// Hitung waktu baca
-const readingTime = calculateReadingTime(post.body);
+// Hitung waktu baca (fallback ke perhitungan dari isi bila frontmatter kosong)
+const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
 
-// Ambil postingan terkait berdasarkan tag
+// Penulis terdaftar → byline jadi tautan ke halaman profil + author.url JSON-LD
+const author = getAuthor(post.data.author);
+
+// Meta description dikelola per artikel (120–155 karakter); fallback ke summary
+const description = post.data.metaDescription ?? post.data.summary;
+
+// Tanggal pembaruan hanya ditampilkan bila beda hari dari tanggal terbit
+const updated =
+  post.data.updatedAt &&
+  post.data.updatedAt.toISOString().slice(0, 10) !==
+    post.data.publishedAt.toISOString().slice(0, 10)
+    ? post.data.updatedAt
+    : undefined;
+
+// Ambil postingan terkait berdasarkan tag, urut terbaru (TEKAA-3 P0-5).
+// Fallback: kalau tidak ada yang se-tag, pakai artikel terbaru lain supaya
+// setiap artikel selalu punya tautan internal di dalam konten.
 const allPosts = await getCollection('posts');
-const relatedPosts = allPosts
-  .filter(
-    (p) =>
-      p.slug !== post.slug &&
-      (p.data.tags ?? []).some((tag) => (post.data.tags ?? []).includes(tag))
-  )
-  .slice(0, 3);
+const otherPosts = allPosts
+  .filter((p) => p.slug !== post.slug && !p.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const tagRelated = otherPosts.filter((p) =>
+  (p.data.tags ?? []).some((tag) => (post.data.tags ?? []).includes(tag))
+);
+const relatedPosts = (tagRelated.length > 0 ? tagRelated : otherPosts).slice(0, 3);
+
+const faq = post.data.faq ?? [];
 ---
 
 <Layout
   title={post.data.title}
-  description={post.data.summary}
-  image={post.data.coverImage}
+  description={description}
+  image={ogImage}
+  imageAlt={post.data.title}
   article={{
     publishedTime: post.data.publishedAt.toISOString(),
     modifiedTime: post.data.updatedAt?.toISOString(),
-    author: post.data.author,
+    author: {
+      name: author?.name ?? post.data.author,
+      url: author ? getAuthorUrl(author) : undefined,
+    },
     tags: post.data.tags,
+    category: post.data.category,
+    faq,
   }}
   postCategory={post.data.category}
   postTitle={post.data.title}
@@ -68,6 +108,8 @@ const relatedPosts = allPosts
               alt={post.data.title}
               width={1024}
               height={426}
+              loading="eager"
+              fetchpriority="high"
               class="mb-6 h-64 w-full rounded-lg object-cover"
             />
           )
@@ -75,14 +117,38 @@ const relatedPosts = allPosts
 
         <h1 class="mb-4 text-4xl font-bold">{post.data.title}</h1>
 
-        <div class="mb-4 flex items-center text-sm text-gray-600 dark:text-gray-400">
-          <span>By {post.data.author}</span>
+        <div class="mb-4 flex flex-wrap items-center text-sm text-gray-600 dark:text-gray-400">
+          <span>
+            Oleh
+            {
+              author ? (
+                <a href={getAuthorUrl(author)} class="hover:text-primary hover:underline">
+                  {author.name}
+                </a>
+              ) : (
+                <span>{post.data.author}</span>
+              )
+            }
+          </span>
           <span class="mx-2">•</span>
           <time datetime={post.data.publishedAt.toISOString()}>
             {new Date(post.data.publishedAt).toLocaleDateString('id-ID')}
           </time>
+          {
+            updated && (
+              <>
+                <span class="mx-2">•</span>
+                <span>
+                  Diperbarui{' '}
+                  <time datetime={updated.toISOString()}>
+                    {new Date(updated).toLocaleDateString('id-ID')}
+                  </time>
+                </span>
+              </>
+            )
+          }
           <span class="mx-2">•</span>
-          <span>{readingTime} min read</span>
+          <span>{readingTime} mnt baca</span>
         </div>
 
         <div class="mb-6 flex flex-wrap gap-2">
@@ -102,6 +168,24 @@ const relatedPosts = allPosts
       <div class="prose prose-lg max-w-none dark:prose-invert">
         <Content />
       </div>
+
+      {
+        faq.length > 0 && (
+          <section class="mt-10" aria-labelledby="faq-heading">
+            <h2 id="faq-heading" class="mb-4 text-2xl font-bold">
+              Pertanyaan yang Sering Diajukan
+            </h2>
+            <div class="space-y-6">
+              {faq.map((item) => (
+                <div>
+                  <h3 class="text-lg font-semibold">{item.question}</h3>
+                  <p class="mt-1 text-gray-700 dark:text-gray-300">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )
+      }
 
       <ShareButtons title={post.data.title} url={`/posts/${post.slug}`} />
 

@@ -1,12 +1,12 @@
 ---
-title: "OpenAI Hentikan Pengembangan Model Astra, Bentuk Baru Tanggung Jawab AI?"
-summary: "OpenAI secara historis memberhentikan pengembangan model AI generasi berikutnya, Astra, karena dinilai memiliki risiko siber kritis. Keputusan ini jadi yang pertama di industri AI."
+title: 'OpenAI Hentikan Pengembangan Model Astra, Bentuk Baru Tanggung Jawab AI?'
+summary: 'OpenAI secara historis memberhentikan pengembangan model AI generasi berikutnya, Astra, karena dinilai memiliki risiko siber kritis. Keputusan ini jadi yang pertama di industri AI.'
 publishedAt: 2026-08-11T17:00:00+07:00
-tags: ["AI", "Keamanan Siber", "OpenAI", "Teknologi"]
+tags: ['AI', 'Keamanan Siber', 'OpenAI', 'Teknologi']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-08-11-openai-astra-moratorium-keamanan-16x9.png"
+coverImage: '../../assets/images/2026-08-11-openai-astra-moratorium-keamanan-16x9.png'
 ---
 
 # OpenAI Hentikan Pengembangan Model Astra, Bentuk Baru Tanggung Jawab AI?
@@ -17,13 +17,13 @@ Keputusan ini bukan sekadar penundaan biasa. Ini adalah kali pertama sebuah labo
 
 ## Apa yang Ditemukan dalam Evaluasi Internal Astra
 
-Menurut informasi dari TechCrunch, The Wall Street Journal, The Guardian, dan Bloomberg, evaluasi internal OpenAI menunjukkan bahwa Astra telah mencatat kemajuan signifikan dalam beberapa bidang, termasuk kecerdasan buatan berbasis agen (*agentic AI*) dan kapabilitas keamanan siber. Kemajuan di dua area ini secara bersamaan meningkatkan kekhawatiran tim keselamatan perusahaan.
+Menurut informasi dari TechCrunch, The Wall Street Journal, The Guardian, dan Bloomberg, evaluasi internal OpenAI menunjukkan bahwa Astra telah mencatat kemajuan signifikan dalam beberapa bidang, termasuk kecerdasan buatan berbasis agen (_agentic AI_) dan kapabilitas keamanan siber. Kemajuan di dua area ini secara bersamaan meningkatkan kekhawatiran tim keselamatan perusahaan.
 
-Secara khusus, OpenAI menyatakan bahwa mereka tidak dapat mengesampingkan kemungkinan bahwa Astra mencapai apa yang mereka definisikan sebagai ambang batas siber "kritis" (*critical threshold*) dalam kerangka keselamatan mereka, yang disebut "Prepare Framework."
+Secara khusus, OpenAI menyatakan bahwa mereka tidak dapat mengesampingkan kemungkinan bahwa Astra mencapai apa yang mereka definisikan sebagai ambang batas siber "kritis" (_critical threshold_) dalam kerangka keselamatan mereka, yang disebut "Prepare Framework."
 
 ## Apa Arti "Tingkat Kritis" dalam Kerangka OpenAI?
 
-Dalam Prepare Framework yang dirilis OpenAI pada tahun 2023, terdapat dua garis merah utama yang ditetapkan sebagai kategori risiko tertinggi. Kategori "kritis" tercapai ketika sebuah model AI mampu secara mandiri mengidentifikasi dan memanfaatkan kerentanan perangkat lunak dunia nyata yang belum ketahui publik — atau dengan kata lain, menemukan dan memanfaatkan *zero-day exploit* tanpa campur tangan manusia.
+Dalam Prepare Framework yang dirilis OpenAI pada tahun 2023, terdapat dua garis merah utama yang ditetapkan sebagai kategori risiko tertinggi. Kategori "kritis" tercapai ketika sebuah model AI mampu secara mandiri mengidentifikasi dan memanfaatkan kerentanan perangkat lunak dunia nyata yang belum ketahui publik — atau dengan kata lain, menemukan dan memanfaatkan _zero-day exploit_ tanpa campur tangan manusia.
 
 Lebih mengkhawatirkan lagi, model juga dianggap mencapai tingkat kritis jika mampu melakukan serangan siber kompleks terhadap target dengan keamanan tinggi tanpa memerlukan intervensi manusia. Kemampuan semacam ini, jika jatuh ke tangan yang salah, dapat digunakan untuk melancarkan serangan siber berskala besar dan berdampak nyata terhadap infrastruktur kritis.
 

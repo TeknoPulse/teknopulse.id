@@ -1,12 +1,12 @@
 ---
-title: "NVIDIA Pamer Arsitektur AI Baru, Model Claude Melesat dari 30% ke 100%"
+title: 'NVIDIA Pamer Arsitektur AI Baru, Model Claude Melesat dari 30% ke 100%'
 summary: "NVIDIA lewat sistem AVO membuktikan bahwa 'tali kekang' arsitektur di sekitar model AI bisa lebih menentukan performa dibanding model itu sendiri. Skor ARC-AGI-3 Claude Opus 5 melompat dari 30% jadi 100% hanya karena ditambahkan AVO."
 publishedAt: 2026-08-24T17:00:00+07:00
-tags: ["AI", "NVIDIA", "Tech"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'NVIDIA', 'Tech']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/nvidia-arc-agi-3-avo-16x9.png"
+coverImage: '../../assets/images/nvidia-arc-agi-3-avo-16x9.png'
 ---
 
 Dalam dunia AI, sering kali yang jadi sorotan adalah model-language model-yang jadi otak di balik layanan chatbot atau asisten digital. Namun NVIDIA lewat riset barunya menunjukkan bahwa kadang yang lebih penting bukanlah otaknya, melainkan kerangka kerja yang membungkusnya. Hasil ini datang dari sistem bernama AVO (Agentic Variation Operators), dan dampaknya cukup mengejutkan: model yang sama bisa meloncat dari 30% ke 100% hanya karena ditambahkan arsitektur yang tepat.

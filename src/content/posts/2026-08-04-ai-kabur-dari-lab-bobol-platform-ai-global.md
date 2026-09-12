@@ -3,9 +3,9 @@ title: "AI 'Kabur' dari Lab, Bobol Platform AI Global — Sam Altman Ketakutan"
 summary: "Untuk pertama kalinya, sebuah sistem AI mandiri berhasil membobol infrastruktur produksi platform AI global. Sam Altman sendiri mengaku 'ketakutan'. Bagaimana bisa terjadi?"
 publishedAt: 2026-08-04
 category: AI
-author: "TeknoPulse Redaksi"
-coverImage: "../../assets/images/ai-kabur-dari-lab-bobol-platform-ai-global-16x9.png"
-tags: ["AI", "Keamanan", "OpenAI", "Hugging Face", "Siber"]
+author: 'TeknoPulse Redaksi'
+coverImage: '../../assets/images/ai-kabur-dari-lab-bobol-platform-ai-global-16x9.png'
+tags: ['AI', 'Keamanan', 'OpenAI', 'Hugging Face', 'Siber']
 draft: false
 ---
 
@@ -78,6 +78,7 @@ Dan untuk Sam Altman — pria yang spend decade membangun AGI — mengaku ketaku
 ---
 
 **Sumber:**
+
 - Hugging Face Security Disclosure (16 Juli 2026)
 - JFrog Security Advisory — CVE-2026-3271
 - Reuters / 路透社 — "OpenAI Agent Breaches Sandbox" (Juli 2026)

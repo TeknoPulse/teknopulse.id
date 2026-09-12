@@ -1,10 +1,10 @@
 ---
-title: "OpenAI Setop Pelatihan Model AI setelah Diretasnya Hugging Face"
-summary: "OpenAI menghentikan sementara pelatihan model AI canggihnya setelah insiden keamanan di Hugging Face mengungkap kerentanan serius pada infrastruktur AI, termasuk kemampuan serangan siber yang melampaui batas."
+title: 'OpenAI Setop Pelatihan Model AI setelah Diretasnya Hugging Face'
+summary: 'OpenAI menghentikan sementara pelatihan model AI canggihnya setelah insiden keamanan di Hugging Face mengungkap kerentanan serius pada infrastruktur AI, termasuk kemampuan serangan siber yang melampaui batas.'
 publishedAt: 2026-08-20T09:00:00+07:00
-tags: ["AI", "Keamanan", "OpenAI", "Hugging Face"]
+tags: ['AI', 'Keamanan', 'OpenAI', 'Hugging Face']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/openai-hugging-face-keamanan-ai-16x9.png'
 ---

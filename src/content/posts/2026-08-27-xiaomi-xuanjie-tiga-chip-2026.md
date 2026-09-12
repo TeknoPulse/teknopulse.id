@@ -1,12 +1,12 @@
 ---
-title: "Xiaomi Luncurkan Tiga Chip Sekaligus, Terobosan Baru Industri Cip China"
-summary: "Xiaomi resmi merilis tiga chip sekaligus pada 24 Agustus 2026, mencakup SoC flagship 3nm, chip AI berbandwidth ultra tinggi, dan chip kendaraan otonom 3nm pertama di China, menandai langkah strategis perusahaan membangun fondasi komputasi AI mandiri."
+title: 'Xiaomi Luncurkan Tiga Chip Sekaligus, Terobosan Baru Industri Cip China'
+summary: 'Xiaomi resmi merilis tiga chip sekaligus pada 24 Agustus 2026, mencakup SoC flagship 3nm, chip AI berbandwidth ultra tinggi, dan chip kendaraan otonom 3nm pertama di China, menandai langkah strategis perusahaan membangun fondasi komputasi AI mandiri.'
 publishedAt: 2026-08-27T09:00:00+07:00
-tags: ["Chip", "Xiaomi", "AI", "Indonesia"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['Chip', 'Xiaomi', 'AI', 'Indonesia']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/xiaomi-xuanjie-tiga-chip-2026-16x9.png"
+coverImage: '../../assets/images/xiaomi-xuanjie-tiga-chip-2026-16x9.png'
 ---
 
 # Xiaomi Luncurkan Tiga Chip Sekaligus, Terobosan Baru Industri Cip China

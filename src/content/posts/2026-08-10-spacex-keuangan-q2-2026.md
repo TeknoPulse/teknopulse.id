@@ -1,12 +1,12 @@
 ---
-title: "SpaceX Umumkan Hasil Keuangan Q2 2026: Pendapatan Melonjak 92%, tapi Investor Khawatiri Pengeluaran AI"
-summary: "SpaceX melaporkan pendapatan Q2 2026 sebesar 7,8 miliar dolar AS, melonjak 92% dari tahun lalu dan melampaui ekspektasi pasar. Namun, pengeluaran infrastruktur AI yang masif membuat harga saham turun lebih dari 8% di perdagangan setelah jam kerja."
+title: 'SpaceX Umumkan Hasil Keuangan Q2 2026: Pendapatan Melonjak 92%, tapi Investor Khawatiri Pengeluaran AI'
+summary: 'SpaceX melaporkan pendapatan Q2 2026 sebesar 7,8 miliar dolar AS, melonjak 92% dari tahun lalu dan melampaui ekspektasi pasar. Namun, pengeluaran infrastruktur AI yang masif membuat harga saham turun lebih dari 8% di perdagangan setelah jam kerja.'
 publishedAt: 2026-08-10T17:00:00+07:00
-tags: ["SpaceX", "NVIDIA", "AI", "Laporan Keuangan", "Elon Musk"]
+tags: ['SpaceX', 'NVIDIA', 'AI', 'Laporan Keuangan', 'Elon Musk']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-08-10-spacex-keuangan-q2-2026-16x9.png"
+coverImage: '../../assets/images/2026-08-10-spacex-keuangan-q2-2026-16x9.png'
 ---
 
 SpaceX baru saja mengumumkan laporan keuangan kuartalan pertamanya sebagai perusahaan terbuka, dan hasilnya benar-benar mengejutkan pasar. Untuk periode kuartal kedua 2026 yang berakhir pada 30 Juni, perusahaan milik Elon Musk ini membukukan pendapatan sebesar 7,8 miliar dolar AS — melonjak 92% dibandingkan periode yang sama tahun lalu dan jauh melampaui ekspektasi analis yang memperkirakan angka di kisaran 6,8 miliar dolar AS.

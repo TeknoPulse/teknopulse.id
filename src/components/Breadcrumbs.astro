@@ -1,4 +1,8 @@
 ---
+import { site } from '../config';
+import { getCategorySlug } from '../utils/categories';
+import { getAuthorBySlug } from '../utils/authors';
+
 interface Props {
   postCategory?: string;
   postTitle?: string;
@@ -6,15 +10,13 @@ interface Props {
 
 const { postCategory, postTitle } = Astro.props;
 
-import { getCategorySlug } from '../utils/categories';
-
 const pathname = Astro.url.pathname;
 const segments = pathname.split('/').filter((s) => s !== '');
 
-let breadcrumbs = [{ name: 'Home', url: '/' }];
+let breadcrumbs = [{ name: 'Beranda', url: '/' }];
 
 if (pathname.startsWith('/posts/') && postCategory && postTitle) {
-  // Handle post pages: Home / Category / Post Title
+  // Handle post pages: Beranda / Kategori / Judul Artikel
   breadcrumbs.push({
     name: postCategory,
     url: `/category/${getCategorySlug(postCategory)}`,
@@ -23,8 +25,18 @@ if (pathname.startsWith('/posts/') && postCategory && postTitle) {
     name: postTitle,
     url: pathname,
   });
+} else if (pathname.startsWith('/authors/')) {
+  // Halaman penulis: Beranda / Penulis / Nama Penulis
+  breadcrumbs.push({ name: 'Penulis', url: '/authors/' });
+  if (segments.length > 1) {
+    const author = getAuthorBySlug(segments[1]);
+    breadcrumbs.push({
+      name: author?.name ?? segments[1].replace(/-/g, ' '),
+      url: pathname,
+    });
+  }
 } else {
-  // Handle other pages: Home / Segment1 / Segment2
+  // Handle other pages: Beranda / Segment1 / Segment2
   segments.forEach((segment, index) => {
     const url = '/' + segments.slice(0, index + 1).join('/');
     const name = segment
@@ -35,28 +47,41 @@ if (pathname.startsWith('/posts/') && postCategory && postTitle) {
     breadcrumbs.push({ name, url });
   });
 }
+
+// JSON-LD BreadcrumbList (TEKAA-5): satu format structured data, tanpa
+// microdata ganda di markup tampilan.
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: new URL(item.url, site.url).href,
+  })),
+};
 ---
 
 <nav
   class="container mx-auto px-4 py-2 text-sm text-gray-600 dark:text-gray-400"
   aria-label="breadcrumb"
 >
-  <ol class="flex space-x-2" itemscope itemtype="https://schema.org/BreadcrumbList">
+  <ol class="flex space-x-2">
     {
       breadcrumbs.map((item, index) => (
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li>
           <a
-            itemprop="item"
             href={item.url}
             class="hover:underline"
             aria-current={index === breadcrumbs.length - 1 ? 'page' : undefined}
           >
-            <span itemprop="name">{item.name}</span>
+            {item.name}
           </a>
-          <meta itemprop="position" content={index + 1} />
           {index < breadcrumbs.length - 1 && <span class="mx-2">/</span>}
         </li>
       ))
     }
   </ol>
 </nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />

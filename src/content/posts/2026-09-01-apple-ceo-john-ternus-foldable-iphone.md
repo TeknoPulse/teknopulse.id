@@ -1,12 +1,12 @@
 ---
-title: "Era Baru Apple Dimulai: John Ternus Gantikan Tim Cook, iPhone Lipat Segera Meluncur"
-summary: "John Ternus resmi menjadi CEO baru Apple per 1 September 2026, menggantikan Tim Cook yang telah memimpin perusahaan selama 15 tahun. Apple juga mengonfirmasi acara Surprise and shine pada 9 September mendatang, di mana iPhone lipat pertama kemungkinan besar akan diperkenalkan."
+title: 'Era Baru Apple Dimulai: John Ternus Gantikan Tim Cook, iPhone Lipat Segera Meluncur'
+summary: 'John Ternus resmi menjadi CEO baru Apple per 1 September 2026, menggantikan Tim Cook yang telah memimpin perusahaan selama 15 tahun. Apple juga mengonfirmasi acara Surprise and shine pada 9 September mendatang, di mana iPhone lipat pertama kemungkinan besar akan diperkenalkan.'
 publishedAt: 2026-09-01T09:00:00+07:00
-tags: ["Apple", "iPhone", "AI", "Teknologi"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['Apple', 'iPhone', 'AI', 'Teknologi']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/apple-ceo-john-ternus-foldable-iphone-16x9.png"
+coverImage: '../../assets/images/apple-ceo-john-ternus-foldable-iphone-16x9.png'
 ---
 
 # Era Baru Apple Dimulai: John Ternus Gantikan Tim Cook, iPhone Lipat Segera Meluncur

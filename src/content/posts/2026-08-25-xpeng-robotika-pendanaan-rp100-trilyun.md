@@ -1,12 +1,12 @@
 ---
-title: "Pendanaan Jumbo XPeng untuk Robot IRON, Bidik Produksi Massal Akhir 2026"
-summary: "Unit robotika XPeng mengantongi pendanaan lebih dari 900 juta dolar AS dengan valuasi 6,3 miliar dolar AS untuk mendorong robot humanoid dan AI fisik ke pasar global."
+title: 'Pendanaan Jumbo XPeng untuk Robot IRON, Bidik Produksi Massal Akhir 2026'
+summary: 'Unit robotika XPeng mengantongi pendanaan lebih dari 900 juta dolar AS dengan valuasi 6,3 miliar dolar AS untuk mendorong robot humanoid dan AI fisik ke pasar global.'
 publishedAt: 2026-08-25T17:00:00+07:00
-tags: ["Robotika", "XPeng", "AI Fisik", "Humanoid", "Pendanaan"]
+tags: ['Robotika', 'XPeng', 'AI Fisik', 'Humanoid', 'Pendanaan']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/xpeng-robotika-pendanaan-rp100-trilyun-16x9.png"
+coverImage: '../../assets/images/xpeng-robotika-pendanaan-rp100-trilyun-16x9.png'
 ---
 
 ## Pendanaan Jumbo XPeng untuk Robot IRON, Bidik Produksi Massal Akhir 2026

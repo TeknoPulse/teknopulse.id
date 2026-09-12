@@ -34,16 +34,21 @@ const frontmatter = `---
 title: "${title}"
 slug: "${slug}"
 summary: "Add a brief summary of your post here."
+metaDescription: ""
 publishedAt: ${publishedAt}
 updatedAt: ${publishedAt}
 tags: ["tag1", "tag2"]
 category: ${category}
-author: "Your Name"
-coverImage: "https://via.placeholder.com/1200x630/FF5733/FFFFFF?text=${encodeURIComponent(title)}"
+author: "TeknoPulse Redaksi"
 draft: true
+# faq: # opsional, utk konten definisi/how-to (2–4 pertanyaan) → JSON-LD FAQPage
+#   - question: "Pertanyaan yang sering diajukan?"
+#     answer: "Jawaban 2–3 kalimat."
+# ogImage: "../../assets/images/<slug>-og-16x9.png" # opsional; default og:image = coverImage (harus unik) atau kartu OG generate
 ---
 
-Write your post content here using Markdown.
+Tulis paragraf pembuka (lead 40–60 kata yang menjawab 5W1H) langsung di sini —
+TANPA baris '# Judul' di awal isi; judul sudah dirender template sebagai H1.
 
 ## Section 1
 
@@ -52,6 +57,10 @@ Your content goes here...
 ## Section 2
 
 More content...
+
+## Sumber
+
+- [Nama Sumber](https://sumber-primer.example)
 `;
 
 const filename = `${slug}.md`;
@@ -60,11 +69,15 @@ const filepath = join(__dirname, '..', 'src', 'content', 'posts', filename);
 try {
   writeFileSync(filepath, frontmatter);
   console.log(`✅ New post created: ${filepath}`);
-  console.log(`📝 Don't forget to:`);
-  console.log(`   - Update the summary`);
-  console.log(`   - Add appropriate tags`);
-  console.log(`   - Set the correct category`);
-  console.log(`   - Add your author name`);
+  console.log(`📝 Checklist pra-terbit (lihat juga: pnpm seo:check):`);
+  console.log(`   - Isi metaDescription 120–155 karakter (tulis manual, bukan potongan artikel)`);
+  console.log(`   - Update summary + isi konten (lead 5W1H 40–60 kata, tanpa '# Judul' di awal)`);
+  console.log(`   - Add appropriate tags + set the correct category`);
+  console.log(`   - Author harus terdaftar di src/utils/authors.ts (byline + profil penulis)`);
+  console.log(
+    `   - coverImage spesifik artikel (unik, 16:9, ≥1200px) — jangan pakai gambar artikel lain`
+  );
+  console.log(`   - FAQ 2–4 pertanyaan utk konten definisi/how-to`);
   console.log(`   - Set draft: false when ready to publish`);
 } catch (error) {
   console.error('❌ Error creating post:', error.message);

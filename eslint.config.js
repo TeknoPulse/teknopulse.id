@@ -27,7 +27,9 @@ export default tseslint.config(
     },
   },
   {
-    files: ['scripts/new-post.js'],
+    // Semua skrip Node di scripts/ (helper build & generator aset) butuh
+    // globals Node (console, process, URL, fs, …).
+    files: ['scripts/**/*.{js,mjs,cjs}'],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -43,7 +45,8 @@ export default tseslint.config(
     },
   },
   {
-    // Ignore config files
-    ignores: ['*.config.js', '*.config.mjs', '*.config.cjs', 'dist/', '.astro/'],
+    // Ignore config files. cleanup.cjs = skrip one-off pembersihan konten
+    // lama (CommonJS), bukan bagian dari build — tidak dilint.
+    ignores: ['*.config.js', '*.config.mjs', '*.config.cjs', 'dist/', '.astro/', 'cleanup.cjs'],
   }
 );

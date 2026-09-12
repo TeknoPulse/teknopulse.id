@@ -1,12 +1,12 @@
 ---
-title: "OpenAI Rilis GPT-6 Astra, Umumkan Era AGI Telah Tiba"
-summary: "OpenAI resmi meluncurkaan GPT-6 Astra, model paling pintarnya yang mampu beroperasi secara otonom dan meraih skor hampir sempurna di berbagai benchmark utama. Greg Brockman secara terbuka menyebut momen ini sebagai awal era AGI."
+title: 'OpenAI Rilis GPT-6 Astra, Umumkan Era AGI Telah Tiba'
+summary: 'OpenAI resmi meluncurkaan GPT-6 Astra, model paling pintarnya yang mampu beroperasi secara otonom dan meraih skor hampir sempurna di berbagai benchmark utama. Greg Brockman secara terbuka menyebut momen ini sebagai awal era AGI.'
 publishedAt: 2026-09-04T17:00:00+07:00
-tags: ["AI", "OpenAI", "GPT-6", "AGI", "Tech News"]
+tags: ['AI', 'OpenAI', 'GPT-6', 'AGI', 'Tech News']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/openai-gpt-6-astra-2026-09-04-16x9.png"
+coverImage: '../../assets/images/openai-gpt-6-astra-2026-09-04-16x9.png'
 ---
 
 # OpenAI Rilis GPT-6 Astra, Umumkan Era AGI Telah Tiba

@@ -1,12 +1,12 @@
 ---
-title: "Apple Rilis Chip 2nm Pertama di Dunia, M6 Debut di Mac Mini"
-summary: "Apple resmi memperkenalkan chip M6 sebagai prosesor 2nm pertama yang diproduksi massal di dunia, debut perdananya tersemat di Mac mini terbaru. Chip ini menawarkan performa AI hingga 4 kali lebih cepat dari pendahulunya."
+title: 'Apple Rilis Chip 2nm Pertama di Dunia, M6 Debut di Mac Mini'
+summary: 'Apple resmi memperkenalkan chip M6 sebagai prosesor 2nm pertama yang diproduksi massal di dunia, debut perdananya tersemat di Mac mini terbaru. Chip ini menawarkan performa AI hingga 4 kali lebih cepat dari pendahulunya.'
 publishedAt: 2026-08-27T17:00:00+07:00
-tags: ["Apple", "Chip", "AI", "Mac"]
+tags: ['Apple', 'Chip', 'AI', 'Mac']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-08-27-apple-m6-mac-mini-2nm-chip-16x9.png"
+coverImage: '../../assets/images/2026-08-27-apple-m6-mac-mini-2nm-chip-16x9.png'
 ---
 
 # Apple Rilis Chip 2nm Pertama di Dunia, M6 Debut di Mac Mini

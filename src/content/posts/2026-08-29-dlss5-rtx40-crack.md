@@ -1,12 +1,12 @@
 ---
-title: "DLSS 5 Mulai Bocor, Modder Berhasil Jalankan di RTX 40 Series"
-summary: "File inti DLSS 5 Neural Rendering dari game NBA 2K27 bocor ke publik dan langsung dibajak komunitas modder untuk dijalankan di kartu grafis RTX 40 Series yang seharusnya tidak didukung."
+title: 'DLSS 5 Mulai Bocor, Modder Berhasil Jalankan di RTX 40 Series'
+summary: 'File inti DLSS 5 Neural Rendering dari game NBA 2K27 bocor ke publik dan langsung dibajak komunitas modder untuk dijalankan di kartu grafis RTX 40 Series yang seharusnya tidak didukung.'
 publishedAt: 2026-08-29T17:00:00+07:00
-tags: ["Nvidia", "DLSS", "Gaming", "Modding"]
+tags: ['Nvidia', 'DLSS', 'Gaming', 'Modding']
 category: DevTools
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-08-29-dlss5-rtx40-crack-16x9.png"
+coverImage: '../../assets/images/2026-08-29-dlss5-rtx40-crack-16x9.png'
 ---
 
 # DLSS 5 Mulai Bocor, Modder Berhasil Jalankan di RTX 40 Series

@@ -1,12 +1,12 @@
 ---
-title: "Era Gemini Berakhir? DeepMind Ganti Pemimpin, Saham Alphabet Anjlok"
-summary: "Demis Hassabis mundur dari operasional DeepMind, digantikan Koray Kavukcuoglu. Jeff Dean hengkang setelah 27 tahun di Google, dan Alphabet mulai fokus ke AI otonom."
+title: 'Era Gemini Berakhir? DeepMind Ganti Pemimpin, Saham Alphabet Anjlok'
+summary: 'Demis Hassabis mundur dari operasional DeepMind, digantikan Koray Kavukcuoglu. Jeff Dean hengkang setelah 27 tahun di Google, dan Alphabet mulai fokus ke AI otonom.'
 publishedAt: 2026-08-09T17:00:00+07:00
-tags: ["AI", "Google", "DeepMind", "Tech"]
+tags: ['AI', 'Google', 'DeepMind', 'Tech']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/gemini-era-ends-deepmind-leadership-shakeup-16x9.png"
+coverImage: '../../assets/images/gemini-era-ends-deepmind-leadership-shakeup-16x9.png'
 ---
 
 # Era Gemini Berakhir? DeepMind Ganti Pemimpin, Saham Alphabet Anjlok

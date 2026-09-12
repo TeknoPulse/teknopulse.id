@@ -1,12 +1,12 @@
 ---
-title: "OpenAI Hapus Batas Chat Gratis, ChatGPT Kini Tak Terbatas"
-summary: "OpenAI resmi hapus batasan teks gratis di ChatGPT. Pengguna kini bisa chatting tanpa batas menggunakan model GPT-5.6 Luna yang lebih akurat dan cepat."
+title: 'OpenAI Hapus Batas Chat Gratis, ChatGPT Kini Tak Terbatas'
+summary: 'OpenAI resmi hapus batasan teks gratis di ChatGPT. Pengguna kini bisa chatting tanpa batas menggunakan model GPT-5.6 Luna yang lebih akurat dan cepat.'
 publishedAt: 2026-08-11T06:00:00+07:00
-tags: ["AI", "OpenAI", "ChatGPT", "Gratis"]
+tags: ['AI', 'OpenAI', 'ChatGPT', 'Gratis']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/openai-chatgpt-gratis-tanpa-batas-16x9.png"
+coverImage: '../../assets/images/openai-chatgpt-gratis-tanpa-batas-16x9.png'
 ---
 
 Siapa bilang AI harus mahal? OpenAI baru saja membuat gebrakan besar yang bikin jutaan pengguna di seluruh dunia tersenyum. Pada 6 Agustus 2026, raksasa AI asal San Francisco itu mengumumkan penghapusan total batasan percakapan teks untuk seluruh pengguna ChatGPT versi gratis.

@@ -1,10 +1,10 @@
 ---
-title: "OpenAI Tunda Peluncuran Astra, Khawatir Kemampuan Siber Mencapai Level Bahaya"
-summary: "OpenAI secara terbuka menunda pelatihan model AI terbesarnya, Astra, setelah temuan internal menunjukkan kemampuan siber model tersebut mendekati ambang kritis yang bisa disalahgunakan untuk serangan siber tingkat lanjut."
+title: 'OpenAI Tunda Peluncuran Astra, Khawatir Kemampuan Siber Mencapai Level Bahaya'
+summary: 'OpenAI secara terbuka menunda pelatihan model AI terbesarnya, Astra, setelah temuan internal menunjukkan kemampuan siber model tersebut mendekati ambang kritis yang bisa disalahgunakan untuk serangan siber tingkat lanjut.'
 publishedAt: 2026-08-21T06:00:00+07:00
-tags: ["AI", "Keamanan", "OpenAI"]
+tags: ['AI', 'Keamanan', 'OpenAI']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-08-21-openai-astra-keamanan-ai-16x9.png'
 ---

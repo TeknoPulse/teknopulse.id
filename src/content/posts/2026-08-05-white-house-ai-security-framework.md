@@ -1,17 +1,17 @@
 ---
-title: "White House Panggil Empat Raja AI, Kerangka Keamanan Model Frontier Resmi Diluncurkan"
+title: 'White House Panggil Empat Raja AI, Kerangka Keamanan Model Frontier Resmi Diluncurkan'
 summary: "OpenAI, Anthropic, Google, dan Meta dipanggil ke Gedung Putih pada 4 Agustus 2026 untuk membahas kerangka uji keamanan siber sukarela bagi model AI paling canggih. Langkah ini menyusul serangkaian insiden 'pelarian AI' yang menghebohkan industri teknologi global."
 publishedAt: 2026-08-05T06:00:00+07:00
-tags: ["AI", "Keamanan", "Regulasi", "Amerika Serikat"]
+tags: ['AI', 'Keamanan', 'Regulasi', 'Amerika Serikat']
 category: AI
-author: "TeknoPulse Redaksi"
-coverImage: "../../assets/images/white-house-ai-security-framework-16x9.png"
+author: 'TeknoPulse Redaksi'
+coverImage: '../../assets/images/white-house-ai-security-framework-16x9.png'
 draft: false
 ---
 
 # White House Panggil Empat Raja AI, Kerangka Keamanan Model Frontier Resmi Diluncurkan
 
-Halo, pembaca setia! Ada perkembangan besar dari фронт AI global yang perlu kalian tahu. Amerika Serikat resmi mengetuk pintu industri kecerdasan buatan dengan serius. Pada 4 Agustus 2026, Gedung Putih memanggil empat perusahaan AI terbesar dunia — **OpenAI, Anthropic, Google, dan Meta** — dalam pertemuan tertutup untuk membahas kerangka uji keamanan siber sukarela bagi model AI paling canggih atau yang dikenal sebagai *frontier models*.
+Halo, pembaca setia! Ada perkembangan besar dari фронт AI global yang perlu kalian tahu. Amerika Serikat resmi mengetuk pintu industri kecerdasan buatan dengan serius. Pada 4 Agustus 2026, Gedung Putih memanggil empat perusahaan AI terbesar dunia — **OpenAI, Anthropic, Google, dan Meta** — dalam pertemuan tertutup untuk membahas kerangka uji keamanan siber sukarela bagi model AI paling canggih atau yang dikenal sebagai _frontier models_.
 
 ## Apa yang Terjadi di Balik Layar?
 
@@ -38,7 +38,7 @@ Poin-poin kunci dari kerangka ini:
 
 Yang menarik, 2 Agustus 2026 lalu menjadi tanggal bersejarah bagi regulasi AI global. **EU AI Act** — regulasi AI komprehensif Uni Eropa — memberlakukan klausul-klausul intinya, dan **California AI Transparency Act** juga resmi berlaku di tingkat negara bagian AS. Artinya, dalam dua hari beruntun, regulasi AI sudah aktif di tiga yurisdiksi besar sekaligus: federal AS, negara bagian California, dan Uni Eropa.
 
-Indonesia sebagai negara dengan populasi digital terbesar di Asia Tenggara otomatis merasakan dampak bergelombang dari dinamika ini. Perusahaan-perusahaan teknologi Indonesia yang bekerja sama dengan atau menggunakan layanan dari OpenAI, Anthropic, Google, atau Meta kemungkinan akan menghadapi **persyaratan tambahan** ketika ingin mengakses model-model paling mutakhir — terlebih jika kerangka keamanan ini berkembang menjadi semacam *de facto standard* global.
+Indonesia sebagai negara dengan populasi digital terbesar di Asia Tenggara otomatis merasakan dampak bergelombang dari dinamika ini. Perusahaan-perusahaan teknologi Indonesia yang bekerja sama dengan atau menggunakan layanan dari OpenAI, Anthropic, Google, atau Meta kemungkinan akan menghadapi **persyaratan tambahan** ketika ingin mengakses model-model paling mutakhir — terlebih jika kerangka keamanan ini berkembang menjadi semacam _de facto standard_ global.
 
 ## Implikasi untuk Indonesia dan Pembaca TeknoPulse
 

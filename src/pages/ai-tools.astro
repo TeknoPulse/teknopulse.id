@@ -249,7 +249,8 @@ const sections: Section[] = [
 const totalTools = sections.reduce((sum, s) => sum + s.tools.length, 0);
 
 const badgeClass: Record<Tool['pricing'], string> = {
-  Gratis: 'shrink-0 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
+  Gratis:
+    'shrink-0 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
   Freemium:
     'shrink-0 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
   Berbayar:
@@ -352,9 +353,7 @@ const faqSchema = {
                     <span class={badgeClass[tool.pricing]}>{tool.pricing}</span>
                   </div>
                   <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">{tool.priceNote}</p>
-                  <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                    {tool.why}
-                  </p>
+                  <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{tool.why}</p>
                 </article>
               ))}
             </div>
@@ -366,7 +365,9 @@ const faqSchema = {
         class="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-6 dark:border-gray-800 dark:bg-surface-dark"
       >
         <h2 class="mb-3 text-xl font-bold">Cara kami mengkurasi daftar ini</h2>
-        <ul class="list-inside list-disc space-y-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+        <ul
+          class="list-inside list-disc space-y-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300"
+        >
           <li>Tool dites langsung oleh tim, bukan sekadar kumpulan nama dari daftar lain.</li>
           <li>
             Dinilai dari kualitas output, dukungan bahasa Indonesia, nilai versus harga, dan
@@ -386,9 +387,7 @@ const faqSchema = {
             faqs.map((faq) => (
               <details class="rounded-lg border border-gray-200 bg-surface p-4 dark:border-gray-800 dark:bg-surface-dark">
                 <summary class="cursor-pointer font-semibold">{faq.q}</summary>
-                <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                  {faq.a}
-                </p>
+                <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">{faq.a}</p>
               </details>
             ))
           }

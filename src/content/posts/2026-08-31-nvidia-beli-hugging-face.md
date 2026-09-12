@@ -1,12 +1,12 @@
 ---
-title: "Nvidia Beli Hugging Face Rp 200 Triliun, AI Open Source Dikuasai?"
-summary: "Nvidia resmi setuju membeli platform AI open source terbesar dunia, Hugging Face, dengan nilai fantastis Rp 200 triliun. Bagaimana dampaknya bagi jutaan developer di seluruh dunia, termasuk Indonesia?"
+title: 'Nvidia Beli Hugging Face Rp 200 Triliun, AI Open Source Dikuasai?'
+summary: 'Nvidia resmi setuju membeli platform AI open source terbesar dunia, Hugging Face, dengan nilai fantastis Rp 200 triliun. Bagaimana dampaknya bagi jutaan developer di seluruh dunia, termasuk Indonesia?'
 publishedAt: 2026-08-31T17:00:00+07:00
-tags: ["AI", "Nvidia", "Hugging Face", "Tech"]
+tags: ['AI', 'Nvidia', 'Hugging Face', 'Tech']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/nvidia-beli-hugging-face-16x9.png"
+coverImage: '../../assets/images/nvidia-beli-hugging-face-16x9.png'
 ---
 
 # Nvidia Beli Hugging Face Rp 200 Triliun, AI Open Source Dikuasai?
