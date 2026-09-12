@@ -58,3 +58,16 @@
     });
   }
 </script>
+
+<!-- Prefill dari param ?q= — target SearchAction di JSON-LD WebSite
+     (TEKAA-3 P1-9) mendarat sebagai pencarian yang benar-benar jalan. -->
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    const input = document.getElementById('search-input');
+    if (q && input) {
+      input.value = q;
+      input.dispatchEvent(new Event('input'));
+    }
+  });
+</script>

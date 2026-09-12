@@ -1,11 +1,11 @@
 ---
-title: "Azure Ramai-Lampaui $100 Miliar, Microsoft Kembali Pukulgila di Era AI"
-summary: "Microsoft Azure mencatat pertumbuhan 43% YoY pada Q4 FY2026, mendorong pendapatan tahunan melewati $100 miliar untuk pertama kalinya. Saham MSFT naik 25% dalam tiga hari."
+title: 'Azure Ramai-Lampaui $100 Miliar, Microsoft Kembali Pukulgila di Era AI'
+summary: 'Microsoft Azure mencatat pertumbuhan 43% YoY pada Q4 FY2026, mendorong pendapatan tahunan melewati $100 miliar untuk pertama kalinya. Saham MSFT naik 25% dalam tiga hari.'
 publishedAt: 2026-08-04T17:00:00+07:00
-tags: ["Microsoft", "Azure", "Cloud", "AI", "Tech"]
+tags: ['Microsoft', 'Azure', 'Cloud', 'AI', 'Tech']
 category: AI
-author: "TeknoPulse Redaksi"
-coverImage: "../../assets/images/azure-ramai-100-miliar-16x9.png"
+author: 'TeknoPulse Redaksi'
+coverImage: '../../assets/images/azure-ramai-100-miliar-16x9.png'
 draft: false
 ---
 
@@ -21,7 +21,7 @@ Pertumbuhan 43% ini bukan angka biasa. Kita bicara tentang skala yang nyaris tid
 
 Yang bikin lebih menarik: Microsoft bahkan memberikan **guidance (panduan outlook) untuk kuartal berikutnya di angka 45%** pertumbuhan. Artinya, akselerasi belum selesai. Microsoft percaya bahwa permintaan terhadap layanan cloud berbasis AI belum mencapai puncaknya.
 
-> *"Investasi AI bukan sekadar tren, tapi fondasi infrastruktur digital generasi berikutnya,"* tulis CFO Microsoft dalam keterangan resmi.
+> _"Investasi AI bukan sekadar tren, tapi fondasi infrastruktur digital generasi berikutnya,"_ tulis CFO Microsoft dalam keterangan resmi.
 
 ## Microsoft 365 Copilot: 30 Juta Pengguna Berbayar
 
@@ -33,7 +33,7 @@ Dari segmen OpenAI saja, Microsoft menerima pendapatan sebesar **$24 miliar** se
 
 Respons pasar? Langsung地表以下. Saham Microsoft (MSFT) **naik 15% dalam satu hari** setelah earnings diumumkan, kemudian kembali naik 5,6% di hari berikutnya. Dalam tiga hari perdagangan, total kenaikan mencapai **+25%** — sebuah lonjakan yang sangat jarang terlihat untuk perusahaan yang sudah bernilai lebih dari $3 triliun.
 
-Capital expenditure (pengeluaran modal) Microsoft untuk kuartal tersebut mencapai sekitar **$41 miliar**. Sounds huge? Memang. Tapi menurut analis, angka ini bahkan sedikit *lebih rendah* dari ekspektasi awal yang berkisar $50 miliar — menunjukkan bahwa Microsoft mulai melihat efisiensi dari infrastruktur yang sudah dibangun.
+Capital expenditure (pengeluaran modal) Microsoft untuk kuartal tersebut mencapai sekitar **$41 miliar**. Sounds huge? Memang. Tapi menurut analis, angka ini bahkan sedikit _lebih rendah_ dari ekspektasi awal yang berkisar $50 miliar — menunjukkan bahwa Microsoft mulai melihat efisiensi dari infrastruktur yang sudah dibangun.
 
 ## Implikasi untuk Indonesia
 
@@ -43,13 +43,14 @@ Ketika Azure tumbuh 43%, itu artinya **permintaan global terhadap kapasitas komp
 
 ## Kesimpulan
 
-Microsoft hari ini bukan sekadar perusahaan software. Mereka adalah **infrastruktur AI dunia** — dari cloud computing, produktivitas kerja, hingga kemitraan strategis dengan OpenAI. Dan dengan Azure yang sudah melewati tonggak $100 miliar, pertanyaan besarnya bukan lagi *"apakah AI akan mengubah dunia,"* tapi *"siapa yang akan memimpin perlombaan itu."*
+Microsoft hari ini bukan sekadar perusahaan software. Mereka adalah **infrastruktur AI dunia** — dari cloud computing, produktivitas kerja, hingga kemitraan strategis dengan OpenAI. Dan dengan Azure yang sudah melewati tonggak $100 miliar, pertanyaan besarnya bukan lagi _"apakah AI akan mengubah dunia,"_ tapi _"siapa yang akan memimpin perlombaan itu."_
 
 Untuk saat ini, **Microsoft jelas salah satu terdepan**.
 
 ---
 
 **Sumber:**
+
 - CNBC, "Microsoft Q4 FY2026 Earnings Report" (3 Agustus 2026)
 - The Verge, "Microsoft Azure hits $100 billion annual revenue for the first time" (3 Agustus 2026)
 - Reuters, "Microsoft shares surge 25% in three days on AI cloud demand" (4 Agustus 2026)

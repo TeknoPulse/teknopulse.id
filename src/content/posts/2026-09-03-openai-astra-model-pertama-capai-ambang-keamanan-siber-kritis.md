@@ -1,12 +1,12 @@
 ---
-title: "OpenAI Astra: Model AI Pertama yang Capai Ambang Keamanan Siber Kritis"
-summary: "OpenAI resmi menyatakan model Astra sebagai AI pertama yang mencapai ambang kemampuan keamanan siber tingkat Critical. Astra mampu menemukan dan memanfaatkan celah nol-hari secara otonom, tanpa campur tangan manusia."
+title: 'OpenAI Astra: Model AI Pertama yang Capai Ambang Keamanan Siber Kritis'
+summary: 'OpenAI resmi menyatakan model Astra sebagai AI pertama yang mencapai ambang kemampuan keamanan siber tingkat Critical. Astra mampu menemukan dan memanfaatkan celah nol-hari secara otonom, tanpa campur tangan manusia.'
 publishedAt: 2026-09-03T17:00:00+07:00
-tags: ["AI", "Keamanan Siber", "OpenAI"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Keamanan Siber', 'OpenAI']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/openai-astra-cybersecurity-16x9.png"
+coverImage: '../../assets/images/openai-astra-cybersecurity-16x9.png'
 ---
 
 ## OpenAI Astra: Model AI Pertama yang Capai Ambang Keamanan Siber Kritis

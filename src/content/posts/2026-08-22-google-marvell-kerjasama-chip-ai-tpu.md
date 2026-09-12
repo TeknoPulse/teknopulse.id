@@ -1,12 +1,12 @@
 ---
-title: "Google dan Marvell Perluas Kerja Sama Chip AI, Saham Senilai $12,2 Miliar Jadi Pesaing Baru"
-summary: "Google resmi menjalin kerja sama baru dengan Marvell Technology untuk mengembangkan chip kustom yang melekat pada ekosistem TPU. Sebagai bagian dari perjanjian, Marvell memberikan Google waran saham hingga $12,2 miliar — langkah besar yang menandakan perang semikonduktor AI makin panas."
+title: 'Google dan Marvell Perluas Kerja Sama Chip AI, Saham Senilai $12,2 Miliar Jadi Pesaing Baru'
+summary: 'Google resmi menjalin kerja sama baru dengan Marvell Technology untuk mengembangkan chip kustom yang melekat pada ekosistem TPU. Sebagai bagian dari perjanjian, Marvell memberikan Google waran saham hingga $12,2 miliar — langkah besar yang menandakan perang semikonduktor AI makin panas.'
 publishedAt: 2026-08-22T06:00:00+07:00
-tags: ["AI", "Google", "Semikonduktor", "Chip"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Google', 'Semikonduktor', 'Chip']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/google-marvell-kerjasama-chip-ai-tpu-16x9.png"
+coverImage: '../../assets/images/google-marvell-kerjasama-chip-ai-tpu-16x9.png'
 ---
 
 Google resmi memperdalam kerja samanya dengan raksasa semikonduktor Amerika Serikat, Marvell Technology. Kedua perusahaan menandatangani perjanjian dagang pada 29 Juli 2026, mencakup pengembangan chip kustom yang melekat pada ekosistem Tensor Processing Unit (TPU) — chip AI racikan Google yang menjadi tulang punggung infrastruktur kecerdasan buatannya.

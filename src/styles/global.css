@@ -1,5 +1,11 @@
-/* Import Inter font for better performance */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Inter self-host via @fontsource (TEKAA-3 P2-13): menghilangkan rantai
+   DNS+TLS+CSS ke fonts.googleapis.com yang render-blocking. Vite me-resolve
+   import paket ini menjadi aset /_astro/* ber-hash (cache immutable).
+   Weight mengikuti pemakaian template: 400/500/600/700. */
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
 
 @tailwind base;
 @tailwind components;

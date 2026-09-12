@@ -3,32 +3,32 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const junkFiles = [
-  "anthropic-news.md",
-  "cloud-gpus-for-deep-learning-availability-price-performance.md",
-  "csv-cisa.md",
-  "cve.md",
-  "fei-fei-lis-1b-ai-startup-anthropics-new-ai-fund-and-metas.md",
-  "introducing-claude-4.md",
-  "langchain.md",
-  "language-model-specification-v1-for-langchain-vercel-ai.md",
-  "latest-news-mistral-ai.md",
-  "mistral-ai.md",
-  "posts-hugging-face.md",
-  "reach-vb-on-hugging-face-massive-week-for-open-ai-ml-mistral-pixtral-instruct-large-123b-1.md",
-  "should-i-repurpose-my-code-into-a-simple-agent-framework-for-vercelai-sdk-vercelai-discuss.md",
-  "simon-willison-on-mistral.md",
-  "surat-edaran-menteri-komunikasi-dan-informatika-nomor-9.md",
-  "the-10-best-large-language-models-llms-in-2025.md",
-  "the-llama-4-herd-the-beginning-of-a-new-era-of-natively.md",
-  "top-9-large-language-models-as-of-october-2025-shakudowwwshakudoio-blog-top-9-large-langua.md"
+  'anthropic-news.md',
+  'cloud-gpus-for-deep-learning-availability-price-performance.md',
+  'csv-cisa.md',
+  'cve.md',
+  'fei-fei-lis-1b-ai-startup-anthropics-new-ai-fund-and-metas.md',
+  'introducing-claude-4.md',
+  'langchain.md',
+  'language-model-specification-v1-for-langchain-vercel-ai.md',
+  'latest-news-mistral-ai.md',
+  'mistral-ai.md',
+  'posts-hugging-face.md',
+  'reach-vb-on-hugging-face-massive-week-for-open-ai-ml-mistral-pixtral-instruct-large-123b-1.md',
+  'should-i-repurpose-my-code-into-a-simple-agent-framework-for-vercelai-sdk-vercelai-discuss.md',
+  'simon-willison-on-mistral.md',
+  'surat-edaran-menteri-komunikasi-dan-informatika-nomor-9.md',
+  'the-10-best-large-language-models-llms-in-2025.md',
+  'the-llama-4-herd-the-beginning-of-a-new-era-of-natively.md',
+  'top-9-large-language-models-as-of-october-2025-shakudowwwshakudoio-blog-top-9-large-langua.md',
 ];
 
 const sampleFiles = [
-  "sample-post-2.md",
-  "sample-post-3.md",
-  "sample-post-4.md",
-  "sample-post-5.md",
-  "sample-post-6.md"
+  'sample-post-2.md',
+  'sample-post-3.md',
+  'sample-post-4.md',
+  'sample-post-5.md',
+  'sample-post-6.md',
 ];
 
 const postsDir = path.join(__dirname, 'src', 'content', 'posts');
@@ -58,18 +58,20 @@ for (const file of junkFiles) {
     console.log(`File not found: ${file}`);
     continue;
   }
-  
+
   const content = fs.readFileSync(filePath, 'utf-8');
-  
+
   // Check pattern
-  const hasEqualImage = /coverImage:\s*['"]?.*\/\=.*?['"]?/.test(content) || /og_image:\s*['"]?.*\/\=.*?['"]?/.test(content);
+  const hasEqualImage =
+    /coverImage:\s*['"]?.*\/\=.*?['"]?/.test(content) ||
+    /og_image:\s*['"]?.*\/\=.*?['"]?/.test(content);
   // It could also be that draft is false (or not true)
   const isDraftTrue = /draft:\s*true/.test(content);
-  
+
   if (hasEqualImage && !isDraftTrue) {
     const slugMatch = content.match(/slug:\s*['"](.*?)['"]/);
     const slug = slugMatch ? slugMatch[1] : file.replace('.md', '');
-    
+
     if (checkReferences(slug)) {
       kept.push({ file, reason: 'referenced elsewhere' });
     } else {
@@ -95,7 +97,7 @@ for (const file of sampleFiles) {
     const content = fs.readFileSync(filePath, 'utf-8');
     const slugMatch = content.match(/slug:\s*['"](.*?)['"]/);
     const slug = slugMatch ? slugMatch[1] : file.replace('.md', '');
-    
+
     if (checkReferences(slug)) {
       kept.push({ file, reason: 'sample post referenced elsewhere' });
     } else {
@@ -103,17 +105,17 @@ for (const file of sampleFiles) {
       // find images just in case
       const coverMatch = content.match(/coverImage:\s*['"]?(.*\/(.*?))['"]?/);
       if (coverMatch && coverMatch[2] && coverMatch[2].includes('placeholder')) {
-         // optionally handle sample images, but requirement only mentioned junk images
+        // optionally handle sample images, but requirement only mentioned junk images
       }
     }
   }
 }
 
-console.log("To Delete:");
+console.log('To Delete:');
 console.log(toDelete);
-console.log("\nKept:");
+console.log('\nKept:');
 console.log(kept);
-console.log("\nImages to delete:");
+console.log('\nImages to delete:');
 const uniqueImages = [...new Set(imagesToDelete)];
 console.log(uniqueImages);
 
@@ -131,4 +133,6 @@ for (const img of uniqueImages) {
   }
 }
 
-console.log(`\nRemaining posts count: ${fs.readdirSync(postsDir).filter(f => f.endsWith('.md')).length}`);
+console.log(
+  `\nRemaining posts count: ${fs.readdirSync(postsDir).filter((f) => f.endsWith('.md')).length}`
+);

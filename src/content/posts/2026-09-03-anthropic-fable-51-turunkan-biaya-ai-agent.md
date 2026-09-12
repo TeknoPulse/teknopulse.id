@@ -1,12 +1,12 @@
 ---
-title: "Biaya AI Agent Anjlok 45%: Anthropic Luncurkan Claude Fable 5.1"
-summary: "Anthropic resmi merilis Fable 5.1 dan Mythos 5.1, model AI terbaru yang mampu menurunkan biaya tugas AI agent hingga 45% dan harga baca cache hingga 75%, menandai pergeseran besar dalam perang harga AI."
+title: 'Biaya AI Agent Anjlok 45%: Anthropic Luncurkan Claude Fable 5.1'
+summary: 'Anthropic resmi merilis Fable 5.1 dan Mythos 5.1, model AI terbaru yang mampu menurunkan biaya tugas AI agent hingga 45% dan harga baca cache hingga 75%, menandai pergeseran besar dalam perang harga AI.'
 publishedAt: 2026-09-03T09:00:00+07:00
-tags: ["AI", "Anthropic", "Claude", "Tech"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Anthropic', 'Claude', 'Tech']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-03-anthropic-fable-51-turunkan-biaya-ai-agent-16x9.png"
+coverImage: '../../assets/images/2026-09-03-anthropic-fable-51-turunkan-biaya-ai-agent-16x9.png'
 ---
 
 Anthropic resmi memperkenalkan dua model AI terbaru mereka, **Claude Fable 5.1** dan **Claude Mythos 5.1**, pada 1 September 2026. Peluncuran ini membawa kabar yang sangat dinantikan oleh para pengembang dan perusahaan: biaya untuk menjalankan tugas berbasis AI agent turun secara signifikan, membuka peluang lebih luas bagi adopsi AI di berbagai sektor.

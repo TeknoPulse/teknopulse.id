@@ -1,15 +1,15 @@
 ---
-title: "Nvidia Capai Hugging Face Senilai Rp 2 Kuadriliun, UE Selidiki"
-summary: "Akuisisi terbesar di dunia AI ini memicu kekhawatiran antimonopoli, sementara komunitas open-source cemas masa depan ekosistem mereka."
+title: 'Nvidia Capai Hugging Face Senilai Rp 2 Kuadriliun, UE Selidiki'
+summary: 'Akuisisi terbesar di dunia AI ini memicu kekhawatiran antimonopoli, sementara komunitas open-source cemas masa depan ekosistem mereka.'
 publishedAt: 2026-08-30T06:00:00+07:00
-tags: ["AI", "Nvidia", "Hugging Face", "EU", "Akuisisi"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Nvidia', 'Hugging Face', 'EU', 'Akuisisi']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/nvidia-capai-hugging-face-16x9.png"
+coverImage: '../../assets/images/nvidia-capai-hugging-face-16x9.png'
 ---
 
- Nvidia resmi mengakuisisi platform open-source AI terbesar di dunia, Hugging Face, dengan nilai fantastis mencapai 129 miliar dolar AS atau setara sekitar 2.128 kuadriliun rupiah. Transaksi ini menjadi akuisisi terbesar sepanjang sejarah industri kecerdasan buatan. Namun, euforia tersebut dengan cepat meredup setelah Uni Eropa membuka penyelidikan antitrust terhadap deal tersebut.
+Nvidia resmi mengakuisisi platform open-source AI terbesar di dunia, Hugging Face, dengan nilai fantastis mencapai 129 miliar dolar AS atau setara sekitar 2.128 kuadriliun rupiah. Transaksi ini menjadi akuisisi terbesar sepanjang sejarah industri kecerdasan buatan. Namun, euforia tersebut dengan cepat meredup setelah Uni Eropa membuka penyelidikan antitrust terhadap deal tersebut.
 
 ## Apa Itu Hugging Face?
 

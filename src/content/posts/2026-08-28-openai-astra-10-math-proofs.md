@@ -1,12 +1,12 @@
 ---
-title: "Astra Buktikan 10 Masalah Matematika yang Menggantung Puluhan Tahun"
-summary: "Model AI Astra dari OpenAI berhasil memecahkan 10 masalah matematika yang belum terpecahkan selama lebih dari satu dekade, lengkap dengan bukti yang bisa diverifikasi mesin secara otomatis."
+title: 'Astra Buktikan 10 Masalah Matematika yang Menggantung Puluhan Tahun'
+summary: 'Model AI Astra dari OpenAI berhasil memecahkan 10 masalah matematika yang belum terpecahkan selama lebih dari satu dekade, lengkap dengan bukti yang bisa diverifikasi mesin secara otomatis.'
 publishedAt: 2026-08-28T06:00:00+07:00
-tags: ["AI", "Matematika", "OpenAI"]
+tags: ['AI', 'Matematika', 'OpenAI']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/openai-astra-10-math-proofs-16x9.png"
+coverImage: '../../assets/images/openai-astra-10-math-proofs-16x9.png'
 ---
 
 # Astra Buktikan 10 Masalah Matematika yang Menggantung Puluhan Tahun

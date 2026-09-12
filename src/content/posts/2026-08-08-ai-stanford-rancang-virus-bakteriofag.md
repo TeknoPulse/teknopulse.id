@@ -1,25 +1,25 @@
 ---
-title: "AI Stanford Rancang Virus Baru, Langkah Besar untuk Terapi Bakteriofag"
-summary: "Tim Stanford University berhasil gunakan AI bernama Evo 2 untuk merancang virus sintetis yang bisa membunuh bakteri penyebab penyakit. Riset ini dipublikasikan di jurnal Science pada Agustus 2026."
+title: 'AI Stanford Rancang Virus Baru, Langkah Besar untuk Terapi Bakteriofag'
+summary: 'Tim Stanford University berhasil gunakan AI bernama Evo 2 untuk merancang virus sintetis yang bisa membunuh bakteri penyebab penyakit. Riset ini dipublikasikan di jurnal Science pada Agustus 2026.'
 publishedAt: 2026-08-08T06:00:00+07:00
-tags: ["AI", "Stanford", "Bioteknologi", "Virologi"]
+tags: ['AI', 'Stanford', 'Bioteknologi', 'Virologi']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/ai-stanford-rancang-virus-bakteriofag-16x9.png"
+coverImage: '../../assets/images/ai-stanford-rancang-virus-bakteriofag-16x9.png'
 ---
 
 # AI Stanford Rancang Virus Baru, Langkah Besar untuk Terapi Bakteriofag
 
 Para peneliti dari Stanford University berhasil mencapai sebuah tonggak penting dalam dunia bioteknologi: mereka menggunakan kecerdasan buatan untuk merancang virus baru dari awal. Program AI yang bernama Evo 2 itu mampu menulis genom — instruksi genetik yang tersimpan di dalam DNA — dan dari situlah lahir 16 virus sintetis baru yang bisa membunuh bakteri penyebab penyakit.
 
-Penelitian yang dipimpin oleh tim Stanford ini dipublikasikan di jurnal *Science* pada Kamis, 6 Agustus 2026. Ini menjadi pertama kalinya AI generatif digunakan untuk merancang keseluruhan genom virus yang mampu bereplikasi secara mandiri di laboratorium.
+Penelitian yang dipimpin oleh tim Stanford ini dipublikasikan di jurnal _Science_ pada Kamis, 6 Agustus 2026. Ini menjadi pertama kalinya AI generatif digunakan untuk merancang keseluruhan genom virus yang mampu bereplikasi secara mandiri di laboratorium.
 
 ## Cara Kerja Evo 2
 
 Berbeda dari model bahasa besar seperti ChatGPT yang memprediksi teks, Evo 2 bekerja dengan memprediksi "kode kehidupan" berupa DNA dan RNA. Model AI ini dilatih berdasarkan data genetik dari ribuan virus dan bakteri. Dari situ, Evo 2 belajar memahami pola dan bahasa yang menyusun materi genetik makhluk hidup.
 
-Dari sekitar 700.000 kandidat genom yang dihasilkan AI, tim peneliti memilih 302 desain paling menjanjikan untuk disintesis di laboratorium. Hasilnya? Enam belas virus sintetis — yang secara khusus menyerang bakteri *E. coli* — berhasil dibuat dan menunjukkan aktivitas biologis yang nyata. Virus-virus ini mampu bereplikasi dan menyelesaikan siklus infeksi di dalam sel bakteri.
+Dari sekitar 700.000 kandidat genom yang dihasilkan AI, tim peneliti memilih 302 desain paling menjanjikan untuk disintesis di laboratorium. Hasilnya? Enam belas virus sintetis — yang secara khusus menyerang bakteri _E. coli_ — berhasil dibuat dan menunjukkan aktivitas biologis yang nyata. Virus-virus ini mampu bereplikasi dan menyelesaikan siklus infeksi di dalam sel bakteri.
 
 Yang perlu ditekankan adalah sifat khusus dari virus yang dirancang ini. Virus-virus tersebut termasuk dalam kelompok bakteriofag, yaitu virus yang secara alami hanya menyerang bakteri dan tidak memiliki kemampuan untuk membahayakan sel manusia. Dengan kata lain, meskipun ini adalah virus yang dibuat oleh AI, virus tersebut tidak menimbulkan ancaman bagi kesehatan manusia.
 

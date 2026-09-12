@@ -65,6 +65,7 @@ pnpm dev
 - `pnpm preview` - Preview production build
 - `pnpm lint` - Run ESLint and Prettier checks
 - `pnpm lint:fix` - Fix linting issues
+- `pnpm seo:check` - SEO pre-publish checklist (`seo:check:strict` untuk gate pra-terbit)
 - `pnpm post:new "Title"` - Create a new blog post
 
 ### Creating Content
@@ -84,17 +85,32 @@ This creates a new Markdown file in `src/content/posts/` with proper frontmatter
 ```yaml
 ---
 title: 'Your Post Title'
-slug: 'your-post-slug'
+slug: 'your-post-slug' # URL: /posts/<slug>/ — TANPA tanggal utk artikel baru
 summary: 'Brief description of your post'
+metaDescription: 'Deskripsi SEO 120–155 karakter, ditulis manual (bukan potongan artikel)'
 publishedAt: 2025-08-25T10:00:00Z
-updatedAt: 2025-08-25T10:00:00Z
+updatedAt: 2025-08-25T10:00:00Z # set ulang saat artikel diperbarui → dateModified JSON-LD
 tags: ['AI', 'Technology']
 category: AI # AI, OpenSource, DevTools
-author: 'Author Name'
-coverImage: 'https://example.com/image.jpg'
+author: 'TeknoPulse Redaksi' # harus terdaftar di src/utils/authors.ts (byline + profil)
+coverImage: '../../assets/images/<slug>-16x9.png' # unik per artikel, 16:9, ≥1200px
+ogImage: '../../assets/images/<slug>-og-16x9.png' # opsional override og:image (unik per artikel)
 draft: false
+faq: # opsional, 2–4 pertanyaan (definisi/how-to) → JSON-LD FAQPage
+  - question: 'Pertanyaan yang sering diajukan?'
+    answer: 'Jawaban 2–3 kalimat.'
 ---
 ```
+
+**Aturan SEO on-page (TEKAA-4/TEKAA-5):** tepat satu H1 per halaman — template sudah
+membuang/menurunkan H1 duplikat di awal Markdown (`src/utils/rehype-unique-h1.js`);
+artikel baru jangan diawali `# Judul`. og:image otomatis = `coverImage`, kecuali file itu
+dipakai bareng artikel lain → otomatis diganti kartu OG generate `/og/<slug>.png` (unik).
+Byline yang terdaftar di `src/utils/authors.ts` jadi tautan profil `/authors/<slug>/` +
+`author.url` di JSON-LD. Struktur data: `Article` (+`dateModified`), `FAQPage`,
+`BreadcrumbList` (di `Breadcrumbs.astro`), `Person` (halaman profil).
+
+Jalankan `pnpm seo:check` sebelum publish; `pnpm seo:check:strict` untuk gate ketat.
 
 ### Configuration
 

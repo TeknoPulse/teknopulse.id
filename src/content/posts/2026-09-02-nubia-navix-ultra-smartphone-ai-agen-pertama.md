@@ -1,12 +1,12 @@
 ---
-title: "Nubia NaviX Ultra Resmi Kantongi Sertifikat, Smartphone AI Agen Pertama di Dunia Segera Meluncur"
-summary: "Nubia NaviX Ultra, ponsel AI agen hasil kerja sama ZTE dan ByteDance, secara resmi mengantongi sertifikat kelayakan dari Kementerian Perindustrian dan Teknologi Informasi Tiongkok pada 1 September 2026. Seluruh pemrosesan AI dijalankan secara lokal di perangkat, bukan di cloud."
+title: 'Nubia NaviX Ultra Resmi Kantongi Sertifikat, Smartphone AI Agen Pertama di Dunia Segera Meluncur'
+summary: 'Nubia NaviX Ultra, ponsel AI agen hasil kerja sama ZTE dan ByteDance, secara resmi mengantongi sertifikat kelayakan dari Kementerian Perindustrian dan Teknologi Informasi Tiongkok pada 1 September 2026. Seluruh pemrosesan AI dijalankan secara lokal di perangkat, bukan di cloud.'
 publishedAt: 2026-09-02T17:00:00+07:00
-tags: ["AI", "Smartphone", "Indonesia", "ByteDance"]
+tags: ['AI', 'Smartphone', 'Indonesia', 'ByteDance']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-02-nubia-navix-ultra-smartphone-ai-agen-pertama-16x9.png"
+coverImage: '../../assets/images/2026-09-02-nubia-navix-ultra-smartphone-ai-agen-pertama-16x9.png'
 ---
 
 # Nubia NaviX Ultra Resmi Kantongi Sertifikat, Smartphone AI Agen Pertama di Dunia Segera Meluncur

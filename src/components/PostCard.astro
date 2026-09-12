@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCategoryLabel, getCategoryToken } from '../utils/categories';
+import { calculateReadingTime } from '../utils/readingTime';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -9,6 +10,10 @@ interface Props {
 }
 
 const { post, featured = false } = Astro.props;
+
+// Frontmatter `readingTime` sering kosong — hitung dari isi supaya kartu
+// tidak menampilkan "min read" tanpa angka.
+const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
 ---
 
 <a href={`/posts/${post.slug}`} class="card card-elevated group block h-full overflow-hidden">
@@ -56,7 +61,7 @@ const { post, featured = false } = Astro.props;
 
     <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
       <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')}</span>
-      <span>{post.data.readingTime} min read</span>
+      <span>{readingTime} mnt baca</span>
     </div>
 
     {/* Tags */}

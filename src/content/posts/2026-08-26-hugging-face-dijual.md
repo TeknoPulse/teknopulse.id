@@ -1,10 +1,10 @@
 ---
-title: "Hugging Face Dijual? Platform AI Open-Source Dibanderol Rp200 Triliun"
-summary: "Platform penyimpanan model AI open-source Hugging Face disebut tengah menjajaki penjualan dengan valuasi lebih dari 13 miliar dolar AS, hampir tiga kali lipat dari valuasi terakhir pada 2023."
+title: 'Hugging Face Dijual? Platform AI Open-Source Dibanderol Rp200 Triliun'
+summary: 'Platform penyimpanan model AI open-source Hugging Face disebut tengah menjajaki penjualan dengan valuasi lebih dari 13 miliar dolar AS, hampir tiga kali lipat dari valuasi terakhir pada 2023.'
 publishedAt: 2026-08-26T09:00:00+07:00
-tags: ["AI", "Open Source", "Tech Industry"]
+tags: ['AI', 'Open Source', 'Tech Industry']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/hugging-face-dijual-16x9.png'
 ---

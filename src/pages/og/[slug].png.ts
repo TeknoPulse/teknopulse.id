@@ -46,8 +46,9 @@ export async function GET({ params }: { params: { slug: string } }) {
         publishedAt: new Date(post.data.publishedAt).toLocaleDateString('id-ID'),
       }),
       {
+        // 16:9 sesuai standar OG TeknoPulse (standar-on-page-seo §6).
         width: 1200,
-        height: 630,
+        height: 675,
         fonts: [
           { name: 'Inter', data: fonts[0], weight: 400, style: 'normal' },
           { name: 'Inter', data: fonts[1], weight: 600, style: 'normal' },

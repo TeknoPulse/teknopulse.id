@@ -1,28 +1,43 @@
 ---
 import { site } from '../config';
+import { getCategoryLabel } from '../utils/categories';
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
 
 interface Props {
   title?: string;
   description?: string;
   image?: any; // Allow both string and image object
+  imageAlt?: string;
   article?: {
     publishedTime: string;
     modifiedTime?: string;
-    author: string;
+    author: { name: string; url?: string };
     tags: string[];
+    category?: string;
+    faq?: FaqItem[];
   };
   canonical?: string;
+  robots?: string;
 }
 
 const {
   title = site.name,
   description = site.description,
   image = `${site.url}/og-default.png`,
+  imageAlt,
   article,
   canonical,
+  robots = 'index, follow',
 } = Astro.props;
 
-const fullTitle = title === site.name ? title : `${title} - ${site.name}`;
+// Judul yang sudah memuat nama situs (mis. judul homepage di site.homeTitle)
+// tidak diberi sufiks lagi — dulu menghasilkan "AI - TeknoPulse - TeknoPulse".
+const fullTitle =
+  title === site.name || title.includes(site.name) ? title : `${title} - ${site.name}`;
 const canonicalUrl = canonical || new URL(Astro.url.pathname, site.url).href;
 
 let ogImage;
@@ -34,38 +49,80 @@ if (typeof image === 'string') {
   ogImage = new URL('/og-default.png', site.url).href;
 }
 
-// JSON-LD structured data
-const jsonLd = article
-  ? {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: title,
-      description: description,
-      image: ogImage,
-      author: {
-        '@type': 'Person',
-        name: article.author,
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: site.name,
-        url: site.url,
-      },
-      datePublished: article.publishedTime,
-      dateModified: article.modifiedTime || article.publishedTime,
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': canonicalUrl,
-      },
-      keywords: article.tags.join(', '),
-    }
-  : {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
+const ogImageAlt = imageAlt ?? title ?? site.name;
+
+// JSON-LD structured data. Blok terpisah per tipe (Article, FAQPage) —
+// pola yang direkomendasikan Google.
+const jsonLd: Record<string, unknown>[] = [];
+
+if (article) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description: description,
+    image: ogImage,
+    author: {
+      '@type': 'Person',
+      name: article.author.name,
+      ...(article.author.url ? { url: new URL(article.author.url, site.url).href } : {}),
+    },
+    publisher: {
+      '@type': 'Organization',
       name: site.name,
-      description: site.description,
       url: site.url,
-    };
+      logo: {
+        '@type': 'ImageObject',
+        // Raster 512×512 (public/logo-512.png, scripts/generate-og-default.mjs).
+        // Google mensyaratkan raster ≥112×112 untuk logo publisher; SVG
+        // (favicon) tidak dijamin didukung.
+        url: new URL('/logo-512.png', site.url).href,
+        width: 512,
+        height: 512,
+      },
+    },
+    datePublished: article.publishedTime,
+    dateModified: article.modifiedTime || article.publishedTime,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+    keywords: article.tags.join(', '),
+    ...(article.category ? { articleSection: getCategoryLabel(article.category) } : {}),
+  });
+
+  if (article.faq && article.faq.length > 0) {
+    jsonLd.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: article.faq.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    });
+  }
+} else {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: site.name,
+    description: site.description,
+    url: site.url,
+    // Sitelinks search box (TEKAA-3 P1-9); /search membaca param ?q=.
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${site.url}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
+  });
+}
 ---
 
 <!-- SEO Meta Tags -->
@@ -78,6 +135,7 @@ const jsonLd = article
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={ogImageAlt} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:site_name" content={site.name} />
 <meta property="og:locale" content="id_ID" />
@@ -89,7 +147,12 @@ const jsonLd = article
       {article.modifiedTime && (
         <meta property="article:modified_time" content={article.modifiedTime} />
       )}
-      <meta property="article:author" content={article.author} />
+      <meta
+        property="article:author"
+        content={
+          article.author.url ? new URL(article.author.url, site.url).href : article.author.name
+        }
+      />
       {article.tags.map((tag) => (
         <meta property="article:tag" content={tag} />
       ))}
@@ -104,8 +167,8 @@ const jsonLd = article
 <meta name="twitter:image" content={ogImage} />
 
 <!-- Additional Meta Tags -->
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={robots} />
 <meta name="language" content="Indonesian" />
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{jsonLd.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}

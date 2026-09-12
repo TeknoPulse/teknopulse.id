@@ -1,12 +1,12 @@
 ---
-title: "Era Baru Apple Dimulai, Tim Cook Resmi Pensiun Setelah 15 Tahun Memimpin"
-summary: "Setelah 15 tahun membangun Apple menjadi raksasa teknologi bernilai 4 triliun dolar AS, Tim Cook secara resmi mengakhiri masa jabatannya sebagai CEO pada 1 September 2026. Penggantinya, John Ternus, siap menghadapi tantangan besar di era kecerdasan buatan."
+title: 'Era Baru Apple Dimulai, Tim Cook Resmi Pensiun Setelah 15 Tahun Memimpin'
+summary: 'Setelah 15 tahun membangun Apple menjadi raksasa teknologi bernilai 4 triliun dolar AS, Tim Cook secara resmi mengakhiri masa jabatannya sebagai CEO pada 1 September 2026. Penggantinya, John Ternus, siap menghadapi tantangan besar di era kecerdasan buatan.'
 publishedAt: 2026-09-01T17:00:00+07:00
-tags: ["Apple", "Tim Cook", "Teknologi", "CEO"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['Apple', 'Tim Cook', 'Teknologi', 'CEO']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-01-apple-tim-cook-resigns-ceo-16x9.png"
+coverImage: '../../assets/images/2026-09-01-apple-tim-cook-resigns-ceo-16x9.png'
 ---
 
 # Era Baru Apple Dimulai, Tim Cook Resmi Pensiun Setelah 15 Tahun Memimpin
@@ -15,9 +15,9 @@ Selamat datang, pembaca setia! Hari ini, dunia teknologi mencatat momen bersejar
 
 ## Perpisahan yang Menyentuh dari Sang CEO
 
-Sebelum resmi lengser, Tim Cook membagikan pesan perpisahan yang menyentuh di akun media sosialnya. Ia menulis: *"Di hari terakhir saya sebagai CEO Apple, saya menyampaikan cinta yang tulus kepada komunitas Apple. Besok gelar saya akan berubah, namun cinta saya kepada komunitas ini tidak akan pernah berubah. Terima kasih telah menjadi sumber inspirasi bagi saya. Saya sangat berterima kasih dan menantikan bab baru!"*
+Sebelum resmi lengser, Tim Cook membagikan pesan perpisahan yang menyentuh di akun media sosialnya. Ia menulis: _"Di hari terakhir saya sebagai CEO Apple, saya menyampaikan cinta yang tulus kepada komunitas Apple. Besok gelar saya akan berubah, namun cinta saya kepada komunitas ini tidak akan pernah berubah. Terima kasih telah menjadi sumber inspirasi bagi saya. Saya sangat berterima kasih dan menantikan bab baru!"_
 
-Cook juga mengirimkan surat internal kepada seluruh karyawan Apple yang berisi pesan kehilangan atas jabatan yang sangat ia cintai. Ia menyatakan bahwa keputusannya untuk pensiun membuatnya merasa *"sepenuhnya tenang"*, dan mengucapkan terima kasih kepada tim yang telah mendukungnya selama ini. Yang paling mencolok, Cook menulis bahwa sedikit orang yang memahami seperti apa perjuangan membangun produk yang benar-benar mengubah dunia — namun ia percaya sepenuhnya bahwa John Ternus adalah orang yang tepat untuk memimpin Apple ke depan.
+Cook juga mengirimkan surat internal kepada seluruh karyawan Apple yang berisi pesan kehilangan atas jabatan yang sangat ia cintai. Ia menyatakan bahwa keputusannya untuk pensiun membuatnya merasa _"sepenuhnya tenang"_, dan mengucapkan terima kasih kepada tim yang telah mendukungnya selama ini. Yang paling mencolok, Cook menulis bahwa sedikit orang yang memahami seperti apa perjuangan membangun produk yang benar-benar mengubah dunia — namun ia percaya sepenuhnya bahwa John Ternus adalah orang yang tepat untuk memimpin Apple ke depan.
 
 ## Apa yang Ditinggalkan Tim Cook untuk Apple
 
@@ -25,7 +25,7 @@ Tanggal 1 September 2026 menandai tonggak sejarah penting bagi Apple. Saat Cook 
 
 Selama 15 tahunnya, Cook membawa Apple melewati banyak momen krusial. Ia mengawasi peluncuran produk ikonik seperti **Apple Watch** dan **AirPods** yang kemudian menjadi kategori produk baru yang sangat menguntungkan. Cook juga memimpin transisi paling berani dalam sejarah Apple: perpindahan seluruh lini Mac dari chip Intel ke **Apple Silicon (chip M-series)**. Transisi ini tidak hanya meningkatkan performa perangkat Mac secara signifikan, tetapi juga menegaskan kemandirian Apple dalam desain chip.
 
-Selain itu, Cook membangun divisi layanan (*services*) Apple menjadi mesin pendapatan kedua terbesar. Saat ini, layanan seperti App Store, Apple Music, iCloud, dan Apple TV+ menghasilkan pendapatan tahunan lebih dari **1.000 miliar dolar AS** — angka yang setara dengan seluruh pendapatan Apple saat ia pertama kali menjadi CEO.
+Selain itu, Cook membangun divisi layanan (_services_) Apple menjadi mesin pendapatan kedua terbesar. Saat ini, layanan seperti App Store, Apple Music, iCloud, dan Apple TV+ menghasilkan pendapatan tahunan lebih dari **1.000 miliar dolar AS** — angka yang setara dengan seluruh pendapatan Apple saat ia pertama kali menjadi CEO.
 
 ## John Ternus: Sang Pengganti dari Lini Hardware
 
@@ -53,7 +53,7 @@ Jika Ternus mampu mendorong integrasi AI yang lebih kuat ke dalam iPhone, iPad, 
 
 Selain itu, dengan tekanan regulasi yang terus meningkat, Apple mungkin akan menghadirkan kebijakan harga dan layanan yang lebihfleksibel untuk berbagai pasar, termasuk Indonesia. Namun, seperti biasa, kita perlu menunggu kebijakan resmi dari Apple untuk mengetahui dampak sesungguhnya bagi konsumen lokal.
 
-*Ini adalah momen bersejarah bagi Apple dan seluruh ekosistem teknologi global. Dari garage di Los Altos hingga kampus Apple Park di Cupertino, perjalanan Apple terus ditulis oleh orang-orang yang berani berpikir berbeda. Dan hari ini, bab baru dimulai di tangan John Ternus.*
+_Ini adalah momen bersejarah bagi Apple dan seluruh ekosistem teknologi global. Dari garage di Los Altos hingga kampus Apple Park di Cupertino, perjalanan Apple terus ditulis oleh orang-orang yang berani berpikir berbeda. Dan hari ini, bab baru dimulai di tangan John Ternus._
 
 ---
 

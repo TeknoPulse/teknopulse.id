@@ -1,12 +1,12 @@
 ---
-title: "Alibaba Luncurkan Wan3.0, AI Video yang Bisa Ubah PPT jadi Video"
-summary: "Alibaba resmi memperkenalkan model AI video Wan3.0 yang mampu mengubah dokumen teks, spreadsheet, dan slide presentasi menjadi video berdurasi 30 detik. Langkah ini hadir hanya beberapa hari setelah Alibaba menyelesaikan aksi korporasi besar dengan meraup HK$80 miliar dari penjualan saham."
+title: 'Alibaba Luncurkan Wan3.0, AI Video yang Bisa Ubah PPT jadi Video'
+summary: 'Alibaba resmi memperkenalkan model AI video Wan3.0 yang mampu mengubah dokumen teks, spreadsheet, dan slide presentasi menjadi video berdurasi 30 detik. Langkah ini hadir hanya beberapa hari setelah Alibaba menyelesaikan aksi korporasi besar dengan meraup HK$80 miliar dari penjualan saham.'
 publishedAt: 2026-08-25T06:00:00+07:00
-tags: ["AI", "Video", "Alibaba", "Teknologi"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Video', 'Alibaba', 'Teknologi']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/alibaba-wan3-video-16x9.png"
+coverImage: '../../assets/images/alibaba-wan3-video-16x9.png'
 ---
 
 Alibaba resmi memperkenalkan model AI video generatif terbaru mereka, Wan3.0, pada Senin (24/8/2026). Yang membedakan model ini dari para pesaingnya bukan sekadar durasi video, melainkan kemampuan unik membaca dokumen kerja secara langsung.

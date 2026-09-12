@@ -1,0 +1,93 @@
+---
+// src/pages/authors/[slug].astro — halaman profil penulis (TEKAA-5).
+// Sumber data: src/utils/authors.ts. Byline artikel yang cocok jadi tautan
+// ke halaman ini dan JSON-LD Article.author mendapat `url` ke sini.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { authors, getAuthor, type Author } from '../../utils/authors';
+import { site } from '../../config';
+
+export function getStaticPaths() {
+  return authors.map((author) => ({ params: { slug: author.slug }, props: { author } }));
+}
+
+interface Props {
+  author: Author;
+}
+
+const { author } = Astro.props;
+
+const posts = (await getCollection('posts'))
+  .filter(
+    (post: CollectionEntry<'posts'>) =>
+      !post.data.draft && getAuthor(post.data.author)?.slug === author.slug
+  )
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+// JSON-LD Person untuk halaman profil
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: author.name,
+  jobTitle: author.role,
+  description: author.bio,
+  url: new URL(`/authors/${author.slug}`, site.url).href,
+  ...(author.links && author.links.length > 0
+    ? { sameAs: author.links.map((link) => link.url) }
+    : {}),
+  ...(posts.length > 0
+    ? {
+        worksFor: {
+          '@type': 'Organization',
+          name: site.name,
+          url: site.url,
+        },
+      }
+    : {}),
+};
+---
+
+<Layout title={author.name} description={author.bio}>
+  <main class="container mx-auto px-4 py-8">
+    <header class="mx-auto mb-10 max-w-4xl">
+      <h1 class="text-4xl font-bold">{author.name}</h1>
+      <p class="mt-2 text-sm font-medium uppercase tracking-wide text-primary">{author.role}</p>
+      <p class="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">{author.bio}</p>
+
+      {
+        author.links && author.links.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-3">
+            {author.links.map((link) => (
+              <a
+                href={link.url}
+                class="text-sm text-primary hover:underline"
+                rel="noopener noreferrer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        )
+      }
+    </header>
+
+    <section class="mx-auto max-w-5xl" aria-label={`Artikel oleh ${author.name}`}>
+      <h2 class="mb-6 text-2xl font-bold">
+        Artikel ({posts.length})
+      </h2>
+      {
+        posts.length > 0 ? (
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post) => (
+              <PostCard post={post} />
+            ))}
+          </div>
+        ) : (
+          <p class="text-gray-600 dark:text-gray-400">Belum ada artikel yang diterbitkan.</p>
+        )
+      }
+    </section>
+  </main>
+  <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+</Layout>

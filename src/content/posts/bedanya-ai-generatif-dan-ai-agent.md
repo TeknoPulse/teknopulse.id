@@ -10,7 +10,7 @@ draft: false
 format: panduan-pembaca
 ---
 
-Belakangan ini, hampir setiap hari kita mendengar istilah kecerdasan buatan atau *Artificial Intelligence* (AI). Dua istilah yang paling sering muncul berdampingan adalah "AI generatif" dan "AI agent". Bagi banyak orang yang tidak punya latar belakang teknis, kedua istilah ini terdengar hampir sama. Padahal, cara kerja dan manfaat keduanya sangat berbeda.
+Belakangan ini, hampir setiap hari kita mendengar istilah kecerdasan buatan atau _Artificial Intelligence_ (AI). Dua istilah yang paling sering muncul berdampingan adalah "AI generatif" dan "AI agent". Bagi banyak orang yang tidak punya latar belakang teknis, kedua istilah ini terdengar hampir sama. Padahal, cara kerja dan manfaat keduanya sangat berbeda.
 
 Memahami perbedaannya bukan sekadar agar Anda bisa ikut berbicara di kolom komentar. Perbedaan ini menentukan alat mana yang sebaiknya Anda pakai untuk menyelesaikan tugas tertentu. Artikel ini akan menjelaskannya tanpa rumus dan tanpa kode.
 
@@ -45,13 +45,13 @@ AI generatif **membuat** jawaban. AI agent **menyelesaikan** tugas. Itu inti per
 
 Untuk lebih jelas, perhatikan contoh situasi berikut.
 
-| Jika Anda ingin... | Alat yang tepat |
-| --- | --- |
-| Membuat draf caption Instagram | AI generatif |
-| Menjalankan penjualan otomatis dari pesan masuk hingga balasan | AI agent |
-| Meringkas satu dokumen panjang | AI generatif |
-| Memonitor harga produk tiap hari lalu mengabari Anda bila turun | AI agent |
-| Menggambar ilustrasi untuk presentasi | AI generatif |
+| Jika Anda ingin...                                              | Alat yang tepat |
+| --------------------------------------------------------------- | --------------- |
+| Membuat draf caption Instagram                                  | AI generatif    |
+| Menjalankan penjualan otomatis dari pesan masuk hingga balasan  | AI agent        |
+| Meringkas satu dokumen panjang                                  | AI generatif    |
+| Memonitor harga produk tiap hari lalu mengabari Anda bila turun | AI agent        |
+| Menggambar ilustrasi untuk presentasi                           | AI generatif    |
 
 ## Kenapa Perbedaan Ini Penting Bagi Anda?
 

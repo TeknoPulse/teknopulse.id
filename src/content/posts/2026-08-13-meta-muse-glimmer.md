@@ -1,12 +1,12 @@
 ---
-title: "Meta Rilis Muse Glimmer, Model AI Open Source yang Bisa Jalan di Laptop"
-summary: "Meta resmi luncurkan Muse Glimmer 30B, model AI open source berkekuatan 300 miliar parameter yang dirancang untuk berjalan langsung di laptop konsumen. Langkah ini dipandang sebagai tantangan serius terhadap dominasi model tertutup dari OpenAI dan Anthropic."
+title: 'Meta Rilis Muse Glimmer, Model AI Open Source yang Bisa Jalan di Laptop'
+summary: 'Meta resmi luncurkan Muse Glimmer 30B, model AI open source berkekuatan 300 miliar parameter yang dirancang untuk berjalan langsung di laptop konsumen. Langkah ini dipandang sebagai tantangan serius terhadap dominasi model tertutup dari OpenAI dan Anthropic.'
 publishedAt: 2026-08-13T17:00:00+07:00
-tags: ["AI", "Meta", "Open Source", "Machine Learning"]
+tags: ['AI', 'Meta', 'Open Source', 'Machine Learning']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/meta-muse-glimmer-16x9.png"
+coverImage: '../../assets/images/meta-muse-glimmer-16x9.png'
 ---
 
 Meta resmi memasuki babak baru dalam persaingan AI global. Pada awal Agustus 2026, raksasa teknologi yang dipimpin Mark Zuckerberg ini mengumumkan peluncuran **Muse Glimmer 30B**, sebuah model kecerdasan buatan open source berkekuatan 300 miliar parameter yang dapat dijalankan secara langsung pada perangkat laptop konsumen. Langkah ini menandai agresifnya strategi Meta untuk menguasai pasar model AI terbuka sekaligus menantang dominasi model tertutup dari OpenAI dan Anthropic.

@@ -1,12 +1,12 @@
 ---
-title: "OpenAI Setop Pelatihan Model Astra Amid Kekhawatiran Kapabilitas Keamanan Siber"
-summary: "OpenAI memberhentikan sementara pelatihan model Astra setelah pengujian internal menemukan model tersebut berpotensi mencapai tingkat kapabilitas keamanan siber kritis, termasuk kemampuan menemukan kerentanan zero-day."
+title: 'OpenAI Setop Pelatihan Model Astra Amid Kekhawatiran Kapabilitas Keamanan Siber'
+summary: 'OpenAI memberhentikan sementara pelatihan model Astra setelah pengujian internal menemukan model tersebut berpotensi mencapai tingkat kapabilitas keamanan siber kritis, termasuk kemampuan menemukan kerentanan zero-day.'
 publishedAt: 2026-08-20T17:00:00+07:00
-tags: ["AI", "Keamanan", "OpenAI"]
+tags: ['AI', 'Keamanan', 'OpenAI']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-08-20-openai-setop-pelatihan-astra-16x9.png"
+coverImage: '../../assets/images/2026-08-20-openai-setop-pelatihan-astra-16x9.png'
 ---
 
 # OpenAI Setop Pelatihan Model Astra Amid Kekhawatiran Kapabilitas Keamanan Siber

@@ -8,14 +8,15 @@ TeknoPulse — a production Tech & AI news site (Indonesian locale, `id-ID`) bui
 
 ## Commands
 
-| Task                             | Command                 |
-| -------------------------------- | ----------------------- |
-| Dev server                       | `pnpm dev`              |
-| Production build                 | `pnpm build`            |
-| Preview built site               | `pnpm preview`          |
-| Lint (eslint + prettier --check) | `pnpm lint`             |
-| Fix lint                         | `pnpm lint:fix`         |
-| New post scaffold                | `pnpm post:new "Title"` |
+| Task                             | Command                              |
+| -------------------------------- | ------------------------------------ |
+| Dev server                       | `pnpm dev`                           |
+| Production build                 | `pnpm build`                         |
+| Preview built site               | `pnpm preview`                       |
+| Lint (eslint + prettier --check) | `pnpm lint`                          |
+| Fix lint                         | `pnpm lint:fix`                      |
+| New post scaffold                | `pnpm post:new "Title"`              |
+| SEO pre-publish check            | `pnpm seo:check` (`:strict` to gate) |
 
 There is **no test framework** and **no separate typecheck script** — type errors surface via `astro check`/`astro build`. `pnpm build` is the canonical correctness gate.
 
@@ -37,7 +38,23 @@ This site is **static-output only**. SSR was intentionally dropped:
 - Posts: `src/content/posts/*.md`, schema in `src/content/config.ts`.
 - `category` is a **fixed enum**: `AI | OpenSource | DevTools`. The Policy pillar was removed 2026-09 and Security + Cloud followed shortly after — their content lives in AI (security/cloud news is AI news; see `public/_redirects` for the 301 map). To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `OpenSource` → `/category/open-source`).
 - `draft: true` posts are excluded from builds, RSS, feeds, sitemaps, OG generation, and `llms-full.txt`. Set `draft: false` to publish.
-- Slug is derived from the filename; `slug` frontmatter is optional.
+- SEO on-page rules (TEKAA-4/TEKAA-5): exactly one H1 per article page —
+  `src/utils/rehype-unique-h1.js` (registered in `astro.config.mjs`) drops a leading Markdown
+  H1 that duplicates the title, else demotes it to H2. New post bodies must NOT start with
+  `# Title`.
+- og:image per post = `ogImage` frontmatter, else `coverImage` — unless that file is shared by
+  ≥2 posts, in which case the generated card `/og/<slug>.png` (satori, 1200×675) is used.
+  Never reference another post's image.
+- `metaDescription` frontmatter (120–155 chars) feeds `<meta name="description">` /
+  og:description; falls back to `summary`. `faq` frontmatter (2–4 Q&A) renders an FAQ block
+  and emits `FAQPage` JSON-LD.
+- Bylines come from `src/utils/authors.ts`; a matching `author` frontmatter links the byline
+  to `/authors/<slug>/` (Person JSON-LD) and sets `author.url` in Article JSON-LD.
+- `scripts/seo-check.mjs` runs as `prebuild` (advisory warnings); `pnpm seo:check:strict` is
+  the pre-publish gate. `scripts/new-post.js` scaffolds compliant frontmatter.
+- Slug is derived from the filename; `slug` frontmatter is optional. **New posts must use
+  undated slugs** (`/posts/<slug>/`); legacy dated filenames (`2026-08-25-...`) stay as-is —
+  never rename them without a 301 in `public/_redirects`.
 - Cover images live in `src/assets/images/` and are referenced via Astro's `image()` helper. Many filenames begin with `=` (an artifact of a past slugifying bug) — leave them unless explicitly asked to clean up.
 
 ### Self-maintaining generated routes

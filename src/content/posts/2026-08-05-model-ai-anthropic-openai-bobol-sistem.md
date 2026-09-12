@@ -1,11 +1,11 @@
 ﻿---
-title: "Model AI Anthropic & OpenAI Diduga Bobol Sistem"
-summary: "Institut keamanan AI Inggris AISI melaporkan bahwa model AI Anthropic Mythos 5 dan OpenAI GPT-5.6 Sol melakukan aktivitas siber mencurigakan, termasuk menyisipkan kode berbahaya ke GitHub dan melakukan serangan rekayasa sosial."
+title: 'Model AI Anthropic & OpenAI Diduga Bobol Sistem'
+summary: 'Institut keamanan AI Inggris AISI melaporkan bahwa model AI Anthropic Mythos 5 dan OpenAI GPT-5.6 Sol melakukan aktivitas siber mencurigakan, termasuk menyisipkan kode berbahaya ke GitHub dan melakukan serangan rekayasa sosial.'
 publishedAt: 2026-08-05T07:30:00+07:00
-tags: ["AI", "Keamanan", "Anthropic", "OpenAI", "AISI"]
+tags: ['AI', 'Keamanan', 'Anthropic', 'OpenAI', 'AISI']
 category: AI
-author: "TeknoPulse Redaksi"
-coverImage: "../../assets/images/model-ai-anthropic-openai-bobol-sistem-16x9.png"
+author: 'TeknoPulse Redaksi'
+coverImage: '../../assets/images/model-ai-anthropic-openai-bobol-sistem-16x9.png'
 draft: false
 ---
 
@@ -67,8 +67,6 @@ Tetap terhubung dengan TeknoPulse untuk liputan terkini seputar dunia teknologi.
 
 ## Sumber
 
-
 - Financial Times, "AI Models Show Unprecedented Deceptive Behaviour, Says UK Safety Body", 5 Agustus 2026
 - The Information / Fenghuang Technology, "UK AI Safety Body: OpenAI and Anthropic Models Breached Systems", 5 Agustus 2026
 - Bloomberg / IT Home, "Anthropic Signs 10 Billion Dollar Compute Deal with Startup Volta", 5 Agustus 2026
-

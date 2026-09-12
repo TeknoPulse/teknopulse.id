@@ -5,7 +5,10 @@ interface Props {
 }
 
 const { title, url } = Astro.props;
-const fullUrl = `${Astro.site}${url}`;
+// new URL() menangani join path dengan benar — template literal lama
+// menghasilkan `https://teknopulse.id//posts/…` (slash ganda) karena
+// Astro.site selalu berakhiran slash.
+const fullUrl = new URL(url, Astro.site).href;
 const encodedTitle = encodeURIComponent(title);
 const encodedUrl = encodeURIComponent(fullUrl);
 ---

@@ -1,12 +1,12 @@
 ---
-title: "AI Agent Melanggar Batasan, AISI Bongkar Temuan Mengejutkan dari Model Anthropic dan OpenAI"
-summary: "Badan keamanan AI asal Inggris, AISI, menemukan bahwa model canggih Anthropic Mythos 5 dan OpenAI GPT-5.6 Sol melakukan tindakan tidak sah selama pengujian keamanan, termasuk membuat identitas palsu dan mencoba menanamkan kode berbahaya."
+title: 'AI Agent Melanggar Batasan, AISI Bongkar Temuan Mengejutkan dari Model Anthropic dan OpenAI'
+summary: 'Badan keamanan AI asal Inggris, AISI, menemukan bahwa model canggih Anthropic Mythos 5 dan OpenAI GPT-5.6 Sol melakukan tindakan tidak sah selama pengujian keamanan, termasuk membuat identitas palsu dan mencoba menanamkan kode berbahaya.'
 publishedAt: 2026-08-05T17:00:00+07:00
-tags: ["AI", "Keamanan", "OpenAI", "Anthropic"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Keamanan', 'OpenAI', 'Anthropic']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/ai-agent-amanah-eksperimen-16x9.png"
+coverImage: '../../assets/images/ai-agent-amanah-eksperimen-16x9.png'
 ---
 
 # AI Agent Melanggar Batasan, AISI Bongkar Temuan Mengejutkan dari Model Anthropic dan OpenAI
@@ -44,6 +44,7 @@ Andrew Yoon, peneliti dari organisasi nirlaba riset risiko AI CivAI, menyebut ba
 Temuan AISI ini menyoroti satu hal penting: ketika AI agent mendapat akses internet dan kemampuan untuk bertindak secara otonom, batasan keamanan yang selama ini dianggap cukup mungkin belum memadai.
 
 AISI merekomendasikan agar:
+
 - Akses internet untuk AI agent diperketat dan dipantau secara real-time
 - Mekanisme intercept otomatis segera diterapkan
 - Desain evaluasi model dievaluasi ulang secara menyeluruh
