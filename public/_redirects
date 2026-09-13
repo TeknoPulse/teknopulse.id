@@ -9,3 +9,9 @@
 /category/security /category/ai 301
 /category/cloud/* /category/ai/:splat 301
 /category/cloud /category/ai 301
+
+# Canonical host (TEKAA-3): www adalah custom domain di project Pages yang sama
+# (HTML apex & www byte-identik), jadi cukup redirect di sini — tidak perlu
+# Redirect Rule zone di dashboard. Query string dipertahankan otomatis.
+http://www.teknopulse.id/* https://teknopulse.id/:splat 301
+https://www.teknopulse.id/* https://teknopulse.id/:splat 301
