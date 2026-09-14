@@ -33,7 +33,7 @@ faq:
   - question: 'Berapa nilai akuisisi Hugging Face oleh Nvidia?'
     answer: 'Nvidia mengumumkan kesepakatan senilai US$12.930.300.000 atau sekitar US$12,93 miliar, setara ±Rp200 triliun. Angka resmi ini diumumkan langsung oleh CEO Nvidia Jensen Huang pada 3 September 2026.'
   - question: 'Apakah Hugging Face tetap terbuka dan bisa dipakai gratis?'
-    answer: 'Jensen Huang menegaskan Hugging Face akan tetap menjadi platform terbuka untuk seluruh ekosistem AI, dan penggunaan komputasi Nvidia tidak diwajibkan. Dukungan untuk berbagai cloud dan akselerator (termasuk AMD, Intel, dan penyedia lain) akan berlanjut.'
+    answer: 'Jensen Huang menegaskan Hugging Face akan tetap menjadi platform terbuka untuk seluruh ekosistem AI, dan penggunaan komputasi Nvidia tidak diwajibkan. Dukungan untuk berbagai layanan cloud dan akselerator — termasuk yang non-Nvidia — dinyatakan berlanjut.'
   - question: 'Kapan akuisisi Nvidia–Hugging Face rampung?'
     answer: 'Transaksi diperkirakan rampung pada paruh pertama 2027, menunggu persetujuan regulator di sejumlah yurisdiksi. Sampai itu terjadi, Hugging Face tetap beroperasi sebagai perusahaan mandiri.'
 ---
@@ -64,7 +64,7 @@ Dengan menguasai platform ini, Nvidia mengamankan titik distribusi paling strate
 
 Kekhawatiran terbesar komunitas soal akuisisi semacam ini adalah netralitas platform. Menjawab hal itu, Huang memberikan dua jaminan di pengumuman resminya: Hugging Face "akan tetap menjadi platform terbuka untuk seluruh ekosistem AI", dan "komputasi Nvidia tidak akan diwajibkan untuk membangun atau men-deploy melalui Hugging Face".
 
-Dalam praktiknya, artinya developer tetap bebas memilih model, framework, layanan cloud, dan penyedia inferensi — termasuk akselerator dari AMD, Intel, atau penyedia lain. Tim Hugging Face akan bergabung ke Nvidia, tetapi merek 🤗 yang ikonik dan misinya mendemokratisasi AI dinyatakan berlanjut. Huang juga mengungkap bahwa ide akuisisi ini datang dari CEO Hugging Face Clément Delangue sendiri.
+Dalam praktiknya, artinya developer tetap bebas memilih model, framework, layanan cloud, dan penyedia inferensi — termasuk akselerator non-Nvidia. Tim Hugging Face akan bergabung ke Nvidia, tetapi merek 🤗 yang ikonik dan misinya mendemokratisasi AI dinyatakan berlanjut. Huang juga mengungkap bahwa ide akuisisi ini datang dari CEO Hugging Face Clément Delangue sendiri.
 
 ## Investasi yang Dulu Ditolak
 

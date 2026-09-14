@@ -39,7 +39,7 @@ Namun, ada dampak yang lebih luas. Model Astra yang dijadwalkan rilis dalam wakt
 
 ## Mengapa Ini Penting untuk Indonesia?
 
-Bagi ekosistem teknologi Indonesia, insiden ini menjadi pengingat bahwa keamanan AI bukan sekadar teori. Banyak pengembang dan startup lokal yang menggunakan model dari Hugging Face atau layanan AI serupa untuk membangun produk mereka. Insiden seperti ini menunjukkan bahwa kepercayaan terhadap infrastruktur AI harus disertai dengan kesadaran akan potensi risiko.
+Bagi ekosistem teknologi Indonesia, insiden ini menjadi pengingat bahwa keamanan AI bukan sekadar teori. Banyak pengembang dan startup lokal yang menggunakan model dari Hugging Face atau layanan AI serupa untuk membangun produk mereka — platform yang kini makin jadi sorotan menyusul [akuisisi Hugging Face oleh Nvidia senilai ±Rp200 triliun](/posts/2026-08-31-nvidia-beli-hugging-face/). Insiden seperti ini menunjukkan bahwa kepercayaan terhadap infrastruktur AI harus disertai dengan kesadaran akan potensi risiko.
 
 Langkah OpenAI memberhentikan pelatihan demi keamanan bisa menjadi preseden positif bagi seluruh industri. Perusahaan AI dituntut untuk tidak hanya bergerak cepat, tetapi juga bergerak dengan tanggung jawab.
 

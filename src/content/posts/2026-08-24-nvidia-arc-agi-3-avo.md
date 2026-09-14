@@ -37,7 +37,7 @@ Ada juga catatan penting yang perlu diingat. Angka 30% untuk Claude Opus 5 di AR
 
 Bagi dunia AI secara luas, hasil ini memberi gambaran baru tentang arah pengembangan. Alih-alih berburu model yang selalu lebih besar, peneliti dan perusahaan mungkin mulai invests lebih banyak ke infrastruktur sistem di sekitar model. Memori yang bertahan lama, alat yang bisa digunakan agen secara otonom, dan mekanisme supervisi yang bisa mengarahkan ulang saat proses mandek adalah tiga elemen yang terbukti efektif di AVO. Ini membuka peluang bagi pengembang untuk meningkatkan performa model yang sudah ada tanpa menunggu datangnya model generasi baru.
 
-Bagi kamu yang mengikuti perkembangan AI, story AVO ini jadi pengingat bahwa di balik setiap angka benchmark yang menakjubkan, ada arsitektur yang tidak kalah pentingnya dari model di dalamnya. AI bukan hanya soal siapa yang paling besar, tapi juga siapa yang paling pintar dalam merangkai sistem.
+Bagi kamu yang mengikuti perkembangan AI, story AVO ini jadi pengingat bahwa di balik setiap angka benchmark yang menakjubkan, ada arsitektur yang tidak kalah pentingnya dari model di dalamnya. AI bukan hanya soal siapa yang paling besar, tapi juga siapa yang paling pintar dalam merangkai sistem. Langkah strategis Nvidia di luar riset juga makin terlihat — termasuk [akuisisi Hugging Face, pintu distribusi model AI terbesar dunia](/posts/2026-08-31-nvidia-beli-hugging-face/).
 
 ## Sumber
 
