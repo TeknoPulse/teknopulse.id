@@ -2,6 +2,7 @@
 title: 'OpenAI Hapus Batas Chat Gratis, ChatGPT Kini Tak Terbatas'
 summary: 'OpenAI resmi hapus batasan teks gratis di ChatGPT. Pengguna kini bisa chatting tanpa batas menggunakan model GPT-5.6 Luna yang lebih akurat dan cepat.'
 publishedAt: 2026-08-11T06:00:00+07:00
+updatedAt: 2026-09-15T00:15:00+07:00
 tags: ['AI', 'OpenAI', 'ChatGPT', 'Gratis']
 category: AI
 author: 'TeknoPulse Redaksi'
@@ -13,7 +14,7 @@ Siapa bilang AI harus mahal? OpenAI baru saja membuat gebrakan besar yang bikin 
 
 ## Apa yang Berubah?
 
-Kabar utamanya simpel: mulai sekarang, pengguna ChatGPT gratis tidak lagi menghadapi pesan "Batas pesan tercapai hari ini." Mereka bisa mengobrol sepuasnya, tanpa batasan jumlah chat.
+Kabar utamanya simpel: mulai sekarang, pengguna ChatGPT gratis tidak lagi menghadapi pesan "Batas pesan tercapai hari ini." Mereka bisa mengobrol sepuasnya, tanpa batasan jumlah chat. Satu catatan: "tanpa batas" ini berlaku untuk percakapan teks — fitur berat seperti pembuatan gambar di versi gratis tetap mengikuti kuota harian kecil yang bisa berubah sewaktu-waktu.
 
 Perubahan ini datang bersamaan dengan upgrade besar pada model default yang digunakan pengguna gratis. Sebelumnya, akun gratis menggunakan GPT-5.5 Instant. Kini, model default resmi beralih ke **GPT-5.6 Luna** — model yang diklaim OpenAI punya akurasi faktual jauh lebih tinggi dari pendahulunya.
 
@@ -27,11 +28,11 @@ Ada tiga peningkatan utama yang langsung dirasakan pengguna gratis:
 
 2. **Model lebih akurat** — GPT-5.6 Luna terbukti lebih jarang salah informasi dalam pengujian internal OpenAI, terutama untuk topik yang membutuhkan ketepatan faktual.
 
-3. **Tombol "Think"** — Pengguna gratis dan pelanggan paket Go (Rp135.000/bulan) kini mendapatkan tombol baru bernama "Think." Tombol ini memicu penalaran lebih dalam sebelum model memberikan jawaban, sangat berguna untuk pertanyaan yang rumit.
+3. **Tombol "Think"** — Pengguna gratis dan pelanggan paket Go (Rp75.000/bulan) kini mendapatkan tombol baru bernama "Think." Tombol ini memicu penalaran lebih dalam sebelum model memberikan jawaban, sangat berguna untuk pertanyaan yang rumit.
 
 ## Pengguna Berbayar? Jangan Irosit
 
-Kalau kamu pengguna Plus (Rp285.000/bulan) atau Pro (Rp2,85 juta/bulan), kamu juga tidak dilupakan. OpenAI memperkenalkan **GPT-5.6 Sol** sebagai model andalan untuk tier berbayar.
+Kalau kamu pengguna Plus (Rp349.000/bulan) atau Pro (Rp2,85 juta/bulan), kamu juga tidak dilupakan. OpenAI memperkenalkan **GPT-5.6 Sol** sebagai model andalan untuk tier berbayar.
 
 Sol menawarkan jawaban yang lebih langsung, format lebih ringkas, dan tingkat kesalahan fakta yang lebih rendah. Yang paling menarik adalah kehadiran **slider intensitas berpikir** dengan lima tingkatan. Pengguna bisa mengatur seberapa "dalam" model berpikir sebelum menjawab — berguna untuk tugas riset, penulisan, atau pengambilan keputusan penting.
 
