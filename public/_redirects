@@ -9,3 +9,13 @@
 /category/security /category/ai 301
 /category/cloud/* /category/ai/:splat 301
 /category/cloud /category/ai 301
+
+# TEKAA-9: konsolidasi berita Nvidia-Hugging Face — 4 duplikat -> 1 kanonik
+/posts/2026-08-26-hugging-face-dijual /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-08-26-hugging-face-dijual/ /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-08-30-nvidia-capai-hugging-face /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-08-30-nvidia-capai-hugging-face/ /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-08-31-nvidia-hugging-face-akuisisi /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-08-31-nvidia-hugging-face-akuisisi/ /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-09-04-nvidia-beli-hugging-face-rp14-triliun /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+/posts/2026-09-04-nvidia-beli-hugging-face-rp14-triliun/ /posts/2026-08-31-nvidia-beli-hugging-face/ 301
