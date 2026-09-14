@@ -51,7 +51,7 @@ const { posts } = Astro.props;
                   {post.data.summary}
                 </p>
                 <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
-                  <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID')}</span>
+                  <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Jakarta' })}</span>
                   <span>{post.data.readingTime} min read</span>
                 </div>
               </div>
