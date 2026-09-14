@@ -13,15 +13,21 @@ faq:
   - question: 'AI gratis mana yang paling layak dipakai di 2026?'
     answer: 'Untuk chat dan tugas tulis-menulis, ChatGPT gratis kini tanpa batas chat teks, dan DeepSeek gratis penuh lewat aplikasinya. Untuk desain dan edit foto, Canva versi gratis sudah cukup untuk kebutuhan harian. Kombinasi keduanya menutup sebagian besar kebutuhan tanpa biaya.'
   - question: 'Berapa harga ChatGPT Plus dalam rupiah?'
-    answer: 'ChatGPT Plus dibanderol 20 dolar AS per bulan, sekitar Rp 352 ribu dengan kurs Rp 17.600 (14 September 2026). Ada juga paket ChatGPT Go seharga 8 dolar AS (sekitar Rp 141 ribu) dengan batas pemakaian lebih ringan.'
+    answer: 'ChatGPT Plus dijual Rp 349.000 per bulan untuk pasar Indonesia. Ada juga paket ChatGPT Go seharga Rp 75.000 per bulan (termasuk PPN) dengan batas pemakaian lebih ringan. Keduanya harga resmi pasar Indonesia, dicek 14 September 2026, dan bisa berubah.'
   - question: 'Apakah AI di daftar ini fasih berbahasa Indonesia?'
     answer: 'Ya. ChatGPT, Gemini, Claude, dan DeepSeek sama-sama fasih berbahasa Indonesia untuk tugas umum. Gemini bahkan sudah diluncurkan resmi di Indonesia dengan penyetelan khusus untuk bahasa dan konteks lokal.'
   - question: 'Apakah daftar ini memuat tautan afiliasi?'
     answer: 'Tidak. TeknoPulse tidak menerima komisi dari penyedia mana pun di daftar ini. Semua harga dan batas versi gratis dicek dari halaman resmi masing-masing pada 14 September 2026 dan bisa berubah; artikel ini dijadwalkan ditinjau ulang tiap 30 hari.'
 source:
-  - name: 'OpenAI — ChatGPT Pricing'
-    url: 'https://chatgpt.com/pricing/'
+  - name: 'OpenAI — ChatGPT Pricing (lokal id-ID)'
+    url: 'https://chatgpt.com/id-ID/pricing/'
     primary: true
+  - name: 'OpenAI — Memperkenalkan ChatGPT Go (footnote harga pasar lokal)'
+    url: 'https://openai.com/id-ID/index/introducing-chatgpt-go/'
+    primary: true
+  - name: 'CNBC Indonesia — ChatGPT Go hadir di Indonesia: harga dan cara daftar'
+    url: 'https://www.cnbcindonesia.com/tech/20250923140037-37-669449/chatgpt-go-versi-murah-hadir-di-ri-segini-harga-dan-cara-daftarnya'
+    primary: false
   - name: 'Google — Paket Google AI (Indonesia)'
     url: 'https://one.google.com/intl/id_id/about/google-ai-plans/'
     primary: true
@@ -53,13 +59,13 @@ source:
 
 Pertanyaan soal AI terbaik 2026 tidak punya satu jawaban tunggal — yang ada, AI terbaik untuk tiap kebutuhan. Setelah membandingkan sepuluh layanan, polanya jelas: ChatGPT paling serbaguna untuk kerja, Gemini untuk belajar, Copilot dan DeepSeek untuk coding, Canva untuk edit foto, Midjourney untuk gambar, Wan untuk video, dan Suno untuk musik — lengkap dengan harga rupiah per 14 September 2026.
 
-## Cara Kami Menguji dan Memilih
+## Cara Kami Memilih dan Menilai
 
 Daftar ini bukan peringkat "siapa paling pintar", melainkan pemetaan "siapa terbaik untuk apa". Setiap layanan dinilai dengan lima kriteria yang sama:
 
 1. **Kemampuan di tugas sehari-hari** — menulis, merangkum, mencari informasi, membuat gambar/video, atau menulis kode sesuai fokus layanannya, dinilai dari rilis resmi dan pengamatan pemberitaan hingga 14 September 2026.
 2. **Kedermawanan versi gratis** — seberapa jauh kamu bisa memakainya tanpa bayar, termasuk batas harian yang sering berubah.
-3. **Harga resmi terbaru** — semua angka diambil dari halaman harga resmi tiap penyedia per 14 September 2026, lalu dikonversi ke rupiah dengan kurs Rp 17.600 per dolar AS (kurs acuan Bank Indonesia, 11 September 2026). Harga dolar dibulatkan.
+3. **Harga resmi terbaru** — semua angka diambil dari halaman harga resmi tiap penyedia per 14 September 2026. Layanan yang punya banderol resmi rupiah (ChatGPT, Gemini, Canva) memakai harga pasar Indonesia; sisanya dikonversi dari dolar AS dengan kurs Rp 17.600 per dolar AS (kurs acuan Bank Indonesia, 11 September 2026) dan dibulatkan.
 4. **Dukungan bahasa Indonesia** — karena target utama kami adalah pengguna Indonesia.
 5. **Kemudahan akses dari Indonesia** — termasuk soal metode pembayaran yang tersedia.
 
@@ -69,7 +75,7 @@ Satu catatan transparansi: harga, kuota, dan batas versi gratis adalah klaim yan
 
 | AI | Terbaik untuk | Versi gratis | Harga berbayar (per bulan) |
 | --- | --- | --- | --- |
-| ChatGPT | Kerja serbaguna & tulis-menulis | Chat teks tanpa batas | Go ±Rp 141 ribu; Plus ±Rp 352 ribu |
+| ChatGPT | Kerja serbaguna & tulis-menulis | Chat teks tanpa batas | Go Rp 75 ribu; Plus Rp 349 ribu |
 | Gemini | Belajar & riset, ekosistem Google | Ya, gratis | AI Plus Rp 75 ribu; AI Pro Rp 309 ribu |
 | Claude | Dokumen panjang & analisis | Terbatas per hari | Pro ±Rp 352 ribu |
 | DeepSeek | Pengguna gratis & coding | Gratis penuh di aplikasi | API dari ±Rp 2 ribu per juta token |
@@ -84,9 +90,9 @@ Satu catatan transparansi: harga, kuota, dan batas versi gratis adalah klaim yan
 
 ChatGPT tetap jadi pilihan default kalau kamu hanya mau punya satu AI. Rangkum laporan, susun email, brainstorm ide konten, buat tabel dari data mentah, sampai belajar hal baru — semuanya bisa dimulai dari satu kotak chat. Sejak 4 September 2026, model andelannya adalah [GPT-6 Astra](/posts/2026-09-04-openai-gpt6-astra-resmi-dirilis-era-agi/) yang diklaim OpenAI mampu menjalankan tugas secara otonom, dari mengisi formulir sampai menyusun presentasi, dan digulirkan bertahap ke pengguna berbayar.
 
-Versi gratisnya justru salah satu yang paling dermawan: sejak Agustus 2026 [OpenAI menghapus batas chat teks gratis](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/), sehingga kamu bisa mengobrol tanpa kuota harian memakai model yang lebih ringan. Batas mulai muncul saat kamu memakai fitur berat: model terbaru, mode agent, suara lanjutan, dan pembuatan gambar dalam jumlah besar. Untuk itu tersedia ChatGPT Go 8 dolar AS (±Rp 141 ribu) dan Plus 20 dolar AS (±Rp 352 ribu) per bulan.
+Versi gratisnya justru salah satu yang paling dermawan: sejak Agustus 2026 [OpenAI menghapus batas chat teks gratis](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/), sehingga kamu bisa mengobrol tanpa kuota harian memakai model yang lebih ringan. Batas mulai muncul saat kamu memakai fitur berat: model terbaru, mode agent, suara lanjutan, dan pembuatan gambar dalam jumlah besar. Untuk pengguna Indonesia, harganya resmi dalam rupiah: ChatGPT Go Rp 75.000 per bulan (termasuk PPN) dan ChatGPT Plus Rp 349.000 per bulan — harga langganan pasar Indonesia, bukan konversi dolar.
 
-Kelemahannya: ChatGPT kadang terlalu percaya diri menjawab hal yang salah, dan pembayarannya masih membutuhkan kartu internasional — selalu cek metode pembayaran terbaru sebelum berlangganan. Jika masih bingung mulai dari mana, baca dulu [cara menggunakan ChatGPT untuk kerja dan belajar sehari-hari](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/).
+Kelemahannya: ChatGPT kadang terlalu percaya diri menjawab hal yang salah. Untuk berlangganan, pembayaran bisa lewat Google Play/App Store atau langsung di web — metodenya sesekali berubah, jadi cek pilihan terbaru sebelum bayar. Jika masih bingung mulai dari mana, baca dulu [cara menggunakan ChatGPT untuk kerja dan belajar sehari-hari](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/).
 
 ## Gemini: Terbaik untuk Belajar dan Riset
 
@@ -166,6 +172,6 @@ Ingat juga: semua angka di artikel ini dicek 14 September 2026 dan pasti berubah
 
 ---
 
-_Artikel ini disusun dengan bantuan AI dan disunting serta diverifikasi redaksi TeknoPulse. Harga dan batas versi gratis dicek dari halaman resmi masing-masing layanan pada 14 September 2026; nominal rupiah memakai kurs acuan Rp 17.600 per dolar AS. Artikel ini tidak memuat tautan afiliasi._
+_Artikel ini disusun dengan bantuan AI dan disunting serta diverifikasi redaksi TeknoPulse. Harga dan batas versi gratis dicek dari halaman resmi masing-masing layanan pada 14 September 2026; layanan dengan harga resmi rupiah memakai banderol Indonesia, dan nominal dolar dikonversi dengan kurs acuan Rp 17.600 per dolar AS. Artikel ini tidak memuat tautan afiliasi._
 
-_Untuk dasar-dasarnya dulu, baca bedanya AI generatif dan AI agent, atau lihat konteksnya di liputan rilis GPT-6 Astra dan rilis model open source Meta Muse Glimmer yang bisa berjalan di laptop._
+_Untuk dasar-dasarnya dulu, baca [bedanya AI generatif dan AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/), atau lihat konteksnya di [liputan rilis GPT-6 Astra](/posts/2026-09-04-openai-gpt6-astra-resmi-dirilis-era-agi/) dan [rilis model open source Meta Muse Glimmer](/posts/2026-08-13-meta-muse-glimmer/) yang bisa berjalan di laptop._
