@@ -25,6 +25,7 @@ export async function GET() {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
+      timeZone: 'Asia/Jakarta',
     });
     lines.push(`## ${post.data.title}`, '', post.data.summary, '');
     lines.push(`URL: ${url}`);

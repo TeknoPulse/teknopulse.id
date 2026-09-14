@@ -97,7 +97,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
                     <span>{latestPosts[0].data.author}</span>
                     <span>&bull;</span>
                     <time datetime={latestPosts[0].data.publishedAt.toISOString()}>
-                      {new Date(latestPosts[0].data.publishedAt).toLocaleDateString('id-ID')}
+                      {new Date(latestPosts[0].data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Jakarta' })}
                     </time>
                     {latestPosts[0].data.readingTime && (
                       <>
