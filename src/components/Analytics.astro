@@ -18,11 +18,16 @@
 //   Cloudflare Web Analytics (gratis, satu dashboard dengan Pages):
 //     PUBLIC_ANALYTICS_PROVIDER=cloudflare
 //     PUBLIC_ANALYTICS_ID=<beacon-token>
+//
+// Default aktif: Cloudflare Web Analytics (token di-bake dari dashboard, TEKAA-3).
+// Token beacon memang publik — ikut tampil di HTML setiap pengunjung — bukan secret.
+const CF_BEACON_TOKEN = 'c3393dfa30c245369d256becc82b2cb0';
+
 const env = import.meta.env;
-const provider = env.PUBLIC_ANALYTICS_PROVIDER;
+const provider = env.PUBLIC_ANALYTICS_PROVIDER ?? 'cloudflare';
 const domain = env.PUBLIC_ANALYTICS_DOMAIN; // Plausible: situs yang dilacak
 const src = env.PUBLIC_ANALYTICS_SRC; // Umami: URL script.js instance
-const id = env.PUBLIC_ANALYTICS_ID; // Umami: website id · Cloudflare: beacon token
+const id = env.PUBLIC_ANALYTICS_ID ?? CF_BEACON_TOKEN; // Umami: website id · Cloudflare: beacon token
 
 const active =
   (provider === 'plausible' && !!domain) ||
