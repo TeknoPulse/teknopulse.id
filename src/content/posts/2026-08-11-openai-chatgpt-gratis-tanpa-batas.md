@@ -48,7 +48,7 @@ Kabar ini juga datang hanya beberapa minggu setelah OpenAI memangkas harga Luna 
 
 ## Implikasi untuk Pengguna Indonesia
 
-Bagi pengguna di Indonesia, perubahan ini punya makna khusus. ChatGPT versi gratis yang sebelumnya terasa terbatas kini menjadi jauh lebih berguna untuk kebutuhan sehari-hari. Siswa bisa belajar tanpa batas, pekerja bisa meminta bantuan analisis dokumen, dan siapa pun bisa mengeksplorasi kemampuan AI tanpa perlu mengeluarkan uang sepeser pun.
+Bagi pengguna di Indonesia, perubahan ini punya makna khusus. ChatGPT versi gratis yang sebelumnya terasa terbatas kini menjadi jauh lebih berguna untuk kebutuhan sehari-hari. Siswa bisa belajar tanpa batas, pekerja bisa meminta bantuan analisis dokumen, dan siapa pun bisa mengeksplorasi kemampuan AI tanpa perlu mengeluarkan uang sepeser pun. Termasuk kebutuhan kreatif — mengedit foto kini bisa dilakukan langsung dari chat, seperti pada panduan [cara edit foto pakai ChatGPT](/posts/cara-edit-foto-chatgpt/) yang merangkum langkah di HP dan laptop beserta prompt siap salin.
 
 Model GPT-5.6 Luna yang lebih akurat juga berarti risiko mendapat informasi keliru jadi lebih kecil — hal yang sangat penting bagi pengguna yang belum terbiasa memverifikasi jawaban AI secara mandiri.
 
