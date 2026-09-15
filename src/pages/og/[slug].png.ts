@@ -43,7 +43,7 @@ export async function GET({ params }: { params: { slug: string } }) {
         title: post.data.title,
         category: post.data.category,
         author: post.data.author,
-        publishedAt: new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Jakarta' }),
+        publishedAt: new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' }),
       }),
       {
         // 16:9 sesuai standar OG TeknoPulse (standar-on-page-seo §6).
