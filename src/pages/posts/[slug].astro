@@ -132,7 +132,7 @@ const faq = post.data.faq ?? [];
           </span>
           <span class="mx-2">•</span>
           <time datetime={post.data.publishedAt.toISOString()}>
-            {new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Jakarta' })}
+            {new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' })}
           </time>
           {
             updated && (
@@ -141,7 +141,7 @@ const faq = post.data.faq ?? [];
                 <span>
                   Diperbarui{' '}
                   <time datetime={updated.toISOString()}>
-                    {new Date(updated).toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Jakarta' })}
+                    {new Date(updated).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' })}
                   </time>
                 </span>
               </>

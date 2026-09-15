@@ -60,7 +60,7 @@ const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
     </p>
 
     <div class="flex items-center justify-between text-xs text-text-muted dark:text-gray-500">
-      <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'numeric', year: 'numeric', timeZone: 'Asia/Jakarta' })}</span>
+      <span>{new Date(post.data.publishedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' })}</span>
       <span>{readingTime} mnt baca</span>
     </div>
 
