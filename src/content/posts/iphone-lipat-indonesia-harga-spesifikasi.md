@@ -74,7 +74,7 @@ Chip A20 Pro memakai fabrikasi 2nm — teknologi proses yang sama dengan [chip M
 
 Satu hal yang tidak disebut di keynote tapi penting diketahui: bobot dan ketebalannya. Dilaporkan detikINET, iPhone Duo berbobot 254 gram dan tebal 11,3 mm saat dilipat — angka yang kelak menjadi pembanding menarik dengan HP lipat pesaing (lebih lanjut di bagian bawah).
 
-## Harga Global vs Perkiraan Harga Indonesia
+## Harga iPhone Lipat: Global vs Perkiraan Indonesia
 
 Harga resmi hanya tersedia untuk pasar luar. Ini daftar lengkapnya untuk pasar AS:
 
