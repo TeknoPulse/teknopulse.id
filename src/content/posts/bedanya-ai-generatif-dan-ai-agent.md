@@ -39,6 +39,8 @@ Beberapa kemampuan khas sebuah agent:
 - Mengambil keputusan kecil di tengah jalan, misalnya mencoba cara lain bila yang pertama gagal.
 - Melaporkan hasil akhir kepada Anda.
 
+Ingin paham lebih dalam cara kerjanya sekaligus mencobanya sendiri? Kami membahasnya lebih rinci di [AI Agent Adalah: Definisi, Cara Kerja, Contoh 2026](/posts/ai-agent-adalah/) — lengkap dengan contoh yang bisa dicoba gratis.
+
 ## Perbedaan Kuncinya dalam Satu Kalimat
 
 AI generatif **membuat** jawaban. AI agent **menyelesaikan** tugas. Itu inti perbedaannya.
