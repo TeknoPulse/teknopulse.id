@@ -25,7 +25,7 @@ source:
     primary: true
 ---
 
-Bisa — dan bagian paling melelahkannya (menyusun kerangka dan menulis isi tiap slide) bisa selesai dalam hitungan menit. Rumusnya satu: gunakan prompt ChatGPT untuk membuat PPT yang menyebut topik, jumlah slide, isi per slide, dan formatnya — hasilnya kerangka plus teks siap pindah ke PowerPoint. Satu batasannya jujur: ChatGPT tidak mengirimkan file .pptx jadi, dan artikel ini membedah rumus prompt, 10 template siap salin, serta tiga cara memindahkan hasilnya ke slide.
+Bisa — dan bagian paling melelahkannya (menyusun kerangka dan menulis isi tiap slide) bisa selesai dalam hitungan menit. Rumusnya satu: gunakan prompt ChatGPT untuk membuat PPT yang menyebut topik, jumlah slide, isi per slide, dan formatnya. ChatGPT tidak mengirimkan file .pptx jadi — artikel ini membedah rumusnya, 10 template siap salin, serta tiga cara memindahkan hasilnya ke slide.
 
 ## Bisa Bikin PPT Pakai ChatGPT?
 
@@ -51,7 +51,7 @@ Biar terasa bedanya, bandingkan dua prompt tentang topik yang sama:
 - **Lemah:** `Bikin PPT tentang sampah plastik.` — ChatGPT akan menebak jumlah slide, tidak tahu untuk siapa, dan mengisi tiap slide dengan paragraf panjang yang harus kamu pangkas sendiri.
 - **Kuat:** `Buat presentasi 8 slide tentang mengurangi sampah plastik rumah tangga untuk audiens ibu rumah tangga. Tiap slide: judul maksimal 8 kata, 3 poin, 1 catatan pembicara, bahasa yang santai tanpa istilah teknis.` — jumlah, audiens, dan formatnya sudah terkunci; hasilnya tinggal dipindahkan ke slide.
 
-Satu hal yang tetap jadi tugasmu: desain, narasi lisan, dan verifikasi data. ChatGPT memangkas jam penyusunan kerangka — jam-ham yang biasanya paling membosankan — tapi presentasi yang meyakinkan tetap lahir dari campur tanganmu.
+Satu hal yang tetap jadi tugasmu: desain, narasi lisan, dan verifikasi data. ChatGPT memangkas jam penyusunan kerangka — jam-jam yang biasanya paling membosankan — tapi presentasi yang meyakinkan tetap lahir dari campur tanganmu.
 
 ## 10 Prompt ChatGPT Siap Salin untuk PPT
 
