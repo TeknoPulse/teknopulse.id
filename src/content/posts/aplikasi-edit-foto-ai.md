@@ -93,7 +93,7 @@ Versi gratisnya cukup untuk kebutuhan harian; Canva Pro mulai Rp95.000 per bulan
 
 ## Remini: Terbaik untuk Memperjelas dan Memulihkan Foto Lama
 
-Foto pernikahan orang tua yang buram, scan ijazah yang pecah, selfie lama beresolusi kecil — di tugas inilah Remini nyaris tanpa tanding. Satu ketuk, AI-nya merekonstruksi detail wajah dan menaikkan resolusi, dan developer-nya mengklaim lebih dari 100 juta foto sudah "dihidupkan" lewat aplikasi ini. Popularitasnya di Indonesia nyata: lebih dari 422.000 penilaian pengguna di App Store Indonesia per 20 September 2026 — tertinggi di seluruh daftar ini.
+Foto pernikahan orang tua yang buram, scan ijazah yang pecah, selfie lama beresolusi kecil — di tugas inilah Remini nyaris tanpa tanding. Satu ketuk, AI-nya merekonstruksi detail wajah dan menaikkan resolusi, dan developer-nya mengklaim lebih dari 100 juta foto sudah "dihidupkan" lewat aplikasi ini. Popularitasnya di Indonesia nyata: lebih dari 422.000 penilaian pengguna di App Store Indonesia per 20 September 2026 — tertinggi di antara aplikasi editor foto spesialis di daftar ini.
 
 Dua catatan penting. Pertama, hasil enhance-nya berupa rekonstruksi AI: wajah bisa tampak sedikit "terlalu mulus" dibanding aslinya, jadi jangan kaget. Kedua, dan lebih penting untuk dompet: Remini dihargai **mingguan** — paket Pro tercantum Rp169.000 per minggu, paket Lite Rp65.000–129.000 per minggu di App Store Indonesia. Sebulan penuh berlangganan Pro bisa menembus Rp700.000-an. Cobanya gratis, tapi perpanjangan otomatis — pasang pengingat atau langsung cek kebijakan langganannya.
 
