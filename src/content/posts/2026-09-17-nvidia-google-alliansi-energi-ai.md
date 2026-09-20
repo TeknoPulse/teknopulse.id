@@ -57,5 +57,5 @@ Semua pihak — pemerintah, operator pusat data, dan perusahaan AI — perlu dud
 
 - CoinPost Terminal, "Nvidia, Google and Emerald AI launch alliance to manage data-center power demand," 16 September 2026
 - AI Chat Daily, "Nvidia, Google and Emerald AI Launch Alliance for Grid-Flexible AI Data Centers," 16 September 2026
-- Brocker, "Emerald AI, Google, NVIDIA Launch AI Energy Alliance," September 2026
+- NVIDIA Blog, "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers," 16 September 2026
 - TheOutpost.AI, "Google, NVIDIA Launch AI Energy Management Alliance," 16 September 2026
