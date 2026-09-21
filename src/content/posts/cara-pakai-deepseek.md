@@ -13,7 +13,7 @@ faq:
   - question: 'Apakah DeepSeek benar-benar gratis dipakai?'
     answer: 'Ya, untuk pemakaian chat biasa. Deskripsi resminya di App Store menyebut asisten AI resmi DeepSeek gratis, dan tidak ada batas pemakaian harian yang dipublikasikan di halaman resminya (dicek 21 September 2026). Yang berbayar hanya API untuk developer yang mau membangun fitur sendiri, dihitung per token.'
   - question: 'Apakah DeepSeek bisa berbahasa Indonesia?'
-    answer: 'Penilaian redaksi kami sebelumnya di [daftar AI terbaik 2026] menyebut Bahasa Indonesianya fasih untuk tugas umum, tapi uji ulang hari artikel ini disusun belum bisa kami jalankan dari jaringan redaksi — jadi jangan ambil kata kami begitu saja. Jalankan protokol tiga pertanyaan di bagian "Bahasa Indonesia: Seberapa Fasih" di atas pada tugas-mu sendiri; hasilnya akan lebih bisa diandalkan daripada klaim siapa pun.'
+    answer: 'Penilaian redaksi kami sebelumnya di daftar AI terbaik 2026 menyebut Bahasa Indonesianya fasih untuk tugas umum, tapi uji ulang hari artikel ini disusun belum bisa kami jalankan dari jaringan redaksi — jadi jangan ambil kata kami begitu saja. Jalankan protokol tiga pertanyaan di bagian "Bahasa Indonesia: Seberapa Fasih" di atas pada tugas-mu sendiri; hasilnya akan lebih bisa diandalkan daripada klaim siapa pun.'
   - question: 'Apakah aman menempelkan data kerja ke DeepSeek?'
     answer: 'Pakai aturan yang sama seperti layanan AI chatbot lain: jangan tempel data pribadi, kredensial, atau dokumen rahasia perusahaan. Deklarasi keamanan data di Google Play (dicek 21 September 2026) menyebut data dienkripsi saat pengiriman dan bisa diminta dihapus, tapi ringkasan kebijakan privasi lengkapnya belum kami verifikasi kata per kata — baca sendiri halaman resminya sebelum memakainya untuk keperluan sensitif.'
   - question: 'DeepSeek atau ChatGPT, pilih yang mana?'
@@ -80,7 +80,7 @@ Tapi gratis bukan berarti tanpa konsekuensi. Halaman status resmi DeepSeek menca
 | Aplikasi resmi HP | Android & iOS, gratis | Android & iOS, gratis |
 | API untuk developer | Berbayar per token (lihat bawah) | Berbayar per token via platform OpenAI |
 
-Kalau kamu sampai menyentuh jalur developer: API DeepSeek dihitung per token, mulai $0,15 per juta token input untuk model tercepatnya di jam sepi (±Rp 2.700 dengan kurs 21 September 2026) — dan di luar jam puncak (08.00–11.00 dan 13.00–17.00 WIB, Senin–Jumat) harganya setengah dari jam puncak. Itu salah satu harga API termurah di industri, sebagaimana sudah kami rangkum di [artikel AI terbaik untuk coding](/posts/ai-terbaik-untuk-coding/). Sementara jalur berbayar ChatGPT untuk pengguna biasa — termasuk cara membayarnya dengan GoPay atau DANA — ada di [panduan pembayaran ChatGPT kami](/posts/cara-bayar-chatgpt-gopay-dana/).
+Kalau kamu sampai menyentuh jalur developer: API DeepSeek dihitung per token, mulai $0,15 per juta token input untuk model tercepatnya di jam sepi (±Rp 2.700 dengan kurs 21 September 2026) — jam puncaknya 08.00–11.00 dan 13.00–17.00 WIB Senin–Jumat; di luar itu — termasuk akhir pekan — harganya setengah dari jam puncak. Itu salah satu harga API termurah di industri. Pembanding lengkap AI untuk coding — termasuk DeepSeek versi gratisnya — ada di [artikel AI terbaik untuk coding](/posts/ai-terbaik-untuk-coding/) kami. Sementara jalur berbayar ChatGPT untuk pengguna biasa — termasuk cara membayarnya dengan GoPay atau DANA — ada di [panduan pembayaran ChatGPT kami](/posts/cara-bayar-chatgpt-gopay-dana/).
 
 ## Bahasa Indonesia: Seberapa Fasih?
 
