@@ -6,7 +6,7 @@ tags: ['AI', 'Google', 'DeepMind', 'Tech']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/gemini-era-ends-deepmind-leadership-shakeup-16x9.png'
+coverImage: '../../assets/images/2026-08-09-gemini-era-ends-deepmind-leadership-shakeup-16x9.png'
 ---
 
 # Era Gemini Berakhir? DeepMind Ganti Pemimpin, Saham Alphabet Anjlok

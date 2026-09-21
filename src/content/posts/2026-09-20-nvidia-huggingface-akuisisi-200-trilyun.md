@@ -6,7 +6,7 @@ tags: ["AI", "Nvidia", "Hugging Face", "OpenSource", "Tech"]
 category: AI
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: '../../assets/images/nvidia-huggingface-akuisisi-200-trilyun-16x9.png'
+coverImage: '../../assets/images/2026-09-20-nvidia-huggingface-akuisisi-200-trilyun-16x9.png'
 ---
 
 ## Nvidia Beli Hugging Face Rp200 Trilyun, Masa Depan AI Terbuka di Ujung Tanduk?
