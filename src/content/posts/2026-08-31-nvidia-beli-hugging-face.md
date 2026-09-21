@@ -8,7 +8,7 @@ tags: ['AI', 'Nvidia', 'Hugging Face', 'Open Source']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/nvidia-beli-hugging-face-16x9.png'
+coverImage: '../../assets/images/2026-08-31-nvidia-beli-hugging-face-16x9.png'
 format: 'berita'
 source:
   - name: 'NVIDIA Blog — NVIDIA to Acquire Hugging Face (3 September 2026)'
