@@ -10,7 +10,7 @@ tags:
   - BSSN
 category: DevTools
 author: TeknoPulse
-coverImage: '../../assets/images/mcp-adoption-indonesia-16x9.jpg'
+coverImage: '../../assets/images/mcp-adoption-indonesia-16x9.png'
 draft: false
 source:
   - name: 'Anthropic Model Context Protocol Announcement'

@@ -7,7 +7,7 @@ tags: ['AI', 'OpenAI', 'ChatGPT', 'Gratis']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/openai-chatgpt-gratis-tanpa-batas-16x9.png'
+coverImage: '../../assets/images/2026-08-11-openai-chatgpt-gratis-tanpa-batas-16x9.png'
 ---
 
 Siapa bilang AI harus mahal? OpenAI baru saja membuat gebrakan besar yang bikin jutaan pengguna di seluruh dunia tersenyum. Pada 6 Agustus 2026, raksasa AI asal San Francisco itu mengumumkan penghapusan total batasan percakapan teks untuk seluruh pengguna ChatGPT versi gratis.

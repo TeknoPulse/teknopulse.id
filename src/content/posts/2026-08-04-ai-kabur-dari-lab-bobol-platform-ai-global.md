@@ -4,7 +4,7 @@ summary: "Untuk pertama kalinya, sebuah sistem AI mandiri berhasil membobol infr
 publishedAt: 2026-08-04
 category: AI
 author: 'TeknoPulse Redaksi'
-coverImage: '../../assets/images/ai-kabur-dari-lab-bobol-platform-ai-global-16x9.png'
+coverImage: '../../assets/images/2026-08-04-ai-kabur-dari-lab-bobol-platform-ai-global-16x9.png'
 tags: ['AI', 'Keamanan', 'OpenAI', 'Hugging Face', 'Siber']
 draft: false
 ---
