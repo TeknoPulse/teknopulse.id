@@ -100,7 +100,7 @@ Gemini bisa dipakai gratis, dan untuk pemakaian harian ringan kuotanya paling ti
 
 ### DeepSeek: Gratis Penuh untuk Eksperimen Tanpa Ragu
 
-DeepSeek layak masuk daftar karena satu alasan sederhana: **gratis dipakai penuh di aplikasi dan web** — tanpa psikologi "k Gauss kuota habis" seperti di layanan lain, dan [perbandingan kami sebelumnya](/posts/ai-terbaik-2026/) juga menempatkannya sebagai pilihan pengguna gratis untuk coding. Untuk tugas tipe protokol di atas, ini cara paling murah mencoba proses berpikir model penalaran. Kelemahannya nyata: tidak ada integrasi editor resmi semulus Copilot, dan layanannya sempat terasa lambat saat pemakaian memuncak. Sebelum menjadikannya andalan untuk kode kerja, baca dulu kebijakan privasinya.
+DeepSeek layak masuk daftar karena satu alasan sederhana: **gratis dipakai penuh di aplikasi dan web** — tanpa psikologi "kuota habis" seperti di layanan lain, dan [perbandingan kami sebelumnya](/posts/ai-terbaik-2026/) juga menempatkannya sebagai pilihan pengguna gratis untuk coding. Untuk tugas tipe protokol di atas, ini cara paling murah mencoba proses berpikir model penalaran. Kelemahannya nyata: tidak ada integrasi editor resmi semulus Copilot, dan layanannya sempat terasa lambat saat pemakaian memuncak. Sebelum menjadikannya andalan untuk kode kerja, baca dulu kebijakan privasinya.
 
 ## Versi Gratis: Batas Nyatanya Sekarang
 
@@ -109,7 +109,7 @@ Karena "gratis sampai mana" yang paling sering jadi pertimbangan:
 | Layanan | Gratis untuk | Batas utama versi gratis (sumber resmi, cek 20/9) |
 |---|---|---|
 | GitHub Copilot | Semua akun GitHub | **2.000 completions/bulan** + kuota chat via kredit AI; model otomatis saja |
-| GitHub Copilot Student | Mahasiswa terverifikasi | Fitur lebih luas, tetap gratis — excludes agent pihak ketiga |
+| GitHub Copilot Student | Mahasiswa terverifikasi | Fitur lebih luas, tetap gratis — tidak termasuk agent pihak ketiga |
 | ChatGPT | Semua orang | Akses model terbaik dibatasi kuota; teks tetap tersedia |
 | Gemini | Semua orang | Bisa dipakai gratis; model paling canggih dibatasi kuota harian |
 | Claude | Semua orang | Batas pemakaian reset per sesi 5 jam |
