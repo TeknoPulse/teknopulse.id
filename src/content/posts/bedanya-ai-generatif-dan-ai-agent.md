@@ -7,6 +7,7 @@ tags: ['AI', 'tips praktis', 'panduan pemula', 'teknologi']
 category: AI
 author: 'Tim Redaksi Teknopulse'
 draft: false
+coverImage: '../../assets/images/bedanya-ai-generatif-dan-ai-agent-16x9.png'
 format: panduan-pembaca
 ---
 

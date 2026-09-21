@@ -6,7 +6,7 @@ tags: ['Apple', 'iPhone', 'AI', 'Teknologi']
 category: 'AI'
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/apple-ceo-john-ternus-foldable-iphone-16x9.png'
+coverImage: '../../assets/images/2026-09-01-apple-ceo-john-ternus-foldable-iphone-16x9.png'
 ---
 
 # Era Baru Apple Dimulai: John Ternus Gantikan Tim Cook, iPhone Lipat Segera Meluncur

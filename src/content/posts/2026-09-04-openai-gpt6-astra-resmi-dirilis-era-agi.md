@@ -6,7 +6,7 @@ tags: ['AI', 'OpenAI', 'GPT-6', 'AGI', 'Tech News']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/openai-gpt-6-astra-2026-09-04-16x9.png'
+coverImage: '../../assets/images/2026-09-04-openai-gpt6-astra-resmi-dirilis-era-agi-16x9.png'
 ---
 
 # OpenAI Rilis GPT-6 Astra, Umumkan Era AGI Telah Tiba

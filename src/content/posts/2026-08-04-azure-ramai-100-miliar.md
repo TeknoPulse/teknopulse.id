@@ -5,7 +5,7 @@ publishedAt: 2026-08-04T17:00:00+07:00
 tags: ['Microsoft', 'Azure', 'Cloud', 'AI', 'Tech']
 category: AI
 author: 'TeknoPulse Redaksi'
-coverImage: '../../assets/images/azure-ramai-100-miliar-16x9.png'
+coverImage: '../../assets/images/2026-08-04-azure-ramai-100-miliar-16x9.png'
 draft: false
 ---
 

@@ -8,6 +8,7 @@ tags: ['ChatGPT', 'tutorial']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/cara-bayar-chatgpt-gopay-dana-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Apakah ChatGPT bisa dibayar pakai GoPay?'

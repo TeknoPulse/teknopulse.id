@@ -6,7 +6,7 @@ tags: ['AI', 'Keamanan', 'OpenAI', 'Hugging Face']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/openai-hugging-face-keamanan-ai-16x9.png'
+coverImage: '../../assets/images/2026-08-20-openai-hugging-face-keamanan-ai-16x9.png'
 ---
 
 # OpenAI Setop Pelatihan Model AI setelah Diretasnya Hugging Face, Keamanan Jadi Prioritas Utama

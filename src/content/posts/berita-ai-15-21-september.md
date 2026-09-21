@@ -8,6 +8,7 @@ tags: ['AI', 'Tech News', 'Roundup']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/berita-ai-15-21-september-16x9.png'
 format: 'rangkuman'
 source:
   - name: 'Apple Newsroom — Apple unveils iPhone Duo'
