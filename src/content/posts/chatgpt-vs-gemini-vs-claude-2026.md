@@ -8,6 +8,7 @@ tags: ['ChatGPT', 'Gemini', 'Claude', 'review']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/chatgpt-vs-gemini-vs-claude-2026-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'ChatGPT, Gemini, dan Claude, mana yang paling bagus di 2026?'

@@ -8,6 +8,7 @@ tags: ['AI', 'istilah']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/ai-agent-adalah-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Apa bedanya AI agent dan chatbot biasa?'

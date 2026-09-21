@@ -8,6 +8,7 @@ tags:
 category: DevTools
 author: 'Tim Redaksi Teknopulse'
 draft: false
+coverImage: '../../assets/images/cara-memanfaatkan-chatgpt-untuk-mempermudah-pekerjaan-sehari-hari-16x9.png'
 format: panduan-pembaca
 ---
 

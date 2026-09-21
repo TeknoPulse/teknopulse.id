@@ -13,6 +13,7 @@ tags:
 category: DevTools
 author: 'Tim Redaksi Teknopulse'
 draft: false
+coverImage: '../../assets/images/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari-16x9.png'
 format: panduan-pembaca
 ---
 
