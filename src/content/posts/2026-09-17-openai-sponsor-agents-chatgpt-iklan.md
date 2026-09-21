@@ -6,7 +6,7 @@ tags: ["AI", "OpenAI", "ChatGPT", "Advertising", "Tech Business"]
 category: "AI"
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: '../../assets/images/openai-sponsor-agents-chatgpt-iklan-16x9.png'
+coverImage: '../../assets/images/2026-09-17-openai-sponsor-agents-chatgpt-iklan-16x9.png'
 ---
 
 # OpenAI Ubah ChatGPT Jadi Platform Iklan dengan Sponsor Agents

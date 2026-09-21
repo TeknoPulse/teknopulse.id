@@ -6,7 +6,7 @@ tags: ['AI', 'Keamanan Siber', 'OpenAI']
 category: 'AI'
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/openai-astra-cybersecurity-16x9.png'
+coverImage: '../../assets/images/2026-09-03-openai-astra-model-pertama-capai-ambang-keamanan-siber-kritis-16x9.png'
 ---
 
 ## OpenAI Astra: Model AI Pertama yang Capai Ambang Keamanan Siber Kritis
