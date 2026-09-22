@@ -8,6 +8,7 @@ tags: ['AI', 'tutorial']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/cara-pakai-deepseek-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Apakah DeepSeek benar-benar gratis dipakai?'
