@@ -3,7 +3,7 @@ title: "Trump Umumkan Formasi AI Force, AI Czar Baru untuk Pengawasan Federal"
 summary: "Presiden Trump umumkan pembentukan AI Force dan penunjukan AI czar federal. Kebijakan ini menandai arah baru kebijakan AI AS, di mana pendekatan regulasi berbeda tajam dengan seruan perlambatan dari para pemimpin industri."
 publishedAt: 2026-09-22T06:03:00+07:00
 tags: ["AI", "Policy", "Amerika Serikat"]
-category: Policy
+category: AI
 author: "TeknoPulse Redaksi"
 draft: false
 coverImage: "../../assets/images/2026-09-22-trump-ai-force-ai-czar-diresmikan-16x9.png"
