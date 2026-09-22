@@ -8,6 +8,7 @@ tags: ['Robotika', 'Humanoid', 'Tiongkok', 'Indonesia']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/robot-humanoid-harga-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Sudah ada robot humanoid yang dijual resmi di Indonesia?'
