@@ -8,6 +8,7 @@ tags: ['ChatGPT', 'tutorial']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/prompt-chatgpt-bikin-ppt-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Apakah ChatGPT bisa langsung membuat file PPT?'
