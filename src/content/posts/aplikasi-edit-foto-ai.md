@@ -8,6 +8,7 @@ tags: ['AI', 'review']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/aplikasi-edit-foto-ai-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Aplikasi edit foto AI gratis mana yang paling layak dipakai?'
