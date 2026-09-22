@@ -8,6 +8,7 @@ tags: ['AI', 'Coding', 'review']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/ai-terbaik-untuk-coding-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'AI coding gratis mana yang paling layak untuk pemula?'
