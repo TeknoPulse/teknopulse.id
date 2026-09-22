@@ -8,6 +8,7 @@ tags: ['AI', 'OpenAI', 'ChatGPT', 'Gratis']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/chatgpt-gratis-tanpa-login-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Apakah percakapan tanpa akun bisa dilanjutkan besok?'
