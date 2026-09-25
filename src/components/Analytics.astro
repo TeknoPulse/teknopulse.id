@@ -23,19 +23,9 @@
 // Token beacon memang publik — ikut tampil di HTML setiap pengunjung — bukan secret.
 const CF_BEACON_TOKEN = 'c3393dfa30c245369d256becc82b2cb0';
 
-// GA4 (TEKAA-48): snippet gtag.js standar, selalu dirender di semua halaman
-// (tidak digerbangi provider di atas). ID pengukuran memang publik — bukan secret.
-// Catatan: GA4 menaruh cookie _ga dan belum ada consent banner di situs ini
-// (UU PDP) — follow-up terpisah.
-const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
-
-// Bootstrap verbatim dari https://support.google.com/analytics/answer/9304153 —
-// `function gtag()` global (bukan const) supaya panggilan `gtag('event', ...)`
-// dari skrip lain tetap jalan; entri berbentuk `arguments` sesuai dokumen Google.
-const GA4_BOOTSTRAP = `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA4_MEASUREMENT_ID}');`;
+// GA4 (G-79X7QWV977, TEKAA-48) tidak dirender di sini: cookienya butuh
+// persetujuan (UU PDP), jadi dimuat client-side oleh CookieConsent.astro
+// setelah pengunjung menekan "Setuju".
 
 const env = import.meta.env;
 const provider = env.PUBLIC_ANALYTICS_PROVIDER ?? 'cloudflare';
@@ -65,7 +55,3 @@ const active =
     />
   )
 }
-
-<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
-></script>
-<script is:inline set:html={GA4_BOOTSTRAP} />
