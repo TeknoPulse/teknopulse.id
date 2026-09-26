@@ -6,7 +6,7 @@ tags: ["AI", "Meta", "ChatGPT", "App Store"]
 category: AI
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: "../../assets/images/meta-muse-app-store-16x9.jpg"
+coverImage: '../../assets/images/2026-09-23-meta-muse-app-store-16x9.png'
 ---
 
 # Meta Muse Kalahkan ChatGPT, 2,8 Juta Unduhan dalam 12 Hari
