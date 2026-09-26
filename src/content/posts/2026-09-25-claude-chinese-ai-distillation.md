@@ -3,10 +3,10 @@ title: "Anthropic Tangkap Tujuh Lab AI China Kerahkan Jutaan Permintaan untuk Da
 summary: "Anthropic menuding tujuh laboratorium AI asal China, termasuk Alibaba dan DeepSeek, melakukan kampanye penggalian data skala industri terhadap model Claude demi melatih model pesaing mereka."
 publishedAt: 2026-09-25T06:00:00+07:00
 tags: ["AI", "Keamanan", "AS-China"]
-category: "Security"
+category: AI
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: "../../assets/images/claude-chinese-ai-distillation-16x9.png"
+coverImage: '../../assets/images/2026-09-25-claude-chinese-ai-distillation-16x9.png'
 ---
 
 Perusahaan AI asal Amerika Serikat, Anthropic, pada 10 September 2026 merilis laporan ancaman yang mengejutkan industri teknologi global. Dalam laporan *Threat Intelligence* edisi terbaru itu, Anthropic menuding tujuh laboratorium AI asal China melakukan kampanye penggalian data secara sistematis dan berskala industri terhadap model Claude — untuk kemudian dipakai melatih model pesaing mereka sendiri.

@@ -6,7 +6,7 @@ tags: ["AI", "Microsoft", "Teknologi"]
 category: AI
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: "../../assets/images/microsoft-copilot-super-app-16x9.png"
+coverImage: '../../assets/images/2026-09-27-microsoft-copilot-super-app-16x9.png'
 ---
 
 # Microsoft Rombak Copilot Jadi Sistem Operasi Kerja AI
