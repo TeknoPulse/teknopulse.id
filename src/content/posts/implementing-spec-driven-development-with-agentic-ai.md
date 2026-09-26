@@ -10,6 +10,7 @@ tags:
   - 'Vibe Coding'
 category: Developer
 author: 'TeknoPulse'
+coverImage: '../../assets/images/implementing-spec-driven-development-with-agentic-ai-16x9.png'
 draft: false
 format: panduan-pembaca
 source:
