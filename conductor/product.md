@@ -38,7 +38,7 @@ Instead of rigid categories, content is organized through a flexible **tag-based
 
 New tags can be introduced organically as topics emerge without requiring code or schema changes.
 
-> **Note (Current State):** The existing codebase uses a fixed `category` enum (`AI | Cloud | Security | DevTools | Policy`) enforced in the Zod schema. Migrating to a fully tag-based system is a future track that will require schema changes. Until then, the current categories serve as primary topic groupings while `tags` provide flexible secondary classification.
+> **Note (Current State):** The existing codebase uses a fixed `category` enum (`AI | Software | Developer | Automation | Experiments | Insights`) enforced in the Zod schema. Migrating to a fully tag-based system is a future track that will require schema changes. Until then, the current categories serve as primary topic groupings while `tags` provide flexible secondary classification.
 
 ## Content Formats
 

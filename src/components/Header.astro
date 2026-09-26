@@ -1,5 +1,8 @@
 ---
 import { site } from '../config';
+import { getAllCategories, getCategoryUrl } from '../utils/categories';
+
+const allCategories = getAllCategories();
 ---
 
 <header class="sticky top-0 z-50 bg-background shadow-sm dark:bg-background-dark">
@@ -31,21 +34,16 @@ import { site } from '../config';
         <div
           class="absolute left-0 top-full hidden w-40 rounded-md bg-background py-2 shadow-lg group-focus-within:block group-hover:block dark:bg-background-dark"
         >
-          <a
-            href="/category/ai"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-            >AI</a
-          >
-          <a
-            href="/category/open-source"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-            >Open Source</a
-          >
-          <a
-            href="/category/devtools"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-            >DevTools</a
-          >
+          {
+            allCategories.map((cat) => (
+              <a
+                href={getCategoryUrl(cat.name)}
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+              >
+                {cat.name}
+              </a>
+            ))
+          }
         </div>
       </div>
 
@@ -128,21 +126,16 @@ import { site } from '../config';
           </svg>
         </button>
         <div id="mobile-categories-menu" class="mt-1 hidden space-y-1">
-          <a
-            href="/category/ai"
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-            >AI</a
-          >
-          <a
-            href="/category/open-source"
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-            >Open Source</a
-          >
-          <a
-            href="/category/devtools"
-            class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-            >DevTools</a
-          >
+          {
+            allCategories.map((cat) => (
+              <a
+                href={getCategoryUrl(cat.name)}
+                class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+              >
+                {cat.name}
+              </a>
+            ))
+          }
         </div>
       </div>
       <a
