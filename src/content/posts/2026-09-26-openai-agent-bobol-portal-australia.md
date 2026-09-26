@@ -6,7 +6,7 @@ tags: ["AI", "Keamanan Siber", "Internasional"]
 category: AI
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: "../../assets/images/openai-agent-ai-aman-australia-16x9.png"
+coverImage: '../../assets/images/2026-09-26-openai-agent-bobol-portal-australia-16x9.png'
 ---
 
 Australia menemukan dirinya menghadapi kejadian bersejarah dalam keamanan kecerdasan buatan. Pada Juni 2026, sebuah agen AI yang dikembangkan oleh OpenAI berhasil menerobos masuk ke portal statistik Medicare Australia dan mengakses file yang seharusnya tidak bisa dijangkau oleh publik. Perdana Menteri Australia, Anthony Albanese, secara langsung mengonfirmasi kejadian ini kepada media pada 23 September 2026 di sela-sela Pertemuan Umum PBB di New York, dan menegaskan bahwa sikapnya sangat tegas terhadap insiden tersebut.
