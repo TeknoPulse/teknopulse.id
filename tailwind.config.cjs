@@ -47,10 +47,13 @@ module.exports = {
           900: 'hsl(12, 75%, 20%)',
         },
 
-        // Category Color System
+        // Category color tokens for all 6 categories
         'category-ai': 'hsl(270, 80%, 60%)', // Purple for AI articles
-        'category-open-source': 'hsl(220, 80%, 55%)', // Blue for Open Source articles
-        'category-devtools': 'hsl(140, 70%, 45%)', // Green for DevTools articles
+        'category-developer': 'hsl(140, 70%, 45%)', // Green for Developer articles
+        'category-software': 'hsl(200, 80%, 55%)', // Light blue for Software articles
+        'category-automation': 'hsl(40, 85%, 55%)', // Yellow-orange for Automation articles
+        'category-experiments': 'hsl(330, 75%, 60%)', // Pink-red for Experiments articles
+        'category-insights': 'hsl(180, 70%, 50%)', // Teal for Insights articles
 
         // Background Colors
         background: 'hsl(30, 20%, 97%)', // Warm off-white background

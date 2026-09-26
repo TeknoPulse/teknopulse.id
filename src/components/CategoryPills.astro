@@ -49,43 +49,6 @@ const currentCategory = Astro.url.pathname.split('/').pop() || '';
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .category-ai {
-    background-color: rgba(139, 92, 246, 0.1);
-    color: hsl(270, 80%, 60%);
-  }
-
-  .category-ai:hover {
-    background-color: rgba(139, 92, 246, 0.2);
-  }
-
-  .category-devtools {
-    background-color: rgba(34, 197, 94, 0.1);
-    color: hsl(140, 70%, 45%);
-  }
-
-  .category-devtools:hover {
-    background-color: rgba(34, 197, 94, 0.2);
-  }
-
-  /* Dark mode category styles */
-  :global(.dark) .category-ai {
-    background-color: rgba(139, 92, 246, 0.15);
-    color: hsl(270, 80%, 70%);
-  }
-
-  :global(.dark) .category-ai:hover {
-    background-color: rgba(139, 92, 246, 0.25);
-  }
-
-  :global(.dark) .category-devtools {
-    background-color: rgba(34, 197, 94, 0.15);
-    color: hsl(140, 70%, 55%);
-  }
-
-  :global(.dark) .category-devtools:hover {
-    background-color: rgba(34, 197, 94, 0.25);
-  }
-
   /* Dark mode styles */
   :global(.dark) .category-badge {
     background-color: rgba(255, 255, 255, 0.05);

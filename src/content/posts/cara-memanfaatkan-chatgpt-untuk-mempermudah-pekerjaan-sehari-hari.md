@@ -5,7 +5,7 @@ summary: 'Ingin kerja lebih efisien? Simak panduan cara memanfaatkan ChatGPT unt
 publishedAt: 2026-07-19T00:00:00.000Z
 tags:
   ['Cara Memanfaatkan ChatGPT', 'ChatGPT untuk pemula', 'tips produktivitas', 'kecerdasan buatan']
-category: DevTools
+category: Developer
 author: 'Tim Redaksi Teknopulse'
 draft: false
 coverImage: '../../assets/images/cara-memanfaatkan-chatgpt-untuk-mempermudah-pekerjaan-sehari-hari-16x9.png'

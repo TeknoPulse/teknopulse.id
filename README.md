@@ -91,7 +91,7 @@ metaDescription: 'Deskripsi SEO 120–155 karakter, ditulis manual (bukan potong
 publishedAt: 2025-08-25T10:00:00Z
 updatedAt: 2025-08-25T10:00:00Z # set ulang saat artikel diperbarui → dateModified JSON-LD
 tags: ['AI', 'Technology']
-category: AI # AI, OpenSource, DevTools
+category: AI # AI, Software, Developer, Automation, Experiments, Insights
 author: 'TeknoPulse Redaksi' # harus terdaftar di src/utils/authors.ts (byline + profil)
 coverImage: '../../assets/images/<slug>-16x9.png' # unik per artikel, 16:9, ≥1200px
 ogImage: '../../assets/images/<slug>-og-16x9.png' # opsional override og:image (unik per artikel)
@@ -192,9 +192,12 @@ pnpm build
 
 ## Content Categories
 
-- **AI**: Artificial Intelligence news and developments
-- **OpenSource**: Open source tools, self-hosting, and free alternatives
-- **DevTools**: Development tools and methodologies
+- **AI**: Model AI, AI agents, research, produk, perkembangan industri
+- **Software**: Aplikasi, platform, operating systems, databases, frameworks
+- **Developer**: Programming languages, APIs, libraries, IDEs, development tools
+- **Automation**: Workflow automation, integrations, APIs, agents, no-code/low-code
+- **Experiments**: Eksperimen dan proyek yang menggunakan teknologi secara langsung
+- **Insights**: Explainers, analysis, dan konteks di balik perkembangan teknologi
 
 ## Performance
 
