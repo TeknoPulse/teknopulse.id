@@ -18,6 +18,7 @@
     "seo:check": "node scripts/seo-check.mjs",
     "seo:check:strict": "node scripts/seo-check.mjs --strict",
     "post:new": "node scripts/new-post.js",
+    "test:preservation": "node scripts/test-preservation-baseline.mjs",
     "postbuild": "pagefind --site dist --output-path dist/pagefind"
   },
   "dependencies": {

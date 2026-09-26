@@ -19,3 +19,9 @@
 /posts/2026-08-31-nvidia-hugging-face-akuisisi/ /posts/2026-08-31-nvidia-beli-hugging-face/ 301
 /posts/2026-09-04-nvidia-beli-hugging-face-rp14-triliun /posts/2026-08-31-nvidia-beli-hugging-face/ 301
 /posts/2026-09-04-nvidia-beli-hugging-face-rp14-triliun/ /posts/2026-08-31-nvidia-beli-hugging-face/ 301
+
+# Category restructuring 2026: devtools → developer, open-source removed
+/category/devtools/* /category/developer/:splat 301
+/category/devtools   /category/developer 301
+/category/open-source/* / 301
+/category/open-source   / 301

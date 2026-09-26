@@ -36,7 +36,7 @@ This site is **static-output only**. SSR was intentionally dropped:
 ### Content layer
 
 - Posts: `src/content/posts/*.md`, schema in `src/content/config.ts`.
-- `category` is a **fixed enum**: `AI | OpenSource | DevTools`. The Policy pillar was removed 2026-09 and Security + Cloud followed shortly after — their content lives in AI (security/cloud news is AI news; see `public/_redirects` for the 301 map). To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `OpenSource` → `/category/open-source`).
+- `category` is a **fixed enum**: `AI | Software | Developer | Automation | Experiments | Insights`. To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `Developer` → `/category/developer`).
 - `draft: true` posts are excluded from builds, RSS, feeds, sitemaps, OG generation, and `llms-full.txt`. Set `draft: false` to publish.
 - SEO on-page rules (TEKAA-4/TEKAA-5): exactly one H1 per article page —
   `src/utils/rehype-unique-h1.js` (registered in `astro.config.mjs`) drops a leading Markdown
