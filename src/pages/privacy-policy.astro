@@ -156,7 +156,10 @@ import Layout from '../layouts/Layout.astro';
     const saveStored = (obj) => {
       try {
         localStorage.setItem(KEY, JSON.stringify(obj));
-      } catch { /* storage blocked */ }
+        return true;
+      } catch {
+        return false; /* storage blocked */
+      }
     };
 
     const setUI = (enabled) => {
@@ -204,7 +207,18 @@ import Layout from '../layouts/Layout.astro';
         loadGa4();
       } else {
         // Turn OFF: deny consent. GA4 cookies require a reload to clear fully.
-        saveStored({ decision: 'denied', dismissCount: 0, lastDismissed: null, cycleStarted: null });
+        const saved = saveStored({ decision: 'denied', dismissCount: 0, lastDismissed: null, cycleStarted: null });
+        if (!saved) {
+          // Storage blocked — leave UI reflecting current granted state, show error.
+          const err = document.createElement('p');
+          err.id = 'ga4-save-error';
+          err.className = 'mt-2 text-xs text-red-600 dark:text-red-400';
+          err.textContent = 'Gagal menyimpan preferensi. Coba hapus data situs di pengaturan browser.';
+          if (!document.getElementById('ga4-save-error')) {
+            toggle.closest('div')?.parentElement?.appendChild(err);
+          }
+          return;
+        }
         setUI(false);
         // Inform the user a reload is needed to fully remove GA4.
         const msg = document.createElement('p');
@@ -227,3 +241,4 @@ import Layout from '../layouts/Layout.astro';
     });
   })();
 </script>
+
