@@ -178,8 +178,13 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
     });
 
     // [×] → deferred, increment cycle counter.
+    // Guard: jangan timpa keputusan yang sudah final (granted/denied).
     document.getElementById('consent-close')?.addEventListener('click', () => {
       const current = getStored();
+      if (current?.decision === 'granted' || current?.decision === 'denied') {
+        banner.hidden = true;
+        return;
+      }
       const today = getTodayString();
 
       let dismissCount = (current?.dismissCount || 0) + 1;
