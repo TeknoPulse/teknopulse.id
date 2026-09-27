@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # Vercel deployment cache
 .vercel
+
+# covers.mjs artifacts (plan/state)
+covers*.json
