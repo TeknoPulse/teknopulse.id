@@ -220,11 +220,27 @@ import Layout from '../layouts/Layout.astro';
           return;
         }
         setUI(false);
-        // Inform the user a reload is needed to fully remove GA4.
+        // Best-effort cleanup for current session:
+        // 1. Tell GA4 to stop sending hits this session.
+        // 2. Delete _ga/_gid cookies that are reachable from this origin.
+        // Note: httpOnly cookies and cookies set on parent domains cannot be
+        // deleted client-side; a full cleanup still requires clearing browser
+        // site data manually.
+        if (window.gtag) {
+          window.gtag('config', GA4_ID, { storage: 'none', send_page_view: false });
+        }
+        const cookiesToClear = ['_ga', '_gid', '_ga_' + GA4_ID.replace('G-', '').replace(/-/g, '_')];
+        cookiesToClear.forEach((name) => {
+          document.cookie = name + '=; Max-Age=0; path=/; domain=' + location.hostname;
+          document.cookie = name + '=; Max-Age=0; path=/';
+        });
+        // Inform the user that the current-page session is stopped and a reload
+        // will complete the cleanup of any remaining browser-side state.
         const msg = document.createElement('p');
         msg.id = 'ga4-reload-notice';
         msg.className = 'mt-2 text-xs text-amber-600 dark:text-amber-400';
-        msg.textContent = 'GA4 telah dinonaktifkan. Muat ulang halaman untuk menerapkan perubahan sepenuhnya.';
+        msg.textContent =
+          'GA4 telah dinonaktifkan. Pengiriman data sesi ini dihentikan; muat ulang halaman untuk memastikan tidak ada sisa cookie yang tertinggal.';
         // Only insert once.
         if (!document.getElementById('ga4-reload-notice')) {
           toggle.closest('div')?.parentElement?.appendChild(msg);

@@ -70,7 +70,7 @@ Three possible states stored in localStorage key `teknopulse-consent-ga4`:
 **Privacy policy toggle:**
 - Shows current GA4 state (ON if `granted`, OFF if `denied` or `deferred`)
 - Turning ON → stores `granted`, loads GA4 script immediately
-- Turning OFF → stores `denied`, removes GA4 script, clears GA4 cookies
+- Turning OFF → stores `denied`, stops current-session GA4 collection via `gtag('config', { storage: 'none' })`, deletes reachable `_ga`/`_gid` cookies client-side. Cookies set on parent domains or marked httpOnly cannot be cleared from JavaScript; a full cleanup requires clearing browser site data manually.
 
 ## Rationale
 
