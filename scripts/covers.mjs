@@ -5,7 +5,7 @@
 // menjadi subperintah yang deterministik. Substansi gaya (prompt) tetap
 // diisi manusia/agent; script ini mengurus semua bagian mekanis.
 //
-//   node scripts/covers.mjs audit  [--strict] [--json]
+//   node scripts/covers.mjs audit  [--strict] [--json]   (termasuk cek kemiripan visual)
 //   node scripts/covers.mjs plan   [--from-pr <branch>] [--out covers.plan.json] [--limit N]
 //   node scripts/covers.mjs fetch  <plan.json> [--concurrency 3]
 //   node scripts/covers.mjs apply  <plan.json>
@@ -16,7 +16,9 @@
 //   - file cover wajib berekstensi sesuai isinya (JPEG bernama .png = error);
 //   - ukuran 1280x720 PNG, unik per artikel (nama file DAN md5);
 //   - `category` wajib ada di enum skema src/content/config.ts;
-//   - frontmatter dipatch tanpa merusak BOM & line ending.
+//   - frontmatter dipatch tanpa merusak BOM & line ending;
+//   - cover yang MIRIP secara visual (foto sama, crop/encode beda) juga dilaporkan,
+//     bukan hanya yang identik byte — md5 saja tidak menangkap kasus itu.
 //
 // ENV:
 //   COVERS_IMAGE_CMD  path skrip generator gambar (default: skill seedream AutoClaw)
@@ -24,7 +26,7 @@
 
 import { execFileSync } from 'child_process';
 import { createHash } from 'crypto';
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'fs';
 import { basename, dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -34,9 +36,15 @@ const ASSETS_DIR = join(ROOT, 'src', 'assets', 'images');
 const CONFIG_FILE = join(ROOT, 'src', 'content', 'config.ts');
 
 const COVER_SIZE = { width: 1280, height: 720 };
+// Ambang deteksi "foto yang sama, crop/encode berbeda". Nilai dari pengukuran di repo ini:
+// pasangan identik/re-encode -> dHash < 60 dan RMSE < 15; foto berbeda -> dHash > 300, RMSE > 45.
+const SIMILAR = { hashBits: 100, rmse: 22 };
 const DEFAULT_IMAGE_CMD =
   process.env.COVERS_IMAGE_CMD ||
-  join(process.env.HOME || '', '.openclaw-autoclaw/skills/autoglm-generate-image-seedream/generate-image-seedream.py');
+  join(
+    process.env.HOME || '',
+    '.openclaw-autoclaw/skills/autoglm-generate-image-seedream/generate-image-seedream.py'
+  );
 
 const COVERS_STYLE =
   process.env.COVERS_STYLE ||
@@ -78,7 +86,10 @@ function parseFrontmatter(raw) {
 }
 
 function sniffImage(buf) {
-  if (buf.length >= 8 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])))
+  if (
+    buf.length >= 8 &&
+    buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))
+  )
     return 'png';
   if (buf.length >= 3 && buf[0] === 0xff && buf[1] === 0xd8 && buf[2] === 0xff) return 'jpeg';
   if (buf.length >= 4 && buf.subarray(0, 4).toString() === 'RIFF') return 'webp';
@@ -95,14 +106,26 @@ async function toPng1280x720(buf, dest) {
       .png({ compressionLevel: 9 })
       .toFile(dest);
     return;
-  } catch (err) {
+  } catch {
     // fallback macOS (sips): butuh file sumber
     const tmp = `${dest}.src`;
     writeFileSync(tmp, buf);
-    execFileSync('sips', ['-z', String(COVER_SIZE.height), String(COVER_SIZE.width), '-s', 'format', 'png', tmp, '--out', dest]);
+    execFileSync('sips', [
+      '-z',
+      String(COVER_SIZE.height),
+      String(COVER_SIZE.width),
+      '-s',
+      'format',
+      'png',
+      tmp,
+      '--out',
+      dest,
+    ]);
     try {
       execFileSync('rm', ['-f', tmp]);
-    } catch {}
+    } catch {
+      /* file sementara boleh tertinggal */
+    }
   }
 }
 
@@ -140,6 +163,60 @@ function readPosts() {
 
 function git(args) {
   return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' }).trim();
+}
+
+/**
+ * Cari cover yang mirip secara visual (bukan hanya identik byte) dengan
+ * dHash 32x32 + RMSE pada grayscale 128x72. Mengembalikan daftar pasangan.
+ */
+async function findSimilarCovers(names) {
+  let sharp;
+  try {
+    sharp = (await import('sharp')).default;
+  } catch {
+    return { skipped: 'sharp tidak tersedia — cek kemiripan dilewati', pairs: [] };
+  }
+  const vectors = new Map();
+  const hashes = new Map();
+  for (const name of names) {
+    const abs = join(ASSETS_DIR, name);
+    if (!existsSync(abs)) continue;
+    const gray = await sharp(abs).resize(128, 72, { fit: 'fill' }).grayscale().raw().toBuffer();
+    vectors.set(name, gray);
+    const { data } = await sharp(abs)
+      .resize(33, 32, { fit: 'fill' })
+      .grayscale()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+    let bits = '';
+    for (let y = 0; y < 32; y++)
+      for (let x = 0; x < 32; x++) bits += data[y * 33 + x] < data[y * 33 + x + 1] ? '1' : '0';
+    hashes.set(name, bits);
+  }
+  const list = [...vectors.keys()];
+  const pairs = [];
+  for (let i = 0; i < list.length; i++) {
+    for (let j = i + 1; j < list.length; j++) {
+      const a = list[i];
+      const b = list[j];
+      const A = vectors.get(a);
+      const B = vectors.get(b);
+      let sum = 0;
+      for (let k = 0; k < A.length; k++) {
+        const d = A[k] - B[k];
+        sum += d * d;
+      }
+      const rmse = Math.sqrt(sum / A.length);
+      const ha = hashes.get(a);
+      const hb = hashes.get(b);
+      let hd = 0;
+      for (let k = 0; k < ha.length; k++) if (ha[k] !== hb[k]) hd++;
+      if (rmse < SIMILAR.rmse || hd < SIMILAR.hashBits)
+        pairs.push({ a, b, rmse: +rmse.toFixed(1), hashDistance: hd });
+    }
+  }
+  pairs.sort((x, y) => x.rmse - y.rmse);
+  return { pairs };
 }
 
 /** Analisis seluruh cover; sumber tunggal untuk audit & verify. */
@@ -181,16 +258,48 @@ function analyze() {
     const ext = p.cover.split('.').pop().toLowerCase();
     const expected = ext === 'jpg' ? 'jpeg' : ext;
     if (meta.format !== 'unknown' && expected !== meta.format)
-      add('ERROR', p.slug, 'mismatch-format', `"${p.cover}" berekstensi .${ext} tapi isinya ${meta.format.toUpperCase()}`);
-    if (meta.format === 'png' && (meta.width !== COVER_SIZE.width || meta.height !== COVER_SIZE.height))
-      add('WARN', p.slug, 'wrong-size', `"${p.cover}" ${meta.width}x${meta.height}, seharusnya ${COVER_SIZE.width}x${COVER_SIZE.height}`);
+      add(
+        'ERROR',
+        p.slug,
+        'mismatch-format',
+        `"${p.cover}" berekstensi .${ext} tapi isinya ${meta.format.toUpperCase()}`
+      );
+    if (
+      meta.format === 'png' &&
+      (meta.width !== COVER_SIZE.width || meta.height !== COVER_SIZE.height)
+    )
+      add(
+        'WARN',
+        p.slug,
+        'wrong-size',
+        `"${p.cover}" ${meta.width}x${meta.height}, seharusnya ${COVER_SIZE.width}x${COVER_SIZE.height}`
+      );
     if (byName.get(p.cover).length > 1)
-      add('ERROR', p.slug, 'duplicate-name', `"${p.cover}" juga dipakai: ${byName.get(p.cover).filter((s) => s !== p.slug).join(', ')}`);
+      add(
+        'ERROR',
+        p.slug,
+        'duplicate-name',
+        `"${p.cover}" juga dipakai: ${byName
+          .get(p.cover)
+          .filter((s) => s !== p.slug)
+          .join(', ')}`
+      );
     if ((byHash.get(meta.md5) || []).length > 1)
-      add('ERROR', p.slug, 'duplicate-content', `"${p.cover}" kontennya identik dengan: ${(byHash.get(meta.md5) || []).filter((n) => n !== p.cover).join(', ')}`);
-    if (meta.bytes > 2_500_000) add('WARN', p.slug, 'oversize', `"${p.cover}" ${(meta.bytes / 1048576).toFixed(1)} MB`);
+      add(
+        'ERROR',
+        p.slug,
+        'duplicate-content',
+        `"${p.cover}" kontennya identik dengan: ${(byHash.get(meta.md5) || []).filter((n) => n !== p.cover).join(', ')}`
+      );
+    if (meta.bytes > 2_500_000)
+      add('WARN', p.slug, 'oversize', `"${p.cover}" ${(meta.bytes / 1048576).toFixed(1)} MB`);
     if (categories.length && !categories.includes(p.category))
-      add('ERROR', p.slug, 'invalid-category', `category "${p.category}" di luar enum [${categories.join(', ')}]`);
+      add(
+        'ERROR',
+        p.slug,
+        'invalid-category',
+        `category "${p.category}" di luar enum [${categories.join(', ')}]`
+      );
   }
 
   return { posts, findings, categories, info };
@@ -198,17 +307,33 @@ function analyze() {
 
 // ── perintah ─────────────────────────────────────────────────────────────────
 
-function cmdAudit() {
+async function cmdAudit() {
   const { posts, findings } = analyze();
+  const covers = [...new Set(posts.map((p) => p.cover).filter(Boolean))];
+  const similar = await findSimilarCovers(covers);
+  for (const pair of similar.pairs) {
+    const owners = posts.filter((p) => p.cover === pair.a || p.cover === pair.b).map((p) => p.slug);
+    findings.push({
+      level: 'ERROR',
+      slug: owners.join(' | '),
+      code: 'similar-cover',
+      message: `"${pair.a}" dan "${pair.b}" mirip secara visual (RMSE ${pair.rmse}, dHash ${pair.hashDistance}) — kemungkinan foto yang sama dengan crop/encode berbeda`,
+    });
+  }
   const errors = findings.filter((f) => f.level === 'ERROR');
   const warns = findings.filter((f) => f.level === 'WARN');
 
   if (has('json')) {
     console.log(JSON.stringify({ posts: posts.length, errors, warnings: warns }, null, 2));
   } else {
-    for (const f of findings) console.log(`${f.level === 'ERROR' ? '✖' : '⚠'} [${f.code}] ${f.slug}: ${f.message}`);
+    for (const f of findings)
+      console.log(`${f.level === 'ERROR' ? '✖' : '⚠'} [${f.code}] ${f.slug}: ${f.message}`);
     if (!findings.length) console.log('✔ tidak ada temuan cover');
-    console.log(`\ncovers:audit — ${posts.length} artikel, ${errors.length} error, ${warns.length} peringatan`);
+    if (similar.skipped) console.log(`ℹ ${similar.skipped}`);
+    console.log(
+      `\ncovers:audit — ${posts.length} artikel, ${covers.length} cover, ${errors.length} error, ${warns.length} peringatan` +
+        (similar.pairs.length ? `, ${similar.pairs.length} pasangan mirip` : '')
+    );
   }
   if (errors.length && has('strict')) process.exit(1);
 }
@@ -256,7 +381,9 @@ function cmdPlan() {
 
   writeFileSync(out, JSON.stringify({ generatedAt: new Date().toISOString(), targets }, null, 2));
   console.log(`covers:plan — ${targets.length} artikel ditulis ke ${out}`);
-  console.log('Isi field "prompt" tiap target (subjek konkret, awali "Wide 16:9 photograph: ..."), lalu jalankan covers:fetch.');
+  console.log(
+    'Isi field "prompt" tiap target (subjek konkret, awali "Wide 16:9 photograph: ..."), lalu jalankan covers:fetch.'
+  );
 }
 
 async function cmdFetch() {
@@ -272,8 +399,12 @@ async function cmdFetch() {
     throw new Error(`generator tidak ditemukan: ${DEFAULT_IMAGE_CMD} (set COVERS_IMAGE_CMD)`);
   }
 
-  const jobs = plan.targets.filter((t) => t.prompt && t.prompt.trim() && state[t.slug]?.status !== 'ok');
-  console.log(`covers:fetch — ${jobs.length} job (${plan.targets.length} target, ${Object.keys(state).length} sudah ada di state)`);
+  const jobs = plan.targets.filter(
+    (t) => t.prompt && t.prompt.trim() && state[t.slug]?.status !== 'ok'
+  );
+  console.log(
+    `covers:fetch — ${jobs.length} job (${plan.targets.length} target, ${Object.keys(state).length} sudah ada di state)`
+  );
 
   const runOne = async (job) => {
     for (let attempt = 1; attempt <= 2; attempt++) {
@@ -294,10 +425,16 @@ async function cmdFetch() {
 
         const out = readFileSync(dest);
         const size = pngSize(out);
-        if (sniffImage(out) !== 'png' || size?.width !== COVER_SIZE.width || size?.height !== COVER_SIZE.height)
+        if (
+          sniffImage(out) !== 'png' ||
+          size?.width !== COVER_SIZE.width ||
+          size?.height !== COVER_SIZE.height
+        )
           throw new Error('hasil bukan PNG 1280x720');
         state[job.slug] = { status: 'ok', file: job.coverFile, bytes: out.length };
-        console.log(`  ✔ ${job.slug} — ${size.width}x${size.height}, ${Math.round(out.length / 1024)}KB`);
+        console.log(
+          `  ✔ ${job.slug} — ${size.width}x${size.height}, ${Math.round(out.length / 1024)}KB`
+        );
         writeFileSync(statePath, JSON.stringify(state, null, 2));
         return;
       } catch (err) {
@@ -356,7 +493,10 @@ function cmdApply() {
         console.log(`  ✖ ${t.slug}: tidak ada anchor draft/author`);
         continue;
       }
-      next = next.slice(0, anchor.index + anchor[0].length) + `${nl}coverImage: ${ref}` + next.slice(anchor.index + anchor[0].length);
+      next =
+        next.slice(0, anchor.index + anchor[0].length) +
+        `${nl}coverImage: ${ref}` +
+        next.slice(anchor.index + anchor[0].length);
     }
     if (next !== fm) {
       writeFileSync(abs, `${bom}---${nl}${next}${nl}---${rest}`);
@@ -367,8 +507,18 @@ function cmdApply() {
   console.log(`covers:apply — ${changed} frontmatter diperbarui`);
 }
 
-function cmdVerify() {
+async function cmdVerify() {
   const { posts, findings } = analyze();
+  const covers = [...new Set(posts.map((p) => p.cover).filter(Boolean))];
+  const similar = await findSimilarCovers(covers);
+  for (const pair of similar.pairs) {
+    findings.push({
+      level: 'ERROR',
+      slug: `${pair.a} | ${pair.b}`,
+      code: 'similar-cover',
+      message: `mirip secara visual (RMSE ${pair.rmse}, dHash ${pair.hashDistance})`,
+    });
+  }
   const errors = findings.filter((f) => f.level === 'ERROR');
   console.log(`covers:verify — ${posts.length} artikel, ${errors.length} error struktural`);
   for (const e of errors) console.log(`  ✖ [${e.code}] ${e.slug}: ${e.message}`);
@@ -380,11 +530,15 @@ function cmdVerify() {
 
   const live = flag('live');
   if (typeof live === 'string') {
-    const html = execFileSync('curl', ['-s', `https://teknopulse.id/posts/${live}/`], { encoding: 'utf8' });
+    const html = execFileSync('curl', ['-s', `https://teknopulse.id/posts/${live}/`], {
+      encoding: 'utf8',
+    });
     const og = html.match(/property="og:image" content="([^"]+)"/)?.[1];
     if (!og) console.log('  ✖ og:image tidak ditemukan');
     else {
-      const status = execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', og], { encoding: 'utf8' });
+      const status = execFileSync('curl', ['-s', '-o', '/dev/null', '-w', '%{http_code}', og], {
+        encoding: 'utf8',
+      });
       console.log(`  ${status === '200' ? '✔' : '✖'} og:image live: ${og} (HTTP ${status})`);
     }
   }
@@ -393,7 +547,8 @@ function cmdVerify() {
 
 function cmdPublish() {
   const branch = flag('branch');
-  if (typeof branch !== 'string') throw new Error('pakai: covers:publish --branch <nama> [--pr] [--merge]');
+  if (typeof branch !== 'string')
+    throw new Error('pakai: covers:publish --branch <nama> [--pr] [--merge]');
   const message = flag('message', 'content: perbarui cover image');
 
   const changed = git(['status', '--porcelain'])
@@ -413,7 +568,24 @@ function cmdPublish() {
 
   if (has('pr')) {
     const title = String(message).split('\n')[0];
-    console.log(execFileSync('gh', ['pr', 'create', '--base', 'main', '--head', branch, '--title', title, '--body', 'Dibuat otomatis oleh `scripts/covers.mjs`.'], { cwd: ROOT, encoding: 'utf8' }).trim());
+    console.log(
+      execFileSync(
+        'gh',
+        [
+          'pr',
+          'create',
+          '--base',
+          'main',
+          '--head',
+          branch,
+          '--title',
+          title,
+          '--body',
+          'Dibuat otomatis oleh `scripts/covers.mjs`.',
+        ],
+        { cwd: ROOT, encoding: 'utf8' }
+      ).trim()
+    );
   }
   if (has('merge')) {
     console.log(git(['checkout', 'main']));
