@@ -10,6 +10,10 @@
 //      spesifik per artikel.
 //   4. Byline `author` tidak terdaftar di src/utils/authors.ts — tidak
 //      punya halaman profil / author.url JSON-LD.
+//   5. Ekstensi file cover tidak cocok dengan isi aslinya (mis. JPEG bernama
+//      .png — lazim muncul kalau `sips` dipakai tanpa `-s format png`).
+//   6. Artikel non-draft tanpa coverImage, dan cover yang kontennya identik
+//      dengan artikel lain (og:image akan menunjuk aset yang sama).
 //
 // Jalankan: `pnpm seo:check` (laporan) atau `pnpm seo:check:strict`
 // (exit 1 bila ada temuan — untuk gate pra-terbit/CI).
@@ -110,6 +114,20 @@ for (const group of contentGroups.values()) {
   }
 }
 
+/** Deteksi format gambar dari magic bytes — bukan dari ekstensi file. */
+function sniffImageFormat(buf) {
+  const sigs = [
+    ['png', Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])],
+    ['jpeg', Buffer.from([0xff, 0xd8, 0xff])],
+    ['gif', Buffer.from('GIF8')],
+    ['webp', Buffer.from('RIFF')],
+  ];
+  for (const [name, sig] of sigs) {
+    if (buf.length >= sig.length && buf.subarray(0, sig.length).equals(sig)) return name;
+  }
+  return 'unknown';
+}
+
 const findings = []; // { level: 'WARN'|'INFO', file, message }
 const warn = (file, message) => findings.push({ level: 'WARN', file, message });
 
@@ -149,6 +167,40 @@ for (const { file, fields } of posts) {
         .filter((f) => f !== file)
         .join(', ')}. Gambar & og:image harus spesifik per artikel ` +
         `(og:image artikel ini otomatis diganti kartu OG generate).`
+    );
+  }
+
+  // 5. Ekstensi cover tidak cocok dengan isi file (magic bytes)
+  if (cover) {
+    try {
+      const buf = readFileSync(join(ASSETS_DIR, cover));
+      const actual = sniffImageFormat(buf);
+      const ext = (cover.split('.').pop() || '').toLowerCase();
+      const expected = ext === 'jpg' ? 'jpeg' : ext;
+      if (actual !== 'unknown' && expected !== actual) {
+        warn(
+          label,
+          `coverImage "${cover}" berekstensi .${ext} tapi isinya ${actual.toUpperCase()} — ` +
+            `perbaiki dengan \`sips -z 720 1280 -s format png\` (atau sesuaikan ekstensinya).`
+        );
+      }
+    } catch {
+      // file tidak ada — sudah ditangani Astro
+    }
+  }
+
+  // 6a. Artikel non-draft wajib punya cover
+  if (!cover && !isDraft) {
+    warn(label, 'coverImage kosong — kartu artikel & og:image tampil tanpa gambar.');
+  }
+
+  // 6b. Konten cover identik dengan artikel lain (og:image jadi sama)
+  if (cover && twinFiles.get(cover)) {
+    warn(
+      label,
+      `coverImage "${cover}" berisi konten identik dengan: ${twinFiles
+        .get(cover)
+        .join(', ')} — og:image beberapa artikel akan menunjuk aset yang sama.`
     );
   }
 
