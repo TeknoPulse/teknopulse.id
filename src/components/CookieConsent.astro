@@ -81,7 +81,7 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
       if (document.querySelector('script[data-ga4]')) return;
       window.dataLayer = window.dataLayer || [];
       window.gtag = (...args) => {
-        window.dataLayer.push(args);
+        window.dataLayer.push(...args);
       };
       window.gtag('js', new Date());
       window.gtag('config', ga4Id);

@@ -180,7 +180,7 @@ import Layout from '../layouts/Layout.astro';
     const loadGa4 = () => {
       if (document.querySelector('script[data-ga4]')) return;
       window.dataLayer = window.dataLayer || [];
-      window.gtag = (...args) => { window.dataLayer.push(args); };
+      window.gtag = (...args) => { window.dataLayer.push(...args); };
       window.gtag('js', new Date());
       window.gtag('config', GA4_ID);
       const s = document.createElement('script');
