@@ -204,6 +204,8 @@ import Layout from '../layouts/Layout.astro';
         // Turn ON: grant consent and load GA4 immediately.
         saveStored({ decision: 'granted', dismissCount: 0, lastDismissed: null, cycleStarted: null });
         setUI(true);
+        const banner = document.getElementById('cookie-consent');
+        if (banner) banner.hidden = true;
         loadGa4();
       } else {
         // Turn OFF: deny consent. GA4 cookies require a reload to clear fully.
