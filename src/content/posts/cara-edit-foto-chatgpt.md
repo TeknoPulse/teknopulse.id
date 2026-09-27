@@ -1,8 +1,8 @@
 ---
-title: 'Cara Edit Foto Pakai ChatGPT + Prompt Siap Pakai'
+title: 'Cara Edit Foto di ChatGPT (HP & Laptop): Gratis, Tanpa Ubah Wajah'
 slug: 'cara-edit-foto-chatgpt'
 summary: 'Panduan edit foto pakai ChatGPT untuk pemula: langkah di HP dan laptop, 10 prompt siap salin, batasan versi gratis, serta etika yang perlu dipegang.'
-metaDescription: 'Panduan edit foto pakai ChatGPT: langkah di HP dan laptop, kumpulan prompt siap salin, batasan gratis, dan apa yang tidak boleh diubah.'
+metaDescription: 'Langkah edit foto di ChatGPT dari HP & laptop, prompt siap salin, batas versi gratis, dan cara mengedit tanpa mengubah wajah asli.'
 publishedAt: 2026-09-17T07:00:00+07:00
 tags: ['ChatGPT', 'tutorial']
 category: AI
