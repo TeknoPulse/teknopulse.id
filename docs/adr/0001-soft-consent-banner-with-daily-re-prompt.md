@@ -90,7 +90,11 @@ Low opt-in rates cripple this workflow. Cloudflare Web Analytics provides page v
 - ✅ **Informed consent** — Banner clearly states GA4's purpose and links to full privacy policy
 - ✅ **Freely given** — [×] close is always available; no content blocking or degraded experience
 - ✅ **Specific** — Consent is for GA4 only (Cloudflare is separate, cookieless)
-- ✅ **Revocable** — Privacy policy toggle lets users withdraw consent anytime
+- ✅ **Revocable** — Privacy policy toggle lets users withdraw consent anytime.
+  Implementation: turning the toggle off stores `denied`, sets the official
+  `window['ga-disable-<ID>']` flag (stops hits for the running session), clears
+  reachable `_ga`/`_gid` cookies, and blocks GA4 from loading on later visits.
+  A page reload completes the cleanup of remaining browser-side state.
 
 **Cyclical re-prompting risk:**
 - ⚠️ Asking repeatedly could be seen as "consent nagging" (a dark pattern)

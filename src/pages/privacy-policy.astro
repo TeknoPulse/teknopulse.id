@@ -88,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
       <li>Menarik persetujuan yang telah diberikan.</li>
     </ul>
 
-    <h2>7. Cookies &amp; Persetujuan Analitik</h2>
+    <h2>7. Cookies &amp; Analytics Consent</h2>
     <p>Situs ini memakai dua layanan analitik:</p>
     <ul>
       <li>
@@ -103,8 +103,9 @@ import Layout from '../layouts/Layout.astro';
     </ul>
     <p>
       Persetujuan dicatat di penyimpanan lokal browser Anda (kunci
-      <code>teknopulse-consent-ga4</code>). Menarik persetujuan via toggle di atas akan segera
-      menghentikan pemuatan GA4 pada kunjungan berikutnya.
+      <code>teknopulse-consent-ga4</code>). Menarik persetujuan via toggle di atas menghentikan
+      pengiriman data pada sesi berjalan dan mencegah GA4 dimuat kembali pada kunjungan
+      berikutnya; muat ulang halaman untuk membersihkan sisa cookie <code>_ga</code>.
     </p>
 
     <h2>8. Third-Party Services</h2>
@@ -222,12 +223,17 @@ import Layout from '../layouts/Layout.astro';
           return;
         }
         setUI(false);
+        // Sinkronkan banner bila masih terbuka di halaman ini.
+        const bannerEl = document.getElementById('cookie-consent');
+        if (bannerEl) bannerEl.hidden = true;
         // Best-effort cleanup for current session:
-        // 1. Tell GA4 to stop sending hits this session.
+        // 1. Tell GA4 to stop sending hits this session (signal resmi ga-disable).
         // 2. Delete _ga/_gid cookies that are reachable from this origin.
         // Note: httpOnly cookies and cookies set on parent domains cannot be
         // deleted client-side; a full cleanup still requires clearing browser
         // site data manually.
+        // Signal resmi GA4: hit tidak dikirim lagi pada halaman/sesi ini.
+        window['ga-disable-' + GA4_ID] = true;
         if (window.gtag) {
           window.gtag('config', GA4_ID, { storage: 'none', send_page_view: false });
         }

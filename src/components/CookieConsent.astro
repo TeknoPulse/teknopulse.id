@@ -134,9 +134,21 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
     const saveStored = (obj) => {
       try {
         localStorage.setItem(KEY, JSON.stringify(obj));
+        return true;
       } catch {
-        /* storage blocked — banner will reappear next visit */
+        return false; // storage blocked (mode privat / storage dimatikan)
       }
+    };
+
+    // Pesan bila preferensi tidak bisa disimpan: tanpa catatan, GA4 tidak dimuat.
+    const showStorageError = () => {
+      if (document.getElementById('consent-save-error')) return;
+      const err = document.createElement('p');
+      err.id = 'consent-save-error';
+      err.className = 'mt-2 text-xs text-red-600 dark:text-red-400';
+      err.textContent =
+        'Gagal menyimpan preferensi di browser ini. Izinkan penyimpanan situs (keluar dari mode privat) lalu coba lagi.';
+      document.querySelector('#cookie-consent > div')?.appendChild(err);
     };
 
     // Determine whether to show banner based on consent state and cycle logic.
@@ -172,7 +184,18 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
 
     // "Setuju" → grant, load GA4, never show again.
     document.getElementById('consent-accept')?.addEventListener('click', () => {
-      saveStored({ decision: 'granted', dismissCount: 0, lastDismissed: null, cycleStarted: null });
+      const saved = saveStored({
+        decision: 'granted',
+        dismissCount: 0,
+        lastDismissed: null,
+        cycleStarted: null,
+      });
+      if (!saved) {
+        // Persetujuan tidak terekam → jangan muat GA4 dan biarkan banner tampil
+        // (default aman: tanpa catatan persetujuan, tidak ada cookie _ga).
+        showStorageError();
+        return;
+      }
       banner.hidden = true;
       loadGa4();
     });
@@ -200,6 +223,8 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
         cycleStarted = today;
       }
 
+      // Bila penyimpanan gagal, keputusan tidak terekam: banner muncul lagi pada
+      // kunjungan berikutnya dan GA4 tetap tidak dimuat (default aman).
       saveStored({
         decision: 'deferred',
         dismissCount,
