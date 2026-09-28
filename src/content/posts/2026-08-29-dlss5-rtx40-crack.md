@@ -1,12 +1,22 @@
 ---
-title: 'DLSS 5 Mulai Bocor, Modder Berhasil Jalankan di RTX 40 Series'
+title: 'DLSS 5 Bocor di RTX 40: Fakta, Risiko, dan Posisi Resmi NVIDIA'
 summary: 'File inti DLSS 5 Neural Rendering dari game NBA 2K27 bocor ke publik dan langsung dibajak komunitas modder untuk dijalankan di kartu grafis RTX 40 Series yang seharusnya tidak didukung.'
+metaDescription: 'Inti DLSS 5 bocor dari NBA 2K27 dan bisa berjalan di RTX 40. Apa yang benar-benar terjadi, risikonya, dan apa kata NVIDIA.'
 publishedAt: 2026-08-29T17:00:00+07:00
 tags: ['Nvidia', 'DLSS', 'Gaming', 'Modding']
 category: Developer
 author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-08-29-dlss5-rtx40-crack-16x9.png'
+# FAQ draft (TEKAA-66 D3): teks final disinkronkan dari issue konten saudaranya
+# (Content Writer). FAQ ini menghasilkan blok FAQ + JSON-LD FAQPage.
+faq:
+  - question: 'Apa itu DLSS 5 Neural Rendering?'
+    answer: 'DLSS 5 Neural Rendering adalah generasi terbaru teknologi AI NVIDIA yang mengubah tampilan visual game secara menyeluruh memakai model AI berformat FP8 — bukan sekadar menaikkan resolusi atau menambah frame seperti DLSS 3 dan DLSS 4. Versi resminya direncanakan eksklusif untuk RTX 50 Series dan diluncurkan musim gugur 2026.'
+  - question: 'Apakah DLSS 5 bisa berjalan di RTX 40 Series?'
+    answer: 'Secara resmi belum — NVIDIA merancang DLSS 5 hanya untuk RTX 50 Series (Blackwell). Versi bocoran dimodifikasi komunitas RenoDX dengan mengganti biner CUDA Blackwell agar terbaca arsitektur Ada Lovelace; RTX 40 memang punya Tensor Core generasi keempat yang mendukung FP8, sehingga RTX 4090 dan RTX 4080 Super bisa menjalankannya secara tidak resmi.'
+  - question: 'Apa risiko memakai DLSS 5 hasil mod bocoran?'
+    answer: 'Ini bukan produk resmi NVIDIA: hasil visualnya belum stabil — wajah karakter bisa berubah artifisial antar frame — dan frame rate bisa turun hampir 50 persen karena patch eksperimental belum dioptimasi. Dukungan juga bisa diblokir NVIDIA di versi resmi, jadi untuk hasil stabil tunggu peluncuran resminya.'
 ---
 
 # DLSS 5 Mulai Bocor, Modder Berhasil Jalankan di RTX 40 Series
