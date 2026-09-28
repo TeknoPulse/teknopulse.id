@@ -1,6 +1,6 @@
 ---
 title: 'React 19.3 Rilis: View Transitions dan Fragment Refs Resmi Stabil'
-summary: 'React 19.3 resmi hadir dengan dua fitur eksperimental yang kini siap produksi — View Transitions untuk animasi native browser dan Fragment Refs untuk pengelolaan elemen tanpa wrapper div.'
+summary: 'React 19.3 resmi rilis: View Transitions dan Fragment Refs naik ke jalur stabil tanpa breaking change — ini artinya bagi project React kamu.'
 publishedAt: 2026-09-27T17:00:00+07:00
 tags: ['React', 'JavaScript', 'Frontend', 'Web Development']
 category: Software

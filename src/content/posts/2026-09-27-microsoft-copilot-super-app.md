@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Rombak Copilot Jadi Sistem Operasi Kerja AI"
-summary: "Microsoft Luncurkan Copilot Versi Terbarunya dengan Tiga Pilar Baru: Home, Code, dan Autopilot, Mengubah AI Assistant Menjadi Platform Kerja Lengkap yang Bisa Beroperasi Tanpa Henti."
+summary: "Microsoft ubah Copilot jadi platform kerja AI lengkap: tiga pilar baru Home, Code, dan Autopilot, plus harga berbasis pemakaian lewat Copilot Credits."
 publishedAt: 2026-09-27T06:00:00+07:00
 tags: ["AI", "Microsoft", "Teknologi"]
 category: AI
@@ -49,7 +49,5 @@ Annie Pearl menegaskan bahwa Copilot Home bukan sekadar tampilan baru. "Tujuan k
 
 ## Sumber
 
-- Microsoft, pengumuman resmi Copilot terbaru, 25 September 2026
-- Inside AI, "Microsoft Gives AI Agents Their Own Email, Calendars in Biggest Copilot Update," 26 September 2026
-- Fortune, "Microsoft Unveils Copilot Super App, Targeting Business Users with AI Agents," September 2026
-- Snap Access, "Microsoft Unveils Copilot Super App, Targeting Business Users with AI Agents," 26 September 2026
+- Microsoft Official Blog: "Introducing the new Copilot with Home, Code and Autopilot" -- 25 September 2026 -- https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/
+- Microsoft 365 Copilot -- halaman produk dan harga resmi -- https://www.microsoft.com/en-us/microsoft-365-copilot
