@@ -6,6 +6,7 @@ tags: ['Gemini', 'Google', 'Bahasa Indonesia', 'Kecerdasan Buatan']
 category: AI
 author: 'TeknoPulse'
 draft: false
+coverImage: '../../assets/images/gemini-indonesia-launch-16x9.png'
 source:
   - name: 'Google Gemini 1.5 Pro Release Blog'
     url: 'https://blog.google/technology/gemini-1.5-pro-indonesia'

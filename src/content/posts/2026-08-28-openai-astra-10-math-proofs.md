@@ -6,7 +6,7 @@ tags: ['AI', 'Matematika', 'OpenAI']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/openai-astra-10-math-proofs-16x9.png'
+coverImage: '../../assets/images/2026-08-28-openai-astra-10-math-proofs-16x9.png'
 ---
 
 # Astra Buktikan 10 Masalah Matematika yang Menggantung Puluhan Tahun

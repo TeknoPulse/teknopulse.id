@@ -1,13 +1,14 @@
 ---
-title: 'Cara Edit Foto Pakai ChatGPT + Prompt Siap Pakai'
+title: 'Cara Edit Foto di ChatGPT (HP & Laptop): Gratis, Tanpa Ubah Wajah'
 slug: 'cara-edit-foto-chatgpt'
 summary: 'Panduan edit foto pakai ChatGPT untuk pemula: langkah di HP dan laptop, 10 prompt siap salin, batasan versi gratis, serta etika yang perlu dipegang.'
-metaDescription: 'Panduan edit foto pakai ChatGPT: langkah di HP dan laptop, kumpulan prompt siap salin, batasan gratis, dan apa yang tidak boleh diubah.'
+metaDescription: 'Langkah edit foto di ChatGPT dari HP & laptop, prompt siap salin, batas versi gratis, dan cara mengedit tanpa mengubah wajah asli.'
 publishedAt: 2026-09-17T07:00:00+07:00
 tags: ['ChatGPT', 'tutorial']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/cara-edit-foto-chatgpt-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Apakah ChatGPT bisa edit foto di versi gratis?'
@@ -131,4 +132,4 @@ Dan satu hal terakhir: wajah pada hasil edit memang bisa bergeser dari aslinya. 
 
 _Panduan ini terakhir dicek 15 September 2026: langkah dan fitur dari pusat bantuan resmi OpenAI, harga dari halaman resmi OpenAI untuk pasar Indonesia, serta batas kuota versi gratis dari laporan pengguna karena OpenAI tidak mengumumkan angka resminya. Fitur, menu, dan kuota bisa berubah — jika langkah di artikel ini sudah berbeda di aplikasimu, kabari kami agar kami perbarui. Artikel ini tidak memuat tautan afiliasi._
 
-_Ingin melatih dasar-dasarnya dulu? Mulai dari [panduan menggunakan ChatGPT untuk kerja dan belajar sehari-hari](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/), cek apa saja yang [gratis di ChatGPT versi terbaru](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/), atau bandingkan pilihan edit foto AI lain di [daftar 10 AI terbaik 2026](/posts/ai-terbaik-2026/)._
+_Ingin melatih dasar-dasarnya dulu? Mulai dari [panduan menggunakan ChatGPT untuk kerja dan belajar sehari-hari](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/), cek apa saja yang [gratis di ChatGPT versi terbaru](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/), bandingkan pilihan edit foto AI lain di [daftar 10 AI terbaik 2026](/posts/ai-terbaik-2026/), atau lihat [7 aplikasi edit foto AI terbaik](/posts/aplikasi-edit-foto-ai/) untuk perbandingan antar-aplikasi beserta harganya._

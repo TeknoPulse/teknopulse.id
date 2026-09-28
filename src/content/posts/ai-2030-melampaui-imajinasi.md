@@ -6,7 +6,7 @@ publishedAt: 2025-08-20T17:00:00+07:00
 tags: ['AI', 'Prediksi 2030', 'Etika Teknologi']
 category: AI
 author: 'TeknoPulse'
-coverImage: '../../assets/images/ai2030.png'
+coverImage: '../../assets/images/ai-2030-melampaui-imajinasi-16x9.png'
 draft: false
 ---
 

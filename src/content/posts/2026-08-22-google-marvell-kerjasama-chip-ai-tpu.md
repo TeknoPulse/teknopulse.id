@@ -6,7 +6,7 @@ tags: ['AI', 'Google', 'Semikonduktor', 'Chip']
 category: 'AI'
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/google-marvell-kerjasama-chip-ai-tpu-16x9.png'
+coverImage: '../../assets/images/2026-08-22-google-marvell-kerjasama-chip-ai-tpu-16x9.png'
 ---
 
 Google resmi memperdalam kerja samanya dengan raksasa semikonduktor Amerika Serikat, Marvell Technology. Kedua perusahaan menandatangani perjanjian dagang pada 29 Juli 2026, mencakup pengembangan chip kustom yang melekat pada ekosistem Tensor Processing Unit (TPU) — chip AI racikan Google yang menjadi tulang punggung infrastruktur kecerdasan buatannya.

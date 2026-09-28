@@ -6,7 +6,7 @@ tags: ['AI', 'Video', 'Alibaba', 'Teknologi']
 category: 'AI'
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/alibaba-wan3-video-16x9.png'
+coverImage: '../../assets/images/2026-08-25-alibaba-wan3-video-16x9.png'
 ---
 
 Alibaba resmi memperkenalkan model AI video generatif terbaru mereka, Wan3.0, pada Senin (24/8/2026). Yang membedakan model ini dari para pesaingnya bukan sekadar durasi video, melainkan kemampuan unik membaca dokumen kerja secara langsung.

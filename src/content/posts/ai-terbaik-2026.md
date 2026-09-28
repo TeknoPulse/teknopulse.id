@@ -8,6 +8,7 @@ tags: ['AI', 'review']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/ai-terbaik-2026-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'AI gratis mana yang paling layak dipakai di 2026?'

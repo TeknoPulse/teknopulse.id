@@ -6,6 +6,7 @@ tags: ['AI', 'OpenAI', 'Hackathon', 'Tech News']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/sea-openai-codex-hackathon-jakarta-16x9.png'
 format: 'berita'
 metaDescription: 'Hackathon Sea x OpenAI digelar di Jakarta pada 7 November 2026. 30 tim developer berebut hadiah utama US$30.000 — cek syarat dan cara daftarnya di sini.'
 source:

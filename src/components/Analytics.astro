@@ -23,6 +23,10 @@
 // Token beacon memang publik — ikut tampil di HTML setiap pengunjung — bukan secret.
 const CF_BEACON_TOKEN = 'c3393dfa30c245369d256becc82b2cb0';
 
+// GA4 (G-79X7QWV977, TEKAA-48) tidak dirender di sini: cookienya butuh
+// persetujuan (UU PDP), jadi dimuat client-side oleh CookieConsent.astro
+// setelah pengunjung menekan "Setuju".
+
 const env = import.meta.env;
 const provider = env.PUBLIC_ANALYTICS_PROVIDER ?? 'cloudflare';
 const domain = env.PUBLIC_ANALYTICS_DOMAIN; // Plausible: situs yang dilacak

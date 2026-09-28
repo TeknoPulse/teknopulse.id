@@ -45,6 +45,16 @@ export default tseslint.config(
     },
   },
   {
+    // Fungsi Pages di functions/ jalan di runtime Cloudflare Workers
+    // (Request/Response/URL/fetch), bukan Node maupun browser.
+    files: ['functions/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.worker,
+      },
+    },
+  },
+  {
     // Ignore config files. cleanup.cjs = skrip one-off pembersihan konten
     // lama (CommonJS), bukan bagian dari build — tidak dilint.
     ignores: ['*.config.js', '*.config.mjs', '*.config.cjs', 'dist/', '.astro/', 'cleanup.cjs'],
