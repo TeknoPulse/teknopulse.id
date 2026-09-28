@@ -6,7 +6,7 @@ tags: ['Robotika', 'XPeng', 'AI Fisik', 'Humanoid', 'Pendanaan']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/xpeng-robotika-pendanaan-rp100-trilyun-16x9.png'
+coverImage: '../../assets/images/2026-08-25-xpeng-robotika-pendanaan-rp100-trilyun-16x9.png'
 ---
 
 ## Pendanaan Jumbo XPeng untuk Robot IRON, Bidik Produksi Massal Akhir 2026

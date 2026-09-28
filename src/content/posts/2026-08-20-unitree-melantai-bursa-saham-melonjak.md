@@ -6,7 +6,7 @@ tags: ['Robotika', 'IPO', 'Tiongkok', 'Unitree', 'Teknologi']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/unitree-ipo-2026-16x9.png'
+coverImage: '../../assets/images/2026-08-20-unitree-melantai-bursa-saham-melonjak-16x9.png'
 ---
 
 # Unitree Melantai di Bursa, Nilai Saham Melonjak 460%

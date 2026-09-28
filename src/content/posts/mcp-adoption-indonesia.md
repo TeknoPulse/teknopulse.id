@@ -8,9 +8,9 @@ tags:
   - Anthropic
   - Model Context Protocol
   - BSSN
-category: DevTools
+category: Developer
 author: TeknoPulse
-coverImage: '../../assets/images/mcp-adoption-indonesia-16x9.jpg'
+coverImage: '../../assets/images/mcp-adoption-indonesia-16x9.png'
 draft: false
 source:
   - name: 'Anthropic Model Context Protocol Announcement'

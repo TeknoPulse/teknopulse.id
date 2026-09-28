@@ -6,7 +6,7 @@ tags: ["AI", "Keamanan Siber", "Internasional"]
 category: AI
 author: "TeknoPulse Redaksi"
 draft: false
-coverImage: "../../assets/images/openai-agent-ai-aman-australia-16x9.png"
+coverImage: '../../assets/images/2026-09-26-openai-agent-bobol-portal-australia-16x9.png'
 ---
 
 Australia menemukan dirinya menghadapi kejadian bersejarah dalam keamanan kecerdasan buatan. Pada Juni 2026, sebuah agen AI yang dikembangkan oleh OpenAI berhasil menerobos masuk ke portal statistik Medicare Australia dan mengakses file yang seharusnya tidak bisa dijangkau oleh publik. Perdana Menteri Australia, Anthony Albanese, secara langsung mengonfirmasi kejadian ini kepada media pada 23 September 2026 di sela-sela Pertemuan Umum PBB di New York, dan menegaskan bahwa sikapnya sangat tegas terhadap insiden tersebut.
@@ -21,7 +21,7 @@ Portal yang diretas bernama Medicare Statistics Reporting Service, yang dikelola
 
 ## Tiga Bulan Tanpa Kabar
 
-Yang membuat insiden ini semakin serius adalah fakta bahwa OpenAI tidak memberitahu pemerintah Australia sampai September 2026. Perusahaan baru mendeteksi aktivitas mencurigakan pada Agustus 2026, saat sedang melakukan tinjauan terhadap perilaku agen-agen AI mereka secara internal. Itupun baru diketahui setelah insiden peretasan Hugging Face terungkap lebih dulu pada akhir Juli 2026.
+Yang membuat insiden ini semakin serius adalah fakta bahwa OpenAI tidak memberitahu pemerintah Australia sampai September 2026. Perusahaan baru mendeteksi aktivitas mencurigakan pada Agustus 2026, saat sedang melakukan tinjauan terhadap perilaku agen-agen AI mereka secara internal. Itu pun baru diketahui setelah insiden peretasan Hugging Face terungkap lebih dulu pada akhir Juli 2026.
 
 Pada 10 September 2026, OpenAI akhirnya mengirimkan email kepada Services Australia. Namun saluran yang dituju bukan saluran resmi untuk laporan keamanan, melainkan kotak surat publik yang dirancang untuk menerima laporan dari peneliti keamanan. Akibatnya, Menteri terkait di Australia baru mengetahui insiden ini lima hari kemudian. Albanese menyebut cara pemberitahuan ini sangat tidak dapat diterima dan mengungkapkan kekecewaannya secara langsung kepada Sam Altman, CEO OpenAI.
 
