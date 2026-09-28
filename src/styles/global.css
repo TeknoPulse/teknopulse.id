@@ -100,11 +100,20 @@
   .category-ai {
     @apply bg-category-ai/10 text-category-ai hover:bg-category-ai/20;
   }
-  .category-devtools {
-    @apply bg-category-devtools/10 text-category-devtools hover:bg-category-devtools/20;
+  .category-developer {
+    @apply bg-category-developer/10 text-category-developer hover:bg-category-developer/20;
   }
-  .category-open-source {
-    @apply bg-category-open-source/10 text-category-open-source hover:bg-category-open-source/20;
+  .category-software {
+    @apply bg-category-software/10 text-category-software hover:bg-category-software/20;
+  }
+  .category-automation {
+    @apply bg-category-automation/10 text-category-automation hover:bg-category-automation/20;
+  }
+  .category-experiments {
+    @apply bg-category-experiments/10 text-category-experiments hover:bg-category-experiments/20;
+  }
+  .category-insights {
+    @apply bg-category-insights/10 text-category-insights hover:bg-category-insights/20;
   }
 
   /* Card styles */
@@ -162,6 +171,26 @@
 .dark h5,
 .dark h6 {
   color: hsl(25, 10%, 95%);
+}
+
+/* Dark mode category badge overrides — slightly higher opacity for better contrast */
+.dark .category-ai {
+  @apply bg-category-ai/20 hover:bg-category-ai/30;
+}
+.dark .category-developer {
+  @apply bg-category-developer/20 hover:bg-category-developer/30;
+}
+.dark .category-software {
+  @apply bg-category-software/20 hover:bg-category-software/30;
+}
+.dark .category-automation {
+  @apply bg-category-automation/20 hover:bg-category-automation/30;
+}
+.dark .category-experiments {
+  @apply bg-category-experiments/20 hover:bg-category-experiments/30;
+}
+.dark .category-insights {
+  @apply bg-category-insights/20 hover:bg-category-insights/30;
 }
 
 /* Custom scrollbar */

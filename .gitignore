@@ -5,7 +5,7 @@ dist/
 .astro/
 
 # dependencies
-node_modules/
+node_modules
 
 # logs
 npm-debug.log*
@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # Vercel deployment cache
 .vercel
+
+# covers.mjs artifacts (plan/state)
+covers*.json

@@ -8,15 +8,18 @@ TeknoPulse — a production Tech & AI news site (Indonesian locale, `id-ID`) bui
 
 ## Commands
 
-| Task                             | Command                              |
-| -------------------------------- | ------------------------------------ |
-| Dev server                       | `pnpm dev`                           |
-| Production build                 | `pnpm build`                         |
-| Preview built site               | `pnpm preview`                       |
-| Lint (eslint + prettier --check) | `pnpm lint`                          |
-| Fix lint                         | `pnpm lint:fix`                      |
-| New post scaffold                | `pnpm post:new "Title"`              |
-| SEO pre-publish check            | `pnpm seo:check` (`:strict` to gate) |
+| Task                                   | Command                                              |
+| -------------------------------------- | ---------------------------------------------------- |
+| Dev server                             | `pnpm dev`                                           |
+| Production build                       | `pnpm build`                                         |
+| Preview built site                     | `pnpm preview`                                       |
+| Lint (eslint + prettier --check)       | `pnpm lint`                                          |
+| Fix lint                               | `pnpm lint:fix`                                      |
+| New post scaffold                      | `pnpm post:new "Title"`                              |
+| SEO pre-publish check                  | `pnpm seo:check` (`:strict` to gate)                 |
+| Audit cover image (temuan + exit code) | `pnpm covers:audit`                                  |
+| Cover: rencana → generate → apply      | `pnpm covers:plan` → `covers:fetch` → `covers:apply` |
+| Verifikasi cover (struktural/build)    | `pnpm covers:verify [--build]`                       |
 
 There is **no test framework** and **no separate typecheck script** — type errors surface via `astro check`/`astro build`. `pnpm build` is the canonical correctness gate.
 
@@ -36,7 +39,7 @@ This site is **static-output only**. SSR was intentionally dropped:
 ### Content layer
 
 - Posts: `src/content/posts/*.md`, schema in `src/content/config.ts`.
-- `category` is a **fixed enum**: `AI | OpenSource | DevTools`. The Policy pillar was removed 2026-09 and Security + Cloud followed shortly after — their content lives in AI (security/cloud news is AI news; see `public/_redirects` for the 301 map). To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `OpenSource` → `/category/open-source`).
+- `category` is a **fixed enum**: `AI | Software | Developer | Automation | Experiments | Insights`. To add a category you must update **both** the Zod schema and `src/utils/categories.ts` (slug, colors, description) — they must stay in sync. Category URLs use the slug from `categories.ts` (e.g. `Developer` → `/category/developer`).
 - `draft: true` posts are excluded from builds, RSS, feeds, sitemaps, OG generation, and `llms-full.txt`. Set `draft: false` to publish.
 - SEO on-page rules (TEKAA-4/TEKAA-5): exactly one H1 per article page —
   `src/utils/rehype-unique-h1.js` (registered in `astro.config.mjs`) drops a leading Markdown
@@ -56,6 +59,16 @@ This site is **static-output only**. SSR was intentionally dropped:
   undated slugs** (`/posts/<slug>/`); legacy dated filenames (`2026-08-25-...`) stay as-is —
   never rename them without a 301 in `public/_redirects`.
 - Cover images live in `src/assets/images/` and are referenced via Astro's `image()` helper. Many filenames begin with `=` (an artifact of a past slugifying bug) — leave them unless explicitly asked to clean up.
+- **Cover invariants** (enforced by `scripts/covers.mjs` and the SEO checks): every non-draft
+  post needs a `coverImage`; the file must be a real **PNG at 1280×720** (extension must match the
+  actual bytes — a JPEG named `.png` is a bug); each cover must be unique per article by **filename
+  and md5 content**; `category` must stay inside the schema enum. Old cover files are left in place
+  when replaced (never delete or rename them), and dated post filenames are never renamed.
+- `scripts/covers.mjs` automates the cover workflow: `audit` (report), `plan` (manifest, optionally
+  from an automation branch with `--from-pr`), `fetch` (generate via the Seedream skill → download →
+  resize/encode PNG), `apply` (patch frontmatter, BOM/line-ending safe), `verify`, `publish`.
+  Prompts are style-suffixed via `COVERS_STYLE`; the generator path is configurable with
+  `COVERS_IMAGE_CMD`. Choosing the photo subject, judging the result, and merging stay manual.
 
 ### Self-maintaining generated routes
 
