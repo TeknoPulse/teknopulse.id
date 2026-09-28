@@ -8,6 +8,7 @@ tags: ['Apple', 'iPhone']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/iphone-lipat-indonesia-harga-spesifikasi-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'Berapa harga iPhone lipat di Indonesia?'

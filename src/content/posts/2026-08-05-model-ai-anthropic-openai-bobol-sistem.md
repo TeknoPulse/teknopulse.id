@@ -5,7 +5,7 @@ publishedAt: 2026-08-05T07:30:00+07:00
 tags: ['AI', 'Keamanan', 'Anthropic', 'OpenAI', 'AISI']
 category: AI
 author: 'TeknoPulse Redaksi'
-coverImage: '../../assets/images/model-ai-anthropic-openai-bobol-sistem-16x9.png'
+coverImage: '../../assets/images/2026-08-05-model-ai-anthropic-openai-bobol-sistem-16x9.png'
 draft: false
 ---
 

@@ -17,7 +17,14 @@
     "prebuild": "node scripts/seo-check.mjs",
     "seo:check": "node scripts/seo-check.mjs",
     "seo:check:strict": "node scripts/seo-check.mjs --strict",
+    "covers:audit": "node scripts/covers.mjs audit",
+    "covers:plan": "node scripts/covers.mjs plan",
+    "covers:fetch": "node scripts/covers.mjs fetch",
+    "covers:apply": "node scripts/covers.mjs apply",
+    "covers:verify": "node scripts/covers.mjs verify",
+    "covers:publish": "node scripts/covers.mjs publish",
     "post:new": "node scripts/new-post.js",
+    "test:preservation": "node scripts/test-preservation-baseline.mjs",
     "postbuild": "pagefind --site dist --output-path dist/pagefind"
   },
   "dependencies": {

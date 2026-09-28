@@ -10,7 +10,96 @@ type Tool = {
   pricing: 'Gratis' | 'Freemium' | 'Berbayar';
   priceNote: string;
   why: string;
+  // Tautan internal ke panduan/review TeknoPulse yang mengupas tool ini
+  // (TEKAA-66 D4.3 — hub /ai-tools/ menautkan artikel existing).
+  related?: { title: string; href: string }[];
 };
+
+// Direktori ini adalah hub: selain daftar tool, ia menautkan semua artikel
+// panduan/review terkait yang sudah ada di situs (TEKAA-66 D4.3). Tiga artikel
+// harian ChatGPT lama bertopik & berjudul sama; yang dua judul kembar tidak
+// ditautkan bersamaan agar tidak ada anchor duplikat.
+type HubArticle = {
+  title: string;
+  href: string;
+  kind: 'Panduan' | 'Review' | 'Konsep';
+  note: string;
+};
+
+const hubArticles: HubArticle[] = [
+  {
+    title: '10 AI Terbaik 2026: untuk Kerja, Belajar, dan Berkarya',
+    href: '/posts/ai-terbaik-2026/',
+    kind: 'Review',
+    note: 'Rangkuman pilihan utama kalau belum tahu mulai dari mana.',
+  },
+  {
+    title: 'ChatGPT vs Gemini vs Claude: Bagus Mana? (Uji 2026)',
+    href: '/posts/chatgpt-vs-gemini-vs-claude-2026/',
+    kind: 'Review',
+    note: 'Perbandingan langsung tiga asisten terpopuler.',
+  },
+  {
+    title: 'Cara Bayar ChatGPT (GoPay, DANA, QRIS) + Solusi Pembayaran Gagal',
+    href: '/posts/cara-bayar-chatgpt-gopay-dana/',
+    kind: 'Panduan',
+    note: 'Langganan ChatGPT tanpa kartu kredit, lengkap harga rupiah.',
+  },
+  {
+    title: 'Cara Edit Foto di ChatGPT (HP & Laptop): Gratis, Tanpa Ubah Wajah',
+    href: '/posts/cara-edit-foto-chatgpt/',
+    kind: 'Panduan',
+    note: 'Langkah edit foto plus prompt siap salin.',
+  },
+  {
+    title: '7 Aplikasi Edit Foto AI Terbaik (Gratis & Berbayar)',
+    href: '/posts/aplikasi-edit-foto-ai/',
+    kind: 'Review',
+    note: 'Alternatif di luar ChatGPT untuk edit foto sehari-hari.',
+  },
+  {
+    title: 'Prompt ChatGPT untuk Bikin PPT + Template Siap Pakai',
+    href: '/posts/prompt-chatgpt-bikin-ppt/',
+    kind: 'Panduan',
+    note: 'Presentasi rapi dari satu prompt.',
+  },
+  {
+    title: 'Cara Pakai DeepSeek di Indonesia: Gratis & Lengkap',
+    href: '/posts/cara-pakai-deepseek/',
+    kind: 'Panduan',
+    note: 'Mulai pakai asisten gratis yang paling irit.',
+  },
+  {
+    title: 'AI Terbaik untuk Coding 2026: Uji Nyata, Bukan Klaim',
+    href: '/posts/ai-terbaik-untuk-coding/',
+    kind: 'Review',
+    note: 'Hasil uji nyata asisten coding di tugas sehari-hari.',
+  },
+  {
+    title: 'Cara Memanfaatkan ChatGPT untuk Mempermudah Pekerjaan Sehari-hari',
+    href: '/posts/cara-memanfaatkan-chatgpt-untuk-mempermudah-pekerjaan-sehari-hari/',
+    kind: 'Panduan',
+    note: 'Pola pemakaian ChatGPT untuk tugas kerja harian.',
+  },
+  {
+    title: 'Cara Menggunakan ChatGPT untuk Kerja dan Belajar Sehari-hari',
+    href: '/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/',
+    kind: 'Panduan',
+    note: 'Panduan awal untuk pelajar dan pekerja.',
+  },
+  {
+    title: 'AI Agent Adalah: Definisi, Cara Kerja, Contoh 2026',
+    href: '/posts/ai-agent-adalah/',
+    kind: 'Konsep',
+    note: 'Istilah yang makin sering muncul di deskripsi tool.',
+  },
+  {
+    title: 'Bedanya AI Generatif dan AI Agent bagi Pengguna Awam',
+    href: '/posts/bedanya-ai-generatif-dan-ai-agent/',
+    kind: 'Konsep',
+    note: 'Biar tidak salah pilih tool saat membaca label fitur.',
+  },
+];
 
 type Section = {
   id: string;
@@ -31,6 +120,20 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Gratis; Plus mulai sekitar US$20/bulan',
         why: 'Standar de-facto AI asisten. Memahami bahasa Indonesia dengan baik dan cukup serbaguna untuk menulis, menganalisis data, belajar, hingga generate gambar.',
+        related: [
+          {
+            title: 'Cara bayar ChatGPT pakai GoPay, DANA, atau QRIS',
+            href: '/posts/cara-bayar-chatgpt-gopay-dana/',
+          },
+          {
+            title: 'Cara edit foto di ChatGPT (HP & laptop)',
+            href: '/posts/cara-edit-foto-chatgpt/',
+          },
+          {
+            title: 'ChatGPT vs Gemini vs Claude: uji 2026',
+            href: '/posts/chatgpt-vs-gemini-vs-claude-2026/',
+          },
+        ],
       },
       {
         name: 'Claude',
@@ -38,6 +141,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Gratis; Pro mulai sekitar US$20/bulan',
         why: 'Favorit untuk menulis dan menganalisis dokumen panjang. Gaya bahasanya natural sehingga nyaman dipakai menyunting konten bahasa Indonesia.',
+        related: [
+          {
+            title: 'ChatGPT vs Gemini vs Claude: uji 2026',
+            href: '/posts/chatgpt-vs-gemini-vs-claude-2026/',
+          },
+        ],
       },
       {
         name: 'Gemini',
@@ -45,6 +154,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Gratis; paket AI Pro berbayar tersedia',
         why: 'Terintegrasi dengan ekosistem Google — Gmail, Docs, dan Android. Pilihan praktis jika kerja harianmu berlangsung di Google Workspace.',
+        related: [
+          {
+            title: 'ChatGPT vs Gemini vs Claude: uji 2026',
+            href: '/posts/chatgpt-vs-gemini-vs-claude-2026/',
+          },
+        ],
       },
       {
         name: 'Microsoft Copilot',
@@ -59,6 +174,12 @@ const sections: Section[] = [
         pricing: 'Gratis',
         priceNote: 'Gratis; API dengan biaya sangat kompetitif',
         why: 'Model reasoning dengan biaya paling agresif di pasaran. Alternatif gratis yang layak saat kuota tool berbayar habis.',
+        related: [
+          {
+            title: 'Cara pakai DeepSeek di Indonesia',
+            href: '/posts/cara-pakai-deepseek/',
+          },
+        ],
       },
       {
         name: 'Grok',
@@ -122,6 +243,16 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Gratis; Pro berbayar',
         why: 'Suite desain paling populer di Indonesia. Fitur AI-nya seperti Magic Write dan Magic Edit menyatu dengan alur kerja desain harian.',
+        related: [
+          {
+            title: '7 aplikasi edit foto AI terbaik',
+            href: '/posts/aplikasi-edit-foto-ai/',
+          },
+          {
+            title: 'Cara edit foto di ChatGPT (HP & laptop)',
+            href: '/posts/cara-edit-foto-chatgpt/',
+          },
+        ],
       },
       {
         name: 'Midjourney',
@@ -136,6 +267,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Kuota gratis setiap hari',
         why: 'Generator gambar dengan kuota gratis harian. Alternatif realistis sebelum memutuskan berlangganan tool premium.',
+        related: [
+          {
+            title: '7 aplikasi edit foto AI terbaik',
+            href: '/posts/aplikasi-edit-foto-ai/',
+          },
+        ],
       },
       {
         name: 'Ideogram',
@@ -143,6 +280,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Gratis; paket Plus berbayar',
         why: 'Paling andal menampilkan teks yang rapi di dalam gambar — cocok untuk poster, spanduk, dan thumbnail dengan tulisan.',
+        related: [
+          {
+            title: '7 aplikasi edit foto AI terbaik',
+            href: '/posts/aplikasi-edit-foto-ai/',
+          },
+        ],
       },
     ],
   },
@@ -199,6 +342,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Kuota gratis; Pro berbayar',
         why: 'Menghasilkan presentasi yang rapi dari satu prompt. Penghemat waktu terbesar untuk kebutuhan presentasi mingguan.',
+        related: [
+          {
+            title: 'Prompt ChatGPT untuk bikin PPT + template siap pakai',
+            href: '/posts/prompt-chatgpt-bikin-ppt/',
+          },
+        ],
       },
       {
         name: 'Zapier',
@@ -227,6 +376,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Paket gratis terbatas untuk akun individu',
         why: 'Asisten coding langsung di dalam editor. Free tier resminya membuatnya jadi titik awal paling mudah.',
+        related: [
+          {
+            title: 'AI terbaik untuk coding 2026: hasil uji nyata',
+            href: '/posts/ai-terbaik-untuk-coding/',
+          },
+        ],
       },
       {
         name: 'Cursor',
@@ -234,6 +389,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Gratis; Pro sekitar US$20/bulan',
         why: 'Code editor AI-first yang populer di kalangan developer. Mampu memahami konteks seluruh proyek untuk perubahan lintas file.',
+        related: [
+          {
+            title: 'AI terbaik untuk coding 2026: hasil uji nyata',
+            href: '/posts/ai-terbaik-untuk-coding/',
+          },
+        ],
       },
       {
         name: 'v0',
@@ -241,6 +402,12 @@ const sections: Section[] = [
         pricing: 'Freemium',
         priceNote: 'Kuota gratis; Premium berbayar',
         why: 'Menghasilkan komponen UI siap pakai dari deskripsi teks. Praktis untuk prototipe frontend dalam hitungan menit.',
+        related: [
+          {
+            title: 'AI terbaik untuk coding 2026: hasil uji nyata',
+            href: '/posts/ai-terbaik-untuk-coding/',
+          },
+        ],
       },
     ],
   },
@@ -314,7 +481,12 @@ const faqSchema = {
         Bukan sekadar daftar panjang. Setiap tool di halaman ini dipilih dan dinilai dari sisi yang
         paling relevan buat pengguna Indonesia: kualitas hasil, dukungan bahasa Indonesia, harga
         termasuk opsi gratisnya, dan mudah tidaknya mulai dipakai. Pilih kategorinya, lalu temukan
-        yang paling cocok dengan kebutuhanmu.
+        yang paling cocok dengan kebutuhanmu. Belum tahu mulai dari mana? Rangkuman
+        <a
+          href="/posts/ai-terbaik-2026/"
+          class="font-medium text-primary hover:underline dark:text-accent">10 AI Terbaik 2026</a
+        >
+        jadi titik awal yang baik.
       </p>
 
       <nav aria-label="Kategori AI tools" class="mb-10 flex flex-wrap gap-2">
@@ -329,6 +501,13 @@ const faqSchema = {
             </a>
           ))
         }
+        <a
+          href="#panduan-review"
+          class="rounded-full border border-gray-200 bg-surface px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary dark:border-gray-800 dark:bg-surface-dark dark:text-gray-300 dark:hover:border-accent dark:hover:text-accent"
+        >
+          Panduan &amp; Review
+          <span class="text-gray-400 dark:text-gray-500"> ({hubArticles.length})</span>
+        </a>
       </nav>
 
       {
@@ -354,12 +533,71 @@ const faqSchema = {
                   </div>
                   <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">{tool.priceNote}</p>
                   <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{tool.why}</p>
+                  {tool.related && tool.related.length > 0 && (
+                    <div class="mt-auto border-t border-gray-100 pt-3 dark:border-gray-800">
+                      <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                        Panduan terkait
+                      </p>
+                      <ul class="space-y-1">
+                        {tool.related.map((rel) => (
+                          <li>
+                            <a
+                              href={rel.href}
+                              class="text-sm font-medium text-primary hover:underline dark:text-accent"
+                            >
+                              {rel.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
           </section>
         ))
       }
+
+      <section id="panduan-review" class="scroll-mt-24 py-8">
+        <h2 class="mb-2 text-2xl font-bold md:text-3xl">Panduan &amp; Review dari TeknoPulse</h2>
+        <p class="mb-6 text-gray-600 dark:text-gray-400">
+          Sudah punya kandidat tool? Dalami lewat panduan dan perbandingan yang sudah kami tulis
+          berdasarkan pemakaian nyata.
+        </p>
+        <ul class="grid gap-3 md:grid-cols-2">
+          {
+            hubArticles.map((article) => (
+              <li>
+                <a
+                  href={article.href}
+                  class="group flex h-full items-start gap-3 rounded-lg border border-gray-200 bg-surface p-4 transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-surface-dark"
+                >
+                  <span
+                    class={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
+                      article.kind === 'Panduan'
+                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300'
+                        : article.kind === 'Review'
+                          ? 'bg-violet-100 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300'
+                          : 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                    }`}
+                  >
+                    {article.kind}
+                  </span>
+                  <span>
+                    <span class="block font-semibold text-gray-900 transition-colors group-hover:text-primary dark:text-gray-100 dark:group-hover:text-accent">
+                      {article.title}
+                    </span>
+                    <span class="mt-0.5 block text-sm text-gray-500 dark:text-gray-400">
+                      {article.note}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
       <section
         class="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-6 dark:border-gray-800 dark:bg-surface-dark"
