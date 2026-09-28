@@ -8,8 +8,8 @@ category: Developer
 author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-08-29-dlss5-rtx40-crack-16x9.png'
-# FAQ draft (TEKAA-66 D3): teks final disinkronkan dari issue konten saudaranya
-# (Content Writer). FAQ ini menghasilkan blok FAQ + JSON-LD FAQPage.
+# FAQ (final, TEKAA-67): satu sumber untuk blok FAQ + JSON-LD FAQPage (TEKAA-66).
+# Teks selaras dengan bagian evergreen di badan artikel.
 faq:
   - question: 'Apa itu DLSS 5 Neural Rendering?'
     answer: 'DLSS 5 Neural Rendering adalah generasi terbaru teknologi AI NVIDIA yang mengubah tampilan visual game secara menyeluruh memakai model AI berformat FP8 — bukan sekadar menaikkan resolusi atau menambah frame seperti DLSS 3 dan DLSS 4. Versi resminya direncanakan eksklusif untuk RTX 50 Series dan diluncurkan musim gugur 2026.'
@@ -19,9 +19,31 @@ faq:
     answer: 'Ini bukan produk resmi NVIDIA: hasil visualnya belum stabil — wajah karakter bisa berubah artifisial antar frame — dan frame rate bisa turun hampir 50 persen karena patch eksperimental belum dioptimasi. Dukungan juga bisa diblokir NVIDIA di versi resmi, jadi untuk hasil stabil tunggu peluncuran resminya.'
 ---
 
-# DLSS 5 Mulai Bocor, Modder Berhasil Jalankan di RTX 40 Series
+# DLSS 5 Bocor di RTX 40: Fakta, Risiko, dan Posisi Resmi NVIDIA
 
-Siang, pembaca setia! Kabar menarik datang dari dunia modding grafis PC. Nvidia belum resmi mengumumkan DLSS 5, tapi file intinya sudah lebih dulu bocor ke publik — dan dalam hitungan jam, komunitas modder berhasil menjalankannya di luar perangkat keras yang seharusnya didukung.
+> **Update terakhir: 28 September 2026.** Ditambahkan bagian evergreen — [apa itu DLSS 5](#apa-itu-dlss-5), [kartu yang resmi didukung](#kartu-grafis-mana-yang-resmi-didukung), dan FAQ. Kronologi bocoran di bawah tetap berasal dari pelaporan 27–29 Agustus 2026.
+
+File inti DLSS 5 Neural Rendering bocor ke publik lewat game NBA 2K27 — dan tanpa dukungan resmi apa pun, file itu berhasil dijalankan di kartu RTX 40 Series yang memang bukan targetnya. Artikel ini merangkum fakta yang sudah terkonfirmasi, risikonya, dan posisi resmi NVIDIA; kronologi lengkapnya ada di bagian bawah.
+
+## Apa Itu DLSS 5?
+
+DLSS (Deep Learning Super Sampling) 5 adalah generasi terbaru teknologi grafis berbasis AI dari NVIDIA. Generasi-generasi sebelumnya punya fokus yang jelas: DLSS 2 mendongakkan resolusi render agar frame rate naik, DLSS 3 menambahkan frame generation — membuat frame antara dengan AI — dan DLSS 4 menyempurnakan keduanya dengan multi frame generation di RTX 50 Series. DLSS 5 melangkah lebih jauh lewat **Neural Rendering**: model AI berformat FP8 yang dipakai untuk merender tampilan game secara menyeluruh — pencahayaan, material, hingga detail karakter — bukan sekadar menaikkan resolusi atau menambah frame.
+
+Konsekuensinya, syarat perangkatnya juga berbeda. NVIDIA merencanakan peluncuran resmi DLSS 5 pada musim gugur 2026 bersama game-game yang mengadopsinya, dan fitur ini ditujukan untuk arsitektur Blackwell di RTX 50 Series. Dengan kata lain, DLSS 5 bukan peningkatan gratis lintas generasi seperti DLSS 2 dulu — ini fitur generasi baru yang bekerja paling utuh di kartu paling baru.
+
+Fakta di lapangan — bocoran yang jadi topik artikel ini — menunjukkan RTX 40 secara teknis sanggup menjalankannya, karena Tensor Core generasi keempatnya memang mendukung format FP8. Tetapi "sanggup secara teknis" berbeda dari "didukung resmi"; daftar lengkapnya ada di bagian berikut.
+
+## Kartu Grafis Mana yang Resmi Didukung?
+
+Jawaban resminya sejauh ini: **RTX 50 Series saja** — keluarga Blackwell seperti RTX 5090, 5080, dan 5070 Ti. NVIDIA belum mengumumkan dukungan DLSS 5 Neural Rendering untuk generasi lain, dan daftar final memang belum ada karena fiturnya sendiri belum diluncurkan resmi.
+
+Posisi kartu lain terhadap DLSS 5:
+
+- **RTX 40 Series (Ada Lovelace).** Secara resmi mendapat DLSS 3 dan DLSS 4 — super resolution dan frame generation tunggal; multi frame generation tetap eksklusif RTX 50. Bocoran DLSS 5 yang berjalan di sini murni lewat patch tidak resmi komunitas, bukan dukungan NVIDIA.
+- **RTX 30 Series ke bawah.** Bertahan di jalur DLSS 2 dan DLSS 3. Tidak ada indikasi DLSS 5 akan turun ke generasi ini.
+- **Kartu non-NVIDIA.** Tidak mendukung DLSS dalam bentuk apa pun.
+
+Kalau kamu menimbang membeli kartu baru khusus untuk DLSS 5, tunggu peluncuran resminya: daftar dukungan final, performa sesungguhnya, dan game apa saja yang mengadopsi baru terjelas saat itu.
 
 ## Bagaimana Ceritanya?
 
@@ -39,7 +61,7 @@ Uncle Burrito lalu mengganti kode biner CUDA yang tidak kompatibel dengan arsite
 
 Komunitas RenoDX kemudian memperluas pencapaian ini. Dalam waktu kurang dari 48 jam, DLSS 5 sudah diuji di lebih dari belasan game, termasuk Control, The Elder Scrolls V: Skyrim, Grand Theft Auto: San Andreas, dan Final Fantasy VII Rebirth.
 
-## Hasil Visuals? Campuran
+## Hasil Visual: Campuran
 
 Dalam uji coba awal, hasilnya bervariasi tergantung jenis game. Di Control, Neural Rendering berhasil menambah detail pada lingkungan seperti gedung dan permukaan tanpa mengorbankan keseluruhan kualitas gambar. Game ini punya geometri yang cukup konsisten sehingga DLSS 5 punya data struktur yang baik untuk diproses.
 
@@ -62,6 +84,8 @@ Yang jelas, komunitas modding sekali lagi membuktikan bahwa batasan perangkat lu
 Sebagai penutup, jika kamu termasuk yang sabar menanti teknologi baru, mungkin sebaiknya tunggu peluncuran resmi DLSS 5 musim gugur ini. Tapi jika kamu memang ingin menjajal sekarang, komunitas RenoDX sudah membagikan patch dan panduan di Discord mereka — dengan catatan, prepare untuk penurunan frame rate yang cukup signifikan.
 
 Tetap pantau terus untuk perkembangan selanjutnya, dan sampai jumpa di berita berikutnya!
+
+Pengembangan DLSS 5 hanyalah satu sisi kegiatan NVIDIA belakangan: di sisi riset ada [AVO, arsitektur yang membuat model AI melompat performanya](/posts/2026-08-24-nvidia-arc-agi-3-avo/), dan di sisi infrastruktur ada [alliansi energi AI NVIDIA–Google](/posts/2026-09-17-nvidia-google-alliansi-energi-ai/). Kabar seputar alat dan teknologi pengembangan lainnya kami kumpulkan di [kategori Developer](/category/developer/).
 
 ## Sumber
 

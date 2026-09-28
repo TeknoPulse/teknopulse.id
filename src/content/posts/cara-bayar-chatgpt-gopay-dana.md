@@ -17,6 +17,12 @@ faq:
     answer: 'ChatGPT Go dijual Rp 75.000 per bulan (termasuk PPN) dan ChatGPT Plus Rp 349.000 per bulan untuk pasar Indonesia, sesuai harga resmi OpenAI. Nominal final selalu tampil di lembar pembayaran sebelum kamu mengonfirmasi.'
   - question: 'Apakah bisa berlangganan ChatGPT tanpa kartu kredit?'
     answer: 'Bisa. Jalur paling mudah adalah lewat aplikasi ChatGPT di Android dengan pembayaran Google Play pakai GoPay, DANA, atau QRIS. Pengguna iPhone bisa memakai voucher App Store yang dibeli dengan GoPay, DANA, atau tunai, lalu di-redeem ke saldo Apple Account.'
+  - question: 'Kenapa pembayaran ChatGPT saya ditolak?'
+    answer: 'Penyebab paling umum: saldo atau limit e-wallet kurang, metode pembayaran belum tersambung benar di Google Play, kartu yang dipakai belum mengaktifkan transaksi online, atau negara akun Google Play/Apple tidak cocok dengan metode pembayaranmu. Cek statusnya di Riwayat pesanan Play Store — tagihan ChatGPT di Android ditangani Google, bukan OpenAI.'
+  - question: 'Bisa bayar ChatGPT pakai QRIS?'
+    answer: 'Bisa. Google Play di Indonesia menerima QRIS sebagai metode pembayaran, jadi langganan ChatGPT bisa dibayar dari aplikasi bank atau e-wallet mana pun yang mendukung QRIS. Pilih QRIS saat menambahkan metode pembayaran di Play Store, lalu pindai kode yang muncul.'
+  - question: 'Bisa bayar ChatGPT pakai ShopeePay?'
+    answer: 'Bisa, lewat jalur QRIS. ShopeePay tidak muncul sebagai pilihan langsung di daftar metode Google Play, tetapi ShopeePay mendukung QRIS — pilih QRIS sebagai metode pembayaran di Play Store, lalu pindai kodenya pakai aplikasi ShopeePay.'
 source:
   - name: 'OpenAI — ChatGPT Pricing (lokal id-ID)'
     url: 'https://chatgpt.com/id-ID/pricing/'
@@ -80,32 +86,42 @@ Nama menu bisa sedikit berbeda antar versi aplikasi, tapi urutannya sama: tambah
 
 Perhatikan juga tanggal penagihan ulang: langganan diperpanjang otomatis setiap bulan pada tanggal yang sama, dan notifikasi tagihannya muncul di aplikasi Gojek serta email Google. Berhenti berlangganan tidak menghapus akun ChatGPT kamu — akun tetap bisa dipakai di versi gratis kapan pun.
 
-## Cara Bayar via DANA, QRIS, atau di iPhone
-
-### Lewat DANA
+## Cara Bayar via DANA
 
 Alurnya persis seperti GoPay: di Play Store → **Pembayaran & langganan** → **Metode pembayaran** → **Tambahkan metode pembayaran**, pilih **DANA**, lalu setujui penghubungannya di aplikasi DANA. Setelah aktif, berlangganan dari aplikasi ChatGPT dan pilih DANA di lembar pembayaran Google Play. DANA sendiri menerbitkan panduan resmi penghubungan ini di blog mereka.
 
-### Lewat QRIS
+<!-- SCREENSHOT 3: lembar penambahan metode pembayaran DANA di Play Store -->
 
-Kalau kamu tidak memakai GoPay atau DANA, Google Play Indonesia juga menerima QRIS — berarti bisa bayar dari aplikasi bank atau e-wallet mana pun yang mendukung QRIS (OVO, ShopeePay, hingga m-banking). Pilih QRIS saat menambahkan metode pembayaran, scan kode yang muncul, dan selesai.
+## Bayar dengan QRIS & kartu
 
-### Di iPhone (tanpa kartu kredit)
+Tidak memakai GoPay atau DANA? Google Play Indonesia juga menerima **QRIS** — berarti bisa bayar dari aplikasi bank atau e-wallet mana pun yang mendukung QRIS: OVO, ShopeePay, hingga m-banking. Caranya: pilih **QRIS** saat menambahkan metode pembayaran di Play Store, pindai kode yang muncul pakai aplikasi kamu, dan selesai. Satu catatan: sebagian bank membatasi transaksi QRIS otomatis untuk langganan, jadi kalau scan pertama berhasil tapi tagihan bulan berikutnya gagal, itu penyebab yang paling sering — solusinya ada di bagian pembayaran gagal di bawah.
+
+Yang lebih nyaman pakai kartu, jalurnya juga lewat sini: **kartu kredit** (dan sebagian kartu debit) bisa ditambahkan sebagai metode pembayaran Google Play. Sementara di situs chatgpt.com versi web, OpenAI hanya menerima kartu — dan di jalur web inilah kartu debit bank lokal paling sering ditolak, karena transaksi online/internasionalnya belum diaktifkan. Kalau tetap ingin bayar di web, aktifkan dulu transaksi online di aplikasi bank kamu. Satu peringatan penting: hindari jasa "beli akun ChatGPT" atau akun bersama yang memakai pembayaran atas nama orang lain — risikonya akun diblokir dan pembayaran tidak bisa ditarik kembali.
+
+## Dari iPhone vs dari laptop
+
+Intinya: jalur pembayaran mengikuti tempat kamu membuat langganan, bukan tempat kamu memakai ChatGPT.
+
+| Tempat berlangganan | Jalur pembayaran | Catatan |
+| --- | --- | --- |
+| Aplikasi Android | Google Play: GoPay, DANA, QRIS, kartu | Paling ramah e-wallet Indonesia |
+| Aplikasi iPhone | Apple Account: kartu atau voucher App Store | Voucher bisa dibeli pakai GoPay, DANA, QRIS, atau tunai |
+| Laptop (chatgpt.com) | Kartu saja | Kartu debit lokal perlu transaksi online diaktifkan dulu |
 
 Di iOS, langganan ChatGPT ditagihkan ke Apple Account. Kalau tidak punya kartu, jalurnya voucher App Store & iTunes region Indonesia: beli kode voucher dari penjual resmi seperti Codashop — bisa dibayar tunai di Alfamart/Indomaret, QRIS, GoPay, atau DANA — lalu redeem kodenya ke Apple Account kamu dan biarkan langganan menumpang saldo tersebut. Pastikan region Apple ID kamu Indonesia supaya voucher dan harga pasarnya cocok.
 
-### Soal pembayaran langsung di web
+Dan karena langganan menempel di akun ChatGPT — bukan di perangkat — langganan yang dibuat dari HP tetap berlaku saat kamu membuka chatgpt.com di laptop, begitu juga sebaliknya. Tidak ada dua tagihan untuk satu akun.
 
-Di situs chatgpt.com versi web, OpenAI hanya menerima kartu — dan kartu debit bank lokal sering ditolak karena transaksi online/internasionalnya belum diaktifkan. Kalau tetap ingin bayar di web, aktifkan dulu transaksi online di aplikasi bank kamu. Satu peringatan penting: hindari jasa "beli akun ChatGPT" atau akun bersama yang memakai pembayaran atas nama orang lain — risikonya akun diblokir dan pembayaran tidak bisa ditarik kembali.
+## Pembayaran Gagal atau Ditolak: Penyebab & Solusi
 
-<!-- SCREENSHOT 3: lembar penambahan metode pembayaran DANA di Play Store -->
-
-## Kalau Pembayaran Gagal: 4 Solusi Umum
+Sebelum mencoba satu per satu, buka dulu **Riwayat pesanan** di Play Store (atau riwayat transaksi di aplikasi e-wallet/bank kamu) — status di situ yang menentukan penyebabnya. Enam penyebab paling umum, diurut dari yang paling sering:
 
 1. **Saldo kurang atau limit e-wallet habis.** GoPay dan DANA punya batas transaksi bulanan. Isi ulang saldo, atau tunggu limit bulan berjalan kembali, lalu ulangi pembayaran.
-2. **Metode pembayaran belum tersambung dengan benar.** Hapus metode di Play Store → Pembayaran & langganan → Metode pembayaran, tambahkan ulang, lalu coba lagi dari aplikasi ChatGPT. Pastikan juga aplikasi Gojek atau DANA kamu versi terbaru — penghubungan kadang gagal di aplikasi lama.
-3. **Transaksi menggantung (pending).** Cek **Riwayat pesanan** di Play Store. Kalau statusnya pending, tunggu sampai satu jam — dana yang tertahan biasanya kembali otomatis — sebelum mencoba membayar ulang.
-4. **Sudah bayar tapi langganan belum aktif.** Tutup paksa aplikasi ChatGPT lalu buka lagi, cek email konfirmasi dari Google Play. Bila tetap tidak aktif, ajukan klaim ke bantuan Google Play (bukan ke OpenAI) karena transaksinya berada di sistem Google.
+2. **GoPay (atau e-wallet lain) tidak disetujui saat penghubungan.** Biasanya karena aplikasi Gojek/DANA belum versi terbaru, verifikasi identitas (KYC) belum lengkap, atau akun Google kamu terdaftar di negara lain. Perbarui aplikasinya, lengkapi verifikasi, hapus metode di Play Store → Pembayaran & langganan → Metode pembayaran, tautkan ulang, lalu coba lagi dari aplikasi ChatGPT.
+3. **Kartu ditolak bank.** Kartu debit bank lokal sering menolak transaksi online/internasional yang belum diaktifkan; kartu kredit bisa tertolak karena limit kurang atau konfirmasi 3D Secure yang tidak selesai. Aktifkan transaksi online di aplikasi bank, pastikan limit cukup, dan selesaikan konfirmasi OTP/3DS sampai tuntas.
+4. **Negara akun tidak cocok dengan metode pembayaran.** Google Play menagih metode pembayaran sesuai negara akunnya: akun region Indonesia tidak bisa menagih kartu luar negeri, dan Apple ID region luar Indonesia tidak bisa memakai voucher App Store Indonesia. Cek negara akun di Play Store (ikon profil → **Setelan** → **Umum** → **Preferensi akun dan perangkat** → **Negara dan profil**) atau di setelan Apple ID, lalu samakan dengan metode pembayaranmu. Catatan: memindahkan negara akun berdampak ke saldo dan langganan lama — jadikan pilihan terakhir.
+5. **Transaksi menggantung (pending).** Kalau statusnya pending, tunggu sampai satu jam — dana yang tertahan biasanya kembali otomatis — sebelum mencoba membayar ulang. Membayar lagi saat status masih pending adalah cara tercepat terkena tagihan ganda.
+6. **Sudah bayar tapi langganan belum aktif.** Tutup paksa aplikasi ChatGPT lalu buka lagi, cek email konfirmasi dari Google Play. Bila tetap tidak aktif, ajukan klaim ke bantuan Google Play (bukan ke OpenAI) karena transaksinya berada di sistem Google.
 
 Pola umumnya: masalah pembayaran lewat Google Play diselesaikan di Google, bukan di OpenAI. Simpan bukti transaksi sampai langganan benar-benar aktif.
 
