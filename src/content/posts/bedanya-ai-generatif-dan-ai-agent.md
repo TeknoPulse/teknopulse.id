@@ -7,6 +7,7 @@ tags: ['AI', 'tips praktis', 'panduan pemula', 'teknologi']
 category: AI
 author: 'Tim Redaksi Teknopulse'
 draft: false
+coverImage: '../../assets/images/bedanya-ai-generatif-dan-ai-agent-16x9.png'
 format: panduan-pembaca
 ---
 
@@ -38,6 +39,8 @@ Beberapa kemampuan khas sebuah agent:
 - Mengingat konteks dari langkah sebelumnya.
 - Mengambil keputusan kecil di tengah jalan, misalnya mencoba cara lain bila yang pertama gagal.
 - Melaporkan hasil akhir kepada Anda.
+
+Ingin paham lebih dalam cara kerjanya sekaligus mencobanya sendiri? Kami membahasnya lebih rinci di [AI Agent Adalah: Definisi, Cara Kerja, Contoh 2026](/posts/ai-agent-adalah/) — lengkap dengan contoh yang bisa dicoba gratis.
 
 ## Perbedaan Kuncinya dalam Satu Kalimat
 

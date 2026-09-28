@@ -6,7 +6,7 @@ tags: ['AI', 'Stanford', 'Bioteknologi', 'Virologi']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/ai-stanford-rancang-virus-bakteriofag-16x9.png'
+coverImage: '../../assets/images/2026-08-08-ai-stanford-rancang-virus-bakteriofag-16x9.png'
 ---
 
 # AI Stanford Rancang Virus Baru, Langkah Besar untuk Terapi Bakteriofag

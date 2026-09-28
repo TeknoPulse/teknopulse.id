@@ -21,7 +21,8 @@ const posts = defineCollection({
       // dan "Diperbarui: …" di halaman artikel.
       updatedAt: z.date().optional(),
       tags: z.array(z.string()),
-      category: z.enum(['AI', 'OpenSource', 'DevTools']),
+      // Harus sinkron dengan kunci di src/utils/categories.ts (SSOT)
+      category: z.enum(['AI', 'Software', 'Developer', 'Automation', 'Experiments', 'Insights']),
       // Byline harus sama dengan `name` (atau salah satu `aliases`) di
       // `src/utils/authors.ts` agar punya halaman profil & `author.url`
       // di JSON-LD.

@@ -7,7 +7,7 @@ tags: ['AI', 'OpenAI', 'ChatGPT', 'Gratis']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/openai-chatgpt-gratis-tanpa-batas-16x9.png'
+coverImage: '../../assets/images/2026-08-11-openai-chatgpt-gratis-tanpa-batas-16x9.png'
 ---
 
 Siapa bilang AI harus mahal? OpenAI baru saja membuat gebrakan besar yang bikin jutaan pengguna di seluruh dunia tersenyum. Pada 6 Agustus 2026, raksasa AI asal San Francisco itu mengumumkan penghapusan total batasan percakapan teks untuk seluruh pengguna ChatGPT versi gratis.
@@ -48,7 +48,7 @@ Kabar ini juga datang hanya beberapa minggu setelah OpenAI memangkas harga Luna 
 
 ## Implikasi untuk Pengguna Indonesia
 
-Bagi pengguna di Indonesia, perubahan ini punya makna khusus. ChatGPT versi gratis yang sebelumnya terasa terbatas kini menjadi jauh lebih berguna untuk kebutuhan sehari-hari. Siswa bisa belajar tanpa batas, pekerja bisa meminta bantuan analisis dokumen, dan siapa pun bisa mengeksplorasi kemampuan AI tanpa perlu mengeluarkan uang sepeser pun. Termasuk kebutuhan kreatif — mengedit foto kini bisa dilakukan langsung dari chat, seperti pada panduan [cara edit foto pakai ChatGPT](/posts/cara-edit-foto-chatgpt/) yang merangkum langkah di HP dan laptop beserta prompt siap salin.
+Bagi pengguna di Indonesia, perubahan ini punya makna khusus. ChatGPT versi gratis yang sebelumnya terasa terbatas kini menjadi jauh lebih berguna untuk kebutuhan sehari-hari. Siswa bisa belajar tanpa batas, pekerja bisa meminta bantuan analisis dokumen, dan siapa pun bisa mengeksplorasi kemampuan AI tanpa perlu mengeluarkan uang sepeser pun. Catatan kecil: kuota longgar ini berbeda dari akses tanpa akun — ChatGPT kini juga bisa [dipakai tanpa login](/posts/chatgpt-gratis-tanpa-login/), tapi dengan batas fitur dan risiko privasinya sendiri; panduannya kami tulis terpisah. Termasuk kebutuhan kreatif — mengedit foto kini bisa dilakukan langsung dari chat, seperti pada panduan [cara edit foto pakai ChatGPT](/posts/cara-edit-foto-chatgpt/) yang merangkum langkah di HP dan laptop beserta prompt siap salin.
 
 Model GPT-5.6 Luna yang lebih akurat juga berarti risiko mendapat informasi keliru jadi lebih kecil — hal yang sangat penting bagi pengguna yang belum terbiasa memverifikasi jawaban AI secara mandiri.
 

@@ -5,7 +5,7 @@ publishedAt: 2026-08-05T06:00:00+07:00
 tags: ['AI', 'Keamanan', 'Regulasi', 'Amerika Serikat']
 category: AI
 author: 'TeknoPulse Redaksi'
-coverImage: '../../assets/images/white-house-ai-security-framework-16x9.png'
+coverImage: '../../assets/images/2026-08-05-white-house-ai-security-framework-16x9.png'
 draft: false
 ---
 

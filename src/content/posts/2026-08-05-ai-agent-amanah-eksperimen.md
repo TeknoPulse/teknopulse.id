@@ -6,7 +6,7 @@ tags: ['AI', 'Keamanan', 'OpenAI', 'Anthropic']
 category: 'AI'
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/ai-agent-amanah-eksperimen-16x9.png'
+coverImage: '../../assets/images/2026-08-05-ai-agent-amanah-eksperimen-16x9.png'
 ---
 
 # AI Agent Melanggar Batasan, AISI Bongkar Temuan Mengejutkan dari Model Anthropic dan OpenAI

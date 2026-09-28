@@ -8,6 +8,7 @@ tags: ['ChatGPT', 'Gemini', 'Claude', 'review']
 category: AI
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/chatgpt-vs-gemini-vs-claude-2026-16x9.png'
 format: 'panduan-pembaca'
 faq:
   - question: 'ChatGPT, Gemini, dan Claude, mana yang paling bagus di 2026?'
@@ -129,7 +130,7 @@ Alur yang paling ekonomis untuk karyawan: kerjakan semua draf kasar di versi gra
 
 ### Coding: Claude, dengan DeepSeek sebagai Gratisan
 
-Di meja developer, urutannya berubah. Claude layak jadi andalan pertama: model Claude Opus 5-nya sempat duduk di [puncak peringkat agregat Artificial Analysis](/posts/2026-08-03-claude-opus-5-anthropic-kuasai-puncak-peringkat-ai-global/) saat dirilis Agustus lalu, dan gaya kodenya cenderung rapi serta mudah direview. Untuk yang membangun [AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/) — program yang menjalankan tugas multi-langkah sendiri — rilis Claude Fable 5.1 [menurunkan biaya tugas agent hingga 45%](/posts/2026-09-03-anthropic-fable-51-turunkan-biaya-ai-agent/). Pemula yang tak mau bayar sepeser pun bisa mulai dari DeepSeek: gratis penuh di aplikasi dengan kemampuan coding yang masuk jajaran teratas. Dan kalau kebutuhanmu spesifik menulis kode di dalam editor — bukan tanya-jawab umum — [GitHub Copilot](/posts/ai-terbaik-2026/) tetap pilihan praktis yang dibahas lengkap di roundup kami.
+Di meja developer, urutannya berubah. Claude layak jadi andalan pertama: model Claude Opus 5-nya sempat duduk di [puncak peringkat agregat Artificial Analysis](/posts/2026-08-03-claude-opus-5-anthropic-kuasai-puncak-peringkat-ai-global/) saat dirilis Agustus lalu, dan gaya kodenya cenderung rapi serta mudah direview. Untuk yang membangun [AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/) — program yang menjalankan tugas multi-langkah sendiri — rilis Claude Fable 5.1 [menurunkan biaya tugas agent hingga 45%](/posts/2026-09-03-anthropic-fable-51-turunkan-biaya-ai-agent/). Pemula yang tak mau bayar sepeser pun bisa mulai dari DeepSeek: gratis penuh di aplikasi dengan kemampuan coding yang masuk jajaran teratas. Dan kalau kebutuhanmu spesifik menulis kode di dalam editor — bukan tanya-jawab umum — [GitHub Copilot](/posts/ai-terbaik-2026/) tetap pilihan praktis yang dibahas lengkap di roundup kami. Dan untuk perbandingan khusus dunia coding — lima layanan, protokol uji yang bisa kamu jalankan sendiri, batas versi gratis, dan harga rupiah — [AI Terbaik untuk Coding 2026](/posts/ai-terbaik-untuk-coding/) membahasnya lebih dalam.
 
 ### Edit Foto dan Gambar: ChatGPT
 
@@ -137,6 +138,6 @@ Untuk kebutuhan visual sehari-hari, ChatGPT saat ini paling ramah pemula: unggah
 
 ## Kapan Pilih DeepSeek atau Grok?
 
-Perbandingan tiga asisten ini belum menutup peta. **DeepSeek** masuk hitungan kalau kamu mengutip soal biaya: aplikasinya gratis penuh tanpa kuota chat yang menyiksa, kemampuan coding dan penalarannya teratas, dan Bahasa Indonesianya fasih — konsekuensinya, server sesekali penuh di jam sibuk dan kebijakan penyimpanan datanya perlu dipertimbangkan untuk dokumen sensitif. Ulasan lengkapnya ada di [10 AI Terbaik 2026](/posts/ai-terbaik-2026/). Sementara **Grok** dari xAI layak dicoba kalau kamu mengutamakan informasi real-time dari media sosial X — itu diferensiasinya sejak awal — meski untuk tugas tulis-menulis umum di Indonesia, ia belum punya keunggulan yang membuat wajib pindah.
+Perbandingan tiga asisten ini belum menutup peta. **DeepSeek** masuk hitungan kalau kamu mengutip soal biaya: aplikasinya gratis penuh tanpa kuota chat yang menyiksa, kemampuan coding dan penalarannya teratas, dan Bahasa Indonesianya fasih — konsekuensinya, server sesekali penuh di jam sibuk dan kebijakan penyimpanan datanya perlu dipertimbangkan untuk dokumen sensitif. Ulasan lengkapnya ada di [10 AI Terbaik 2026](/posts/ai-terbaik-2026/), dan kalau kamu baru mau mulai memakainya, ikuti [panduan cara pakai DeepSeek](/posts/cara-pakai-deepseek/) kami — dari daftar akun sampai catatan privasinya. Sementara **Grok** dari xAI layak dicoba kalau kamu mengutamakan informasi real-time dari media sosial X — itu diferensiasinya sejak awal — meski untuk tugas tulis-menulis umum di Indonesia, ia belum punya keunggulan yang membuat wajib pindah.
 
 Jadi, mulai dari mana? Dari versi gratis, tentu saja — ketiganya bisa dicoba hari ini tanpa bayar sepeser pun. Pakai masing-masing seminggu untuk tugasmu yang paling sering muncul, lalu lihat mana yang paling sering kamu buka tanpa disuruh. Langganan hanya layak dibeli di asisten itu. Dan kalau jawabannya ternyata ChatGPT, cek dulu [cara bayarnya pakai GoPay atau DANA](/posts/cara-bayar-chatgpt-gopay-dana/) — tidak perlu kartu kredit.
