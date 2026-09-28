@@ -108,7 +108,7 @@ Semua harga resmi, dicek 14–15 September 2026:
 
 Konversi Claude memakai kurs acuan Bank Indonesia Rp17.600 per dolar AS (11 September 2026), dibulatkan. Perlu diingat, Anthropic menagih dalam dolar AS, jadi total di tagihan kartumu bisa sedikit berbeda mengikuti kurs harian penerbit kartu.
 
-Cara membayarnya juga berbeda tingkat kemudahannya. ChatGPT paling ramah dompet lokal — [bisa dibayar pakai GoPay dan DANA](/posts/cara-bayar-chatgpt-gopay-dana/) tanpa kartu kredit. Google AI ditagih lewat akun Google kamu, dan Claude menuntut kartu yang mendukung transaksi dolar.
+Cara membayarnya juga berbeda tingkat kemudahannya. ChatGPT paling ramah dompet lokal — [bisa dibayar pakai GoPay, DANA, atau QRIS](/posts/cara-bayar-chatgpt-gopay-dana/) tanpa kartu kredit, plus solusinya kalau pembayaran ditolak. Google AI ditagih lewat akun Google kamu, dan Claude menuntut kartu yang mendukung transaksi dolar.
 
 Bagaimana membacanya? Paket masuk Rp75.000 — ChatGPT Go maupun Google AI Plus — setara sekitar Rp2.500 per hari. Di harga segelas air botol premium ini, pertanyaannya bukan lagi "mampu atau tidak", tapi "dipakai atau tidak". Naik kelas ke ChatGPT Plus atau Google AI Pro baru masuk akal kalau kamu pemakai berat yang menggerus batas versi gratis hampir tiap hari — jangan bayar Rp349.000 untuk fitur yang tidak kamu sentuh. Khusus pelajar dan mahasiswa: cek dulu penawaran Google AI Plus gratis setahun di halaman resminya sebelum membeli apa pun, dan khusus Claude, langganan tahunan 200 USD menghemat sekitar 17% dibanding bulanan (240 USD) — layak dipertimbangkan kalau kamu sudah yakin memakainya jangka panjang.
 

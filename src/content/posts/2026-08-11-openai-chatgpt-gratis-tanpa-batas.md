@@ -52,7 +52,7 @@ Bagi pengguna di Indonesia, perubahan ini punya makna khusus. ChatGPT versi grat
 
 Model GPT-5.6 Luna yang lebih akurat juga berarti risiko mendapat informasi keliru jadi lebih kecil — hal yang sangat penting bagi pengguna yang belum terbiasa memverifikasi jawaban AI secara mandiri.
 
-Bagi yang ingin fitur lebih lengkap, ChatGPT juga menyediakan paket berbayar yang kini bisa dibayar dengan e-wallet lokal — panduannya ada di [cara bayar ChatGPT pakai GoPay dan DANA](/posts/cara-bayar-chatgpt-gopay-dana/). Sebelum memutuskan, bandingkan dulu pilihan yang tersedia lewat [daftar 10 AI terbaik 2026 untuk kerja, belajar, dan berkarya](/posts/ai-terbaik-2026/).
+Bagi yang mulai merasa [habis kuota gratis? Ini cara langganannya](/posts/cara-bayar-chatgpt-gopay-dana/): paket berbayar ChatGPT kini bisa dibayar dengan e-wallet lokal — lengkap dengan solusi kalau pembayaran ditolak. Sebelum memutuskan, bandingkan dulu pilihan yang tersedia lewat [daftar 10 AI terbaik 2026 untuk kerja, belajar, dan berkarya](/posts/ai-terbaik-2026/).
 
 ## Sumber
 

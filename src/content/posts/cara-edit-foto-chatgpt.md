@@ -11,8 +11,10 @@ draft: false
 coverImage: '../../assets/images/cara-edit-foto-chatgpt-16x9.png'
 format: 'panduan-pembaca'
 faq:
-  - question: 'Apakah ChatGPT bisa edit foto di versi gratis?'
-    answer: 'Bisa. Fitur edit foto tersedia untuk pengguna gratis, tetapi kuota gambarnya kecil — praktisnya hanya beberapa hasil per hari, dan OpenAI tidak mengumumkan angka resminya. Chat teks tetap tanpa batas; kuota gambar lebih longgar ada di paket Go dan Plus.'
+  - question: 'Apakah edit foto di ChatGPT gratis?'
+    answer: 'Gratis untuk dicoba. Fitur edit foto tersedia di versi gratis, tetapi kuota gambarnya kecil — praktisnya hanya beberapa hasil per hari, dan OpenAI tidak mengumumkan angka resminya. Chat teks tetap tanpa batas; kuota gambar yang lebih longgar ada di paket Go (Rp 75.000/bulan) dan Plus (Rp 349.000/bulan) untuk pasar Indonesia.'
+  - question: 'Bagaimana edit foto tanpa mengubah wajah?'
+    answer: 'Pakai foto asli beresolusi tinggi, ubah satu hal saja per perintah, dan sebutkan eksplisit "jaga wajah, rambut, dan ekspresi persis seperti aslinya" di prompt. Setelah hasil muncul, tandai hanya area yang mau diubah dengan alat seleksi — biarkan area wajah di luar seleksi — dan hindari menumpuk banyak edit beruntun pada foto yang sama.'
   - question: 'Apakah foto yang saya unggah dipakai untuk melatih ChatGPT?'
     answer: 'Secara bawaan, konten yang kamu kirim bisa dipakai untuk memperbaiki model. Kamu bisa mematikannya lewat Pengaturan → Kontrol Data dengan menonaktifkan opsi perbaikan model, atau lewat formulir opt-out di portal privasi OpenAI. Atur dulu sebelum mengunggah foto sensitif.'
   - question: 'Kenapa wajah di hasil edit berbeda dari foto aslinya?'
@@ -54,9 +56,13 @@ ChatGPT bukan editor piksel seperti Photoshop — ia lebih mirip desainer instan
 
 Polanya begini: semakin spesifik perintahmu dan semakin bagus foto aslinya, semakin dekat hasilnya dengan bayanganmu. Sebaliknya, perintah yang samar tetap menghasilkan gambar yang tampak rapi — cuma saja bukan yang kamu maksud.
 
-## Persiapan: Akun dan Batas Versi Gratis
+## Persiapan: Akun dan Foto Asli yang Baik
 
 Yang dibutuhkan cuma akun ChatGPT — versi gratis sudah bisa mengedit foto, baik lewat aplikasi Android/iPhone maupun browser di laptop. Daftarnya cukup pakai email atau akun Google, tanpa kartu apa pun.
+
+Satu persiapan yang sering diremehkan: pilih foto asli yang baik. Tiga syaratnya — resolusi setinggi mungkin (jangan yang sudah dikompres berulang di WhatsApp), pencahayaan merata, dan subjek utama yang jelas. AI menggambar ulang dari bahan yang ada; bahan buram akan menghasilkan hasil yang tetap buram, hanya saja versi barunya.
+
+## Batasan Versi Gratis
 
 Yang membedakan paket gratis dan berbayar di fitur ini adalah kuota gambarnya. Versi gratis memang [sudah bebas tanpa batas untuk chat teks](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/), tetapi pembuatan dan pengeditan gambar punya kuota harian kecil — secara praktis hanya beberapa hasil per hari. OpenAI tidak pernah mengumumkan angka pastinya, dan batas ini berubah dari waktu ke waktu (terakhir kami cek 15 September 2026).
 
@@ -66,11 +72,9 @@ Yang membedakan paket gratis dan berbayar di fitur ini adalah kuota gambarnya. V
 | Go | Rp 75.000 (termasuk PPN) | Lebih longgar |
 | Plus | Rp 349.000 | Paling longgar, plus akses model terbaru |
 
-Harga di atas adalah banderol resmi pasar Indonesia, dicek 15 September 2026 dari halaman resmi OpenAI. Kalau kuota gratis sering kamu tembus, naik ke Go biasanya sudah cukup — [cara bayarnya bisa pakai GoPay atau DANA tanpa kartu kredit](/posts/cara-bayar-chatgpt-gopay-dana/).
+Harga di atas adalah banderol resmi pasar Indonesia, dicek 15 September 2026 dari halaman resmi OpenAI. Kalau kuota gratis sering kamu tembus, naik ke Go biasanya sudah cukup — [fitur edit foto butuh langganan? Cek cara bayarnya](/posts/cara-bayar-chatgpt-gopay-dana/): bisa pakai GoPay atau DANA tanpa kartu kredit.
 
-Satu persiapan terakhir yang sering dilupakan: pilih foto asli yang baik. Tiga syaratnya — resolusi setinggi mungkin (jangan yang sudah dikompres berulang di WhatsApp), pencahayaan merata, dan subjek utama yang jelas. AI menggambar ulang dari bahan yang ada; bahan buram akan menghasilkan hasil yang tetap buram, hanya saja versi barunya.
-
-## Cara Pakai ChatGPT untuk Edit Foto di HP
+## Di HP (Android & iPhone)
 
 <!-- GAMBAR 1: layar obrolan baru aplikasi ChatGPT dengan tombol + terbuka, menampilkan opsi unggah foto dari galeri (before) -->
 
@@ -86,6 +90,19 @@ Buka aplikasi ChatGPT di Android atau iPhone, lalu:
 <!-- GAMBAR 2: contoh before/after restorasi — kiri foto lama pudar dan bernoda, kanan hasil perbaikan ChatGPT -->
 
 Satu kebiasaan yang mengubah kualitas hasil drastis: **satu perintah, satu perubahan**. Menggabungkan "ganti latar, ganti warna baju, dan cerahkan wajah" dalam satu kalimat sering membuat dua dari tiga permintaan itu meleset. Kirim perlahan, nilai tiap hasil, baru lanjut.
+
+### Di Android
+
+- Instal ChatGPT dari Play Store; lewat tombol **+** → **Foto**, foto diambil dari galeri HP atau Google Foto.
+- Saat mengunduh hasil pertama kali, Android meminta izin penyimpanan — berikan supaya hasil edit masuk ke galeri.
+- Kalau kamu berlangganan, tagihan lewat Google Play — metodenya bisa GoPay, DANA, atau QRIS (jalurnya ada di bagian [batasan versi gratis](#batasan-versi-gratis) di atas).
+
+### Di iPhone
+
+- Instal ChatGPT dari App Store; lewat tombol **+** → **Foto**, foto diambil dari aplikasi Foto.
+- Saat pertama kali memilih foto, iOS menanyakan izin akses — pilih **Pilih Foto...** kalau tidak mau memberi akses ke seluruh galeri.
+- Hasil yang diunduh otomatis masuk ke aplikasi Foto, album **Recents**.
+- Langganan di iPhone ditagih ke Apple Account; kalau tidak punya kartu, jalurnya voucher App Store — kami jelaskan di panduan [cara bayar ChatGPT](/posts/cara-bayar-chatgpt-gopay-dana/).
 
 ## Cara Edit Foto di Laptop lewat chatgpt.com
 
@@ -117,6 +134,17 @@ Ganti bagian dalam kurung siku sesuai fotomu. Semua prompt di bawah sudah menyer
 10. **Tambah aksesori:** `Tambahkan [kacamata hitam/topi/kerudung warna X] yang dipakai natural pada foto ini. Sesuaikan sudut dan pencahayaannya dengan foto, dan jangan mengubah bagian wajah lainnya.`
 
 Simpan prompt yang paling sering kamu pakai — sembari menemukan formula favoritmu, kamu akan mulai menulis variasi sendiri yang lebih cocok dengan gaya fotomu.
+
+## Edit Tanpa Mengubah Wajah
+
+Permintaan paling sering untuk edit foto di ChatGPT: ubah yang lain, tapi wajah jangan berubah. Bisa — asalkan kamu membantu modelnya. ChatGPT menggambar ulang foto, bukan menggeser piksel, dan wajah adalah bagian yang paling rawan bergeser. Empat kebiasaan yang menjaga wajah tetap identik:
+
+1. **Mulai dari foto asli terbaik.** Semakin jelas detail wajah di foto sumber — resolusi tinggi, tidak buram, pencahayaan merata — semakin kecil ruang bagi model untuk "mengarang" ulang.
+2. **Ubah satu hal saja per perintah.** "Ganti latar, jaga wajah persis" hampir selalu lebih aman daripada tiga permintaan sekaligus dalam satu kalimat.
+3. **Sebut wajahnya secara eksplisit.** Tambahkan frasa seperti "jaga wajah, rambut, dan ekspresi persis seperti foto asli" — semua prompt siap salin di atas sudah memakai pola ini.
+4. **Kunci wajah lewat alat seleksi.** Setelah hasil muncul, tandai hanya area yang mau diperbaiki (latar, baju, objek) dan biarkan wajah di luar seleksi, lalu tulis perintah perbaikannya.
+
+Satu batasan realistis: makin banyak edit beruntun pada foto yang sama, makin besar wajah menyimpang sedikit demi sedikit. Kalau wajah sudah mulai berubah, jangan ditambal terus — mulai lagi dari foto asli dengan perintah yang lebih ramping.
 
 ## Batasan dan Etika: Foto Orang Lain, Dokumen, dan Privasi
 
