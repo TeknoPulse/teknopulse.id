@@ -6,7 +6,7 @@ tags: ['Microsoft', 'AI', 'Software', 'Copilot', 'Microsoft 365']
 category: Software
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/microsoft-copilot-os-untuk-kerja-16x9.png"
+coverImage: '../../assets/images/2026-09-28-microsoft-copilot-os-untuk-kerja-16x9.png'
 ---
 
 Microsoft resmi mengubah arah besar Copilot. Dalam pengumuman pada 25 September 2026, perusahaan memperkenalkan desain ulang paling radikal sejak Copilot pertama kali hadir — mengubahnya dari sekadar asisten obrolan menjadi platform kerja serba-in-one yang dijuluki "sistem operasi untuk kerja" atau *work OS*.
