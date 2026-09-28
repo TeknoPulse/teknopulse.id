@@ -2,13 +2,16 @@
 title: 'Membedah Opus 5.5: Cara Baru Berinteraksi dengan Model AI Terkuat Anthropic'
 slug: 'panduan-prompting-claude-opus-55'
 summary: 'Ulasan mendalam dan panduan praktis memanfaatkan Claude Opus 5.5 berdasarkan kurasi Ruben Hassid, mulai dari penyesuaian prompt yang terarah hingga otomatisasi multi-aplikasi.'
+metaDescription: 'Panduan praktis tujuh teknik prompting Claude Opus 5.5 ala kurasi Ruben Hassid: menetapkan konteks, batasan negatif, dan kriteria selesai.'
 publishedAt: 2026-09-28
 category: 'AI'
 tags: ['Claude', 'Anthropic', 'Opus 5.5', 'Prompt Engineering', 'AI Productivity']
-author: 'Fanio'
-originalCreator: 'Ruben Hassid'
-newsletterSource: 'Opus 5.5 (How to AI - Substack)'
-sourceUrl: 'https://ruben.substack.com/p/55'
+author: 'TeknoPulse Redaksi'
+coverImage: '../../assets/images/panduan-prompting-claude-opus-55-16x9.png'
+source:
+  - name: 'Opus 5.5 — How to AI (Ruben Hassid)'
+    url: 'https://ruben.substack.com/p/55'
+    primary: true
 ---
 
 Catatan: Artikel ini diadaptasi dan dikembangkan dari newsletter edisi 27 September 2026 oleh kreator AI ternama, Ruben Hassid.
