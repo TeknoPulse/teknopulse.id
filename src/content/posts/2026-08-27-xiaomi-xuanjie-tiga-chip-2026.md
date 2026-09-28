@@ -6,7 +6,7 @@ tags: ['Chip', 'Xiaomi', 'AI', 'Indonesia']
 category: 'AI'
 author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: '../../assets/images/xiaomi-xuanjie-tiga-chip-2026-16x9.png'
+coverImage: '../../assets/images/2026-08-27-xiaomi-xuanjie-tiga-chip-2026-16x9.png'
 ---
 
 # Xiaomi Luncurkan Tiga Chip Sekaligus, Terobosan Baru Industri Cip China

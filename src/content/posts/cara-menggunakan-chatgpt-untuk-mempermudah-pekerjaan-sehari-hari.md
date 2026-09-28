@@ -10,9 +10,10 @@ tags:
     'tips praktis',
     'panduan pemula',
   ]
-category: DevTools
+category: Developer
 author: 'Tim Redaksi Teknopulse'
 draft: false
+coverImage: '../../assets/images/cara-menggunakan-chatgpt-untuk-mempermudah-pekerjaan-sehari-hari-16x9.png'
 format: panduan-pembaca
 ---
 

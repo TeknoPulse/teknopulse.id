@@ -6,7 +6,7 @@ publishedAt: 2025-09-19T07:00:00+07:00
 tags: ['Policy']
 category: AI
 author: 'TeknoPulse'
-coverImage: '../../assets/images/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045-16x9.png'
+coverImage: '../../assets/images/komdigi-buka-rekrutmen-pandu-literasi-digital-2025-16x9.png'
 draft: true
 coverImageAlt: 'TeknoPulse.id'
 og_image: '../../assets/images/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045-16x9.png'

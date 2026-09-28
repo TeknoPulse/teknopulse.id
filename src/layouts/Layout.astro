@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Analytics from '../components/Analytics.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 export interface Props {
   title?: string;
@@ -55,5 +56,6 @@ const { title, description, image, imageAlt, article, canonical, robots, postCat
     <Breadcrumbs postCategory={postCategory} postTitle={postTitle} />
     <slot />
     <Footer />
+    <CookieConsent />
   </body>
 </html>

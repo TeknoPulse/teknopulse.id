@@ -91,9 +91,9 @@ metaDescription: 'Deskripsi SEO 120–155 karakter, ditulis manual (bukan potong
 publishedAt: 2025-08-25T10:00:00Z
 updatedAt: 2025-08-25T10:00:00Z # set ulang saat artikel diperbarui → dateModified JSON-LD
 tags: ['AI', 'Technology']
-category: AI # AI, OpenSource, DevTools
+category: AI # AI, Software, Developer, Automation, Experiments, Insights
 author: 'TeknoPulse Redaksi' # harus terdaftar di src/utils/authors.ts (byline + profil)
-coverImage: '../../assets/images/<slug>-16x9.png' # unik per artikel, 16:9, ≥1200px
+coverImage: '../../assets/images/<slug>-16x9.png' # unik per artikel, 16:9, PNG 1280×720
 ogImage: '../../assets/images/<slug>-og-16x9.png' # opsional override og:image (unik per artikel)
 draft: false
 faq: # opsional, 2–4 pertanyaan (definisi/how-to) → JSON-LD FAQPage
@@ -111,6 +111,25 @@ Byline yang terdaftar di `src/utils/authors.ts` jadi tautan profil `/authors/<sl
 `BreadcrumbList` (di `Breadcrumbs.astro`), `Person` (halaman profil).
 
 Jalankan `pnpm seo:check` sebelum publish; `pnpm seo:check:strict` untuk gate ketat.
+
+### Cover image
+
+Setiap artikel non-draft wajib punya `coverImage` di `src/assets/images/` — **PNG 1280×720 (16:9)**,
+unik per artikel (dicek dari nama file **dan** md5 konten), dan ekstensinya harus cocok dengan isi
+file (JPEG bernama `.png` ditolak oleh `pnpm covers:audit`). Gaya visual: foto editorial realistis yang
+spesifik untuk berita tersebut — bukan render 3D glossy, bukan foto stok generik, tanpa teks/watermark,
+tanpa wajah atau tangan manusia.
+
+```bash
+pnpm covers:audit                 # laporan temuan: cover kosong, menggantung, ekstensi palsu, duplikat
+pnpm covers:plan --from-pr auto/post-2026-09-27   # manifest artikel yang perlu cover
+pnpm covers:fetch covers.plan.json                # generate + unduh + encode PNG 1280×720
+pnpm covers:apply covers.plan.json                # tulis coverImage ke frontmatter
+pnpm covers:verify --build                        # cek struktural + pnpm build
+pnpm covers:publish --branch content/covers-<tanggal> --pr
+```
+
+Pemilihan subjek foto, penilaian hasil, dan keputusan merge tetap manual.
 
 ### Configuration
 
@@ -192,9 +211,12 @@ pnpm build
 
 ## Content Categories
 
-- **AI**: Artificial Intelligence news and developments
-- **OpenSource**: Open source tools, self-hosting, and free alternatives
-- **DevTools**: Development tools and methodologies
+- **AI**: Model AI, AI agents, research, produk, perkembangan industri
+- **Software**: Aplikasi, platform, operating systems, databases, frameworks
+- **Developer**: Programming languages, APIs, libraries, IDEs, development tools
+- **Automation**: Workflow automation, integrations, APIs, agents, no-code/low-code
+- **Experiments**: Eksperimen dan proyek yang menggunakan teknologi secara langsung
+- **Insights**: Explainers, analysis, dan konteks di balik perkembangan teknologi
 
 ## Performance
 
