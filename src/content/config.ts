@@ -47,9 +47,10 @@ const posts = defineCollection({
       featured: z.boolean().default(false).optional(),
       aiSummary: z.string().optional(),
       format: z.enum(['berita', 'rangkuman', 'konteks', 'panduan-pembaca']).optional(),
-      // Blok FAQ (2–4 pertanyaan) untuk konten definisi & how-to.
+      // Blok FAQ (2–6 pertanyaan) untuk konten definisi & how-to.
       // Dirender sebagai bagian "Pertanyaan yang Sering Diajukan" dan
-      // menghasilkan JSON-LD `FAQPage`.
+      // menghasilkan JSON-LD `FAQPage`. Batas dinaikkan 4 → 6 di TEKAA-67
+      // untuk FAQ hasil audit (halaman pembayaran ChatGPT membutuhkan 6).
       faq: z
         .array(
           z.object({
@@ -57,7 +58,7 @@ const posts = defineCollection({
             answer: z.string().min(1),
           })
         )
-        .max(4)
+        .max(6)
         .optional(),
     }),
 });
