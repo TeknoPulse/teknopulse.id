@@ -104,8 +104,8 @@ import Layout from '../layouts/Layout.astro';
     <p>
       Persetujuan dicatat di penyimpanan lokal browser Anda (kunci
       <code>teknopulse-consent-ga4</code>). Menarik persetujuan via toggle di atas menghentikan
-      pengiriman data pada sesi berjalan dan mencegah GA4 dimuat kembali pada kunjungan
-      berikutnya; muat ulang halaman untuk membersihkan sisa cookie <code>_ga</code>.
+      pengiriman data pada sesi berjalan dan mencegah GA4 dimuat kembali pada kunjungan berikutnya;
+      muat ulang halaman untuk membersihkan sisa cookie <code>_ga</code>.
     </p>
 
     <h2>8. Third-Party Services</h2>
@@ -144,7 +144,12 @@ import Layout from '../layouts/Layout.astro';
         if (!raw) return null;
         // Migrate legacy bare-string format.
         if (raw === 'granted' || raw === 'denied') {
-          const migrated = { decision: raw, dismissCount: 0, lastDismissed: null, cycleStarted: null };
+          const migrated = {
+            decision: raw,
+            dismissCount: 0,
+            lastDismissed: null,
+            cycleStarted: null,
+          };
           localStorage.setItem(KEY, JSON.stringify(migrated));
           return migrated;
         }
@@ -184,7 +189,9 @@ import Layout from '../layouts/Layout.astro';
     const loadGa4 = () => {
       if (document.querySelector('script[data-ga4]')) return;
       window.dataLayer = window.dataLayer || [];
-      window.gtag = (...args) => { window.dataLayer.push(...args); };
+      window.gtag = (...args) => {
+        window.dataLayer.push(...args);
+      };
       window.gtag('js', new Date());
       window.gtag('config', GA4_ID);
       const s = document.createElement('script');
@@ -203,20 +210,31 @@ import Layout from '../layouts/Layout.astro';
 
       if (!isEnabled) {
         // Turn ON: grant consent and load GA4 immediately.
-        saveStored({ decision: 'granted', dismissCount: 0, lastDismissed: null, cycleStarted: null });
+        saveStored({
+          decision: 'granted',
+          dismissCount: 0,
+          lastDismissed: null,
+          cycleStarted: null,
+        });
         setUI(true);
         const banner = document.getElementById('cookie-consent');
         if (banner) banner.hidden = true;
         loadGa4();
       } else {
         // Turn OFF: deny consent. GA4 cookies require a reload to clear fully.
-        const saved = saveStored({ decision: 'denied', dismissCount: 0, lastDismissed: null, cycleStarted: null });
+        const saved = saveStored({
+          decision: 'denied',
+          dismissCount: 0,
+          lastDismissed: null,
+          cycleStarted: null,
+        });
         if (!saved) {
           // Storage blocked — leave UI reflecting current granted state, show error.
           const err = document.createElement('p');
           err.id = 'ga4-save-error';
           err.className = 'mt-2 text-xs text-red-600 dark:text-red-400';
-          err.textContent = 'Gagal menyimpan preferensi. Coba hapus data situs di pengaturan browser.';
+          err.textContent =
+            'Gagal menyimpan preferensi. Coba hapus data situs di pengaturan browser.';
           if (!document.getElementById('ga4-save-error')) {
             toggle.closest('div')?.parentElement?.appendChild(err);
           }
@@ -237,7 +255,11 @@ import Layout from '../layouts/Layout.astro';
         if (window.gtag) {
           window.gtag('config', GA4_ID, { storage: 'none', send_page_view: false });
         }
-        const cookiesToClear = ['_ga', '_gid', '_ga_' + GA4_ID.replace('G-', '').replace(/-/g, '_')];
+        const cookiesToClear = [
+          '_ga',
+          '_gid',
+          '_ga_' + GA4_ID.replace('G-', '').replace(/-/g, '_'),
+        ];
         cookiesToClear.forEach((name) => {
           document.cookie = name + '=; Max-Age=0; path=/; domain=' + location.hostname;
           document.cookie = name + '=; Max-Age=0; path=/';
@@ -265,4 +287,3 @@ import Layout from '../layouts/Layout.astro';
     });
   })();
 </script>
-
