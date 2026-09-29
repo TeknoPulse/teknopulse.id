@@ -25,7 +25,8 @@ const CF_BEACON_TOKEN = 'c3393dfa30c245369d256becc82b2cb0';
 
 // GA4 (G-79X7QWV977, TEKAA-48) tidak dirender di sini: cookienya butuh
 // persetujuan (UU PDP), jadi dimuat client-side oleh CookieConsent.astro
-// setelah pengunjung menekan "Setuju".
+// setelah pengunjung menekan "Setuju" (atau via toggle di /privacy-policy).
+// Desain consent: ADR 0001 (docs/adr/0001-soft-consent-banner-with-daily-re-prompt.md).
 
 const env = import.meta.env;
 const provider = env.PUBLIC_ANALYTICS_PROVIDER ?? 'cloudflare';

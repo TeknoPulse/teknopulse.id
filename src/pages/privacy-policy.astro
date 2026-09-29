@@ -10,10 +10,42 @@ import Layout from '../layouts/Layout.astro';
       <strong>Last Updated:</strong> 25 September 2026
     </p>
 
+    <!-- GA4 Analytics Settings Card -->
+    <div
+      class="not-prose mb-8 rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800"
+    >
+      <div class="flex items-center justify-between gap-4">
+        <div>
+          <h2 class="text-base font-semibold text-gray-900 dark:text-white">
+            Pengaturan Google Analytics
+          </h2>
+          <p class="mt-0.5 text-sm text-gray-600 dark:text-gray-400">
+            Aktifkan atau nonaktifkan pelacakan analitik untuk situs ini.
+          </p>
+        </div>
+        <button
+          id="ga4-toggle"
+          type="button"
+          role="switch"
+          aria-checked="false"
+          class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:bg-gray-600"
+        >
+          <span class="sr-only">Toggle Google Analytics</span>
+          <span
+            id="ga4-toggle-thumb"
+            class="inline-block h-4 w-4 translate-x-1 transform rounded-full bg-white shadow transition-transform"
+          ></span>
+        </button>
+      </div>
+      <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+        Status: <span id="ga4-status-text">Nonaktif</span>
+      </p>
+    </div>
+
     <h2>1. Introduction</h2>
     <p>
-      TeknoPulse.id (“kami”, “kita”, atau “layanan”) menghargai privasi pengunjung dan pengguna kami
-      (“Anda”). Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan
+      TeknoPulse.id ("kami", "kita", atau "layanan") menghargai privasi pengunjung dan pengguna kami
+      ("Anda"). Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan
       melindungi informasi pribadi Anda.
     </p>
 
@@ -31,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
     <h2>3. How We Use Data</h2>
     <ul>
       <li>Menyediakan dan meningkatkan layanan TeknoPulse.id.</li>
-      <li>Autentikasi & keamanan (contoh: Facebook Login).</li>
+      <li>Autentikasi &amp; keamanan (contoh: Facebook Login).</li>
       <li>Analitik penggunaan dan pengembangan fitur baru.</li>
       <li>Mengirimkan pembaruan dan komunikasi penting.</li>
     </ul>
@@ -56,7 +88,7 @@ import Layout from '../layouts/Layout.astro';
       <li>Menarik persetujuan yang telah diberikan.</li>
     </ul>
 
-    <h2>7. Cookies &amp; Persetujuan Analitik</h2>
+    <h2>7. Cookies &amp; Analytics Consent</h2>
     <p>Situs ini memakai dua layanan analitik:</p>
     <ul>
       <li>
@@ -65,14 +97,15 @@ import Layout from '../layouts/Layout.astro';
       </li>
       <li>
         <strong>Google Analytics 4</strong> — menaruh cookie <code>_ga</code> untuk statistik kunjungan.
-        Cookie ini <strong>hanya dipasang setelah Anda menekan “Setuju”</strong> pada banner persetujuan.
-        Jika Anda menekan “Tolak” atau belum memilih, Google Analytics tidak dimuat sama sekali.
+        Cookie ini <strong>hanya dipasang setelah Anda menekan "Setuju"</strong> pada banner persetujuan
+        atau mengaktifkan toggle di atas. Gunakan toggle di atas untuk mengubah preferensi kapan saja.
       </li>
     </ul>
     <p>
       Persetujuan dicatat di penyimpanan lokal browser Anda (kunci
-      <code>teknopulse-consent-ga4</code>). Untuk menarik persetujuan, hapus data situs ini melalui
-      pengaturan browser — banner persetujuan akan muncul kembali pada kunjungan berikutnya.
+      <code>teknopulse-consent-ga4</code>). Menarik persetujuan via toggle di atas menghentikan
+      pengiriman data pada sesi berjalan dan mencegah GA4 dimuat kembali pada kunjungan berikutnya;
+      muat ulang halaman untuk membersihkan sisa cookie <code>_ga</code>.
     </p>
 
     <h2>8. Third-Party Services</h2>
@@ -94,3 +127,167 @@ import Layout from '../layouts/Layout.astro';
     </p>
   </main>
 </Layout>
+
+<script is:inline>
+  (() => {
+    const KEY = 'teknopulse-consent-ga4';
+    const GA4_ID = 'G-79X7QWV977';
+
+    const toggle = document.getElementById('ga4-toggle');
+    const thumb = document.getElementById('ga4-toggle-thumb');
+    const statusText = document.getElementById('ga4-status-text');
+    if (!toggle || !thumb || !statusText) return;
+
+    const getStored = () => {
+      try {
+        const raw = localStorage.getItem(KEY);
+        if (!raw) return null;
+        // Migrate legacy bare-string format.
+        if (raw === 'granted' || raw === 'denied') {
+          const migrated = {
+            decision: raw,
+            dismissCount: 0,
+            lastDismissed: null,
+            cycleStarted: null,
+          };
+          localStorage.setItem(KEY, JSON.stringify(migrated));
+          return migrated;
+        }
+        return JSON.parse(raw);
+      } catch {
+        return null;
+      }
+    };
+
+    const saveStored = (obj) => {
+      try {
+        localStorage.setItem(KEY, JSON.stringify(obj));
+        return true;
+      } catch {
+        return false; /* storage blocked */
+      }
+    };
+
+    const setUI = (enabled) => {
+      if (enabled) {
+        toggle.classList.add('bg-primary');
+        toggle.classList.remove('bg-gray-300', 'dark:bg-gray-600');
+        thumb.classList.add('translate-x-6');
+        thumb.classList.remove('translate-x-1');
+        toggle.setAttribute('aria-checked', 'true');
+        statusText.textContent = 'Aktif';
+      } else {
+        toggle.classList.remove('bg-primary');
+        toggle.classList.add('bg-gray-300', 'dark:bg-gray-600');
+        thumb.classList.remove('translate-x-6');
+        thumb.classList.add('translate-x-1');
+        toggle.setAttribute('aria-checked', 'false');
+        statusText.textContent = 'Nonaktif';
+      }
+    };
+
+    const loadGa4 = () => {
+      if (document.querySelector('script[data-ga4]')) return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        // Pola kanonik bootstrap gtag.js: command queue GA4 menuntut satu entri
+        // arguments-like per panggilan gtag — rest params + spread memecahnya
+        // menjadi beberapa entri sehingga GA4 tidak pernah inisialisasi.
+        // eslint-disable-next-line prefer-rest-params
+        window.dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', GA4_ID);
+      const s = document.createElement('script');
+      s.async = true;
+      s.dataset.ga4 = GA4_ID;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+      document.head.appendChild(s);
+    };
+
+    // Initialise toggle state from localStorage.
+    const stored = getStored();
+    setUI(stored?.decision === 'granted');
+
+    toggle.addEventListener('click', () => {
+      const isEnabled = toggle.getAttribute('aria-checked') === 'true';
+
+      if (!isEnabled) {
+        // Turn ON: grant consent and load GA4 immediately.
+        saveStored({
+          decision: 'granted',
+          dismissCount: 0,
+          lastDismissed: null,
+          cycleStarted: null,
+        });
+        setUI(true);
+        const banner = document.getElementById('cookie-consent');
+        if (banner) banner.hidden = true;
+        loadGa4();
+      } else {
+        // Turn OFF: deny consent. GA4 cookies require a reload to clear fully.
+        const saved = saveStored({
+          decision: 'denied',
+          dismissCount: 0,
+          lastDismissed: null,
+          cycleStarted: null,
+        });
+        if (!saved) {
+          // Storage blocked — leave UI reflecting current granted state, show error.
+          const err = document.createElement('p');
+          err.id = 'ga4-save-error';
+          err.className = 'mt-2 text-xs text-red-600 dark:text-red-400';
+          err.textContent =
+            'Gagal menyimpan preferensi. Coba hapus data situs di pengaturan browser.';
+          if (!document.getElementById('ga4-save-error')) {
+            toggle.closest('div')?.parentElement?.appendChild(err);
+          }
+          return;
+        }
+        setUI(false);
+        // Sinkronkan banner bila masih terbuka di halaman ini.
+        const bannerEl = document.getElementById('cookie-consent');
+        if (bannerEl) bannerEl.hidden = true;
+        // Best-effort cleanup for current session:
+        // 1. Tell GA4 to stop sending hits this session (signal resmi ga-disable).
+        // 2. Delete _ga/_gid cookies that are reachable from this origin.
+        // Note: httpOnly cookies and cookies set on parent domains cannot be
+        // deleted client-side; a full cleanup still requires clearing browser
+        // site data manually.
+        // Signal resmi GA4: hit tidak dikirim lagi pada halaman/sesi ini.
+        window['ga-disable-' + GA4_ID] = true;
+        if (window.gtag) {
+          window.gtag('config', GA4_ID, { storage: 'none', send_page_view: false });
+        }
+        const cookiesToClear = [
+          '_ga',
+          '_gid',
+          '_ga_' + GA4_ID.replace('G-', '').replace(/-/g, '_'),
+        ];
+        cookiesToClear.forEach((name) => {
+          document.cookie = name + '=; Max-Age=0; path=/; domain=' + location.hostname;
+          document.cookie = name + '=; Max-Age=0; path=/';
+        });
+        // Inform the user that the current-page session is stopped and a reload
+        // will complete the cleanup of any remaining browser-side state.
+        const msg = document.createElement('p');
+        msg.id = 'ga4-reload-notice';
+        msg.className = 'mt-2 text-xs text-amber-600 dark:text-amber-400';
+        msg.textContent =
+          'GA4 telah dinonaktifkan. Pengiriman data sesi ini dihentikan; muat ulang halaman untuk memastikan tidak ada sisa cookie yang tertinggal.';
+        // Only insert once.
+        if (!document.getElementById('ga4-reload-notice')) {
+          toggle.closest('div')?.parentElement?.appendChild(msg);
+        }
+      }
+    });
+
+    // Allow Space/Enter to toggle (role="switch" keyboard support).
+    toggle.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggle.click();
+      }
+    });
+  })();
+</script>

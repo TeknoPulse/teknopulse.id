@@ -30,3 +30,11 @@ pnpm-debug.log*
 
 # covers.mjs artifacts (plan/state)
 covers*.json
+# IDE/agent-specific
+.kiro/
+
+# Internal working docs (agent planning artifacts)
+.scratch/
+docs/agents/
+docs/implementation-plan-*.md
+CONTEXT.md
