@@ -41,7 +41,6 @@ Ditambah dengan kemampuan coding agentik yang kini bahkan melampaui Opus di bebe
 
 ## Sumber
 
-- Anthropic. "Introducing Claude Sonnet 5.5." Anthropic News, 28 September 2026. https://www.anthropic.com/news
-- Reuters / Radio900. "Anthropic rolls out second Claude 5.5 model as it builds toward IPO." 28 September 2026.
-- Unite.AI. "Anthropic Releases Claude Sonnet 5.5 at Unchanged Sonnet 5 Pricing." 28 September 2026. https://www.unite.ai
-- TechBeat. "Anthropic Launches Sonnet 5.5 With 30% Speed Boost and Lower AI Costs." 28 September 2026. https://techbeat.co
+- Anthropic. "Introducing Claude Sonnet 5.5." Anthropic News, 28 September 2026. https://www.anthropic.com/claude-sonnet-5-5
+- Reuters. "Anthropic rolls out second Claude 5.5 model as it builds toward IPO." 28 September 2026. https://www.streetinsider.com/Reuters/Anthropic%2Brolls%2Bout%2Bsecond%2BClaude%2B5.5%2Bmodel%2Bas%2Bit%2Bbuilds%2Btoward%2BIPO/27113373.html
+- Unite.AI. "Anthropic Releases Claude Sonnet 5.5 at Unchanged Sonnet 5 Pricing." 28 September 2026. https://www.unite.ai/anthropic-releases-claude-sonnet-5-5-at-unchanged-sonnet-5-pricing/
