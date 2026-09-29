@@ -1,6 +1,6 @@
 ---
-title: "Claude Sonnet 5.5: 30 Persen Lebih Cepat, 30 Persen Lebih Hemat"
-summary: "Anthropic resmi luncurkan Claude Sonnet 5.5, model tengah yang 30 persen lebih cepat dan 30 persen lebih murah dibanding Sonnet 5, dengan kemampuan coding agentik yang bahkan mengungguli Opus 5.5."
+title: "Claude Sonnet 5.5: 30 Persen Lebih Cepat, Hingga 30 Persen Lebih Hemat per Tugas"
+summary: "Anthropic resmi luncurkan Claude Sonnet 5.5, model tengah yang 30 persen lebih cepat dan dapat mengurangi biaya per tugas hingga 30 persen dibanding Sonnet 5, dengan kemampuan coding agentik yang bahkan mengungguli Opus 5.5."
 publishedAt: 2026-09-29T06:00:00+07:00
 tags: ["Anthropic", "Claude", "AI", "Coding", "Developer"]
 category: Developer
