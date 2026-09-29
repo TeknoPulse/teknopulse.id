@@ -189,8 +189,12 @@ import Layout from '../layouts/Layout.astro';
     const loadGa4 = () => {
       if (document.querySelector('script[data-ga4]')) return;
       window.dataLayer = window.dataLayer || [];
-      window.gtag = (...args) => {
-        window.dataLayer.push(...args);
+      window.gtag = function () {
+        // Pola kanonik bootstrap gtag.js: command queue GA4 menuntut satu entri
+        // arguments-like per panggilan gtag — rest params + spread memecahnya
+        // menjadi beberapa entri sehingga GA4 tidak pernah inisialisasi.
+        // eslint-disable-next-line prefer-rest-params
+        window.dataLayer.push(arguments);
       };
       window.gtag('js', new Date());
       window.gtag('config', GA4_ID);
