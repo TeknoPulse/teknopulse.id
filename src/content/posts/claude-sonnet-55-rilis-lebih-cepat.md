@@ -1,6 +1,7 @@
 ---
 title: "Claude Sonnet 5.5: 30 Persen Lebih Cepat, Hingga 30 Persen Lebih Hemat per Tugas"
-summary: "Anthropic resmi luncurkan Claude Sonnet 5.5, model tengah yang 30 persen lebih cepat dan dapat mengurangi biaya per tugas hingga 30 persen dibanding Sonnet 5, dengan kemampuan coding agentik yang bahkan mengungguli Opus 5.5."
+slug: "claude-sonnet-55-rilis-lebih-cepat"
+summary: "Anthropic merilis Claude Sonnet 5.5: 30 persen lebih cepat, biaya per tugas turun hingga 30 persen, dan kemampuan coding agentik mengungguli Opus 5.5."
 publishedAt: 2026-09-29T06:00:00+07:00
 tags: ["Anthropic", "Claude", "AI", "Coding", "Developer"]
 category: Developer
@@ -29,7 +30,7 @@ Anthropic juga menyematkan kemampuan keamanan siber setara Opus 5 di Sonnet 5.5.
 
 ## Tersedia di Mana Saja
 
-Sonnet 5.5 sudah bisa diakses di seluruh platform utama: Claude API, Amazon Web Services (Bedrock), Google Cloud, dan Microsoft Foundry. Bagi developer yang terbiasa membangun di lingkungan cloud tertentu, perpindahan ke model baru ini seharusnya tidak membutuhkan perubahan arsitektur berarti, karena ID model `claude-sonnet-5-5` langsung tersedia di seluruh penyedia tersebut.
+Sonnet 5.5 sudah bisa diakses di seluruh platform utama: Claude API, Amazon Web Services (Bedrock), Google Cloud, dan Microsoft Foundry. Bagi developer yang terbiasa membangun di lingkungan cloud tertentu, perpindahan ke model baru ini seharusnya tidak membutuhkan perubahan arsitektur berarti, karena setiap penyedia memakai penamaan ID model yang spesifik — di Amazon Bedrock, misalnya, model ini tersedia sebagai `global.anthropic.claude-sonnet-5-5`.
 
 Anthropic juga mengumumkan bahwa model Haiku 5.5, anggota terkecil dan termurah dari keluarga Claude 5.5, akan segera hadir dalam beberapa minggu ke depan. Dengan begitu, portfolio model Claude untuk developer makin lengkap, dari Haiku yang ringan dan murah, Sonnet untuk kebanyakan kebutuhan harian, hingga Opus dan Fable untuk tugas paling kompleks.
 
