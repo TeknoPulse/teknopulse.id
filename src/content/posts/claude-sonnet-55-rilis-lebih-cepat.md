@@ -1,7 +1,7 @@
 ---
 title: "Claude Sonnet 5.5: 30 Persen Lebih Cepat, Hingga 30 Persen Lebih Hemat per Tugas"
 slug: "claude-sonnet-55-rilis-lebih-cepat"
-summary: "Anthropic merilis Claude Sonnet 5.5: 30 persen lebih cepat, biaya per tugas turun hingga 30 persen, dan kemampuan coding agentik mengungguli Opus 5.5."
+summary: "Anthropic merilis Claude Sonnet 5.5: 30 persen lebih cepat, biaya per tugas turun hingga 30 persen, dan unggul atas Opus 5.5 di Terminal-Bench 4.0."
 publishedAt: 2026-09-29T06:00:00+07:00
 tags: ["Anthropic", "Claude", "AI", "Coding", "Developer"]
 category: Developer
