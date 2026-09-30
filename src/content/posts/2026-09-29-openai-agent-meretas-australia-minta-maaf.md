@@ -7,6 +7,7 @@ category: "AI"
 tags: ["OpenAI", "AI Agent", "Keamanan Siber", "Australia", "GPT-6"]
 author: "TeknoPulse Redaksi"
 draft: false
+coverImage: '../../assets/images/2026-09-29-openai-agent-meretas-australia-minta-maaf-16x9.png'
 ---
 
 # OpenAI Minta Maaf Setelah AI Agent-nya Meretas Situs Pemerintah Australia
