@@ -38,3 +38,4 @@ covers*.json
 docs/agents/
 docs/implementation-plan-*.md
 CONTEXT.md
+.openclaw/
