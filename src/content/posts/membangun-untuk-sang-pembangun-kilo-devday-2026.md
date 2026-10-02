@@ -1,6 +1,6 @@
 ---
 title: 'Membangun untuk Sang Pembangun: Refleksi DevDay 2026 dan Sign in with ChatGPT di Kilo'
-slug: 'membangun-untuk-sang-pembangun-kilo-devday-2026'
+slug: 'membangun-untuk-sang-pembangun-kilo-devday'
 summary: 'Refleksi tim Builder Velocity di Kilo seputar pergeseran software development pasca-DevDay 2026 dan integrasi Sign in with ChatGPT untuk efisiensi komputasi AI.'
 metaDescription: 'Refleksi mendalam Kilo Code pasca-DevDay 2026 tentang tim Builder Velocity, budaya dogfooding, dan efisiensi Sign in with ChatGPT di lingkungan koding.'
 publishedAt: 2026-10-02
@@ -44,7 +44,7 @@ Di antara rentetan pengumuman megah di DevDay (seperti asisten pribadi _Dots_ da
 
 Fitur ini memungkinkan pengguna menghubungkan akun langganan ChatGPT mereka langsung ke berbagai permukaan koding di Kilo tanpa biaya perantara:
 - **Optimalisasi Belanja AI:** Bagi banyak pengguna, langganan ChatGPT adalah salah satu penawaran terbaik untuk mengakses model terdepan OpenAI. Membawa kuota langganan yang sudah dibayar tersebut langsung ke dalam alur kerja rekayasa kode Kilo membuat setiap dolar yang diinvestasikan menjadi jauh lebih bernilai.
-- **Menghilangkan Friksi Finansial:** Pengembang dan kreator tidak perlu lagi mengkhawatirkan saldo kredit API terpisah yang membingungkan. Mereka cukup masuk dengan akun ChatGPT mereka dan langsung mulai membangun aplikasi.
+- **Menghilangkan Friksi Finansial:** Masuk ke Kilo dengan ChatGPT mengautentikasi akun pengguna. Untuk mengaktifkan akses model melalui langganan, pengguna perlu menghubungkan dan mengotorisasi langganan ChatGPT yang memenuhi syarat, lalu memilih model yang didukung. Pemakaian mengikuti kuota dan batas paket tersebut, sehingga akses ini tidak otomatis mencakup semua model di Kilo.
 
 ## 3. Komunitas Pembangun yang Meluas: Dari Elitisme Kode ke Kolaborasi Terbuka
 
@@ -58,10 +58,11 @@ Tugas para penyedia devtools modern bukan lagi mempertahankan kompleksitas eliti
 ## Pelajaran Praktis bagi Tim Rekayasa
 
 1. **Uji Coba Alur Kerja Mandiri:** Apakah tim Anda sudah menggunakan produk buatan sendiri dalam keseharian kerja? Jika belum, mulailah menerapkan budaya _dogfooding_.
-2. **Manfaatkan Integrasi Akun ChatGPT:** Jika Anda berlangganan ChatGPT, integrasikan akun Anda ke alat pengembang seperti Kilo untuk memaksimalkan utilitas komputasi tanpa beban biaya token ganda.
+2. **Manfaatkan Integrasi Akun ChatGPT:** Jika langganan ChatGPT Anda memenuhi syarat, hubungkan dan otorisasi aksesnya di Kilo untuk memakai model yang didukung sesuai kuota dan batas paket.
 3. **Fokus pada Output Solusi:** Jangan terjebak dalam perdebatan apakah Anda seorang "developer murni" atau bukan. Yang dinilai dunia nyata adalah nilai solusi yang berhasil Anda kirimkan (_ship_).
 
 ## Sumber
 
 - Kilo Team: "Building for builders" — 1 Oktober 2026 — https://blog.kilo.ai/p/building-for-builders
+- Kilo Team: "Introducing Sign in with ChatGPT in Kilo" — 29 September 2026 — https://blog.kilo.ai/p/sign-in-with-chatgpt
 - Kilo Code Platform — https://kilo.ai
