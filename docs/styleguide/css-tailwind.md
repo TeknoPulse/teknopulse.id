@@ -11,11 +11,12 @@
 
 ### Colors
 
-Brand palette and dark-mode tokens are defined in `tailwind.config.cjs`:
+Brand palette and dark-mode tokens are defined in `tailwind.config.cjs` (Warm & Bold palette — see [ADR 0002](../adr/0002-warm-bold-brand-identity.md)):
 
-- **Primary:** Tech Blue HSL scale (`hsl(210, 95%, *)`)
-- **Secondary:** Cyan blue accent (`hsl(195, 80%, *)`)
-- **Accent:** Purple (`hsl(270, 80%, *)`)
+- **Primary:** Warm orange HSL scale (`hsl(24, 90%, *)`)
+- **Secondary:** Warm amber accent (`hsl(38, 85%, *)`)
+- **Accent:** Terracotta (`hsl(12, 75%, *)`)
+- **Grays / text / surfaces:** Warm-tinted (`hsl(25, *)`)
 - **Category colors:** Defined in `src/utils/categories.ts` (HSL values)
 
 > **Guideline:** Prefer existing tokens over one-off colors. If a new color is needed, add it to `tailwind.config.cjs` first.
@@ -24,9 +25,9 @@ Brand palette and dark-mode tokens are defined in `tailwind.config.cjs`:
 
 Pre-defined in config:
 
-- `bg-gradient-primary` — Blue to cyan (135deg)
-- `bg-gradient-hero` — Subtle blue with transparency
-- `bg-gradient-accent` — Purple to blue
+- `bg-gradient-primary` — Warm orange to amber (135deg)
+- `bg-gradient-hero` — Subtle warm orange with transparency
+- `bg-gradient-accent` — Terracotta to warm orange
 
 ## Usage Rules
 
