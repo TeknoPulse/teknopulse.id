@@ -100,3 +100,17 @@ This site is **static-output only**. SSR was intentionally dropped:
 - `DEPLOYMENT.md` — deploy steps (note: written for Vercel; current target is Cloudflare Pages).
 - `CONTRIBUTING.md` — branch/commit workflow.
 - Comment block at top of `astro.config.mjs` and `src/pages/og/[slug].png.ts` — explains the static/OG constraint in detail.
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in this repo's GitHub Issues on `TeknoPulse/teknopulse.id`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Five canonical triage roles with labels equal to the role names: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
