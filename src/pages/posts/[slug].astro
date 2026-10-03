@@ -12,7 +12,7 @@ import { Image } from 'astro:assets';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
 
   // og:image harus unik per artikel (TEKAA-5): coverImage yang dipakai
   // bersama oleh ≥2 artikel tidak boleh jadi og:image — ganti dengan kartu
