@@ -50,13 +50,13 @@ Kalau kamu pernah membaca [bedanya AI generatif dan AI agent](/posts/bedanya-ai-
 
 Inti dari [bedanya chatbot dan AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/) ada pada siapa yang memandu proses. Tabel berikut merangkumnya:
 
-| Aspek | Chatbot biasa | AI agent |
-| --- | --- | --- |
-| Cara kerja | Menjawab satu pesan, menunggu pesan berikutnya | Membagi tujuan menjadi langkah, menjalankannya berurutan |
-| Inisiatif | Nol — kamu yang memandu tiap langkah | Bisa memilih sendiri cara dan urutan kerjanya |
-| Akses alat | Umumnya percakapan teks saja | Bisa membuka situs, memakai aplikasi, mengisi formulir |
-| Bentuk hasil | Jawaban atau informasi | Tugas yang selesai: laporan terkirim, data terkumpul |
-| Contoh pemakaian | "Jelaskan cara bikin CV" | "Riset 5 lowongan yang cocok, susun CV draft, simpan ke Drive" |
+| Aspek            | Chatbot biasa                                  | AI agent                                                       |
+| ---------------- | ---------------------------------------------- | -------------------------------------------------------------- |
+| Cara kerja       | Menjawab satu pesan, menunggu pesan berikutnya | Membagi tujuan menjadi langkah, menjalankannya berurutan       |
+| Inisiatif        | Nol — kamu yang memandu tiap langkah           | Bisa memilih sendiri cara dan urutan kerjanya                  |
+| Akses alat       | Umumnya percakapan teks saja                   | Bisa membuka situs, memakai aplikasi, mengisi formulir         |
+| Bentuk hasil     | Jawaban atau informasi                         | Tugas yang selesai: laporan terkirim, data terkumpul           |
+| Contoh pemakaian | "Jelaskan cara bikin CV"                       | "Riset 5 lowongan yang cocok, susun CV draft, simpan ke Drive" |
 
 Satu catatan penting: garis batasnya kadang kabur. Chatbot modern kini banyak menyematkan fitur "agentik" — pencarian web otomatis, eksekusi kode, atau analisis berkas. Jadi jangan bingung kalau satu aplikasi terasa seperti keduanya. Ukuran yang paling gampang: kalau kamu masih harus memandu setiap langkah, itu chatbot; kalau cukup satu perintah dan ia berjalan sendiri sampai selesai, itulah agent.
 

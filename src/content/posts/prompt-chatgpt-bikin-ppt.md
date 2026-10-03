@@ -45,7 +45,7 @@ Perbedaan hasil "biasa saja" dan "langsung pakai" ada di empat bahan yang kamu s
 3. **Isi per slide.** Minta format tetap: judul maksimal 8 kata, 3 poin inti, 1 catatan pembicara. Ini mencegah slide yang kebanyakan teks.
 4. **Format keluaran.** Minta hasilnya dipisah per slide dengan penomoran jelas, supaya gampang disalin dan dipindahkan.
 
-Tempelkan ke rumus ini: *"Buat presentasi [jumlah] slide tentang [topik] untuk [audiens]. Tiap slide berisi: judul maksimal 8 kata, 3 poin utama, dan catatan pembicara. Pisahkan tiap slide dengan jelas, gunakan bahasa Indonesia yang lugas."* Sepuluh template di bawah adalah variasi siap pakai dari rumus yang sama.
+Tempelkan ke rumus ini: _"Buat presentasi [jumlah] slide tentang [topik] untuk [audiens]. Tiap slide berisi: judul maksimal 8 kata, 3 poin utama, dan catatan pembicara. Pisahkan tiap slide dengan jelas, gunakan bahasa Indonesia yang lugas."_ Sepuluh template di bawah adalah variasi siap pakai dari rumus yang sama.
 
 Biar terasa bedanya, bandingkan dua prompt tentang topik yang sama:
 

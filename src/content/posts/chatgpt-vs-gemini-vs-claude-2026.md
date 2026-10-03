@@ -43,14 +43,14 @@ ChatGPT vs Gemini vs Claude — bagus mana? Pertanyaan ini tidak punya jawaban t
 
 Kalau buru-buru, begini peta hasil perbandingan ChatGPT vs Gemini vs Claude versi TeknoPulse:
 
-| Kebutuhanmu | Pilihan terbaik | Alasan singkat |
-| --- | --- | --- |
-| Tugas sekolah & kuliah | **Gemini** | Gratis, konteks 1 juta token, hidup di Docs dan Drive; mahasiswa bisa klaim AI Plus gratis setahun |
-| Kerja kantoran & tulis-menulis | **ChatGPT** | Paling serbaguna untuk tugas campuran; paket Go Rp75.000 jadi titik masuk termurah |
-| Coding | **Claude** | Model andalannya pernah duduk di puncak peringkat agregat Artificial Analysis; gaya kodenya rapi |
-| Edit foto & gambar | **ChatGPT** | Editor gambar berbasis perintah paling ramah pemula |
-| Dokumen panjang & analisis | **Claude** | Nyaman untuk kontrak, laporan riset, dan dokumen kebijakan |
-| Nol budget | **ChatGPT + DeepSeek** | Chat teks ChatGPT tanpa batas; DeepSeek gratis penuh di aplikasi |
+| Kebutuhanmu                    | Pilihan terbaik        | Alasan singkat                                                                                     |
+| ------------------------------ | ---------------------- | -------------------------------------------------------------------------------------------------- |
+| Tugas sekolah & kuliah         | **Gemini**             | Gratis, konteks 1 juta token, hidup di Docs dan Drive; mahasiswa bisa klaim AI Plus gratis setahun |
+| Kerja kantoran & tulis-menulis | **ChatGPT**            | Paling serbaguna untuk tugas campuran; paket Go Rp75.000 jadi titik masuk termurah                 |
+| Coding                         | **Claude**             | Model andalannya pernah duduk di puncak peringkat agregat Artificial Analysis; gaya kodenya rapi   |
+| Edit foto & gambar             | **ChatGPT**            | Editor gambar berbasis perintah paling ramah pemula                                                |
+| Dokumen panjang & analisis     | **Claude**             | Nyaman untuk kontrak, laporan riset, dan dokumen kebijakan                                         |
+| Nol budget                     | **ChatGPT + DeepSeek** | Chat teks ChatGPT tanpa batas; DeepSeek gratis penuh di aplikasi                                   |
 
 Satu catatan sebelum masuk ke detail: ketiganya bergerak cepat. Harga dan batas versi gratis di artikel ini adalah angka resmi yang kami cek ulang per 15 September 2026, dan halaman ini dijadwalkan ditinjau lagi tiap 30 hari.
 
@@ -82,10 +82,10 @@ Ada juga detail kecil yang jarang disadari: format angka dan tanggal. Ketiganya 
 
 Inilah bagian yang paling sering berubah — dan paling sering disalahkutip. Begini kondisi terkini:
 
-| | ChatGPT | Gemini | Claude |
-| --- | --- | --- | --- |
-| Chat teks | **Tanpa batas** sejak Agustus 2026 | Gratis di aplikasi dan web | Gratis, dengan batas pemakaian |
-| Gambar | Bisa, kuota harian kecil | Bisa, lebih longgar bagi pelanggan | Terbatas |
+|             | ChatGPT                               | Gemini                                                             | Claude                                                            |
+| ----------- | ------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| Chat teks   | **Tanpa batas** sejak Agustus 2026    | Gratis di aplikasi dan web                                         | Gratis, dengan batas pemakaian                                    |
+| Gambar      | Bisa, kuota harian kecil              | Bisa, lebih longgar bagi pelanggan                                 | Terbatas                                                          |
 | Batas resmi | Kuota gambar tidak diumumkan angkanya | Pelanggan berbayar dapat akses 2×–4× lipat dibanding non-pelanggan | Semua paket direset tiap 5 jam; Pro minimal 5× lipat versi gratis |
 
 Tiga catatan penting dari tabel di atas. Pertama, [ChatGPT gratis kini tanpa batas untuk chat teks](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/) — kebijakan yang mengubah persaingan di pasar Indonesia — tetapi pembuatan gambar tetap punya kuota harian kecil tanpa angka resmi (kami bahas detailnya di [panduan edit foto pakai ChatGPT](/posts/cara-edit-foto-chatgpt/)). Kedua, Gemini tidak mengumumkan angka kuota versi gratisnya; yang resmi hanya perbandingannya — pelanggan Google AI mendapat akses "2× lipat" (paket Plus) atau "4× lipat" (paket Pro) dibanding yang bukan pelanggan. Ketiga, Claude secara resmi tidak menyebut jumlah pesan; yang dijamin hanya jendela reset lima jam dan fakta bahwa paket Pro memberi setidaknya lima kali lipat pemakaian versi gratis.
@@ -98,13 +98,13 @@ Kapan gratisan mulai terasa sempit? Di tempat yang berbeda untuk masing-masing. 
 
 Semua harga resmi, dicek 14–15 September 2026:
 
-| Paket | Harga | Catatan |
-| --- | --- | --- |
-| ChatGPT Go | **Rp75.000/bulan** | Sudah termasuk PPN |
-| ChatGPT Plus | **Rp349.000/bulan** | Sudah termasuk PPN |
-| Google AI Plus | **Rp75.000/bulan** | Belum termasuk pajak; termasuk 400 GB penyimpanan |
-| Google AI Pro | **Rp309.000/bulan** | Belum termasuk pajak — sekitar Rp343.000 dengan PPN 11%; 5 TB |
-| Claude Pro | **20 USD/bulan (±Rp352.000)** | Dibayar dalam dolar; atau 200 USD/tahun (±Rp3,5 juta, dibayar di muka) |
+| Paket          | Harga                         | Catatan                                                                |
+| -------------- | ----------------------------- | ---------------------------------------------------------------------- |
+| ChatGPT Go     | **Rp75.000/bulan**            | Sudah termasuk PPN                                                     |
+| ChatGPT Plus   | **Rp349.000/bulan**           | Sudah termasuk PPN                                                     |
+| Google AI Plus | **Rp75.000/bulan**            | Belum termasuk pajak; termasuk 400 GB penyimpanan                      |
+| Google AI Pro  | **Rp309.000/bulan**           | Belum termasuk pajak — sekitar Rp343.000 dengan PPN 11%; 5 TB          |
+| Claude Pro     | **20 USD/bulan (±Rp352.000)** | Dibayar dalam dolar; atau 200 USD/tahun (±Rp3,5 juta, dibayar di muka) |
 
 Konversi Claude memakai kurs acuan Bank Indonesia Rp17.600 per dolar AS (11 September 2026), dibulatkan. Perlu diingat, Anthropic menagih dalam dolar AS, jadi total di tagihan kartumu bisa sedikit berbeda mengikuti kurs harian penerbit kartu.
 

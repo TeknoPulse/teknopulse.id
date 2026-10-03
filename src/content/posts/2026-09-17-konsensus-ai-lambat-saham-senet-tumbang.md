@@ -1,12 +1,12 @@
 ---
-title: "Konsensus Baru AI: Pelambatan? Saham Senet Jeblok Global!"
-summary: "CEO Anthropic, OpenAI, dan Elon Musk kompak minta industri AI melambat demi keamanan. Respons pasar? Saham semikonduktor global anjlok, sementara saham keamanan siber justru melejit."
+title: 'Konsensus Baru AI: Pelambatan? Saham Senet Jeblok Global!'
+summary: 'CEO Anthropic, OpenAI, dan Elon Musk kompak minta industri AI melambat demi keamanan. Respons pasar? Saham semikonduktor global anjlok, sementara saham keamanan siber justru melejit.'
 publishedAt: 2026-09-17T06:00:00+07:00
-tags: ["AI", "Saham", "Keamanan", "Semikonduktor"]
+tags: ['AI', 'Saham', 'Keamanan', 'Semikonduktor']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-17-konsensus-ai-lambat-saham-senet-tumbang-16x9.png"
+coverImage: '../../assets/images/2026-09-17-konsensus-ai-lambat-saham-senet-tumbang-16x9.png'
 ---
 
 # Konsensus Baru AI: Pelambatan? Saham Senet Jeblok Global!
@@ -15,7 +15,7 @@ Dalam pemandangan yang jarang terjadi di industri teknologi, tiga raksasa kecerd
 
 ## CEO AI Kompak: "Kita Perlu Rem"
 
-Pemicu utama adalah esai berjudul *We Must Pace the Frontier* yang dipublikasikan oleh CEO Anthropic, Dario Amodei, pada akhir pekan lalu. Dalam tulisannya, Amodei memperingatkan bahwa kemampuan model AI paling mutakhir kini berkembang lebih cepat dari kemampuan manusia untuk memastikan pengembangannya aman dan bertanggung jawab.
+Pemicu utama adalah esai berjudul _We Must Pace the Frontier_ yang dipublikasikan oleh CEO Anthropic, Dario Amodei, pada akhir pekan lalu. Dalam tulisannya, Amodei memperingatkan bahwa kemampuan model AI paling mutakhir kini berkembang lebih cepat dari kemampuan manusia untuk memastikan pengembangannya aman dan bertanggung jawab.
 
 "Sangatlah penting untuk memperlambat laju peningkatan kapabilitas model AI," tulis Amodei. Ia mengusulkan langkah konkret: auditor independen harus mendapat akses lebih dalam ke proses keamanan perusahaan AI, dan perusahaan-perusahaan AI di negara demokratis perlu berkoordinasi soal standar keselamatan bersama.
 
@@ -48,7 +48,7 @@ Amodei sendiri secara eksplisit menghubungkan perlambatan pengembangan model den
 
 Di permukaan, ini tampak seperti industri yang secara sadar memilih rem tangan. Namun, membaca lebih dalam, ada dinamika yang lebih rumit.
 
-Perusahaan-perusahaan AI mungkin meminta perlambatan untuk model paling canggih — yang disebut model *frontier* — tetapi tidak untuk AI aplikasi atau *inference* (menjalankan model yang sudah ada). Permintaan komputasi untuk *inference* tetap tinggi karena lebih banyak perusahaan mengadopsi AI dalam operasi sehari-hari mereka.
+Perusahaan-perusahaan AI mungkin meminta perlambatan untuk model paling canggih — yang disebut model _frontier_ — tetapi tidak untuk AI aplikasi atau _inference_ (menjalankan model yang sudah ada). Permintaan komputasi untuk _inference_ tetap tinggi karena lebih banyak perusahaan mengadopsi AI dalam operasi sehari-hari mereka.
 
 Lebih penting lagi, komitmen belanja modal raksasa cloud computing tetap masif. Microsoft, Google, Amazon, dan Meta telah mengunci kontrak perangkat keras dalam jumlah sangat besar. Pelambatan satu model tidak otomatis membatalkan pesanan chip yang sudah ada di jalur produksi.
 
@@ -70,8 +70,8 @@ Satu hal yang pasti: diskusi tentang masa depan AI tidak lagi hanya soal siapa y
 
 ## Sumber
 
-- Morningstar, *Chip Stocks Tumble After AI Leaders Call For Slowdown in Development*, 14 September 2026
-- CoinDesk, *Semiconductor stocks slide after Anthropic CEO calls for AI development slowdown*, 15 September 2026
-- The Economic Times, *AI slowdown trade hits Nvidia, SoftBank, SK Hynix as global tech stocks fall up to 10%*, 14 September 2026
-- Whalesbook, *AI Giants Call for Slowdown; Chip Stocks Slip on Capex Fears*, 16 September 2026
-- TechnoTime, *Global Tech and Chip Stocks Tumble Following Anthropic CEO Warning on Rapid AI Acceleration*, 14 September 2026
+- Morningstar, _Chip Stocks Tumble After AI Leaders Call For Slowdown in Development_, 14 September 2026
+- CoinDesk, _Semiconductor stocks slide after Anthropic CEO calls for AI development slowdown_, 15 September 2026
+- The Economic Times, _AI slowdown trade hits Nvidia, SoftBank, SK Hynix as global tech stocks fall up to 10%_, 14 September 2026
+- Whalesbook, _AI Giants Call for Slowdown; Chip Stocks Slip on Capex Fears_, 16 September 2026
+- TechnoTime, _Global Tech and Chip Stocks Tumble Following Anthropic CEO Warning on Rapid AI Acceleration_, 14 September 2026

@@ -46,14 +46,14 @@ Sekali dibedakan biar tidak tertukar: **"tanpa login" itu soal akses, "tanpa bat
 
 Per dokumentasi resmi saat fitur ini diluncurkan, inilah peta fiturnya (rincian hari ini bisa lebih longgar — pakai cek 30 detik di atas):
 
-| Fitur | Tanpa akun | Dengan akun gratis |
-|---|---|---|
-| Chat teks gratis | ✅ Bisa langsung | ✅ Bisa |
-| Riwayat percakapan | ❌ Tidak tersimpan | ✅ Tersimpan & bisa dilanjutkan |
-| Kontrol pelatihan data | ❌ Tidak ada | ✅ Bisa dimatikan |
-| Custom Instructions & memori | ❌ Tidak ada | ✅ Ada |
-| GPT kustom, unggah file, mode suara | ❌ Terkunci | ✅ Terbuka (sebagian berkuota) |
-| Kuota fitur berat | Paling ketat | Longgar (lihat liputan kami soal kuota gratis) |
+| Fitur                               | Tanpa akun         | Dengan akun gratis                             |
+| ----------------------------------- | ------------------ | ---------------------------------------------- |
+| Chat teks gratis                    | ✅ Bisa langsung   | ✅ Bisa                                        |
+| Riwayat percakapan                  | ❌ Tidak tersimpan | ✅ Tersimpan & bisa dilanjutkan                |
+| Kontrol pelatihan data              | ❌ Tidak ada       | ✅ Bisa dimatikan                              |
+| Custom Instructions & memori        | ❌ Tidak ada       | ✅ Ada                                         |
+| GPT kustom, unggah file, mode suara | ❌ Terkunci        | ✅ Terbuka (sebagian berkuota)                 |
+| Kuota fitur berat                   | Paling ketat       | Longgar (lihat liputan kami soal kuota gratis) |
 
 Yang paling sering bikin kaget adalah baris kedua: **tanpa akun, tidak ada tombol "percakapan baru"/riwayat**. Tutup tab, dan obrolanmu hilang dari sisi kamu — tidak bisa dilanjutkan besok pagi. Untuk tugas sekali-pakai ("cepet, translatein ini"), itu bukan masalah. Untuk proyek yang berjalan beberapa hari, itu alasan kuat untuk mendaftar.
 

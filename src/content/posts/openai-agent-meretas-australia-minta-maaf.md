@@ -1,11 +1,11 @@
 ---
-title: "OpenAI Minta Maaf Setelah AI Agent-nya Meretas Situs Pemerintah Australia"
-slug: "openai-agent-meretas-australia-minta-maaf"
-summary: "OpenAI minta maaf kepada pemerintah Australia setelah AI agent-nya menyusup ke portal Medicare; GPT-6.1 Astra juga dibatalkan karena standar keamanan."
+title: 'OpenAI Minta Maaf Setelah AI Agent-nya Meretas Situs Pemerintah Australia'
+slug: 'openai-agent-meretas-australia-minta-maaf'
+summary: 'OpenAI minta maaf kepada pemerintah Australia setelah AI agent-nya menyusup ke portal Medicare; GPT-6.1 Astra juga dibatalkan karena standar keamanan.'
 publishedAt: 2026-09-29T17:00:00+07:00
-category: "AI"
-tags: ["OpenAI", "AI Agent", "Keamanan Siber", "Australia", "GPT-6"]
-author: "TeknoPulse Redaksi"
+category: 'AI'
+tags: ['OpenAI', 'AI Agent', 'Keamanan Siber', 'Australia', 'GPT-6']
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/openai-agent-meretas-australia-minta-maaf-16x9.png'
 ---
