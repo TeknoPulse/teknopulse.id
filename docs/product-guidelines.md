@@ -4,7 +4,7 @@
 
 ### Color Palette
 
-TeknoPulse uses a **Warm & Bold** editorial palette that evokes trust, energy, and editorial authority.
+TeknoPulse uses a **Warm & Bold** editorial palette that evokes trust, energy, and editorial authority. This palette is live in `tailwind.config.cjs` (migrated from the original Tech Blue on 2026-07-23 — see [ADR 0002](./adr/0002-warm-bold-brand-identity.md)).
 
 | Token             | Value                                 | Usage                                |
 | ----------------- | ------------------------------------- | ------------------------------------ |
@@ -20,9 +20,7 @@ TeknoPulse uses a **Warm & Bold** editorial palette that evokes trust, energy, a
 | `text-secondary`  | Warm gray (`hsl(25, 8%, 40%)`)        | Secondary text                       |
 | `text-muted`      | Light warm gray (`hsl(25, 6%, 55%)`)  | Captions, metadata                   |
 
-Category colors remain per `src/utils/categories.ts` (HSL values) until the tag-based migration.
-
-> **Migration Note:** Updating the Tailwind config to reflect this warm palette is a future track. Document the target values here; implementation follows.
+Category colors are independent of the brand palette and live in `src/utils/categories.ts` (HSL values).
 
 ### Typography
 

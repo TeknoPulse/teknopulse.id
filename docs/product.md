@@ -1,10 +1,6 @@
-# Initial Concept
+# TeknoPulse Product Guide
 
 TeknoPulse — a production Tech & AI news and review site for the Indonesian market. Delivers daily technology updates, tool reviews, comparisons, and opinionated analysis in Bahasa Indonesia. Built with Astro v5 + TypeScript + Tailwind v3.
-
----
-
-# Product Guide: TeknoPulse
 
 ## Vision
 
