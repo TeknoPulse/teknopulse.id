@@ -22,7 +22,7 @@ source:
 
 _Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari buletin resmi Kilo Blog edisi 1 Oktober 2026._
 
-Di era komputasi terdahulu, peralatan pengembang (_developer tools_) diciptakan secara eksklusif untuk mereka yang menyebut diri sebagai _programmer_—orang-orang yang menulis baris kode setiap hari di terminal. 
+Di era komputasi terdahulu, peralatan pengembang (_developer tools_) diciptakan secara eksklusif untuk mereka yang menyebut diri sebagai _programmer_—orang-orang yang menulis baris kode setiap hari di terminal.
 
 Namun, kehadiran Model Bahasa Besar (_Large Language Models_) telah meruntuhkan dinding pembatas tersebut. Hari ini, **membangun perangkat lunak bukan lagi hanya milik pengembang profesional, melainkan milik siapa saja yang memiliki tekad untuk mencipta: _the builders_.**
 
@@ -35,6 +35,7 @@ Berikut adalah dekonstruksi pemikiran di balik filosofi Kilo dan pelajaran prakt
 Salah satu wawasan kepemimpinan produk paling menarik dari Kilo adalah penamaan divisi mereka: **Builder Velocity**.
 
 Menempatkan nama target pengguna (_the builder_) langsung di dalam nama tim bukan sekadar retorika korporat, melainkan kompas pengambilan keputusan sehari-hari:
+
 - **Obsesi Pelanggan yang Melekat:** Setiap kali anggota tim memperkenalkan diri atau menggelar rapat evaluasi mingguan, mereka diingatkan untuk siapa fitur tersebut diprioritaskan.
 - **Makan Masakan Sendiri (_Dogfooding_ Ekstrem):** Tim Kilo membangun Kilo menggunakan Kilo itu sendiri. Ketika seorang insinyur bergantung langsung pada alat yang ia kembangkan untuk menyelesaikan pekerjaan hariannya, batas antara pengembang dan pengguna seketika lenyap. Setiap hambatan (_friction_) dan kelambatan sistem akan langsung dirasakan dan diperbaiki.
 
@@ -43,12 +44,14 @@ Menempatkan nama target pengguna (_the builder_) langsung di dalam nama tim buka
 Di antara rentetan pengumuman megah di DevDay (seperti asisten pribadi _Dots_ dan fitur kolaboratif _Spaces_), pengumuman yang paling disambut antusias oleh tim Kilo adalah **Sign in with ChatGPT**.
 
 Fitur ini memungkinkan pengguna menghubungkan akun langganan ChatGPT mereka langsung ke berbagai permukaan koding di Kilo tanpa biaya perantara:
+
 - **Optimalisasi Belanja AI:** Bagi banyak pengguna, langganan ChatGPT adalah salah satu penawaran terbaik untuk mengakses model terdepan OpenAI. Membawa kuota langganan yang sudah dibayar tersebut langsung ke dalam alur kerja rekayasa kode Kilo membuat setiap dolar yang diinvestasikan menjadi jauh lebih bernilai.
 - **Menghilangkan Friksi Finansial:** Masuk ke Kilo dengan ChatGPT mengautentikasi akun pengguna. Untuk mengaktifkan akses model melalui langganan, pengguna perlu menghubungkan dan mengotorisasi langganan ChatGPT yang memenuhi syarat, lalu memilih model yang didukung. Pemakaian mengikuti kuota dan batas paket tersebut, sehingga akses ini tidak otomatis mencakup semua model di Kilo.
 
 ## 3. Komunitas Pembangun yang Meluas: Dari Elitisme Kode ke Kolaborasi Terbuka
 
 Refleksi penutup dari Kilo menyuarakan optimisme mendalam terhadap masa depan teknologi. Kelompok manusia yang mampu membangun solusi perangkat lunak kini berkembang secara eksponensial:
+
 - Desainer kini mampu menyusun prototipe interaktif fungsional.
 - Manajer produk mampu mengotomatiskan alur kerja analitik internal.
 - Konsultan dan pendiri bisnis non-teknis dapat meluncurkan produk digital pertama mereka secara mandiri.
