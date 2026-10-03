@@ -74,18 +74,18 @@ Satu catatan transparansi: harga, kuota, dan batas versi gratis adalah klaim yan
 
 ## Tabel Ringkas: 10 AI Terbaik 2026
 
-| AI | Terbaik untuk | Versi gratis | Harga berbayar (per bulan) |
-| --- | --- | --- | --- |
-| ChatGPT | Kerja serbaguna & tulis-menulis | Chat teks tanpa batas | Go Rp 75 ribu; Plus Rp 349 ribu |
-| Gemini | Belajar & riset, ekosistem Google | Ya, gratis | AI Plus Rp 75 ribu; AI Pro Rp 309 ribu |
-| Claude | Dokumen panjang & analisis | Terbatas per hari | Pro ±Rp 352 ribu |
-| DeepSeek | Pengguna gratis & coding | Gratis penuh di aplikasi | API dari ±Rp 2 ribu per juta token |
-| Perplexity | Riset dengan sumber jelas | ±5 pencarian Pro/hari | Pro ±Rp 352 ribu |
-| GitHub Copilot | Coding di editor | Terbatas (gratis untuk mahasiswa) | Pro ±Rp 176 ribu |
-| Canva (Magic Studio) | Edit foto & desain cepat | Ya, cukup untuk harian | Pro mulai Rp 95 ribu |
-| Midjourney | Gambar artistik kualitas tinggi | Tidak ada | Basic ±Rp 176 ribu |
-| Wan 3.0 (Alibaba) | Video AI bersuara | Kredit harian (check-in) | Dari ±Rp 88 ribu |
-| Suno | Musik & lagu instant | 50 kredit/hari (±10 lagu) | Paket Pro berbayar |
+| AI                   | Terbaik untuk                     | Versi gratis                      | Harga berbayar (per bulan)             |
+| -------------------- | --------------------------------- | --------------------------------- | -------------------------------------- |
+| ChatGPT              | Kerja serbaguna & tulis-menulis   | Chat teks tanpa batas             | Go Rp 75 ribu; Plus Rp 349 ribu        |
+| Gemini               | Belajar & riset, ekosistem Google | Ya, gratis                        | AI Plus Rp 75 ribu; AI Pro Rp 309 ribu |
+| Claude               | Dokumen panjang & analisis        | Terbatas per hari                 | Pro ±Rp 352 ribu                       |
+| DeepSeek             | Pengguna gratis & coding          | Gratis penuh di aplikasi          | API dari ±Rp 2 ribu per juta token     |
+| Perplexity           | Riset dengan sumber jelas         | ±5 pencarian Pro/hari             | Pro ±Rp 352 ribu                       |
+| GitHub Copilot       | Coding di editor                  | Terbatas (gratis untuk mahasiswa) | Pro ±Rp 176 ribu                       |
+| Canva (Magic Studio) | Edit foto & desain cepat          | Ya, cukup untuk harian            | Pro mulai Rp 95 ribu                   |
+| Midjourney           | Gambar artistik kualitas tinggi   | Tidak ada                         | Basic ±Rp 176 ribu                     |
+| Wan 3.0 (Alibaba)    | Video AI bersuara                 | Kredit harian (check-in)          | Dari ±Rp 88 ribu                       |
+| Suno                 | Musik & lagu instant              | 50 kredit/hari (±10 lagu)         | Paket Pro berbayar                     |
 
 ## ChatGPT: AI Serbaguna untuk Kerja Sehari-hari
 

@@ -74,12 +74,12 @@ Ini bagian paling penting untuk pengguna Indonesia yang modalnya nol. Deskripsi 
 
 Tapi gratis bukan berarti tanpa konsekuensi. Halaman status resmi DeepSeek mencatat uptime layanan chatnya di kisaran 99,65–99,82% sejak Juni 2026 — bagus, tapi artinya layanan memang pernah turun atau melambat — dan pengguna lama tahu jam sibuk bisa membuat jawaban datang lebih lambat. Perbandingannya dengan ChatGPT versi gratis:
 
-| Aspek | DeepSeek (chat) | ChatGPT (versi gratis) |
-|---|---|---|
-| Biaya bulanan | Gratis | Gratis, dengan kuota fitur terbatas; paket Go Rp75.000 dan Plus Rp349.000/bulan (termasuk PPN, dicek 14 September 2026) |
-| Batas harian yang dipublikasikan | Tidak ada angka resmi yang dipublikasikan | Ada batas kuota yang diumumkan OpenAI untuk akses model terbaiknya |
-| Aplikasi resmi HP | Android & iOS, gratis | Android & iOS, gratis |
-| API untuk developer | Berbayar per token (lihat bawah) | Berbayar per token via platform OpenAI |
+| Aspek                            | DeepSeek (chat)                           | ChatGPT (versi gratis)                                                                                                  |
+| -------------------------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Biaya bulanan                    | Gratis                                    | Gratis, dengan kuota fitur terbatas; paket Go Rp75.000 dan Plus Rp349.000/bulan (termasuk PPN, dicek 14 September 2026) |
+| Batas harian yang dipublikasikan | Tidak ada angka resmi yang dipublikasikan | Ada batas kuota yang diumumkan OpenAI untuk akses model terbaiknya                                                      |
+| Aplikasi resmi HP                | Android & iOS, gratis                     | Android & iOS, gratis                                                                                                   |
+| API untuk developer              | Berbayar per token (lihat bawah)          | Berbayar per token via platform OpenAI                                                                                  |
 
 Kalau kamu sampai menyentuh jalur developer: API DeepSeek dihitung per token, mulai $0,15 per juta token input untuk model tercepatnya di jam sepi (±Rp 2.700 dengan kurs 21 September 2026) — jam puncaknya 08.00–11.00 dan 13.00–17.00 WIB Senin–Jumat; di luar itu — termasuk akhir pekan — harganya setengah dari jam puncak. Itu salah satu harga API termurah di industri. Pembanding lengkap AI untuk coding — termasuk DeepSeek versi gratisnya — ada di [artikel AI terbaik untuk coding](/posts/ai-terbaik-untuk-coding/) kami. Sementara jalur berbayar ChatGPT untuk pengguna biasa — termasuk cara membayarnya dengan GoPay atau DANA — ada di [panduan pembayaran ChatGPT kami](/posts/cara-bayar-chatgpt-gopay-dana/).
 

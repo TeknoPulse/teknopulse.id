@@ -45,14 +45,14 @@ Bisa — dan kamu tidak perlu bayar untuk mencobanya. Cara pakai ChatGPT untuk e
 
 ChatGPT bukan editor piksel seperti Photoshop — ia lebih mirip desainer instan yang menggambar ulang fotomu sesuai perintah. Karena itu ia sangat cepat untuk perubahan besar, tapi kurang andal untuk sentuhan presisi. Peta singkatnya:
 
-| Bisa dengan hasil bagus | Kurang cocok |
-| --- | --- |
-| Ganti latar atau background | Retouch wajah presisi tinggi |
-| Perbaiki foto lama yang pudar atau robek | Teks panjang yang tajam di dalam gambar |
-| Hapus objek atau orang pengganggu | Editing non-destruktif berbasis layer |
-| Ganti warna pakaian atau objek | Konsistensi wajah antar edit beruntun |
-| Ubah gaya jadi kartun, 3D, atau pas foto | File RAW dan cetak ukuran besar |
-| Tambahkan elemen sederhana (kacamata, topi) | |
+| Bisa dengan hasil bagus                     | Kurang cocok                            |
+| ------------------------------------------- | --------------------------------------- |
+| Ganti latar atau background                 | Retouch wajah presisi tinggi            |
+| Perbaiki foto lama yang pudar atau robek    | Teks panjang yang tajam di dalam gambar |
+| Hapus objek atau orang pengganggu           | Editing non-destruktif berbasis layer   |
+| Ganti warna pakaian atau objek              | Konsistensi wajah antar edit beruntun   |
+| Ubah gaya jadi kartun, 3D, atau pas foto    | File RAW dan cetak ukuran besar         |
+| Tambahkan elemen sederhana (kacamata, topi) |                                         |
 
 Polanya begini: semakin spesifik perintahmu dan semakin bagus foto aslinya, semakin dekat hasilnya dengan bayanganmu. Sebaliknya, perintah yang samar tetap menghasilkan gambar yang tampak rapi — cuma saja bukan yang kamu maksud.
 
@@ -66,11 +66,11 @@ Satu persiapan yang sering diremehkan: pilih foto asli yang baik. Tiga syaratnya
 
 Yang membedakan paket gratis dan berbayar di fitur ini adalah kuota gambarnya. Versi gratis memang [sudah bebas tanpa batas untuk chat teks](/posts/2026-08-11-openai-chatgpt-gratis-tanpa-batas/), tetapi pembuatan dan pengeditan gambar punya kuota harian kecil — secara praktis hanya beberapa hasil per hari. OpenAI tidak pernah mengumumkan angka pastinya, dan batas ini berubah dari waktu ke waktu (terakhir kami cek 15 September 2026).
 
-| Paket | Harga per bulan | Kuota gambar |
-| --- | --- | --- |
-| Gratis | Rp 0 | Terbatas — cukup untuk belajar dan coba-coba |
-| Go | Rp 75.000 (termasuk PPN) | Lebih longgar |
-| Plus | Rp 349.000 | Paling longgar, plus akses model terbaru |
+| Paket  | Harga per bulan          | Kuota gambar                                 |
+| ------ | ------------------------ | -------------------------------------------- |
+| Gratis | Rp 0                     | Terbatas — cukup untuk belajar dan coba-coba |
+| Go     | Rp 75.000 (termasuk PPN) | Lebih longgar                                |
+| Plus   | Rp 349.000               | Paling longgar, plus akses model terbaru     |
 
 Harga di atas adalah banderol resmi pasar Indonesia, dicek 15 September 2026 dari halaman resmi OpenAI. Kalau kuota gratis sering kamu tembus, naik ke Go biasanya sudah cukup — [fitur edit foto butuh langganan? Cek cara bayarnya](/posts/cara-bayar-chatgpt-gopay-dana/): bisa pakai GoPay atau DANA tanpa kartu kredit.
 

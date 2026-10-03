@@ -1,10 +1,10 @@
 ---
-title: "Meta Muse Kalahkan ChatGPT, 2,8 Juta Unduhan dalam 12 Hari"
-summary: "Aplikasi agen AI pribadi Meta Muse berhasil melampaui angka unduhan ChatGPT di masa awalnya, mencatatkan 2,8 juta unduhan global dan menduduki peringkat pertama di App Store Amerika Serikat."
+title: 'Meta Muse Kalahkan ChatGPT, 2,8 Juta Unduhan dalam 12 Hari'
+summary: 'Aplikasi agen AI pribadi Meta Muse berhasil melampaui angka unduhan ChatGPT di masa awalnya, mencatatkan 2,8 juta unduhan global dan menduduki peringkat pertama di App Store Amerika Serikat.'
 publishedAt: 2026-09-23T17:00:00+07:00
-tags: ["AI", "Meta", "ChatGPT", "App Store"]
+tags: ['AI', 'Meta', 'ChatGPT', 'App Store']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-09-23-meta-muse-app-store-16x9.png'
 ---

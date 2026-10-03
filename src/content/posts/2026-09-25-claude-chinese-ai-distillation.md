@@ -1,21 +1,21 @@
 ---
-title: "Anthropic Tangkap Tujuh Lab AI China Kerahkan Jutaan Permintaan untuk Dapatkan Data Claude"
-summary: "Anthropic menuding tujuh laboratorium AI asal China, termasuk Alibaba dan DeepSeek, melakukan kampanye penggalian data skala industri terhadap model Claude demi melatih model pesaing mereka."
+title: 'Anthropic Tangkap Tujuh Lab AI China Kerahkan Jutaan Permintaan untuk Dapatkan Data Claude'
+summary: 'Anthropic menuding tujuh laboratorium AI asal China, termasuk Alibaba dan DeepSeek, melakukan kampanye penggalian data skala industri terhadap model Claude demi melatih model pesaing mereka.'
 publishedAt: 2026-09-25T06:00:00+07:00
-tags: ["AI", "Keamanan", "AS-China"]
+tags: ['AI', 'Keamanan', 'AS-China']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-09-25-claude-chinese-ai-distillation-16x9.png'
 ---
 
-Perusahaan AI asal Amerika Serikat, Anthropic, pada 10 September 2026 merilis laporan ancaman yang mengejutkan industri teknologi global. Dalam laporan *Threat Intelligence* edisi terbaru itu, Anthropic menuding tujuh laboratorium AI asal China melakukan kampanye penggalian data secara sistematis dan berskala industri terhadap model Claude — untuk kemudian dipakai melatih model pesaing mereka sendiri.
+Perusahaan AI asal Amerika Serikat, Anthropic, pada 10 September 2026 merilis laporan ancaman yang mengejutkan industri teknologi global. Dalam laporan _Threat Intelligence_ edisi terbaru itu, Anthropic menuding tujuh laboratorium AI asal China melakukan kampanye penggalian data secara sistematis dan berskala industri terhadap model Claude — untuk kemudian dipakai melatih model pesaing mereka sendiri.
 
 Jumlah yang terungkap sangat besar. Dalam rentang waktu yang dicakup laporan, Anthropic mendeteksi hampir 200 juta percakapan yang dikirimkan ke Claude oleh tujuh entitas yang disasar. Angka ini menjadikannya salah satu kasus pembajakan data model AI terbesar yang pernah terdokumentasi.
 
 ## Apa Itu Distilasi?
 
-*Distilasi model* adalah teknik pelatihan AI yang sudah lama dikenal di kalangan pengembang. Cara kerjanya sederhana: sebuah model yang lebih besar dan canggih — dalam hal ini Claude — dijadikan "guru". Jawabannya, termasuk alur penalarannya, lalu dipakai sebagai data latihan untuk melatih model lain yang lebih kecil atau lebih murah.
+_Distilasi model_ adalah teknik pelatihan AI yang sudah lama dikenal di kalangan pengembang. Cara kerjanya sederhana: sebuah model yang lebih besar dan canggih — dalam hal ini Claude — dijadikan "guru". Jawabannya, termasuk alur penalarannya, lalu dipakai sebagai data latihan untuk melatih model lain yang lebih kecil atau lebih murah.
 
 Teknik ini legal dan lazim dilakukan di dalam satu perusahaan. Namun yang dilarang dan digolongkan sebagai "distilasi tidak sah" oleh Anthropic adalah kasus di mana satu pihak secara tersembunyi dan tanpa izin menggunakan output dari model orang lain secara masif untuk membangun kemampuan model pesaing.
 
@@ -23,7 +23,7 @@ Teknik ini legal dan lazim dilakukan di dalam satu perusahaan. Namun yang dilara
 
 Dari tujuh laboratorium yang dituding, Alibaba grup menjadi yang paling banyak dibahas. Menurut Antropic, entitas yang terafiliasi dengan Alibaba mengirim lebih dari 151 juta permintaan ke Claude antara Mei hingga Juli 2026. Pada puncaknya, angka itu mendekati tiga juta permintaan per hari.
 
-Semua itu dilakukan menggunakan lebih dari 3.500 akun palsu yang menggunakan identitas palsu dan metode pembayaran yang dicuri. Para penyerang bahkan menggunakan satu format *prompt* yang tetap untuk memancing Claude membuka jejak penalaran internalnya sebelum memberikan jawaban akhir. Hasilnya, Anthropic menuding data tersebut dipakai untuk meningkatkan model Qwen 3.5, 3.6, dan 3.7.
+Semua itu dilakukan menggunakan lebih dari 3.500 akun palsu yang menggunakan identitas palsu dan metode pembayaran yang dicuri. Para penyerang bahkan menggunakan satu format _prompt_ yang tetap untuk memancing Claude membuka jejak penalaran internalnya sebelum memberikan jawaban akhir. Hasilnya, Anthropic menuding data tersebut dipakai untuk meningkatkan model Qwen 3.5, 3.6, dan 3.7.
 
 ## Moonshot AI: Data Pribadi Pengguna Dikirim ke Claude
 

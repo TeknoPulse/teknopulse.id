@@ -41,13 +41,13 @@ Pertanyaan "AI terbaik untuk coding" itu sering salah sasaran — yang tepat ada
 
 Kalau tidak punya waktu membaca semuanya, ini petanya:
 
-| Kebutuhanmu | Pilihan paling cocok | Alasan singkat |
-|---|---|---|
-| Tiap hari menulis kode di editor | **GitHub Copilot** | Menyarankan kode saat kamu mengetik, bukan lewat salin-tempel chat; gratis untuk mahasiswa |
-| Sesi panjang memahami/membenahi proyek besar | **Claude** | Fokus pada kode panjang dan punya produk coding agent tersendiri (Claude Code); batas pemakaian per sesi 5 jam |
-| Belajar konsep + tugas campuran non-coding | **ChatGPT** | Serbaguna; paket Go Rp75.000 jadi titik masuk termurah |
-| Pengguna gratis yang mau kuota longgar | **Gemini** atau **DeepSeek** | Keduanya bisa dipakai gratis tanpa kuota yang memberatkan untuk pemakaian harian ringan |
-| Eksperimen tanpa mau bikin akun kartu kredit | **DeepSeek** | Gratis dipakai di aplikasi dan web |
+| Kebutuhanmu                                  | Pilihan paling cocok         | Alasan singkat                                                                                                 |
+| -------------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Tiap hari menulis kode di editor             | **GitHub Copilot**           | Menyarankan kode saat kamu mengetik, bukan lewat salin-tempel chat; gratis untuk mahasiswa                     |
+| Sesi panjang memahami/membenahi proyek besar | **Claude**                   | Fokus pada kode panjang dan punya produk coding agent tersendiri (Claude Code); batas pemakaian per sesi 5 jam |
+| Belajar konsep + tugas campuran non-coding   | **ChatGPT**                  | Serbaguna; paket Go Rp75.000 jadi titik masuk termurah                                                         |
+| Pengguna gratis yang mau kuota longgar       | **Gemini** atau **DeepSeek** | Keduanya bisa dipakai gratis tanpa kuota yang memberatkan untuk pemakaian harian ringan                        |
+| Eksperimen tanpa mau bikin akun kartu kredit | **DeepSeek**                 | Gratis dipakai di aplikasi dan web                                                                             |
 
 Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas model. Model coding berubah beberapa kali setahun — [perbandingan ChatGPT vs Gemini vs Claude kami](/posts/chatgpt-vs-gemini-vs-claude-2026/) bahkan sudah tertinggal beberapa kali sejak terbit. Yang lebih tahan lama adalah **cara memilih**: kebutuhan → batas gratis → harga. Itulah yang artikel ini ajarkan sekaligus kerjakan untukmu.
 
@@ -55,7 +55,7 @@ Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas mode
 
 Supaya perbandingan ini bisa dipertanggungjawabkan, kami pakai dua tugas baku yang sama untuk semua layanan — dan kami bagikan lengkap di sini supaya kamu bisa menjalankannya sendiri dalam ±30 menit. Kriteria penilaiannya tiga: **benar** (kodenya jalan dan menyelesaikan tugas), **jujur** (AI mengakui batas atau bila ada yang meragukan), dan **terbaca** (kodenya bisa dipahami pemula, bukan sulap satu baris).
 
-**Tugas 1 — perbaiki kode yang error.** Salin kode Python ini persis ke layanan AI pilihanmu, lalu minta: *"Kode ini error, perbaiki dan jelaskan apa masalahnya"*:
+**Tugas 1 — perbaiki kode yang error.** Salin kode Python ini persis ke layanan AI pilihanmu, lalu minta: _"Kode ini error, perbaiki dan jelaskan apa masalahnya"_:
 
 ```python
 def rata_rata_harga(transaksi):
@@ -73,13 +73,13 @@ data = [
 print("Rata-rata:", rata_rata_harga(data))
 ```
 
-Kode ini sengaja punya dua jebakan yang kami verifikasi sendiri berjalan di Python 3 (dicek 20 September 2026): ia langsung crash dengan `KeyError: 'harga'` karena satu transaksi tidak punya kunci itu — dan setelah jebakan pertama diperbaiki, `rata_rata_harga([])` masih crash lagi dengan `ZeroDivisionError`. AI yang baik menemukan keduanya, bukan cuma yang pertama; AI yang hebat menjelaskan *kenapa* kode defensif itu penting untuk data dari dunia nyata.
+Kode ini sengaja punya dua jebakan yang kami verifikasi sendiri berjalan di Python 3 (dicek 20 September 2026): ia langsung crash dengan `KeyError: 'harga'` karena satu transaksi tidak punya kunci itu — dan setelah jebakan pertama diperbaiki, `rata_rata_harga([])` masih crash lagi dengan `ZeroDivisionError`. AI yang baik menemukan keduanya, bukan cuma yang pertama; AI yang hebat menjelaskan _kenapa_ kode defensif itu penting untuk data dari dunia nyata.
 
-**Tugas 2 — buat fitur kecil dari nol.** Minta: *"Buatkan halaman web satu file (HTML, CSS, JavaScript dalam satu file) berisi form pendaftaran dengan validasi email dan nomor HP Indonesia, plus pesan sukses setelah submit"*. Ukuran keberhasilannya jelas: file-nya jalan saat dibuka langsung di browser tanpa server, validasi menahan input yang salah dengan pesan yang menjelaskan, dan kodenya masih terbaca oleh orang yang baru belajar.
+**Tugas 2 — buat fitur kecil dari nol.** Minta: _"Buatkan halaman web satu file (HTML, CSS, JavaScript dalam satu file) berisi form pendaftaran dengan validasi email dan nomor HP Indonesia, plus pesan sukses setelah submit"_. Ukuran keberhasilannya jelas: file-nya jalan saat dibuka langsung di browser tanpa server, validasi menahan input yang salah dengan pesan yang menjelaskan, dan kodenya masih terbaca oleh orang yang baru belajar.
 
 Metode pengumpulan datanya tiga lapis, semuanya bisa kamu periksa: **dokumen resmi penyedia** untuk fitur dan batas pemakaian (dicek 20 September 2026 kecuali dinyatakan lain), **harga resmi pasar Indonesia** yang sudah kami verifikasi di liputan sebelumnya, dan **protokol uji di atas** sebagai bagian yang kamu isi sendiri.
 
-Satu kejujuran yang wajib kami sampaikan: kami tidak menuntaskan uji literal kelima layanan dari lingkungan redaksi — akses ke sebagian layanan AI diblokir dari jaringan kerja kami, dan klaim pengalaman yang tidak bisa kami buktikan tidak akan kami tulis. Maka protokolnya kami publikasikan utuh: dua tugas itu adalah cara terbaik menjawab "AI mana yang terbaik untuk *kamu*", dan hasilnya lebih bisa diandalkan daripada rangking mana pun di internet.
+Satu kejujuran yang wajib kami sampaikan: kami tidak menuntaskan uji literal kelima layanan dari lingkungan redaksi — akses ke sebagian layanan AI diblokir dari jaringan kerja kami, dan klaim pengalaman yang tidak bisa kami buktikan tidak akan kami tulis. Maka protokolnya kami publikasikan utuh: dua tugas itu adalah cara terbaik menjawab "AI mana yang terbaik untuk _kamu_", dan hasilnya lebih bisa diandalkan daripada rangking mana pun di internet.
 
 ## Per Tool: Kekuatan, Batas, dan Harganya
 
@@ -107,14 +107,14 @@ DeepSeek layak masuk daftar karena satu alasan sederhana: **gratis dipakai penuh
 
 Karena "gratis sampai mana" yang paling sering jadi pertimbangan:
 
-| Layanan | Gratis untuk | Batas utama versi gratis (sumber resmi, cek 20/9) |
-|---|---|---|
-| GitHub Copilot | Semua akun GitHub | **2.000 completions/bulan** + kuota chat via kredit AI; model otomatis saja |
-| GitHub Copilot Student | Mahasiswa terverifikasi | Fitur lebih luas, tetap gratis — tidak termasuk agent pihak ketiga |
-| ChatGPT | Semua orang | Akses model terbaik dibatasi kuota; teks tetap tersedia |
-| Gemini | Semua orang | Bisa dipakai gratis; model paling canggih dibatasi kuota harian |
-| Claude | Semua orang | Batas pemakaian reset per sesi 5 jam |
-| DeepSeek | Semua orang | Dipakai gratis di aplikasi/web |
+| Layanan                | Gratis untuk            | Batas utama versi gratis (sumber resmi, cek 20/9)                           |
+| ---------------------- | ----------------------- | --------------------------------------------------------------------------- |
+| GitHub Copilot         | Semua akun GitHub       | **2.000 completions/bulan** + kuota chat via kredit AI; model otomatis saja |
+| GitHub Copilot Student | Mahasiswa terverifikasi | Fitur lebih luas, tetap gratis — tidak termasuk agent pihak ketiga          |
+| ChatGPT                | Semua orang             | Akses model terbaik dibatasi kuota; teks tetap tersedia                     |
+| Gemini                 | Semua orang             | Bisa dipakai gratis; model paling canggih dibatasi kuota harian             |
+| Claude                 | Semua orang             | Batas pemakaian reset per sesi 5 jam                                        |
+| DeepSeek               | Semua orang             | Dipakai gratis di aplikasi/web                                              |
 
 Dua saran praktis dari tabel ini. Pertama, mahasiswa: klaim **Copilot Student** sebelum hal lain — ini fasilitas gratis paling berharga di daftar, cukup dengan verifikasi email kampus. Kedua, jangan pakai versi gratis tiga layanan sekaligus "biar adil" — pilih satu untuk coding harian dan satu untuk chat, karena konteks percakapan yang menumpuk di satu layanan justru yang membuat asisten makin akurat seiring waktu.
 
@@ -122,15 +122,15 @@ Dua saran praktis dari tabel ini. Pertama, mahasiswa: klaim **Copilot Student** 
 
 Semua langganan berbayar dalam satu tabel — harga resmi pasar Indonesia bila ada, sisanya konversi dari dolar dengan kurs Rp17.768 (20 September 2026):
 
-| Paket | Harga | Catatan |
-|---|---|---|
-| ChatGPT Go | **Rp75.000/bulan** | Termasuk PPN; dicek 14/9 |
-| ChatGPT Plus | **Rp349.000/bulan** | Termasuk PPN; akses model penuh; dicek 14/9 |
-| Google AI Plus | **Rp75.000/bulan** | Belum termasuk pajak; dicek 15/9 |
-| Google AI Pro | **Rp309.000/bulan** | Belum termasuk pajak; dicek 15/9 |
-| Claude Pro | **$20/bulan (±Rp355 ribu)** | Atau $17/bulan via paket tahunan; dicek 20/9 |
-| GitHub Copilot Pro | **$10/bulan (±Rp178 ribu)** | "Free for some users" — cek akunmu; dicek 20/9 |
-| GitHub Copilot Pro+ | **$39/bulan (±Rp693 ribu)** | Jatah kredit jauh lebih besar; dicek 20/9 |
+| Paket               | Harga                       | Catatan                                        |
+| ------------------- | --------------------------- | ---------------------------------------------- |
+| ChatGPT Go          | **Rp75.000/bulan**          | Termasuk PPN; dicek 14/9                       |
+| ChatGPT Plus        | **Rp349.000/bulan**         | Termasuk PPN; akses model penuh; dicek 14/9    |
+| Google AI Plus      | **Rp75.000/bulan**          | Belum termasuk pajak; dicek 15/9               |
+| Google AI Pro       | **Rp309.000/bulan**         | Belum termasuk pajak; dicek 15/9               |
+| Claude Pro          | **$20/bulan (±Rp355 ribu)** | Atau $17/bulan via paket tahunan; dicek 20/9   |
+| GitHub Copilot Pro  | **$10/bulan (±Rp178 ribu)** | "Free for some users" — cek akunmu; dicek 20/9 |
+| GitHub Copilot Pro+ | **$39/bulan (±Rp693 ribu)** | Jatah kredit jauh lebih besar; dicek 20/9      |
 
 Jalurnya juga sudah lokal: [ChatGPT bisa dibayar pakai GoPay atau DANA lewat Google Play](/posts/cara-bayar-chatgpt-gopay-dana/), jadi kamu tidak butuh kartu kredit untuk mulai. Pola bayar AI di Indonesia umumnya begini — pakai yang gratis sampai benar-benar terbentur kuota, baru naik ke paket termurah (Rp75.000) milik layanan yang paling sering kamu pakai.
 
@@ -138,7 +138,7 @@ Jalurnya juga sudah lokal: [ChatGPT bisa dibayar pakai GoPay atau DANA lewat Goo
 
 Satu bagian yang jarang ditulis: kadang AI coding bukan alat yang tepat.
 
-- **Sedang belajar dasar.** Kalau kamu baru memahami loop dan variabel, minta AI menulis kode untukmu sama seperti belajar sepeda dengan roda bantu yang tidak pernah dilepas. Pakai AI untuk *menjelaskan* kode yang kamu tulis sendiri, bukan menggantikannya.
+- **Sedang belajar dasar.** Kalau kamu baru memahami loop dan variabel, minta AI menulis kode untukmu sama seperti belajar sepeda dengan roda bantu yang tidak pernah dilepas. Pakai AI untuk _menjelaskan_ kode yang kamu tulis sendiri, bukan menggantikannya.
 - **Error sepele.** Pesan `NameError` atau lupa titik dua tidak butuh model AI — compiler atau linter sudah menunjuk barisnya. Pelajari pesan error itu; itu keterampilan yang bertahan seumur hidup.
 - **Kode rahasia.** Kode klien yang terikat NDA, algoritma inti perusahaan, dan semua yang berisi kredensial sebaiknya tidak ditempel ke layanan mana pun tanpa izin dan tanpa memahami kebijakan datanya. Bagian yang bisa disensor, sensorkan dulu.
 - **Sesekali saja.** Kalau kebutuhanmu satu script per bulan, versi gratis sudah lebih dari cukup — langganan Rp300–350 ribu/bulan baru masuk akal ketika waktu yang dihemat nilainya melebihi tagihannya.

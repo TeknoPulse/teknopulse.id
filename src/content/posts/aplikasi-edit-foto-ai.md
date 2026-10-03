@@ -60,15 +60,15 @@ Satu kejujuran yang perlu dinyatakan: kami tidak menyebut aplikasi mana pun "pal
 
 ## Tabel Ringkas: 7 Aplikasi Edit Foto AI
 
-| Aplikasi | Terbaik untuk | Gratis sampai mana | Harga langganan (cek 20/9/2026) |
-|---|---|---|---|
-| **Gemini** | Edit foto lewat instruksi biasa | Bisa dipakai, jatah harian terbatas | Google AI Plus Rp75.000/bln* |
-| **ChatGPT** | Instruksi rumit sekaligus banyak | Kuota gambar harian kecil | Go Rp75.000, Plus Rp349.000/bln |
-| **Canva (Magic Studio)** | Konten harian + desain | Cukup untuk kebutuhan harian | Pro mulai Rp95.000/bln (tahunan Rp769.000) |
-| **Remini** | Perjelas & pulihkan foto lama | Unduh gratis, pemakaian terbatas | Mingguan Rp65.000–169.000/mgg |
-| **Photoroom** | Hapus/ganti latar, foto produk | Unduh gratis; AI penuh lewat langganan | Mulai Rp24.500; hingga Rp999.000/thn |
-| **Picsart** | Suite lengkap kreator konten | Gratis dipakai; kredit AI terbatas | Plus/Gold Rp39.000, Pro Rp50.000/bln |
-| **Meitu** | Retouch selfie & potret | "Free all-in-one" (klaim developer); VIP untuk fitur premium | VIP Rp49.000/mgg–Rp84.000/bln |
+| Aplikasi                 | Terbaik untuk                    | Gratis sampai mana                                           | Harga langganan (cek 20/9/2026)            |
+| ------------------------ | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------ |
+| **Gemini**               | Edit foto lewat instruksi biasa  | Bisa dipakai, jatah harian terbatas                          | Google AI Plus Rp75.000/bln\*              |
+| **ChatGPT**              | Instruksi rumit sekaligus banyak | Kuota gambar harian kecil                                    | Go Rp75.000, Plus Rp349.000/bln            |
+| **Canva (Magic Studio)** | Konten harian + desain           | Cukup untuk kebutuhan harian                                 | Pro mulai Rp95.000/bln (tahunan Rp769.000) |
+| **Remini**               | Perjelas & pulihkan foto lama    | Unduh gratis, pemakaian terbatas                             | Mingguan Rp65.000–169.000/mgg              |
+| **Photoroom**            | Hapus/ganti latar, foto produk   | Unduh gratis; AI penuh lewat langganan                       | Mulai Rp24.500; hingga Rp999.000/thn       |
+| **Picsart**              | Suite lengkap kreator konten     | Gratis dipakai; kredit AI terbatas                           | Plus/Gold Rp39.000, Pro Rp50.000/bln       |
+| **Meitu**                | Retouch selfie & potret          | "Free all-in-one" (klaim developer); VIP untuk fitur premium | VIP Rp49.000/mgg–Rp84.000/bln              |
 
 \* Belum termasuk pajak. Harga langganan Google/ChatGPT dari halaman resmi, dicek 14–15 September 2026; harga aplikasi HP dari App Store Indonesia, dicek 20 September 2026. Semua bisa berubah.
 
