@@ -1,12 +1,12 @@
 ---
-title: "Robot Humanoid Bisa Masuk Rumah Baru dan Langsung Kerja, Tanpa Latihan"
-summary: "Figure AI luncurkan Helix 2.5, model baru yang memungkinkan robot Figure 03 masuk ke 30 rumah di Bay Area dan langsung melakukan tugas rumah tangga tanpa perlu training tambahan di lokasi tersebut."
+title: 'Robot Humanoid Bisa Masuk Rumah Baru dan Langsung Kerja, Tanpa Latihan'
+summary: 'Figure AI luncurkan Helix 2.5, model baru yang memungkinkan robot Figure 03 masuk ke 30 rumah di Bay Area dan langsung melakukan tugas rumah tangga tanpa perlu training tambahan di lokasi tersebut.'
 publishedAt: 2026-09-25T17:00:00+07:00
-tags: ["AI", "Robot", "Figure AI", "Helix 2.5"]
+tags: ['AI', 'Robot', 'Figure AI', 'Helix 2.5']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-25-robot-figure-helix-25-rumah-baru-16x9.png"
+coverImage: '../../assets/images/2026-09-25-robot-figure-helix-25-rumah-baru-16x9.png'
 ---
 
 # Robot Humanoid Bisa Masuk Rumah Baru dan Langsung Kerja, Tanpa Latihan

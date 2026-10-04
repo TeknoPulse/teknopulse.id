@@ -1,10 +1,10 @@
 ---
-title: "Nvidia dan Google Dirikan Alliansi Pengelolaan Energi AI, Bidik Kapasitas Listrik 100GW"
-summary: "Nvidia, Google, dan Emerald AI mengumumkan pendirian Aliansi Pengelolaan Energi AI (AEMA) pada 16 September 2026, sebuah koalisi industri yang bertujuan menjadikan pusat data AI sebagai sumber daya listrik yang fleksibel dan dapat dikontrol, bukan sekadar konsumen pasif energi."
+title: 'Nvidia dan Google Dirikan Alliansi Pengelolaan Energi AI, Bidik Kapasitas Listrik 100GW'
+summary: 'Nvidia, Google, dan Emerald AI mengumumkan pendirian Aliansi Pengelolaan Energi AI (AEMA) pada 16 September 2026, sebuah koalisi industri yang bertujuan menjadikan pusat data AI sebagai sumber daya listrik yang fleksibel dan dapat dikontrol, bukan sekadar konsumen pasif energi.'
 publishedAt: 2026-09-17T17:00:00+07:00
-tags: ["AI", "Nvidia", "Google", "Energi", "Data Center", "Tech Business"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'Nvidia', 'Google', 'Energi', 'Data Center', 'Tech Business']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-09-17-nvidia-google-alliansi-energi-ai-16x9.png'
 ---

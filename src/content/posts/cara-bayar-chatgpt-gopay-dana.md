@@ -58,11 +58,11 @@ Kalau kamu pernah mencoba berlangganan langsung di web dan gagal, itu bukan kece
 
 Sejak ChatGPT Go diluncurkan resmi di pasar Indonesia pada September 2025, semua paketnya punya banderol rupiah — bukan hasil konversi dolar. Harga berikut dicek 14 September 2026 dari halaman resmi OpenAI:
 
-| Paket | Harga per bulan | Cocok untuk |
-| --- | --- | --- |
-| Gratis | Rp 0 | Mencoba dulu — chat teks tanpa batas dengan model ringan |
-| Go | Rp 75.000 (termasuk PPN) | Pemakaian rutin: pesan jauh lebih banyak, gambar, unggah file |
-| Plus | Rp 349.000 | Akses model terbaru penuh, mode agent, suara lanjutan |
+| Paket  | Harga per bulan          | Cocok untuk                                                   |
+| ------ | ------------------------ | ------------------------------------------------------------- |
+| Gratis | Rp 0                     | Mencoba dulu — chat teks tanpa batas dengan model ringan      |
+| Go     | Rp 75.000 (termasuk PPN) | Pemakaian rutin: pesan jauh lebih banyak, gambar, unggah file |
+| Plus   | Rp 349.000               | Akses model terbaru penuh, mode agent, suara lanjutan         |
 
 Satu catatan soal pajak: harga Go sudah termasuk PPN. Untuk memastikan nominal yang kamu bayar, selalu lihat angka final di lembar pembayaran Google Play sebelum menekan tombol konfirmasi — di situ tercantum total yang akan ditagihkan, termasuk pajak bila ada.
 
@@ -102,11 +102,11 @@ Yang lebih nyaman pakai kartu, jalurnya juga lewat sini: **kartu kredit** (dan s
 
 Intinya: jalur pembayaran mengikuti tempat kamu membuat langganan, bukan tempat kamu memakai ChatGPT.
 
-| Tempat berlangganan | Jalur pembayaran | Catatan |
-| --- | --- | --- |
-| Aplikasi Android | Google Play: GoPay, DANA, QRIS, kartu | Paling ramah e-wallet Indonesia |
-| Aplikasi iPhone | Apple Account: kartu atau voucher App Store | Voucher bisa dibeli pakai GoPay, DANA, QRIS, atau tunai |
-| Laptop (chatgpt.com) | Kartu saja | Kartu debit lokal perlu transaksi online diaktifkan dulu |
+| Tempat berlangganan  | Jalur pembayaran                            | Catatan                                                  |
+| -------------------- | ------------------------------------------- | -------------------------------------------------------- |
+| Aplikasi Android     | Google Play: GoPay, DANA, QRIS, kartu       | Paling ramah e-wallet Indonesia                          |
+| Aplikasi iPhone      | Apple Account: kartu atau voucher App Store | Voucher bisa dibeli pakai GoPay, DANA, QRIS, atau tunai  |
+| Laptop (chatgpt.com) | Kartu saja                                  | Kartu debit lokal perlu transaksi online diaktifkan dulu |
 
 Di iOS, langganan ChatGPT ditagihkan ke Apple Account. Kalau tidak punya kartu, jalurnya voucher App Store & iTunes region Indonesia: beli kode voucher dari penjual resmi seperti Codashop — bisa dibayar tunai di Alfamart/Indomaret, QRIS, GoPay, atau DANA — lalu redeem kodenya ke Apple Account kamu dan biarkan langganan menumpang saldo tersebut. Pastikan region Apple ID kamu Indonesia supaya voucher dan harga pasarnya cocok.
 

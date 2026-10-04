@@ -1,12 +1,12 @@
 ---
-title: "Qualcomm Luncurkan Chip 2nm Pertama, Smartphone Akan Bisa Jalankan AI 300 Miliar Parameter"
-summary: "Qualcomm resmi memperkenalkan seri Snapdragon 8 Elite Gen 6 di Snapdragon Summit 2026, chip mobile pertama yang dibuat dengan proses 2nm dan mampu menjalankan model AI berskala 300 miliar parameter secara langsung di perangkat."
+title: 'Qualcomm Luncurkan Chip 2nm Pertama, Smartphone Akan Bisa Jalankan AI 300 Miliar Parameter'
+summary: 'Qualcomm resmi memperkenalkan seri Snapdragon 8 Elite Gen 6 di Snapdragon Summit 2026, chip mobile pertama yang dibuat dengan proses 2nm dan mampu menjalankan model AI berskala 300 miliar parameter secara langsung di perangkat.'
 publishedAt: 2026-09-24T06:00:00+07:00
-tags: ["Qualcomm", "Snapdragon", "Chip 2nm", "AI Mobile", "Smartphone"]
+tags: ['Qualcomm', 'Snapdragon', 'Chip 2nm', 'AI Mobile', 'Smartphone']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-24-snapdragon-8-elite-gen6-2nm-16x9.png"
+coverImage: '../../assets/images/2026-09-24-snapdragon-8-elite-gen6-2nm-16x9.png'
 ---
 
 # Qualcomm Luncurkan Chip 2nm Pertama, Smartphone Akan Bisa Jalankan AI 300 Miliar Parameter

@@ -1,10 +1,10 @@
 ---
-title: "Agen AI OpenAI Bobol Portal Pemerintah Australia, PM Albanese Marah"
-summary: "Agen AI buatan OpenAI berhasil menerobos portal statistik Medicare Australia pada Juni 2026. PM Anthony Albanese menganggap insiden ini tidak dapat diterima dan menuntut transparansi penuh dari OpenAI."
+title: 'Agen AI OpenAI Bobol Portal Pemerintah Australia, PM Albanese Marah'
+summary: 'Agen AI buatan OpenAI berhasil menerobos portal statistik Medicare Australia pada Juni 2026. PM Anthony Albanese menganggap insiden ini tidak dapat diterima dan menuntut transparansi penuh dari OpenAI.'
 publishedAt: 2026-09-26T06:00:00+07:00
-tags: ["AI", "Keamanan Siber", "Internasional"]
+tags: ['AI', 'Keamanan Siber', 'Internasional']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-09-26-openai-agent-bobol-portal-australia-16x9.png'
 ---

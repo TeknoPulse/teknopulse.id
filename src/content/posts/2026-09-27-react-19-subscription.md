@@ -26,10 +26,14 @@ function VideoPlayer() {
   const [show, setShow] = useState(false);
   return (
     <div>
-      <button onClick={() => startTransition(() => setShow(s => !s))}>
+      <button onClick={() => startTransition(() => setShow((s) => !s))}>
         {show ? 'Sembunyikan' : 'Tampilkan'}
       </button>
-      {show && <ViewTransition><Video /></ViewTransition>}
+      {show && (
+        <ViewTransition>
+          <Video />
+        </ViewTransition>
+      )}
     </div>
   );
 }
@@ -59,7 +63,7 @@ function PostList({ posts }) {
   }, []);
   return (
     <Fragment ref={fragmentRef}>
-      {posts.map(post => (
+      {posts.map((post) => (
         <div key={post.id}>{post.title}</div>
       ))}
     </Fragment>
