@@ -128,47 +128,21 @@ import Layout from '../layouts/Layout.astro';
   </main>
 </Layout>
 
-<script is:inline>
-  (() => {
-    const KEY = 'teknopulse-consent-ga4';
-    const GA4_ID = 'G-79X7QWV977';
+<script>
+  import { read, next, isEnabled, loadGa4, saveStored } from '../utils/consent';
 
+  // Session-cleanup signal only — do not remove.
+  // GA4_ID is internal to consent.ts for injection; this copy is needed only for
+  // the ga-disable-<ID> property and gtag reconfiguration on opt-out.
+  const GA4_ID = 'G-79X7QWV977';
+
+  (() => {
     const toggle = document.getElementById('ga4-toggle');
     const thumb = document.getElementById('ga4-toggle-thumb');
     const statusText = document.getElementById('ga4-status-text');
     if (!toggle || !thumb || !statusText) return;
 
-    const getStored = () => {
-      try {
-        const raw = localStorage.getItem(KEY);
-        if (!raw) return null;
-        // Migrate legacy bare-string format.
-        if (raw === 'granted' || raw === 'denied') {
-          const migrated = {
-            decision: raw,
-            dismissCount: 0,
-            lastDismissed: null,
-            cycleStarted: null,
-          };
-          localStorage.setItem(KEY, JSON.stringify(migrated));
-          return migrated;
-        }
-        return JSON.parse(raw);
-      } catch {
-        return null;
-      }
-    };
-
-    const saveStored = (obj) => {
-      try {
-        localStorage.setItem(KEY, JSON.stringify(obj));
-        return true;
-      } catch {
-        return false; /* storage blocked */
-      }
-    };
-
-    const setUI = (enabled) => {
+    const setUI = (enabled: boolean) => {
       if (enabled) {
         toggle.classList.add('bg-primary');
         toggle.classList.remove('bg-gray-300', 'dark:bg-gray-600');
@@ -186,53 +160,30 @@ import Layout from '../layouts/Layout.astro';
       }
     };
 
-    const loadGa4 = () => {
-      if (document.querySelector('script[data-ga4]')) return;
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () {
-        // Pola kanonik bootstrap gtag.js: command queue GA4 menuntut satu entri
-        // arguments-like per panggilan gtag — rest params + spread memecahnya
-        // menjadi beberapa entri sehingga GA4 tidak pernah inisialisasi.
-        // eslint-disable-next-line prefer-rest-params
-        window.dataLayer.push(arguments);
-      };
-      window.gtag('js', new Date());
-      window.gtag('config', GA4_ID);
-      const s = document.createElement('script');
-      s.async = true;
-      s.dataset.ga4 = GA4_ID;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
-      document.head.appendChild(s);
-    };
-
     // Initialise toggle state from localStorage.
-    const stored = getStored();
-    setUI(stored?.decision === 'granted');
+    const stored = read();
+    setUI(isEnabled(stored));
 
     toggle.addEventListener('click', () => {
-      const isEnabled = toggle.getAttribute('aria-checked') === 'true';
+      const currentlyEnabled = toggle.getAttribute('aria-checked') === 'true';
+      const today = new Date().toISOString().slice(0, 10);
 
-      if (!isEnabled) {
+      if (!currentlyEnabled) {
         // Turn ON: grant consent and load GA4 immediately.
-        saveStored({
-          decision: 'granted',
-          dismissCount: 0,
-          lastDismissed: null,
-          cycleStarted: null,
-        });
+        try {
+          saveStored(next(stored, 'toggleOn', today));
+        } catch {
+          return; // storage blocked — leave UI unchanged
+        }
         setUI(true);
         const banner = document.getElementById('cookie-consent');
         if (banner) banner.hidden = true;
         loadGa4();
       } else {
         // Turn OFF: deny consent. GA4 cookies require a reload to clear fully.
-        const saved = saveStored({
-          decision: 'denied',
-          dismissCount: 0,
-          lastDismissed: null,
-          cycleStarted: null,
-        });
-        if (!saved) {
+        try {
+          saveStored(next(stored, 'toggleOff', today));
+        } catch {
           // Storage blocked — leave UI reflecting current granted state, show error.
           const err = document.createElement('p');
           err.id = 'ga4-save-error';
@@ -255,9 +206,13 @@ import Layout from '../layouts/Layout.astro';
         // deleted client-side; a full cleanup still requires clearing browser
         // site data manually.
         // Signal resmi GA4: hit tidak dikirim lagi pada halaman/sesi ini.
-        window['ga-disable-' + GA4_ID] = true;
-        if (window.gtag) {
-          window.gtag('config', GA4_ID, { storage: 'none', send_page_view: false });
+        const win = window as unknown as Record<string, unknown>;
+        win['ga-disable-' + GA4_ID] = true;
+        if (win['gtag']) {
+          (win['gtag'] as (cmd: string, ...args: unknown[]) => void)('config', GA4_ID, {
+            storage: 'none',
+            send_page_view: false,
+          });
         }
         const cookiesToClear = [
           '_ga',

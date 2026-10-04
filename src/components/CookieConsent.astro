@@ -13,7 +13,6 @@
 // localStorage key: teknopulse-consent-ga4
 // Schema: { decision, dismissCount, lastDismissed, cycleStarted }
 // (string lama "granted"/"denied" dimigrasikan otomatis ke schema baru)
-const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
 ---
 
 <div
@@ -67,81 +66,20 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
   </div>
 </div>
 
-<script is:inline define:vars={{ ga4Id: GA4_MEASUREMENT_ID }}>
-  (() => {
-    const KEY = 'teknopulse-consent-ga4';
-    const CYCLE_MAX = 3; // dismissals per cycle before 30-day rest
-    const REST_DAYS = 30; // days to wait after CYCLE_MAX dismissals
+<script>
+  import { read, next, shouldShow, isEnabled, loadGa4, saveStored } from '../utils/consent';
 
+  (() => {
     const banner = document.getElementById('cookie-consent');
     if (!banner) return;
 
-    // Setara bootstrap standar gtag.js — dijalankan hanya setelah persetujuan.
-    const loadGa4 = () => {
-      if (document.querySelector('script[data-ga4]')) return;
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function () {
-        // Pola kanonik bootstrap gtag.js: command queue GA4 menuntut satu entri
-        // arguments-like per panggilan gtag — rest params + spread memecahnya
-        // menjadi beberapa entri sehingga GA4 tidak pernah inisialisasi.
-        // eslint-disable-next-line prefer-rest-params
-        window.dataLayer.push(arguments);
-      };
-      window.gtag('js', new Date());
-      window.gtag('config', ga4Id);
-      const s = document.createElement('script');
-      s.async = true;
-      s.dataset.ga4 = ga4Id;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ga4Id;
-      document.head.appendChild(s);
-    };
-
+    // UI glue — local helper retained here (trivial, not consent logic).
     const getTodayString = () => {
       const d = new Date();
       const yyyy = d.getFullYear();
       const mm = String(d.getMonth() + 1).padStart(2, '0');
       const dd = String(d.getDate()).padStart(2, '0');
       return `${yyyy}-${mm}-${dd}`; // "YYYY-MM-DD" kalender lokal pengguna
-    };
-
-    const daysBetween = (dateStr1, dateStr2) => {
-      // Bandingkan ordinal hari kalender lokal, bukan selisih milidetik UTC.
-      const [y1, m1, d1] = dateStr1.split('-').map(Number);
-      const [y2, m2, d2] = dateStr2.split('-').map(Number);
-      const utc1 = Date.UTC(y1, m1 - 1, d1);
-      const utc2 = Date.UTC(y2, m2 - 1, d2);
-      return Math.floor((utc2 - utc1) / 86400000);
-    };
-
-    // Read and migrate localStorage: old bare-string format → new JSON schema.
-    const getStored = () => {
-      try {
-        const raw = localStorage.getItem(KEY);
-        if (!raw) return null;
-        // Migrate legacy bare-string values from old two-button implementation.
-        if (raw === 'granted' || raw === 'denied') {
-          const migrated = {
-            decision: raw,
-            dismissCount: 0,
-            lastDismissed: null,
-            cycleStarted: null,
-          };
-          localStorage.setItem(KEY, JSON.stringify(migrated));
-          return migrated;
-        }
-        return JSON.parse(raw);
-      } catch {
-        return null;
-      }
-    };
-
-    const saveStored = (obj) => {
-      try {
-        localStorage.setItem(KEY, JSON.stringify(obj));
-        return true;
-      } catch {
-        return false; // storage blocked (mode privat / storage dimatikan)
-      }
     };
 
     // Pesan bila preferensi tidak bisa disimpan: tanpa catatan, GA4 tidak dimuat.
@@ -155,46 +93,22 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
       document.querySelector('#cookie-consent > div')?.appendChild(err);
     };
 
-    // Determine whether to show banner based on consent state and cycle logic.
-    const shouldShow = (stored) => {
-      if (!stored || stored.decision === 'deferred') {
-        // First ever visit.
-        if (!stored || !stored.lastDismissed) return true;
+    const stored = read();
 
-        const today = getTodayString();
-        const daysSince = daysBetween(stored.lastDismissed, today);
-
-        if (stored.dismissCount < CYCLE_MAX) {
-          // Within active cycle: show again next calendar day.
-          return daysSince >= 1;
-        }
-
-        // Cycle exhausted: wait REST_DAYS then start fresh.
-        return daysSince >= REST_DAYS;
-      }
-      return false; // granted or denied → never show
-    };
-
-    const stored = getStored();
-
-    if (stored?.decision === 'granted') {
+    if (isEnabled(stored)) {
       loadGa4();
       return;
     }
 
-    if (shouldShow(stored)) {
+    if (shouldShow(stored, getTodayString())) {
       banner.hidden = false;
     }
 
     // "Setuju" → grant, load GA4, never show again.
     document.getElementById('consent-accept')?.addEventListener('click', () => {
-      const saved = saveStored({
-        decision: 'granted',
-        dismissCount: 0,
-        lastDismissed: null,
-        cycleStarted: null,
-      });
-      if (!saved) {
+      try {
+        saveStored(next(stored, 'accept', getTodayString()));
+      } catch {
         // Persetujuan tidak terekam → jangan muat GA4 dan biarkan banner tampil
         // (default aman: tanpa catatan persetujuan, tidak ada cookie _ga).
         showStorageError();
@@ -207,34 +121,19 @@ const GA4_MEASUREMENT_ID = 'G-79X7QWV977';
     // [×] → deferred, increment cycle counter.
     // Guard: jangan timpa keputusan yang sudah final (granted/denied).
     document.getElementById('consent-close')?.addEventListener('click', () => {
-      const current = getStored();
+      const current = read();
       if (current?.decision === 'granted' || current?.decision === 'denied') {
         banner.hidden = true;
         return;
       }
       const today = getTodayString();
-
-      let dismissCount = (current?.dismissCount || 0) + 1;
-      let cycleStarted = current?.cycleStarted || today;
-
-      // If we just completed a full cycle rest, reset the counter.
-      if (
-        current?.dismissCount >= CYCLE_MAX &&
-        current?.lastDismissed &&
-        daysBetween(current.lastDismissed, today) >= REST_DAYS
-      ) {
-        dismissCount = 1;
-        cycleStarted = today;
-      }
-
       // Bila penyimpanan gagal, keputusan tidak terekam: banner muncul lagi pada
       // kunjungan berikutnya dan GA4 tetap tidak dimuat (default aman).
-      saveStored({
-        decision: 'deferred',
-        dismissCount,
-        lastDismissed: today,
-        cycleStarted,
-      });
+      try {
+        saveStored(next(current, 'defer', today));
+      } catch {
+        // storage failure — banner hides but reappears next visit
+      }
       banner.hidden = true;
     });
   })();
