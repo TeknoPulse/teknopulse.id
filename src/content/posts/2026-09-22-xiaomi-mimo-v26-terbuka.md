@@ -1,12 +1,12 @@
 ---
-title: "Xiaomi Rilis MiMo-V2.6: Model AI Triliun Parameter Bersifat Terbuka, Gratis untuk Semua Orang"
-summary: "Xiaomi resmi membuka kode MiMo-V2.6, model AI berskala triliun parameter yang mencatatkan skor tertinggi di antara model open-weight. Dengan harga mulai dari Rp 2 per juta token, siapa pun bisa mengaksesnya."
+title: 'Xiaomi Rilis MiMo-V2.6: Model AI Triliun Parameter Bersifat Terbuka, Gratis untuk Semua Orang'
+summary: 'Xiaomi resmi membuka kode MiMo-V2.6, model AI berskala triliun parameter yang mencatatkan skor tertinggi di antara model open-weight. Dengan harga mulai dari Rp 2 per juta token, siapa pun bisa mengaksesnya.'
 publishedAt: 2026-09-22T17:00:00+07:00
-tags: ["AI", "Open Source", "Xiaomi", "Machine Learning"]
+tags: ['AI', 'Open Source', 'Xiaomi', 'Machine Learning']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-22-xiaomi-mimo-v26-terbuka-16x9.png"
+coverImage: '../../assets/images/2026-09-22-xiaomi-mimo-v26-terbuka-16x9.png'
 ---
 
 # Xiaomi Rilis MiMo-V2.6: Model AI Triliun Parameter Bersifat Terbuka, Gratis untuk Semua Orang
@@ -21,7 +21,7 @@ Yang bikin serius, MiMo-V2.6-Pro berhasil mencatat skor **46 poin** pada Artific
 
 ## Bagaimana Xiaomi Mencapainya?
 
-Dibalik pencapaian itu ada pendekatan yang cukup unik bernama **Recursive Self-Improvement (RSI)** atau peningkatan diri secara rekursif. Xiaomi menjelaskan bahwa mereka memperluas kapasitas *reinforcement learning* (RL) secara masif selama proses pelatihan. Alih-alih hanya memperbesar model, Xiaomi memperbesar cara model itu belajar.
+Dibalik pencapaian itu ada pendekatan yang cukup unik bernama **Recursive Self-Improvement (RSI)** atau peningkatan diri secara rekursif. Xiaomi menjelaskan bahwa mereka memperluas kapasitas _reinforcement learning_ (RL) secara masif selama proses pelatihan. Alih-alih hanya memperbesar model, Xiaomi memperbesar cara model itu belajar.
 
 Dalam praktiknya, proses pelatihan Pro menelan biaya sekitar **2,62 juta dolar AS** dan Flash sekitar **850.000 dolar AS**, selesai dalam waktu kurang dari enam hari. Masing-masing menjalani 30 langkah RL dengan total sekitar 750 ribu trajectories. Hasilnya, pada ujian DeepSWE v1.1 yang mengukur kemampuan rekayasa perangkat lunak, skor Pro melonjak dari 48,8 menjadi 65,7, dan Flash dari 58,4 menjadi 72,6. Peningkatan itu bukan sekadar angka — itu berarti model ini benar-benar lebih baik dalam menulis, memahami, dan bekerja dengan kode.
 

@@ -55,21 +55,21 @@ iPhone lipat pertama Apple akhirnya resmi: **iPhone Duo** diperkenalkan pada 9 S
 
 ## Spesifikasi Kunci iPhone Duo
 
-| Aspek | Spesifikasi |
-| --- | --- |
-| Layar dalam | Super Retina XDR 7,6 inci, ProMotion, Always-On, lapisan nano-texture, hingga 3.000 nits |
-| Layar luar | Super Retina XDR 5,4 inci (90% luas layar iPhone 18 Pro), ProMotion, Always-On |
-| Chip | Apple A20 Pro 2nm, CPU 6-core, GPU 7-core, Neural Engine 16-core ganda |
-| Pendingin | Vapor chamber |
+| Aspek           | Spesifikasi                                                                                                    |
+| --------------- | -------------------------------------------------------------------------------------------------------------- |
+| Layar dalam     | Super Retina XDR 7,6 inci, ProMotion, Always-On, lapisan nano-texture, hingga 3.000 nits                       |
+| Layar luar      | Super Retina XDR 5,4 inci (90% luas layar iPhone 18 Pro), ProMotion, Always-On                                 |
+| Chip            | Apple A20 Pro 2nm, CPU 6-core, GPU 7-core, Neural Engine 16-core ganda                                         |
+| Pendingin       | Vapor chamber                                                                                                  |
 | Kamera belakang | Dua kamera 48 MP: utama dengan sensor-shift OIS + telephoto kualitas optik 2x, dan ultrawide dengan mode makro |
-| Kamera depan | Center Stage di layar luar, kamera FaceTime di bawah layar dalam |
-| Baterai | Hingga 31 jam pemutaran video (layar dalam), 44 jam (layar luar), 24 jam (kedua layar) |
-| Pengisian daya | Sekitar 20 menit hingga 50% lewat kabel, 30 menit lewat MagSafe/Qi2 |
-| Material | Titanium grade 5, Ceramic Shield 2 di depan, engsel 100+ komponen, rating IP68 |
-| Biometrik | Touch ID di tombol samping; bisa juga membuka kunci lewat Apple Watch |
-| Konektivitas | eSIM saja, Wi-Fi 7, Bluetooth 6, Thread, modem Apple C2 |
-| Penyimpanan | 256 GB, 512 GB, 1 TB, 2 TB |
-| Warna | Star White dan Night Sky |
+| Kamera depan    | Center Stage di layar luar, kamera FaceTime di bawah layar dalam                                               |
+| Baterai         | Hingga 31 jam pemutaran video (layar dalam), 44 jam (layar luar), 24 jam (kedua layar)                         |
+| Pengisian daya  | Sekitar 20 menit hingga 50% lewat kabel, 30 menit lewat MagSafe/Qi2                                            |
+| Material        | Titanium grade 5, Ceramic Shield 2 di depan, engsel 100+ komponen, rating IP68                                 |
+| Biometrik       | Touch ID di tombol samping; bisa juga membuka kunci lewat Apple Watch                                          |
+| Konektivitas    | eSIM saja, Wi-Fi 7, Bluetooth 6, Thread, modem Apple C2                                                        |
+| Penyimpanan     | 256 GB, 512 GB, 1 TB, 2 TB                                                                                     |
+| Warna           | Star White dan Night Sky                                                                                       |
 
 Chip A20 Pro memakai fabrikasi 2nm — teknologi proses yang sama dengan [chip M6 yang baru saja masuk Mac mini](/posts/2026-08-27-apple-m6-mac-mini-2nm-chip/), jadi seluruh lini perangkat Apple 2026 kini sudah berbasis 2nm. Dari sisi software, iPhone Duo menjalankan iOS 27 yang dirancang ulang untuk layar lipat, lengkap dengan dukungan [Apple Intelligence 2 dan Siri AI](https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo/). Apple juga menyebut iPhone Duo akan mendukung Apple Pencil USB-C pada akhir 2026, bisa dipakai di kedua layar.
 
@@ -80,13 +80,13 @@ Satu hal yang tidak disebut di keynote tapi penting diketahui: bobot dan ketebal
 Harga resmi hanya tersedia untuk pasar luar. Ini daftar lengkapnya untuk pasar AS:
 
 | Varian | Harga AS | Sekitar (rupiah) |
-| --- | --- | --- |
-| 256 GB | US$1.999 | Rp 35,2 juta |
-| 512 GB | US$2.199 | Rp 38,7 juta |
-| 1 TB | US$2.599 | Rp 45,8 juta |
-| 2 TB | US$3.199 | Rp 56,4 juta |
+| ------ | -------- | ---------------- |
+| 256 GB | US$1.999 | Rp 35,2 juta     |
+| 512 GB | US$2.199 | Rp 38,7 juta     |
+| 1 TB   | US$2.599 | Rp 45,8 juta     |
+| 2 TB   | US$3.199 | Rp 56,4 juta     |
 
-*Konversi memakai kurs sekitar Rp 17.600/US$. Untuk acuan tetangga terdekat, harga di Singapura berada di kisaran SGD 3.099 (sekitar Rp 43,1 juta) untuk 256 GB sampai SGD 4.899 (sekitar Rp 68,2 juta) untuk 2 TB.*
+_Konversi memakai kurs sekitar Rp 17.600/US$. Untuk acuan tetangga terdekat, harga di Singapura berada di kisaran SGD 3.099 (sekitar Rp 43,1 juta) untuk 256 GB sampai SGD 4.899 (sekitar Rp 68,2 juta) untuk 2 TB._
 
 **Harga Indonesia belum resmi.** Apple maupun distributor belum mengumumkan apa pun. Yang beredar saat ini baru bocoran dari leaker Bagus Hernawan (dikutip detikINET, 16 September): iPhone Duo diperkirakan dijual mulai **Rp 44,999 juta**, sementara iPhone 18 Pro Max mulai Rp 29,999 juta. Ingat, ini perkiraan — bukan angka resmi — dan harga resmi Indonesia biasanya lebih tinggi dari konversi kurs langsung. Pembanding pola resmi tahun lalu: iPhone 17 Pro dijual mulai Rp 23,749 juta saat pertama masuk Indonesia.
 

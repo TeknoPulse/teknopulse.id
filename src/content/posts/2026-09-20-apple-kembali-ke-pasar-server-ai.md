@@ -1,10 +1,10 @@
 ---
-title: "15 Tahun Absen, Apple Siap Comeback ke Pasar Server dengan Chip AI M8 Ultra"
-summary: "Apple dikabarkan tengah mengembangkan server AI enterprise berbasis chip M8 Ultra untuk inference, menandai kembalinya Apple ke pasar server enterprise setelah 15 tahun."
+title: '15 Tahun Absen, Apple Siap Comeback ke Pasar Server dengan Chip AI M8 Ultra'
+summary: 'Apple dikabarkan tengah mengembangkan server AI enterprise berbasis chip M8 Ultra untuk inference, menandai kembalinya Apple ke pasar server enterprise setelah 15 tahun.'
 publishedAt: 2026-09-20T09:00:00+07:00
-tags: ["Apple", "AI", "Server", "Hardware", "M8 Ultra"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['Apple', 'AI', 'Server', 'Hardware', 'M8 Ultra']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-09-20-apple-kembali-ke-pasar-server-ai-16x9.png'
 ---

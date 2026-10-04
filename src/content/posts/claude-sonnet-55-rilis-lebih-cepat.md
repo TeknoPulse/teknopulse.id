@@ -1,13 +1,13 @@
 ---
-title: "Claude Sonnet 5.5: 30 Persen Lebih Cepat, Hingga 30 Persen Lebih Hemat per Tugas"
-slug: "claude-sonnet-55-rilis-lebih-cepat"
-summary: "Anthropic merilis Claude Sonnet 5.5: 30 persen lebih cepat, biaya per tugas turun hingga 30 persen, dan unggul atas Opus 5.5 di Terminal-Bench 4.0."
+title: 'Claude Sonnet 5.5: 30 Persen Lebih Cepat, Hingga 30 Persen Lebih Hemat per Tugas'
+slug: 'claude-sonnet-55-rilis-lebih-cepat'
+summary: 'Anthropic merilis Claude Sonnet 5.5: 30 persen lebih cepat, biaya per tugas turun hingga 30 persen, dan unggul atas Opus 5.5 di Terminal-Bench 4.0.'
 publishedAt: 2026-09-29T06:00:00+07:00
-tags: ["Anthropic", "Claude", "AI", "Coding", "Developer"]
+tags: ['Anthropic', 'Claude', 'AI', 'Coding', 'Developer']
 category: Developer
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/claude-sonnet-55-rilis-lebih-cepat-16x9.png"
+coverImage: '../../assets/images/claude-sonnet-55-rilis-lebih-cepat-16x9.png'
 ---
 
 Anthropic resmi memperkenalkan Claude Sonnet 5.5 pada 28 September 2026. Ini adalah model kedua dalam keluarga Claude 5.5, setelah Opus 5.5 meluncur sepekan sebelumnya. Sonnet 5.5 hadir sebagai peningkatan jelas dari Sonnet 5, membawa performa yang jauh lebih cepat dengan biaya yang lebih rendah di hampir seluruh beban kerja. Kabar ini langsung jadi pembicaraan hangat di kalangan developer dan engineer yang selama ini mengandalkan Claude untuk tugas coding dan pekerjaan teknis sehari-hari.

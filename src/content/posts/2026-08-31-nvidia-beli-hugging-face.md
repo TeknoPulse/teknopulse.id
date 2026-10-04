@@ -68,7 +68,7 @@ Dalam praktiknya, artinya developer tetap bebas memilih model, framework, layana
 
 ## Investasi yang Dulu Ditolak
 
-Ada latar cerita yang menarik dari kesepakatan ini. Pada akhir 2025, Nvidia dilaporkan *Financial Times* pernah menawarkan investasi **US$500 juta pada valuasi US$7 miliar** — dan ditolak Hugging Face. Alasannya: tidak ingin terlalu bergantung pada satu vendor perangkat keras dan ingin menjaga posisi netralnya di ekosistem AI.
+Ada latar cerita yang menarik dari kesepakatan ini. Pada akhir 2025, Nvidia dilaporkan _Financial Times_ pernah menawarkan investasi **US$500 juta pada valuasi US$7 miliar** — dan ditolak Hugging Face. Alasannya: tidak ingin terlalu bergantung pada satu vendor perangkat keras dan ingin menjaga posisi netralnya di ekosistem AI.
 
 Sembilan bulan kemudian, posisi tawarnya berubah: bukan lagi sedikit saham, melainkan pembelian penuh dengan nilai hampir dua kali lipat.
 

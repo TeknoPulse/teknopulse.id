@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Rombak Copilot Jadi Sistem Operasi Kerja AI"
-summary: "Microsoft ubah Copilot jadi platform kerja AI lengkap: tiga pilar baru Home, Code, dan Autopilot, plus harga berbasis pemakaian lewat Copilot Credits."
+title: 'Microsoft Rombak Copilot Jadi Sistem Operasi Kerja AI'
+summary: 'Microsoft ubah Copilot jadi platform kerja AI lengkap: tiga pilar baru Home, Code, dan Autopilot, plus harga berbasis pemakaian lewat Copilot Credits.'
 publishedAt: 2026-09-27T06:00:00+07:00
-tags: ["AI", "Microsoft", "Teknologi"]
+tags: ['AI', 'Microsoft', 'Teknologi']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/microsoft-copilot-super-app-16x9.png"
+coverImage: '../../assets/images/microsoft-copilot-super-app-16x9.png'
 ---
 
 # Microsoft Rombak Copilot Jadi Sistem Operasi Kerja AI

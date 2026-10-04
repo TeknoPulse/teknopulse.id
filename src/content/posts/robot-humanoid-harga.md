@@ -68,16 +68,16 @@ Di luar tiga kelompok itu ada kategori keempat yang paling sering muncul di beri
 
 Berikut harga yang bisa dipertanggungjawabkan, diambil langsung dari halaman resmi produsen pada 20 September 2026. Konversi rupiah memakai kurs 1 dolar AS ≈ Rp 17.768 (kurs hari yang sama), dan semua produsen menyebut pajak serta biaya pengiriman belum termasuk.
 
-| Robot | Kelas | Harga resmi | Setara rupiah |
-|---|---|---|---|
-| Unitree R1 AIR | Riset/hobi | $4.900 | ± Rp 87 juta |
-| Unitree R1 | Riset | $5.900 | ± Rp 105 juta |
-| Unitree G1 | Riset/developer, mulai | $13.500 | ± Rp 240 juta |
-| Unitree H2 | Humanoid penuh | $29.900 | ± Rp 531 juta |
-| Unitree R1 EDU / H2 EDU | Edukasi/riset | Harga via kontak penjualan | — |
-| AiMOGA Mornine | Layanan (beli/sewa) | Tidak dipublikasikan | Konsultasi di store Jakarta |
-| Boston Dynamics Atlas | Industri | Tidak dipublikasikan | Kontrak bisnis |
-| Tesla Optimus | Prototipe | Belum dijual | — |
+| Robot                   | Kelas                  | Harga resmi                | Setara rupiah               |
+| ----------------------- | ---------------------- | -------------------------- | --------------------------- |
+| Unitree R1 AIR          | Riset/hobi             | $4.900                     | ± Rp 87 juta                |
+| Unitree R1              | Riset                  | $5.900                     | ± Rp 105 juta               |
+| Unitree G1              | Riset/developer, mulai | $13.500                    | ± Rp 240 juta               |
+| Unitree H2              | Humanoid penuh         | $29.900                    | ± Rp 531 juta               |
+| Unitree R1 EDU / H2 EDU | Edukasi/riset          | Harga via kontak penjualan | —                           |
+| AiMOGA Mornine          | Layanan (beli/sewa)    | Tidak dipublikasikan       | Konsultasi di store Jakarta |
+| Boston Dynamics Atlas   | Industri               | Tidak dipublikasikan       | Kontrak bisnis              |
+| Tesla Optimus           | Prototipe              | Belum dijual               | —                           |
 
 Beberapa catatan yang membuat tabel ini tidak bisa dibaca sekilas:
 

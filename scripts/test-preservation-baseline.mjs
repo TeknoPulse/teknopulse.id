@@ -141,7 +141,11 @@ console.log('══════════════════════�
 console.log('── P2-1: categories.ts mendefinisikan AI sebagai kunci valid (Req 3.1, 3.5)');
 const tsContent = parseCategoriesTs();
 const keys = extractCategoryKeys(tsContent);
-assert(keys.includes('AI'), "categories.ts memiliki kunci 'AI'", `Kunci yang ditemukan: ${keys.join(', ')}`);
+assert(
+  keys.includes('AI'),
+  "categories.ts memiliki kunci 'AI'",
+  `Kunci yang ditemukan: ${keys.join(', ')}`
+);
 
 // ── P2-2: Warna AI tidak berubah (preservation core) ─────────────────────────
 console.log('\n── P2-2: Warna badge AI tetap hsl(270, 80%, 60%) (Req 3.1)');
@@ -166,7 +170,7 @@ console.log('\n── P2-4: CSS class .category-ai ada di src/styles/global.css 
 const globalCss = fs.readFileSync(path.join(ROOT, 'src/styles/global.css'), 'utf-8');
 assert(
   globalCss.includes('.category-ai {') || globalCss.includes('.category-ai{'),
-  "global.css mendefinisikan .category-ai { ... }",
+  'global.css mendefinisikan .category-ai { ... }',
   'Kelas CSS .category-ai tidak ditemukan di global.css'
 );
 
@@ -174,7 +178,7 @@ assert(
 console.log('\n── P2-5: .category-ai memakai token bg-category-ai (Req 3.1)');
 assert(
   globalCss.includes('bg-category-ai'),
-  ".category-ai menggunakan token bg-category-ai",
+  '.category-ai menggunakan token bg-category-ai',
   'Token bg-category-ai tidak ditemukan di dalam blok .category-ai'
 );
 
@@ -224,9 +228,9 @@ const configTs = fs.readFileSync(path.join(ROOT, 'src/content/config.ts'), 'utf-
 const zodEnumMatch = configTs.match(/z\.enum\(\[([^\]]+)\]\)/);
 const zodEnumValues = zodEnumMatch
   ? zodEnumMatch[1]
-    .split(',')
-    .map((v) => v.trim().replace(/['"]/g, ''))
-    .filter(Boolean)
+      .split(',')
+      .map((v) => v.trim().replace(/['"]/g, ''))
+      .filter(Boolean)
   : [];
 
 // Ekstrak kunci dari categories.ts
@@ -280,15 +284,14 @@ assert(
 );
 
 // ── P2-12: Property: untuk setiap artikel AI, slug kategori konsisten ──────────
-console.log('\n── P2-12: [Property] Setiap artikel AI menggunakan kelas badge category-ai (Req 3.1)');
+console.log(
+  '\n── P2-12: [Property] Setiap artikel AI menggunakan kelas badge category-ai (Req 3.1)'
+);
 // Sampling: cek 5 artikel AI pertama
 const sampleFiles = aiFiles.slice(0, 5);
 let allSampleHaveAI = true;
 for (const file of sampleFiles) {
-  const content = fs.readFileSync(
-    path.join(ROOT, 'src/content/posts', file),
-    'utf-8'
-  );
+  const content = fs.readFileSync(path.join(ROOT, 'src/content/posts', file), 'utf-8');
   if (!/^category:\s*AI\s*$/m.test(content)) {
     allSampleHaveAI = false;
     break;
@@ -311,7 +314,9 @@ console.log(`  Artikel AI non-draft         : ${aiPostCount}`);
 console.log(`  Artikel AI draft             : ${draftCount}`);
 console.log(`  Total artikel AI             : ${aiPostCount + draftCount}`);
 console.log(`  Kunci enum Zod saat ini      : [${zodEnumValues.join(', ')}]`);
-console.log(`  SSOT sinkron?                : ${missingFromZod.length === 0 && missingFromCats.length === 0 ? 'YA' : 'TIDAK'}`);
+console.log(
+  `  SSOT sinkron?                : ${missingFromZod.length === 0 && missingFromCats.length === 0 ? 'YA' : 'TIDAK'}`
+);
 console.log('');
 console.log('  YANG HARUS DIPERTAHANKAN SETELAH FIX:');
 console.log(`  ✔ categories.ts TETAP mendefinisikan kunci 'AI'`);
@@ -326,7 +331,9 @@ console.log('');
 
 if (failed === 0) {
   console.log(`  ✅ BASELINE TERKONFIRMASI: ${passed}/${passed + failed} pemeriksaan LULUS`);
-  console.log('  Jalankan skrip ini KEMBALI setelah fix (Task 12.2) untuk verifikasi preservation.\n');
+  console.log(
+    '  Jalankan skrip ini KEMBALI setelah fix (Task 12.2) untuk verifikasi preservation.\n'
+  );
   process.exit(0);
 } else {
   console.error(`  ❌ BASELINE GAGAL: ${failed} dari ${passed + failed} pemeriksaan GAGAL`);

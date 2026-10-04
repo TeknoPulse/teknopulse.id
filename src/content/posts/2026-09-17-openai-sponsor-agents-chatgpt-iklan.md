@@ -1,10 +1,10 @@
 ---
-title: "OpenAI Ubah ChatGPT Jadi Platform Iklan dengan Sponsor Agents"
-summary: "OpenAI resmi luncurkan Sponsor Agents, format iklan berbasis percakapan di dalam ChatGPT, lengkap dengan integrasi HubSpot dan Shopify untuk membuka jalur monetisasi baru."
+title: 'OpenAI Ubah ChatGPT Jadi Platform Iklan dengan Sponsor Agents'
+summary: 'OpenAI resmi luncurkan Sponsor Agents, format iklan berbasis percakapan di dalam ChatGPT, lengkap dengan integrasi HubSpot dan Shopify untuk membuka jalur monetisasi baru.'
 publishedAt: 2026-09-17T06:00:00+07:00
-tags: ["AI", "OpenAI", "ChatGPT", "Advertising", "Tech Business"]
-category: "AI"
-author: "TeknoPulse Redaksi"
+tags: ['AI', 'OpenAI', 'ChatGPT', 'Advertising', 'Tech Business']
+category: 'AI'
+author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/2026-09-17-openai-sponsor-agents-chatgpt-iklan-16x9.png'
 ---

@@ -1,12 +1,12 @@
 ---
-title: "Claude Ancam CRISPR? AI Temukan Sistem Enzim Baru di DNA"
-summary: "Anthropic mengumumkan bahwa model AI Claude berhasil menemukan sistem enzim baru bernama ART yang tersembunyi dalam DNA fag, memiliki kemiripan struktural dengan CRISPR."
+title: 'Claude Ancam CRISPR? AI Temukan Sistem Enzim Baru di DNA'
+summary: 'Anthropic mengumumkan bahwa model AI Claude berhasil menemukan sistem enzim baru bernama ART yang tersembunyi dalam DNA fag, memiliki kemiripan struktural dengan CRISPR.'
 publishedAt: 2026-09-24T17:00:00+07:00
-tags: ["AI", "Biomedis", "Anthropic", "Genomik"]
+tags: ['AI', 'Biomedis', 'Anthropic', 'Genomik']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
-coverImage: "../../assets/images/2026-09-24-claude-anthropic-temukan-enzim-art-16x9.png"
+coverImage: '../../assets/images/2026-09-24-claude-anthropic-temukan-enzim-art-16x9.png'
 ---
 
 # Claude Ancam CRISPR? AI Temukan Sistem Enzim Baru di DNA
@@ -15,7 +15,7 @@ Anthropic membuat gebrakan di dunia ilmu hayat. Pada 23 September 2026, perusaha
 
 ## Apa yang Ditemukan Claude?
 
-Sistem enzim baru tersebut diberi nama **ART** (*Array-Associated Reverse Transcriptases*) atau Revers Transkriptase Terkait-Array. Enzim ini tersembunyi di dalam DNA fag, yaitu virus yang menyerang bakteri.
+Sistem enzim baru tersebut diberi nama **ART** (_Array-Associated Reverse Transcriptases_) atau Revers Transkriptase Terkait-Array. Enzim ini tersembunyi di dalam DNA fag, yaitu virus yang menyerang bakteri.
 
 Struktur ART terdiri dari tiga komponen utama. Pertama, terdapat enzim revers transkriptase yang menyalin RNA kembali menjadi DNA. Kedua, terdapat gen mitra dengan fungsi yang belum diketahui. Ketiga, terdapat deretan DNA berulang yang jaraknya teratur, mirip dengan susunan CRISPR yang sudah dikenal luas dalam dunia manipulasi gen.
 
