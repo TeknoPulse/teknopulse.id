@@ -13,6 +13,7 @@ tags:
   - Content Creation
 author: 'TeknoPulse Redaksi'
 draft: true
+coverImage: '../../assets/images/editing-video-berbasis-teks-claude-opus-5-5-16x9.png'
 source:
   - name: 'Robin Ebers — The content AI model that beat Fable 5.1'
     url: 'https://www.attentionmachine.ai'

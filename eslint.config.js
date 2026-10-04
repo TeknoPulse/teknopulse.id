@@ -57,6 +57,14 @@ export default tseslint.config(
   {
     // Ignore config files. cleanup.cjs = skrip one-off pembersihan konten
     // lama (CommonJS), bukan bagian dari build — tidak dilint.
-    ignores: ['*.config.js', '*.config.mjs', '*.config.cjs', 'dist/', '.astro/', 'cleanup.cjs'],
+    ignores: [
+      '*.config.js',
+      '*.config.mjs',
+      '*.config.cjs',
+      'dist/',
+      '.astro/',
+      'cleanup.cjs',
+      '.openclaw/',
+    ],
   }
 );

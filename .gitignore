@@ -39,3 +39,14 @@ docs/agents/
 docs/implementation-plan-*.md
 CONTEXT.md
 .openclaw/
+
+# agent and workflow artifacts
+.agents/
+.kiro/
+
+# conductor workspace (deprecated)
+conductor/
+
+# worktree directories
+.worktrees/
+

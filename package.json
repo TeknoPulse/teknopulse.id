@@ -25,6 +25,7 @@
     "covers:publish": "node scripts/covers.mjs publish",
     "post:new": "node scripts/new-post.js",
     "test:preservation": "node scripts/test-preservation-baseline.mjs",
+    "test:consent": "node scripts/test-consent.mjs",
     "postbuild": "pagefind --site dist --output-path dist/pagefind"
   },
   "dependencies": {
