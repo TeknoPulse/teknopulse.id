@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 import { fileURLToPath } from 'node:url';
 import { rehypeUniqueH1 } from './src/utils/rehype-unique-h1.js';
 import { createSitemapFilter } from './scripts/sitemap-exclusions.mjs';
+import { createLastmodSerializer } from './scripts/sitemap-lastmod.mjs';
 
 // Static output (Astro default) — deploy `dist/` to Cloudflare Pages.
 // SSR was dropped 2026-07-04 for the Cloudflare migration: @resvg/resvg-js
@@ -23,6 +24,12 @@ export default defineConfig({
       filter: createSitemapFilter({
         site: 'https://teknopulse.id',
         postsDir: fileURLToPath(new URL('./src/content/posts', import.meta.url)),
+      }),
+      // lastmod per-URL dari frontmatter (TEKAA-201 P2): hanya untuk halaman
+      // yang punya tanggal sumber yang akurat (posts, kategori, tags, home).
+      serialize: createLastmodSerializer({
+        postsDir: fileURLToPath(new URL('./src/content/posts', import.meta.url)),
+        categoriesFile: fileURLToPath(new URL('./src/utils/categories.ts', import.meta.url)),
       }),
     }),
     react(),

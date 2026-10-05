@@ -35,7 +35,7 @@ const categoryName = categoryMeta?.name ?? category;
 const isPaginated = page.currentPage > 1;
 const isEmpty = categoryCount === 0;
 const title = isPaginated ? `${categoryName} — Halaman ${page.currentPage}` : categoryName;
-const description = `${categoryMeta?.description ?? `Latest news and articles about ${categoryName}`}${
+const description = `${categoryMeta?.description ?? `Berita dan artikel terbaru seputar ${categoryName}`}${
   isPaginated ? ` — Halaman ${page.currentPage}.` : ''
 }`;
 const robots = isPaginated || isEmpty ? 'noindex, follow' : 'index, follow';
@@ -46,7 +46,7 @@ const robots = isPaginated || isEmpty ? 'noindex, follow' : 'index, follow';
     <div class="mb-8">
       <h1 class="mb-4 text-4xl font-bold">{categoryName}</h1>
       <p class="text-gray-600 dark:text-gray-400">
-        {categoryMeta?.description ?? `Latest news and articles about ${categoryName}`}
+        {categoryMeta?.description ?? `Berita dan artikel terbaru seputar ${categoryName}`}
       </p>
     </div>
 

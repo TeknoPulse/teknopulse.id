@@ -195,7 +195,7 @@ The site is optimized for excellent Lighthouse scores:
 
 ### Automatic Generation
 
-- **Sitemap**: Generated at `/sitemap.xml`
+- **Sitemap**: Generated at `/sitemap-index.xml` (dengan `/sitemap-0.xml`); berita di `/news-sitemap.xml`
 - **RSS Feed**: Available at `/rss.xml`
 - **JSON Feed**: Available at `/feed.json`
 - **Robots.txt**: Configured for search engines

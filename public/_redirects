@@ -27,3 +27,8 @@
 /category/devtools   /category/developer 301
 /category/open-source/* / 301
 /category/open-source   / 301
+
+# TEKAA-201 P0: audit menemukan referensi lama ke /sitemap.xml (404).
+# robots.txt sudah benar (sitemap-index.xml); redirect defensif ini
+# mengubah sisa referensi stale menjadi 301 ke sitemap yang benar.
+/sitemap.xml /sitemap-index.xml 301

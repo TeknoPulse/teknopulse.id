@@ -14,7 +14,7 @@ export const categories: Record<string, Category> = {
     color: 'hsl(270, 80%, 60%)', // Purple
     bgColor: 'hsl(270, 80%, 60% / 0.1)',
     hoverColor: 'hsl(270, 80%, 60% / 0.2)',
-    description: 'Machine Learning, AI models, research, and tools',
+    description: 'Machine learning, model AI, riset, dan tools AI',
   },
   Developer: {
     name: 'Developer',
@@ -23,7 +23,7 @@ export const categories: Record<string, Category> = {
     bgColor: 'hsl(140, 70%, 45% / 0.1)',
     hoverColor: 'hsl(140, 70%, 45% / 0.2)',
     description:
-      'Programming languages, APIs, libraries, IDEs, development tools, dan workflow untuk membangun software',
+      'Bahasa pemrograman, API, library, IDE, dan development tools untuk membangun software',
   },
   Software: {
     name: 'Software',
@@ -41,7 +41,7 @@ export const categories: Record<string, Category> = {
     bgColor: 'hsl(40, 85%, 55% / 0.1)',
     hoverColor: 'hsl(40, 85%, 55% / 0.2)',
     description:
-      'Workflow automation, integrations, APIs, agents, no-code/low-code, dan sistem yang menghubungkan berbagai tools',
+      'Otomasi workflow, integrasi, API, agent, dan sistem no-code/low-code yang menghubungkan berbagai tools',
   },
   Experiments: {
     name: 'Experiments',
@@ -58,7 +58,7 @@ export const categories: Record<string, Category> = {
     color: 'hsl(180, 70%, 50%)', // Teal
     bgColor: 'hsl(180, 70%, 50% / 0.1)',
     hoverColor: 'hsl(180, 70%, 50% / 0.2)',
-    description: 'Explainers, analysis, dan konteks di balik perkembangan teknologi',
+    description: 'Explainer, analisis, dan konteks di balik perkembangan teknologi',
   },
 };
 
