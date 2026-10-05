@@ -50,3 +50,7 @@ conductor/
 # worktree directories
 .worktrees/
 
+# IDE folders
+.vscode/
+.idea/
+
