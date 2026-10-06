@@ -8,7 +8,6 @@ category: AI
 author: 'TeknoPulse'
 coverImage: '../../assets/images/komdigi-buka-rekrutmen-pandu-literasi-digital-2025-16x9.png'
 draft: true
-coverImageAlt: 'TeknoPulse.id'
 og_image: '../../assets/images/menko-airlangga-ai-jadi-mesin-pertumbuhan-baru-indonesia-menuju-2045-16x9.png'
 ---
 

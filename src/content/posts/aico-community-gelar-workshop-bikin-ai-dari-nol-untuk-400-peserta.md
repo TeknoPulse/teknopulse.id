@@ -8,7 +8,6 @@ category: AI
 author: 'TeknoPulse'
 coverImage: '../../assets/images/aico-community-gelar-workshop-bikin-ai-dari-nol-untuk-400-peserta-16x9.png'
 draft: false
-coverImageAlt: 'TeknoPulse.id'
 og_image: '../../assets/images/investasi-global-ai-diproyeksi-capai-usd-100-miliar-16x9.png'
 ---
 
