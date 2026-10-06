@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCategoryLabel, getCategoryToken } from '../utils/categories';
+import { getCategoryLabel, getCategorySlug, getCategoryToken } from '../utils/categories';
 import { calculateReadingTime } from '../utils/readingTime';
 import { Image } from 'astro:assets';
 
@@ -27,11 +27,16 @@ const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
           height={200}
           class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
-        {/* Category badge overlay */}
+        {/* Category badge overlay — <a> supaya kategori (termasuk
+             experiments/insights yang jarang ke-link) dapat internal link
+             dari setiap kartu artikel (TEKAA-221) */}
         <div class="absolute top-3 left-3">
-          <span class={`category-badge category-${getCategoryToken(post.data.category)}`}>
+          <a
+            href={`/category/${getCategorySlug(post.data.category)}`}
+            class={`category-badge category-${getCategoryToken(post.data.category)}`}
+          >
             {getCategoryLabel(post.data.category)}
-          </span>
+          </a>
         </div>
 
         {/* Featured badge */}
