@@ -30,7 +30,7 @@ Namun, bagi seorang pendiri startup (_founder_), konsultan, atau kreator yang me
 
 Menulis untuk menjual (_copywriting_) menuntut standar yang jauh lebih tinggi pada baris pertama: kalimat pembuka harus mampu membuat calon pembeli yang tepat bergumam dalam hati, _"Ini dibuat khusus untuk masalah saya,"_ lalu menjaga rasa percaya mereka hingga tiba di baris harga.
 
-Berikut adalah dekonstruksi lima formula hook teruji ala Alex McFarland beserta cara penerapannya.
+Berikut adalah dekonstruksi lima formula hook ala Alex McFarland beserta cara penerapannya. Perlu dicatat: ini adalah rangkuman sudut pandang penulis buletin tersebut berdasarkan pengalamannya, bukan hasil uji terkontrol per formula — efektivitas tiap formula tetap bergantung pada audiens dan konteks penawaran Anda.
 
 ## 1. Hook #1: Angka Riil dan Pengorbanan di Baliknya (_The Number and What It Cost_)
 
@@ -91,7 +91,7 @@ Nyatakan secara singkat mengapa Anda kredibel untuk membicarakan topik tersebut,
 
 Sebelum menekan tombol kirim pada draf email atau mempublikasikan halaman penawaran Anda, lakukan satu tes sederhana: **baca kalimat pembuka Anda secara terisolasi tanpa konteks lain.**
 
-> _"Jika kalimat pembuka Anda terasa begitu umum sehingga bisa dipakai oleh siapa saja di industri Anda, kalimat itu tidak akan pernah berhasil menjual penawaran Anda."_
+> _"Jika kalimat pembuka Anda terasa begitu umum sehingga bisa dipakai oleh siapa saja di industri Anda, kemungkinan besar kalimat itu tidak akan berhasil menjual penawaran spesifik Anda."_
 
 ## Sumber
 

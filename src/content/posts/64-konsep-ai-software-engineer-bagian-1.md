@@ -51,10 +51,10 @@ Banyak tim pemula mencampuradukkan antara Generative AI, Machine Learning (ML), 
 
 Model bahasa besar memiliki pengetahuan statis yang terhenti pada tanggal pemotongan data latih (_training cutoff_). Melatih ulang model untuk setiap perubahan dokumen internal perusahaan membutuhkan biaya jutaan dolar yang mustahil dipertahankan.
 
-Inilah mengapa arsitektur **RAG** menjadi fondasi wajib enterprise:
-- **Mekanisme Kerja:** Saat pengguna bertanya, sistem terlebih dahulu menelusuri basis data vektor (_vector database_) perusahaan untuk mengambil petikan dokumen yang paling relevan, lalu menyematkannya ke dalam prompt model sebagai bukti referensi.
+Inilah mengapa arsitektur **RAG** menjadi salah satu pola arsitektur yang banyak dipakai di lingkungan enterprise:
+- **Mekanisme Kerja:** Saat pengguna bertanya, sistem terlebih dahulu mengambil petikan dokumen yang paling relevan dari indeks pencarian perusahaan — salah satunya dengan basis data vektor (_vector database_), selain opsi lain seperti pencarian kata kunci (_keyword search_), indeks semantik, atau pendekatan hibrida — lalu menyematkan petikan tersebut ke dalam prompt model sebagai bukti referensi.
 - **Analogi Ujian Buka Buku (_Open-Book Exam_):** Alih-alih menghafal seluruh ensiklopedia di luar kepala, Anda mencari halaman buku yang tepat sebelum menjawab soal ujian. Nilai akhir Anda ditentukan oleh kecepatan menemukan halaman yang benar dan ketepatan menafsirkannya.
-- **Tradeoff Kritis:** RAG tidak menjamin 100% jawaban benar jika pencarian vektor mengembalikan dokumen kebijakan lama atau melewatkan klausul pengecualian. Rancang agen Anda untuk berani menjawab _"Data tidak ditemukan"_ ketika dokumen pendukung memang tidak ada.
+- **Tradeoff Kritis:** RAG tidak menjamin 100% jawaban benar jika lapisan retrieval mengembalikan dokumen kebijakan lama atau melewatkan klausul pengecualian — apa pun jenis indeksnya. Rancang agen Anda untuk berani menjawab _"Data tidak ditemukan"_ ketika dokumen pendukung memang tidak ada.
 
 ## 4. Agen AI vs Alur Kerja Statis (Agentic Workflows)
 

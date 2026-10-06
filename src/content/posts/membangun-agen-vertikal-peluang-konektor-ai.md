@@ -26,10 +26,10 @@ _Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari buletin kurasi 
 
 Jika Anda menghabiskan sebagian besar waktu Anda membaca lini masa media sosial atau forum pengembang, Anda mungkin berasumsi bahwa seluruh dunia kini sudah membayar dan menggunakan asisten kecerdasan buatan setiap hari.
 
-Namun, data statistik pasar riil menunjukkan kenyataan yang sangat berbeda: **baru sekitar 2% rumah tangga di negara maju yang saat ini rutin membayar langganan AI konsumen.**
+Namun, menurut buletin IdeaBrowser edisi 5 Oktober 2026 yang menjadi sumber adaptasi artikel ini, kenyataan pasar menunjukkan hal yang sangat berbeda: **baru sekitar 2% rumah tangga AS yang saat ini membayar langganan AI konsumen** (angka estimasi dari sumber tersebut, bukan hasil survei independen TeknoPulse).
 
 Bagi para pesimis, angka 2% ini sering disalahartikan sebagai tanda bahwa masyarakat tidak membutuhkan AI. Namun, bagi para pembangun produk cerdas di balik **IdeaBrowser**, angka 2% adalah bukti bahwa kita sedang berdiri di **titik terbawah dari kurva adopsi berbentuk S (_S-curve_)**:
-- Berapa lama waktu yang dibutuhkan teknologi terdahulu (seperti komputer pribadi, ponsel pintar, atau internet) untuk melompat dari 2% menjadi 50% penetrasi rumah tangga? Rata-rata membutuhkan 10 hingga 15 tahun.
+- Berapa lama waktu yang dibutuhkan teknologi terdahulu untuk melompat dari 2% menjadi 50% penetrasi rumah tangga AS? Menurut bagan yang dikutip IdeaBrowser: ponsel pintar 6,5 tahun, internet 7,5 tahun, mobil 15 tahun, dan komputer 19 tahun.
 - Namun, pada gelombang kecerdasan buatan yang dipercepat oleh asisten agen persisten (seperti Meta Muse, OpenAI Dots, atau Google Gemini), lompatan adopsi massal tersebut diprediksi hanya akan memakan waktu 1 hingga 2 tahun ke depan.
 
 Pertanyaannya: **produk apa yang akan membuat 48% masyarakat sisanya bersedia membuka dompet mereka?**
