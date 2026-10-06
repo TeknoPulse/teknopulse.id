@@ -1,8 +1,8 @@
 ---
-title: "5 Formula Hook Copywriting yang Menghasilkan Penjualan Nyata untuk Founder dan Kreator"
+title: '5 Formula Hook Copywriting yang Menghasilkan Penjualan Nyata untuk Founder dan Kreator'
 slug: '5-formula-hook-copywriting-menghasilkan-penjualan'
-summary: "Bedah formula copywriting Alex McFarland: mengapa hook penjualan berbeda dari hook konten biasa, dan 5 template pembuka teruji untuk meningkatkan konversi penawaran digital."
-metaDescription: "Pelajari 5 formula hook copywriting berkonversi tinggi ala Alex McFarland untuk email dan halaman penjualan: dari angka riil hingga teknik mematahkan keberatan."
+summary: 'Bedah formula copywriting Alex McFarland: mengapa hook penjualan berbeda dari hook konten biasa, dan 5 template pembuka teruji untuk meningkatkan konversi penawaran digital.'
+metaDescription: 'Pelajari 5 formula hook copywriting ala Alex McFarland untuk email dan halaman penjualan: dari angka riil hingga teknik mematahkan keberatan.'
 publishedAt: 2026-10-06
 category: Insights
 tags:
@@ -12,8 +12,8 @@ tags:
   - Sales Hooks
   - Solopreneurship
   - Conversion
-coverImage: "/images/posts/2026-10-06-5-formula-hook-copywriting-menghasilkan-penjualan.png"
-coverImageAlt: "Pena klasik di atas buku catatan tulisan tangan melambangkan seni merangkai hook copywriting berkonversi tinggi"
+coverImage: '../../assets/images/2026-10-06-5-formula-hook-copywriting-menghasilkan-penjualan-16x9.png'
+coverImageAlt: 'Ilustrasi tipografi hook copywriting dengan pena di atas kertas, bergaya kartu editorial TeknoPulse'
 author: 'TeknoPulse Redaksi'
 draft: true
 source:
