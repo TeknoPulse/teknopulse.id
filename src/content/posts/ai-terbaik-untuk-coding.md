@@ -143,7 +143,7 @@ Satu bagian yang jarang ditulis: kadang AI coding bukan alat yang tepat.
 - **Kode rahasia.** Kode klien yang terikat NDA, algoritma inti perusahaan, dan semua yang berisi kredensial sebaiknya tidak ditempel ke layanan mana pun tanpa izin dan tanpa memahami kebijakan datanya. Bagian yang bisa disensor, sensorkan dulu.
 - **Sesekali saja.** Kalau kebutuhanmu satu script per bulan, versi gratis sudah lebih dari cukup — langganan Rp300–350 ribu/bulan baru masuk akal ketika waktu yang dihemat nilainya melebihi tagihannya.
 
-Satu penutup yang menghubungkan arah industri: asisten coding kini bergerak dari "menyarankan baris" menuju **agent** yang mengerjakan tugas beberapa langkah sendiri — inilah yang kami jelaskan di [AI agent adalah: definisi dan cara kerjanya](/posts/ai-agent-adalah/) dan bedanya dengan [AI generatif biasa](/posts/bedanya-ai-generatif-dan-ai-agent/). Menjelaskan AI coding hari ini tanpa menyebutnya setengah cerita.
+Satu penutup yang menghubungkan arah industri: asisten coding kini bergerak dari "menyarankan baris" menuju **agent** yang mengerjakan tugas beberapa langkah sendiri — inilah yang kami jelaskan di [AI agent adalah: definisi dan cara kerjanya](/posts/ai-agent-adalah/) dan bedanya dengan [AI generatif biasa](/posts/bedanya-ai-generatif-dan-ai-agent/). Menjelaskan AI coding hari ini tanpa menyebutnya setengah cerita. Dan kalau kamu ingin membandingkan asisten coding ini dengan tool AI untuk kerja lainnya, [direktori AI tools TeknoPulse](/ai-tools/) menyusunnya per kategori lengkap dengan catatan harga.
 
 ---
 

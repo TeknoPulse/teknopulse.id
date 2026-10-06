@@ -125,7 +125,7 @@ Dua hal yang sebaiknya dipegang sebelum membayar apa pun:
 - **Waspadai harga mingguan.** Remini, Meitu, dan beberapa paket Photoroom dihargai per minggu. Angkanya tampak kecil di layar, tapi dikali 52 minggu bisa melampaui langganan tahunan aplikasi lain. Kalau mencoba, matikan perpanjangan otomatis setelah tagihan pertama.
 - **Jangan dua langganan sekaligus.** Kebutuhan edit foto hampir selalu bisa ditutup satu layanan; langganan kedua biasanya cuma kebiasaan, bukan kebutuhan.
 
-Terakhir, satu pengingat etika yang berlaku di semua aplikasi di atas: jangan edit foto orang lain tanpa izin, dan jauh-jauh dari mengubah dokumen resmi seperti KTP atau ijazah — selain berisiko hukum, sebagian besar aplikasi juga menolak permintaan semacam itu.
+Terakhir, satu pengingat etika yang berlaku di semua aplikasi di atas: jangan edit foto orang lain tanpa izin, dan jauh-jauh dari mengubah dokumen resmi seperti KTP atau ijazah — selain berisiko hukum, sebagian besar aplikasi juga menolak permintaan semacam itu. Untuk kebutuhan di luar edit foto, [direktori AI tools](/ai-tools/) kami memetakan pilihan AI 2026 per kategori — chatbot, video, musik, produktivitas — lengkap dengan catatan harganya.
 
 ---
 
