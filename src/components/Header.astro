@@ -22,8 +22,9 @@ const allCategories = getAllCategories();
       <div class="group relative">
         <button
           class="flex items-center text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+          aria-controls="desktop-categories-menu"
         >
-          Categories
+          Kategori
           <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
             <path
               fill-rule="evenodd"
@@ -32,6 +33,7 @@ const allCategories = getAllCategories();
           </svg>
         </button>
         <div
+          id="desktop-categories-menu"
           class="absolute left-0 top-full hidden w-40 rounded-md bg-background py-2 shadow-lg group-focus-within:block group-hover:block dark:bg-background-dark"
         >
           {
@@ -77,8 +79,9 @@ const allCategories = getAllCategories();
       <button
         id="theme-toggle"
         class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+        title="Ganti tema"
+        aria-label="Ganti tema"
       >
-        <span class="sr-only">Toggle theme</span>
         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
           <path
             fill-rule="evenodd"
@@ -92,8 +95,11 @@ const allCategories = getAllCategories();
       <button
         id="mobile-menu-button"
         class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        title="Buka menu utama"
+        aria-label="Buka menu utama"
       >
-        <span class="sr-only">Open main menu</span>
         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
             stroke-linecap="round"
@@ -116,8 +122,10 @@ const allCategories = getAllCategories();
         <button
           id="mobile-categories-button"
           class="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
+          aria-expanded="false"
+          aria-controls="mobile-categories-menu"
         >
-          Categories
+          Kategori
           <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
             <path
               fill-rule="evenodd"
@@ -181,6 +189,8 @@ const allCategories = getAllCategories();
 
   mobileMenuButton?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
+    const isHidden = mobileMenu?.classList.contains('hidden');
+    mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
   });
 
   const mobileCategoriesButton = document.getElementById('mobile-categories-button');
@@ -188,5 +198,7 @@ const allCategories = getAllCategories();
 
   mobileCategoriesButton?.addEventListener('click', () => {
     mobileCategoriesMenu?.classList.toggle('hidden');
+    const isHidden = mobileCategoriesMenu?.classList.contains('hidden');
+    mobileCategoriesButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
   });
 </script>

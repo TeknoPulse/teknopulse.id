@@ -52,9 +52,17 @@ const { title, description, image, imageAlt, article, canonical, robots, postCat
     <Analytics />
   </head>
   <body class="bg-background text-gray-900 dark:bg-background-dark dark:text-gray-100">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4 focus:text-primary"
+    >
+      Lewati ke konten utama
+    </a>
     <Header />
     <Breadcrumbs postCategory={postCategory} postTitle={postTitle} />
-    <slot />
+    <div id="main-content" tabindex="-1">
+      <slot />
+    </div>
     <Footer />
     <CookieConsent />
   </body>
