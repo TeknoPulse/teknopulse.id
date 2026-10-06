@@ -12,7 +12,6 @@ tags:
   - RAG
   - AI Agents
   - Software Engineering
-coverImage: "/images/posts/2026-10-06-64-konsep-ai-software-engineer-bagian-1.png"
 coverImageAlt: "Visualisasi struktur jaringan syaraf tiruan dan node konsep arsitektur kecerdasan buatan modern"
 author: 'TeknoPulse Redaksi'
 draft: true
