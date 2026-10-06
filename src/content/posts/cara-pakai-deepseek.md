@@ -109,4 +109,4 @@ Ini bagian yang paling sering dilewatkan orang saat mengadopsi layanan AI baru �
 
 ---
 
-Kesimpulannya sederhana: untuk chat gratis tanpa kuota yang mengganggu, DeepSeek hari ini pilihan paling lega di Indonesia — daftar butuh beberapa menit, aplikasinya resmi ada di dua toko, dan biayanya nol. Yang perlu kamu baca sendiri hanyalah kebijakan privasinya, dan yang perlu kamu uji sendiri hanyalah rasa bahasa Indonesianya — keduanya kami pandu di atas.
+Kesimpulannya sederhana: untuk chat gratis tanpa kuota yang mengganggu, DeepSeek hari ini pilihan paling lega di Indonesia — daftar butuh beberapa menit, aplikasinya resmi ada di dua toko, dan biayanya nol. Yang perlu kamu baca sendiri hanyalah kebijakan privasinya, dan yang perlu kamu uji sendiri hanyalah rasa bahasa Indonesianya — keduanya kami pandu di atas. Kalau nanti kamu butuh pembanding dari kelas berbayar, [direktori AI tools TeknoPulse](/ai-tools/) adalah titik awal yang ringkas: tool dikelompokkan per kategori dengan catatan versi gratis dan harganya.

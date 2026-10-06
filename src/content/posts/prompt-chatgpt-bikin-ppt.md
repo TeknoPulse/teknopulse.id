@@ -97,7 +97,7 @@ Untuk mayoritas kebutuhan, cara nomor 1 dengan template siap pakai dari aplikasi
 - **Lupa catatan pembicara.** Slide yang bagus itu ringkas; penjelasan lengkapnya ditaruh di speaker notes, bukan di slide. Minta dari awal.
 - **Menganggap semua angkanya benar.** ChatGPT bisa keliru menyebut data, dan kamu yang bertanggung jawab di depan audiens. Angka penting — cek ulang ke sumber aslinya sebelum presentasi.
 
-Terakhir, ingat bahwa ChatGPT hanya satu alat di rantai kerjamu. Kalau kamu baru mulai memakainya untuk pekerjaan dan kuliah, [panduan dasar menggunakan ChatGPT untuk kerja dan belajar](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/) kami titip di sini, dan [panduan edit foto pakai ChatGPT](/posts/cara-edit-foto-chatgpt/) menunjukkan pola prompt yang sama untuk kebutuhan visual. Bandingkan ChatGPT dengan [Gemini dan Claude](/posts/chatgpt-vs-gemini-vs-claude-2026/) kalau kamu masih menimbang alat mana yang jadi andalanmu.
+Terakhir, ingat bahwa ChatGPT hanya satu alat di rantai kerjamu. Kalau kamu baru mulai memakainya untuk pekerjaan dan kuliah, [panduan dasar menggunakan ChatGPT untuk kerja dan belajar](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/) kami titip di sini, dan [panduan edit foto pakai ChatGPT](/posts/cara-edit-foto-chatgpt/) menunjukkan pola prompt yang sama untuk kebutuhan visual. Butuh alat bantu lain selain ChatGPT? [Direktori AI tools](/ai-tools/) kami mengelompokkan pilihan AI per kategori — dari riset sampai desain — lengkap dengan catatan harga. Bandingkan ChatGPT dengan [Gemini dan Claude](/posts/chatgpt-vs-gemini-vs-claude-2026/) kalau kamu masih menimbang alat mana yang jadi andalanmu.
 
 ---
 

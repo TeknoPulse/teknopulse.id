@@ -137,4 +137,4 @@ Dan satu hal yang sering terlewat: batas versi gratis dinilai ulang OpenAI dari 
 
 _Panduan ini terakhir dicek 14 September 2026: harga dari halaman resmi OpenAI, metode pembayaran dari dukungan resmi Google Play, DANA, dan Apple. Harga dan metode bisa berubah — jika kamu menemukan langkah yang sudah berbeda, tulis di kolom komentar agar kami perbarui. Artikel ini tidak memuat tautan afiliasi._
 
-_Untuk melanjutkan setelah langganan aktif, coba panduan [cara menggunakan ChatGPT untuk kerja dan belajar](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/) — atau mulai dari [dasar-dasar AI generatif dan AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/)._
+_Untuk melanjutkan setelah langganan aktif, coba panduan [cara menggunakan ChatGPT untuk kerja dan belajar](/posts/cara-menggunakan-chatgpt-untuk-kerja-dan-belajar-sehari-hari/) — atau mulai dari [dasar-dasar AI generatif dan AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/). Kalau masih menimbang layanan mana yang layak dilanggani, [direktori AI tools](/ai-tools/) kami merangkum pilihan utama 2026 beserta harga dan versi gratisnya._

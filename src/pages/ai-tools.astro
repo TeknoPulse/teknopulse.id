@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import NewsletterCTA from '../components/NewsletterCTA.astro';
 
-const lastUpdated = '8 September 2026';
+const lastUpdated = '6 Oktober 2026';
 
 type Tool = {
   name: string;
@@ -489,7 +489,96 @@ const faqSchema = {
         jadi titik awal yang baik.
       </p>
 
+      <section id="perbandingan-2026" class="scroll-mt-24 py-8">
+        <h2 class="mb-2 text-2xl font-bold md:text-3xl">
+          Perbandingan Cepat: AI Terpopuler 2026 &amp; Harganya
+        </h2>
+        <p class="mb-6 text-gray-600 dark:text-gray-400">
+          Ringkasan satu tabel dari pilihan utama di halaman ini — kategori, biaya, dan kegunaan
+          terbaiknya. Angka harga adalah langganan resmi: harga rupiah untuk layanan dengan harga
+          pasar Indonesia, dan harga US$ asli dari penyedia untuk layanan yang tidak memublikasikan
+          harga rupiah; detail dan batas versi gratisnya ada di artikel terkait.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[640px] border-collapse text-left text-sm">
+            <thead>
+              <tr
+                class="border-b border-gray-200 text-xs uppercase tracking-wide text-gray-500 dark:border-gray-800 dark:text-gray-400"
+              >
+                <th scope="col" class="py-2 pr-4 font-semibold">Tool</th>
+                <th scope="col" class="py-2 pr-4 font-semibold">Kategori</th>
+                <th scope="col" class="py-2 pr-4 font-semibold">Biaya</th>
+                <th scope="col" class="py-2 font-semibold">Paling cocok untuk</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">ChatGPT</th>
+                <td class="py-3 pr-4">Asisten &amp; chatbot</td>
+                <td class="py-3 pr-4">Gratis; Go Rp75.000, Plus Rp349.000/bulan</td>
+                <td class="py-3">Asisten serbaguna untuk kerja &amp; belajar sehari-hari</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">Gemini</th>
+                <td class="py-3 pr-4">Asisten &amp; chatbot</td>
+                <td class="py-3 pr-4">Gratis; Google AI Plus Rp75.000, Pro Rp309.000/bulan</td>
+                <td class="py-3">Riset &amp; belajar, terintegrasi ekosistem Google</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">Claude</th>
+                <td class="py-3 pr-4">Asisten &amp; chatbot</td>
+                <td class="py-3 pr-4">Gratis; Pro mulai sekitar US$20/bulan</td>
+                <td class="py-3">Tulis-menulis panjang &amp; analisis dokumen</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">DeepSeek</th>
+                <td class="py-3 pr-4">Asisten &amp; chatbot</td>
+                <td class="py-3 pr-4">Gratis tanpa kuota chat</td>
+                <td class="py-3">Chat gratis irit dengan Bahasa Indonesia yang fasih</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">GitHub Copilot</th>
+                <td class="py-3 pr-4">Coding &amp; development</td>
+                <td class="py-3 pr-4">Gratis 2.000 completions/bulan; Pro mulai US$10/bulan</td>
+                <td class="py-3">Asisten coding di editor (gratis untuk mahasiswa)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">Canva (Magic Studio)</th>
+                <td class="py-3 pr-4">Gambar &amp; desain</td>
+                <td class="py-3 pr-4">Gratis; Pro mulai Rp95.000/bulan</td>
+                <td class="py-3">Desain cepat: sosmed, presentasi, materi kelas</td>
+              </tr>
+              <tr>
+                <th scope="row" class="py-3 pr-4 font-semibold">Suno</th>
+                <td class="py-3 pr-4">Video, suara &amp; musik</td>
+                <td class="py-3 pr-4">50 kredit/hari (±10 lagu); paket Pro berbayar</td>
+                <td class="py-3">Musik &amp; lagu instant tanpa alat musik</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">
+          Harga dicek 14–20 September 2026 dari halaman resmi masing-masing layanan dan bisa
+          berubah. Bandingkan chatbotnya lebih dalam di
+          <a
+            href="/posts/chatgpt-vs-gemini-vs-claude-2026/"
+            class="font-medium text-primary hover:underline dark:text-accent"
+            >ChatGPT vs Gemini vs Claude (uji 2026)</a
+          >, atau lihat harga lengkap versi gratis &amp; berbayar di
+          <a
+            href="/posts/ai-terbaik-2026/"
+            class="font-medium text-primary hover:underline dark:text-accent">10 AI Terbaik 2026</a
+          >.
+        </p>
+      </section>
+
       <nav aria-label="Kategori AI tools" class="mb-10 flex flex-wrap gap-2">
+        <a
+          href="#perbandingan-2026"
+          class="rounded-full border border-gray-200 bg-surface px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary dark:border-gray-800 dark:bg-surface-dark dark:text-gray-300 dark:hover:border-accent dark:hover:text-accent"
+        >
+          Perbandingan Cepat
+        </a>
         {
           sections.map((section) => (
             <a
