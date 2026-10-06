@@ -42,7 +42,7 @@ const formatDate = (date: Date) => {
               leadPost.data.coverImage ? (
                 <Image
                   src={leadPost.data.coverImage}
-                  alt={leadPost.data.title}
+                  alt={leadPost.data.coverImageAlt ?? leadPost.data.title}
                   width={800}
                   height={450}
                   loading="eager"
@@ -112,7 +112,7 @@ const formatDate = (date: Date) => {
                   {post.data.coverImage ? (
                     <Image
                       src={post.data.coverImage}
-                      alt={post.data.title}
+                      alt={post.data.coverImageAlt ?? post.data.title}
                       width={80}
                       height={80}
                       loading="lazy"

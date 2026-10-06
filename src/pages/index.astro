@@ -70,7 +70,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
                   <div class="relative overflow-hidden">
                     <Image
                       src={latestPosts[0].data.coverImage}
-                      alt={latestPosts[0].data.title}
+                      alt={latestPosts[0].data.coverImageAlt ?? latestPosts[0].data.title}
                       width={600}
                       height={340}
                       loading="lazy"
