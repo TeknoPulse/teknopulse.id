@@ -1,9 +1,10 @@
 ---
-title: 'Cara Bayar ChatGPT (GoPay, DANA, QRIS) + Solusi Pembayaran Gagal'
+title: 'Cara Bayar ChatGPT Pakai GoPay/DANA 2026 Resmi'
 slug: 'cara-bayar-chatgpt-gopay-dana'
 summary: 'Panduan berlangganan ChatGPT tanpa kartu kredit: bayar pakai GoPay, DANA, atau QRIS lewat Google Play, lengkap dengan harga rupiah dan solusi kalau pembayaran gagal.'
-metaDescription: 'Panduan bayar ChatGPT di Indonesia: GoPay, DANA, QRIS, kartu — di HP & laptop. Harga ChatGPT Go & Plus rupiah + solusi pembayaran ditolak atau gagal.'
+metaDescription: 'Panduan resmi 2026: bayar ChatGPT tanpa kartu kredit via GoPay, DANA & QRIS lewat Google Play. Harga Go Rp75rb & Plus Rp349rb + solusi gagal bayar.'
 publishedAt: 2026-09-16T07:00:00+07:00
+updatedAt: 2026-10-06T12:00:00+07:00
 tags: ['ChatGPT', 'tutorial']
 category: AI
 author: 'TeknoPulse Redaksi'
