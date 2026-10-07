@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCategoryLabel, getCategoryToken } from '../utils/categories';
+import { coverAlt } from '../utils/coverAlt';
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -42,7 +43,7 @@ const formatDate = (date: Date) => {
               leadPost.data.coverImage ? (
                 <Image
                   src={leadPost.data.coverImage}
-                  alt={leadPost.data.coverImageAlt ?? leadPost.data.title}
+                  alt={coverAlt(leadPost)}
                   width={800}
                   height={450}
                   loading="eager"
@@ -112,7 +113,7 @@ const formatDate = (date: Date) => {
                   {post.data.coverImage ? (
                     <Image
                       src={post.data.coverImage}
-                      alt={post.data.coverImageAlt ?? post.data.title}
+                      alt={coverAlt(post)}
                       width={80}
                       height={80}
                       loading="lazy"

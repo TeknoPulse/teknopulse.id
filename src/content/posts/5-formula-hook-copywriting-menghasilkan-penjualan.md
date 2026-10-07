@@ -1,7 +1,7 @@
 ---
-title: '5 Formula Hook Copywriting yang Menghasilkan Penjualan Nyata untuk Founder dan Kreator'
+title: '5 Formula Hook Copywriting ala Alex McFarland untuk Founder dan Kreator'
 slug: '5-formula-hook-copywriting-menghasilkan-penjualan'
-summary: 'Bedah formula copywriting Alex McFarland: mengapa hook penjualan berbeda dari hook konten biasa, dan 5 template pembuka teruji untuk meningkatkan konversi penawaran digital.'
+summary: 'Bedah formula copywriting Alex McFarland: mengapa hook penjualan berbeda dari hook konten biasa, dan 5 pola pembuka yang ia pakai untuk menyusun penawaran digital.'
 metaDescription: 'Pelajari 5 formula hook copywriting ala Alex McFarland untuk email dan halaman penjualan: dari angka riil hingga teknik mematahkan keberatan.'
 publishedAt: 2026-10-06
 category: Insights

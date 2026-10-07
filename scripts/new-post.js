@@ -41,6 +41,8 @@ tags: ["tag1", "tag2"]
 category: ${category}
 author: "TeknoPulse Redaksi"
 draft: true
+# coverImage: "../../assets/images/${slug}-16x9.png" # wajib sebelum draft: false (PNG 1280×720, unik per artikel)
+# coverImageAlt: "Deskripsi isi gambar cover" # opsional; kalau kosong template pakai title
 # faq: # opsional, utk konten definisi/how-to (2–4 pertanyaan) → JSON-LD FAQPage
 #   - question: "Pertanyaan yang sering diajukan?"
 #     answer: "Jawaban 2–3 kalimat."
@@ -77,6 +79,7 @@ try {
   console.log(
     `   - coverImage spesifik artikel (unik, 16:9, ≥1200px) — jangan pakai gambar artikel lain`
   );
+  console.log(`   - coverImageAlt deskriptif kalau cover-nya ada (tanpa cover, hapus field-nya)`);
   console.log(`   - FAQ 2–4 pertanyaan utk konten definisi/how-to`);
   console.log(`   - Set draft: false when ready to publish`);
 } catch (error) {
