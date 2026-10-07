@@ -8,7 +8,6 @@ category: AI
 author: 'TeknoPulse'
 coverImage: '../../assets/images/cloud-gpu-pricing-comparison-in-2025-blog-16x9.png'
 draft: false
-coverImageAlt: 'TeknoPulse.id'
 og_image: '../../assets/images/cloud-gpu-pricing-comparison-in-2025-blog-16x9.png'
 ---
 

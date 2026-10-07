@@ -12,7 +12,7 @@ tags:
   - The Attention Machine
   - Content Creation
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/editing-video-berbasis-teks-claude-opus-5-5-16x9.png'
 source:
   - name: 'Robin Ebers — The content AI model that beat Fable 5.1'

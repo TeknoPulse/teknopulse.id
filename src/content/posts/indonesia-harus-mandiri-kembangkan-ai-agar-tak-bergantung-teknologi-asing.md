@@ -8,7 +8,6 @@ category: AI
 author: 'TeknoPulse'
 coverImage: '../../assets/images/indonesia-harus-mandiri-kembangkan-ai-agar-tak-bergantung-teknologi-asing-16x9.png'
 draft: false
-coverImageAlt: 'TeknoPulse.id'
 og_image: '../../assets/images/komdigi-gunakan-ai-untuk-patroli-siber-dan-deteksi-konten-negatif-16x9.png'
 ---
 
