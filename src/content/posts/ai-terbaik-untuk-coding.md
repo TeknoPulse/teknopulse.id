@@ -49,7 +49,7 @@ Kalau tidak punya waktu membaca semuanya, ini petanya:
 | Pengguna gratis yang mau kuota longgar       | **Gemini** atau **DeepSeek** | Keduanya bisa dipakai gratis tanpa kuota yang memberatkan untuk pemakaian harian ringan                        |
 | Eksperimen tanpa mau bikin akun kartu kredit | **DeepSeek**                 | Gratis dipakai di aplikasi dan web                                                                             |
 
-Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas model. Model coding berubah beberapa kali setahun — [perbandingan ChatGPT vs Gemini vs Claude kami](/posts/chatgpt-vs-gemini-vs-claude-2026/) bahkan sudah tertinggal beberapa kali sejak terbit. Yang lebih tahan lama adalah **cara memilih**: kebutuhan → batas gratis → harga. Itulah yang artikel ini ajarkan sekaligus kerjakan untukmu.
+Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas model. Model coding berubah beberapa kali setahun — [perbandingan ChatGPT vs Gemini vs Claude kami](/posts/chatgpt-vs-gemini-vs-claude-2026/) bahkan sudah tertinggal beberapa kali sejak terbit. Pembaca yang sedang mencari opsi tanpa akun bisa melihat juga [panduan ChatGPT gratis tanpa login](/posts/chatgpt-gratis-tanpa-login/). Yang lebih tahan lama adalah **cara memilih**: kebutuhan → batas gratis → harga. Itulah yang artikel ini ajarkan sekaligus kerjakan untukmu.
 
 ## Cara Kami Menguji: Dua Tugas yang Bisa Kamu Ulangi
 
