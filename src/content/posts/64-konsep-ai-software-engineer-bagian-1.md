@@ -30,6 +30,8 @@ Di balik interaksi sederhana itu bekerja tumpukan berlapis yang terdiri dari mod
 
 Berikut adalah dekonstruksi pilar-pilar penting dari bagian pertama panduan arsitektur System Design One.
 
+Konsep arsitektur ini juga relevan untuk developer frontend yang mengikuti [rilis stabil React 19.3](/posts/2026-09-27-react-19-subscription/) — terutama pola workflow dan tooling modern.
+
 ## 1. LLM (Large Language Models): Prediksi Token, Bukan Kesadaran
 
 Model bahasa besar (_LLM_) pada intinya adalah model probabilistik yang dilatih di atas triliunan kata untuk memprediksi token berikutnya:
@@ -70,6 +72,8 @@ Batas antara bot otomatisasi biasa dan agen AI terletak pada **derajat kebebasan
 1. **Dekonstruksi Masalah Sebelum Memilih Model:** Jangan gunakan model penalaran termahal jika masalah Anda dapat diselesaikan dengan pencarian RAG sederhana.
 2. **Evaluasi Berbasis Bukti (_Evaluation-Driven Development_):** Bangun metrik tolok ukur internal untuk mengukur akurasi model sebelum melakukan pembaruan dependensi AI di produksi.
 3. **Posisikan AI sebagai Draf Pertama:** Anggap hasil kecerdasan buatan sebagai rekan junior yang cerdas namun butuh peninjauan teliti dari insinyur senior.
+
+Artikel ini juga melengkapi [panduan spec-driven development dengan agentic AI](/posts/implementing-spec-driven-development-with-agentic-ai/) yang membahas penerapan spesifikasi, tool, dan API untuk workflow coding.
 
 ## Sumber
 

@@ -8,6 +8,9 @@ import { coverAlt } from '../../utils/coverAlt';
 import ShareButtons from '../../components/ShareButtons.astro';
 import GiscusComments from '../../components/GiscusComments.astro';
 import { Image } from 'astro:assets';
+import { getAllCategories, getCategoryUrl } from '../../utils/categories';
+
+const allCategories = getAllCategories();
 
 // ✅ Wajib: agar getStaticPaths() jalan
 export const prerender = true;
@@ -205,6 +208,22 @@ const faq = post.data.faq ?? [];
       {
         relatedPosts.length > 0 && (
           <section class="mt-12">
+            {/* Jelajahi kategori (TEKAA-221): semua kategori terdaftar —
+                termasuk Experiments & Insights yang tidak punya artikel —
+                dapat internal link dari setiap halaman artikel. */}
+            <h2 class="mb-4 text-xl font-bold">Jelajahi Kategori</h2>
+            <div class="mb-10 flex flex-wrap gap-2">
+              {
+                allCategories.map((cat) => (
+                  <a
+                    href={getCategoryUrl(cat.name)}
+                    class={`category-badge category-${cat.slug}`}
+                  >
+                    {cat.name}
+                  </a>
+                ))
+              }
+            </div>
             <h2 class="mb-6 text-2xl font-bold">Artikel Terkait</h2>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
               {relatedPosts.map((relatedPost) => (

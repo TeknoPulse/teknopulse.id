@@ -53,7 +53,7 @@ Tentu saja, angka keberhasilan 56 persen bukan akhir cerita. Ini berarti robot m
 
 Figure sendiri mengakui bahwa robotika humanoid umum belum sepenuhnya terselesaikan. Kendati demikian, Helix 2.5 menjadi bukti pertama bahwa kecerdasan seluruh tubuh bisa dipelajari dari pengalaman manusia dan ditransfer ke skenario baru tanpa harus membangun ulang dari awal setiap kali.
 
-Kalau pendekatan ini terus dikembangkan, masa depan di mana robot membantu pekerjaan rumah tangga di berbagai rumah tanpa perlu adaptasi khusus di setiap lokasi bukan lagi khayalan. Langkah selanjutnya tinggal meningkatkan keandalan, memperluas jenis tugas, dan tentu saja menekan harga agar robot semacam ini bisa dijangkau oleh lebih banyak keluarga.
+Kalau pendekatan ini terus dikembangkan, masa depan di mana robot membantu pekerjaan rumah tangga di berbagai rumah tanpa perlu adaptasi khusus di setiap lokasi bukan lagi khayalan. Langkah selanjutnya tinggal meningkatkan keandalan, memperluas jenis tugas, dan tentu saja menekan harga agar robot semacam ini bisa dijangkau oleh lebih banyak keluarga. Lihat [jenis, harga, dan status robot humanoid di Indonesia](/posts/robot-humanoid-harga/) untuk membandingkan klaim teknis ini dengan produk yang sudah tersedia.
 
 ## Sumber
 

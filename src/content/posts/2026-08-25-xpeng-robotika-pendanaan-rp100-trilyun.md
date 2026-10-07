@@ -41,7 +41,7 @@ Langkah XPeng ini menunjukkan bahwa transisi dari kendaraan listrik ke robotika 
 
 Valuasi 6,3 miliar dolar AS yang disematkan pada unit robotika XPeng menjadikan bisnis ini sebagai aset yang dapat dinilai secara independen, terpisah dari nilai bisnis kendaraan listriknya. Hal ini memberikan kejelasan bagi investor dan manajemen dalam menilai potensi pertumbuhan masing-masing segmen bisnis.
 
-Bagi pembaca di Indonesia, perkembangan ini menjadi pengingat bahwa perlombaan robot humanoid global semakin intensif. Dengan dukungan investor besar dan kemampuan produksi massal, XPeng berpeluang menjadi salah satu pemain utama yang mendefinisikan masa depan interaksi manusia dan robot di kehidupan sehari-hari.
+Bagi pembaca di Indonesia, perkembangan ini menjadi pengingat bahwa perlombaan robot humanoid global semakin intensif. Dengan dukungan investor besar dan kemampuan produksi massal, XPeng berpeluang menjadi salah satu pemain utama yang mendefinisikan masa depan interaksi manusia dan robot di kehidupan sehari-hari. Untuk konteks konsumen, baca [panduan harga robot humanoid dan ketersediaannya di Indonesia](/posts/robot-humanoid-harga/).
 
 ### Sumber
 

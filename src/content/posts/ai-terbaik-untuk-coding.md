@@ -49,7 +49,7 @@ Kalau tidak punya waktu membaca semuanya, ini petanya:
 | Pengguna gratis yang mau kuota longgar       | **Gemini** atau **DeepSeek** | Keduanya bisa dipakai gratis tanpa kuota yang memberatkan untuk pemakaian harian ringan                        |
 | Eksperimen tanpa mau bikin akun kartu kredit | **DeepSeek**                 | Gratis dipakai di aplikasi dan web                                                                             |
 
-Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas model. Model coding berubah beberapa kali setahun — [perbandingan ChatGPT vs Gemini vs Claude kami](/posts/chatgpt-vs-gemini-vs-claude-2026/) bahkan sudah tertinggal beberapa kali sejak terbit. Yang lebih tahan lama adalah **cara memilih**: kebutuhan → batas gratis → harga. Itulah yang artikel ini ajarkan sekaligus kerjakan untukmu.
+Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas model. Model coding berubah beberapa kali setahun — [perbandingan ChatGPT vs Gemini vs Claude kami](/posts/chatgpt-vs-gemini-vs-claude-2026/) bahkan sudah tertinggal beberapa kali sejak terbit. Pembaca yang sedang mencari opsi tanpa akun bisa melihat juga [panduan ChatGPT gratis tanpa login](/posts/chatgpt-gratis-tanpa-login/). Yang lebih tahan lama adalah **cara memilih**: kebutuhan → batas gratis → harga. Itulah yang artikel ini ajarkan sekaligus kerjakan untukmu.
 
 ## Cara Kami Menguji: Dua Tugas yang Bisa Kamu Ulangi
 
@@ -143,7 +143,7 @@ Satu bagian yang jarang ditulis: kadang AI coding bukan alat yang tepat.
 - **Kode rahasia.** Kode klien yang terikat NDA, algoritma inti perusahaan, dan semua yang berisi kredensial sebaiknya tidak ditempel ke layanan mana pun tanpa izin dan tanpa memahami kebijakan datanya. Bagian yang bisa disensor, sensorkan dulu.
 - **Sesekali saja.** Kalau kebutuhanmu satu script per bulan, versi gratis sudah lebih dari cukup — langganan Rp300–350 ribu/bulan baru masuk akal ketika waktu yang dihemat nilainya melebihi tagihannya.
 
-Satu penutup yang menghubungkan arah industri: asisten coding kini bergerak dari "menyarankan baris" menuju **agent** yang mengerjakan tugas beberapa langkah sendiri — inilah yang kami jelaskan di [AI agent adalah: definisi dan cara kerjanya](/posts/ai-agent-adalah/) dan bedanya dengan [AI generatif biasa](/posts/bedanya-ai-generatif-dan-ai-agent/). Menjelaskan AI coding hari ini tanpa menyebutnya setengah cerita. Dan kalau kamu ingin membandingkan asisten coding ini dengan tool AI untuk kerja lainnya, [direktori AI tools TeknoPulse](/ai-tools/) menyusunnya per kategori lengkap dengan catatan harga.
+Satu penutup yang menghubungkan arah industri: asisten coding kini bergerak dari "menyarankan baris" menuju **agent** yang mengerjakan tugas beberapa langkah sendiri — inilah yang kami jelaskan di [AI agent adalah: definisi dan cara kerjanya](/posts/ai-agent-adalah/) dan bedanya dengan [AI generatif biasa](/posts/bedanya-ai-generatif-dan-ai-agent/). Menjelaskan AI coding hari ini tanpa menyebutnya setengah cerita. Untuk menerapkan pola kerja yang lebih disiplin, baca [panduan spec-driven development dengan agentic AI](/posts/implementing-spec-driven-development-with-agentic-ai/). Dan kalau kamu ingin membandingkan asisten coding ini dengan tool AI untuk kerja lainnya, [direktori AI tools TeknoPulse](/ai-tools/) menyusunnya per kategori lengkap dengan catatan harga.
 
 ---
 

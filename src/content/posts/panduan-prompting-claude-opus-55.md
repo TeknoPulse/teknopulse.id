@@ -118,6 +118,8 @@ Kecanggihan model seperti Claude Opus 5.5 bukan lagi tentang seberapa rumit kita
 
 Langkah praktis yang disarankan: Luangkan waktu 15–20 menit pekan ini untuk membuka Claude dan menguji prompt yang sudah Anda gunakan. Jika system prompt percakapan memuat "think carefully", coba hilangkan frasa itu dan bandingkan hasilnya. Anda juga dapat mencoba instruksi terstruktur dengan batasan negatif yang jelas.
 
+Pendekatan seperti ini adalah contoh bagaimana sebuah rilis model dibedah lebih dalam, bukan sekadar diliputkan — jenis analisis semacam ini rutin kami kumpulkan di kategori [Insights](/category/insights/).
+
 ## Catatan Rujukan
 
 Artikel rujukan utama: Newsletter Opus 5.5 oleh Ruben Hassid (Substack - Konten artikel web berada di balik paywall langganan; intisari di atas dikembangkan berdasarkan naskah newsletter email dan panduan integrasi Claude Connectors).
