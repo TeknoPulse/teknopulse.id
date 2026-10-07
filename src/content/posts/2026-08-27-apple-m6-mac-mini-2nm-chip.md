@@ -43,7 +43,7 @@ Perangkat ini juga dilengkapi Wi-Fi 7 dan Bluetooth 6, porta jaringan yang lebih
 
 Bersamaan dengan Mac mini, Apple juga memperkenalkan M5 Ultra yang menggunakan teknologi UltraFusion empat chip baru. Dengan 36 inti CPU, 80 inti GPU, dan dukungan memori terpadu hingga 512GB, chip ini menawarkan performa yang jauh melampaui standar workstation tradisional. Namun M5 Ultra dan M5 Max ditujukan untuk lini Mac Studio yang dijual mulai dari 19.999 dolar AS.
 
-Transisi Apple ke teknologi 2nm ini menandai babak baru dalam evolusi chip untuk perangkat konsumen. Ini juga menunjukkan bahwa Apple semakin serius menjadikan AI lokal sebagai fondasi utama strateginya, bukan sekadar fitur tambahan.
+Transisi Apple ke teknologi 2nm ini menandai babak baru dalam evolusi chip untuk perangkat konsumen. Ini juga menunjukkan bahwa Apple semakin serius menjadikan AI lokal sebagai fondasi utama strateginya, bukan sekadar fitur tambahan. Qualcomm juga memperkenalkan chip mobile 2nm, [Snapdragon 8 Elite Gen 6](/posts/2026-09-24-snapdragon-8-elite-gen6-2nm/), dengan fokus pada AI on-device.
 
 ## Sumber
 

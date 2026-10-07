@@ -21,7 +21,7 @@ Nubia merancang NaviX Ultra di sekitar empat kemampuan inti: Memahami maksud pen
 
 Alih-alih merespons pertanyaan satu per satu seperti asisten suara tradisional, Doubao Mobile Assistant di NaviX Ultra dirancang untuk memahami maksud pengguna secara kontekstual, lalu mengerjakannya secara otonom. Pengguna bisa meminta ponsel untuk membandingkan harga di beberapa platform belanja dan langsung memesan produk pilihan — semua dalam satu instruksi.
 
-Pendekatan teknis di balik kemampuan lintas aplikasi ini cukup menarik. Nubia tidak menggunakan metode pengambilan layar dan simulasi sentuhan seperti bot otomatis tradisional. Sebagai gantinya, mereka mengadopsi protokol MCP (Model Context Protocol) — standar terbuka yang memungkinkan aplikasi pihak ketiga terhubung langsung ke asisten AI. Doubao berkomunikasi langsung dengan layanan melalui antarmuka resmi pengembang, bukan dengan membaca layar pengguna. Ini pendekatan yang jauh lebih hormat terhadap privasi.
+Pendekatan teknis di balik kemampuan lintas aplikasi ini cukup menarik. Nubia tidak menggunakan metode pengambilan layar dan simulasi sentuhan seperti bot otomatis tradisional. Sebagai gantinya, mereka mengadopsi protokol MCP (Model Context Protocol) — standar terbuka yang memungkinkan aplikasi pihak ketiga terhubung langsung ke asisten AI. Doubao berkomunikasi langsung dengan layanan melalui antarmuka resmi pengembang, bukan dengan membaca layar pengguna. Ini pendekatan yang jauh lebih hormat terhadap privasi. Baca juga [ulasan adopsi MCP oleh developer lokal](/posts/mcp-adoption-indonesia/) untuk konteks protokolnya.
 
 Satu hal penting: seluruh proses inferensi AI — termasuk pemahaman bahasa alami dan pengambilan keputusan tugas — dijalankan secara lokal di perangkat (on-device), bukan di server cloud. Data percakapan dan konteks pribadi tidak dikirim ke server ByteDance manapun.
 
@@ -39,7 +39,7 @@ Bagi pengguna di Indonesia, ByteDance sebagai otak di balik ponsel ini sudah san
 
 Secara lebih luas, NaviX Ultra menandai pergeseran konkret dari fase "ponsel yang bisa diajak bicara" ke fase "ponsel yang bisa mengerjakan tugas". Dan jika konsep ini berhasil di pasar Tiongkok, bukan tidak mungkin merek-merek lain mengikuti dalam satu atau dua tahun ke depan.
 
-Ponsel yang bekerja untuk Anda — bukan sekadar bekerja saat Anda menyuruhnya. Itulah janji yang dibawa NaviX Ultra ke rak toko, dan layak untuk terus dipantau.
+Ponsel yang bekerja untuk Anda — bukan sekadar bekerja saat Anda menyuruhnya. Itulah janji yang dibawa NaviX Ultra ke rak toko, dan layak untuk terus dipantau. Untuk membandingkan pendekatan ini dengan ekosistem robotika yang lebih luas, baca juga [perkembangan robot humanoid dan kisaran harga 2026](/posts/robot-humanoid-harga/).
 
 ## Sumber
 

@@ -72,6 +72,8 @@ Batas antara bot otomatisasi biasa dan agen AI terletak pada **derajat kebebasan
 2. **Evaluasi Berbasis Bukti (_Evaluation-Driven Development_):** Bangun metrik tolok ukur internal untuk mengukur akurasi model sebelum melakukan pembaruan dependensi AI di produksi.
 3. **Posisikan AI sebagai Draf Pertama:** Anggap hasil kecerdasan buatan sebagai rekan junior yang cerdas namun butuh peninjauan teliti dari insinyur senior.
 
+Artikel ini juga melengkapi [panduan spec-driven development dengan agentic AI](/posts/implementing-spec-driven-development-with-agentic-ai/) yang membahas penerapan spesifikasi, tool, dan API untuk workflow coding.
+
 ## Sumber
 
 - System Design One (#187) — Neo Kim: "64 AI Concepts Every Software Engineer Should Know" — https://newsletter.systemdesign.one/p/ai-concepts-explained-for-beginners

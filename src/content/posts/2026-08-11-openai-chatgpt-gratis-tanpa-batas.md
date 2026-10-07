@@ -44,7 +44,7 @@ Langkah ini bukan tanpa alasan. OpenAI berada di bawah tekanan kompetitif yang m
 
 Dengan basis lebih dari satu miliar pengguna aktif mingguan, OpenAI jelas tidak ingin kehilangan pangsa pasar. Membuka akses gratis ke model yang lebih baik adalah cara paling efektif untuk menjaga loyalitas pengguna sebelum kompetitor mengambil alih.
 
-Kabar ini juga datang hanya beberapa minggu setelah OpenAI memangkas harga Luna hingga 80% pada akhir Juli lalu. Harga Luna kini tinggal Rp0,20 per juta token input dan Rp1,20 per juta token output — sudah sangat terjangkau. Langkah terakhir ini membuka akses ke harga termurah tersebut bagi seluruh pengguna gratis.
+Kabar ini juga datang hanya beberapa minggu setelah OpenAI memangkas harga Luna hingga 80% pada akhir Juli lalu. Harga Luna kini tinggal Rp0,20 per juta token input dan Rp1,20 per juta token output — sudah sangat terjangkau. Langkah terakhir ini membuka akses ke harga termurah tersebut bagi seluruh pengguna gratis. Jika kamu tidak ingin membuat akun, baca juga [cara memakai ChatGPT tanpa login beserta batas dan risiko privasinya](/posts/chatgpt-gratis-tanpa-login/).
 
 ## Implikasi untuk Pengguna Indonesia
 
