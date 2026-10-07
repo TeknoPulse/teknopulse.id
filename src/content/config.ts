@@ -29,6 +29,9 @@ const posts = defineCollection({
       author: z.string(),
       draft: z.boolean().default(false),
       coverImage: image().optional(),
+      // Teks alt untuk coverImage (aksesibilitas + SEO). Fallback di
+      // template: judul artikel kalau kosong.
+      coverImageAlt: z.string().optional(),
       // Override og:image per artikel. Harus unik per artikel (16:9,
       // ≥1200px, memuat judul/brand). Kalau kosong, og:image = coverImage —
       // asalkan tidak dipakai artikel lain; kalau coverImage juga dipakai
