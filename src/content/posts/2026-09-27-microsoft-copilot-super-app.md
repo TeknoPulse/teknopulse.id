@@ -21,7 +21,7 @@ Annie Pearl, Corporate Vice President of Copilot, menjelaskan bahwa goal utama p
 
 ## Siapa Pun Bisa Bikin Aplikasi Tanpa Kode
 
-Pilar kedua, Code, memungkinkan pengguna membuat aplikasi, dasbor, dan alur kerja hanya dengan perintah bahasa alami. Fitur ini dibangun di atas teknologi yang sama dengan GitHub Copilot, namun dirancang untuk karyawan yang bukan programmer profesional. Pengguna cukup mendeskripsikan aplikasi yang diinginkan, dan Copilot akan menentukan pendekatan implementasi serta membangunkan solusi yang siap digunakan.
+Pilar kedua, Code, memungkinkan pengguna membuat aplikasi, dasbor, dan alur kerja hanya dengan perintah bahasa alami. Fitur ini dibangun di atas teknologi yang sama dengan GitHub Copilot, namun dirancang untuk karyawan yang bukan programmer profesional. Pengguna cukup mendeskripsikan aplikasi yang diinginkan, dan Copilot akan menentukan pendekatan implementasi serta membangunkan solusi yang siap digunakan. Di sisi framework web, [React 19.3 juga menstabilkan View Transitions dan Fragment Refs](/posts/2026-09-27-react-19-subscription/) untuk workflow developer frontend.
 
 Aplikasi dan otomatisasi yang dihasilkan Code berjalan di lingkungan terisolasi bernama Copilot Managed Runtime. Lingkungan ini dihosting di dalam tenant Microsoft 365 masing-masing perusahaan, sehingga departemen IT tetap memiliki kendali penuh atas tata kelola dan keamanan. Aplikasi yang dibuat dapat langsung dibagikan kepada tim tanpa perlu konfigurasi cloud tambahan.
 

@@ -31,6 +31,8 @@ Di balik interaksi sederhana itu bekerja tumpukan berlapis yang terdiri dari mod
 
 Berikut adalah dekonstruksi pilar-pilar penting dari bagian pertama panduan arsitektur System Design One.
 
+Konsep arsitektur ini juga relevan untuk developer frontend yang mengikuti [rilis stabil React 19.3](/posts/2026-09-27-react-19-subscription/) — terutama pola workflow dan tooling modern.
+
 ## 1. LLM (Large Language Models): Prediksi Token, Bukan Kesadaran
 
 Model bahasa besar (_LLM_) pada intinya adalah model probabilistik yang dilatih di atas triliunan kata untuk memprediksi token berikutnya:

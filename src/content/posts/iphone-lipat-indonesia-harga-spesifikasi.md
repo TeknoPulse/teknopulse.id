@@ -48,7 +48,7 @@ iPhone lipat pertama Apple akhirnya resmi: **iPhone Duo** diperkenalkan pada 9 S
 ## Ringkasan 60 Detik
 
 - **Nama resminya iPhone Duo**, bukan "iPhone Fold". Ini HP lipat pertama Apple, diumumkan di era CEO baru John Ternus — [suksesi dari Tim Cook yang kami bahas terpisah](/posts/2026-09-01-apple-ceo-john-ternus-foldable-iphone/).
-- **Layar dalam 7,6 inci dan layar luar 5,4 inci**, chip A20 Pro 2nm, dua kamera belakang 48 MP, bodi titanium grade 5, dilaporkan berbobot 254 gram.
+- **Layar dalam 7,6 inci dan layar luar 5,4 inci**, chip A20 Pro 2nm, dua kamera belakang 48 MP, bodi titanium grade 5, dilaporkan berbobot 254 gram. Untuk konteks chip mobile 2nm lain, lihat [Snapdragon 8 Elite Gen 6 dari Qualcomm](/posts/2026-09-24-snapdragon-8-elite-gen6-2nm/).
 - **Harga global mulai US$1.999 untuk 256 GB** hingga US$3.199 untuk 2 TB. Di Singapura, harganya SGD 3.099–4.899.
 - **Indonesia: belum ada harga dan jadwal resmi.** TKDN 40% sudah diperoleh, sertifikasi Postel masih berjalan. Perkiraan yang beredar: iPhone 18 Pro series sekitar Oktober, iPhone Duo menyusul akhir Oktober–November 2026.
 - **Pre-order global dibuka 16 Oktober, perangkat mulai dijual 23 Oktober 2026.**
