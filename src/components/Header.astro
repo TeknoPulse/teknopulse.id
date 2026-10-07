@@ -7,7 +7,15 @@ const allCategories = getAllCategories();
 
 <header class="sticky top-0 z-50 bg-background shadow-sm dark:bg-background-dark">
   <nav class="container mx-auto flex items-center justify-between px-4 py-4">
-    <a href="/" class="text-2xl font-bold text-primary dark:text-accent">
+    <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary dark:text-accent">
+      <img src="/teknopulse-mark.svg" alt="" width="28" height="28" class="h-7 w-7 dark:hidden" />
+      <img
+        src="/teknopulse-mark-white.svg"
+        alt=""
+        width="28"
+        height="28"
+        class="hidden h-7 w-7 dark:block"
+      />
       {site.name}
     </a>
 

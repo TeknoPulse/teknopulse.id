@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TeknoPulse — Pratinjau Icon Set</title>
+<style>
+  :root { --ink:#191512; --muted:#6b6157; --bg:#faf7f4; --card:#ffffff; --line:#e8e2dc; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         background:var(--bg); color:var(--ink); }
+  .wrap { max-width:1060px; margin:0 auto; padding:48px 24px 80px; }
+  h1 { font-size:30px; margin:0 0 6px; letter-spacing:-0.5px; }
+  .sub { color:var(--muted); font-size:15px; margin:0 0 8px; line-height:1.55; }
+  .sub code { background:#f0ebe6; padding:1px 5px; border-radius:4px; font-size:13px; }
+  h2 { font-size:15px; letter-spacing:1.2px; text-transform:uppercase; color:var(--muted);
+       margin:44px 0 14px; border-bottom:1px solid var(--line); padding-bottom:8px; }
+  .grid { display:flex; flex-wrap:wrap; gap:18px; }
+  figure { background:var(--card); border:1px solid var(--line); border-radius:14px;
+           padding:20px; margin:0; text-align:center; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  figure img { display:block; margin:0 auto; }
+  figcaption { margin-top:12px; font-size:13px; color:var(--muted); }
+  .dark figure, figure.dark { background:#181b1f; border-color:#242a30; }
+  .dark figcaption { color:#9aa4b2; }
+  .size-note { color:var(--muted); font-size:13px; margin-top:10px; }
+  .sizes { display:flex; align-items:flex-end; gap:22px; flex-wrap:wrap; }
+  .sizes figure { padding:14px; }
+  pre { background:#171310; color:#f4ede6; padding:16px 18px; border-radius:12px;
+        overflow:auto; font-size:13px; line-height:1.5; }
+  .cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; }
+  .card h3 { margin:0 0 8px; font-size:15px; }
+  .card p { margin:0; color:var(--muted); font-size:14px; line-height:1.55; }
+  a { color:#c2410c; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>TeknoPulse — Icon Set</h1>
+  <p class="sub">teknopulse.id · konsep <strong>pulse (EKG)</strong> — denyut berita teknologi ·
+     tile gradien <code>#FFA34D → #E4502B</code> (turunan palet situs <code>#F47825</code> / <code>#E25936</code>)</p>
+
+  <h2>Master</h2>
+  <div class="grid">
+    <figure><img src="teknopulse-icon-512.png" width="180" height="180" alt="primary full-bleed"><figcaption>primary — full-bleed</figcaption></figure>
+    <figure><img src="teknopulse-icon-rounded-512.png" width="180" height="180" alt="rounded transparan"><figcaption>rounded — transparan</figcaption></figure>
+    <figure><img src="teknopulse-mark-512.png" width="200" height="200" alt="mark untuk header"><figcaption>mark — untuk header</figcaption></figure>
+  </div>
+
+  <h2>Ukuran (PNG)</h2>
+  <div class="sizes">
+    <figure><img src="teknopulse-icon-256.png" width="128" height="128" alt="256"><figcaption>256</figcaption></figure>
+    <figure><img src="teknopulse-icon-128.png" width="96" height="96" alt="128"><figcaption>128</figcaption></figure>
+    <figure><img src="teknopulse-icon-64.png" width="64" height="64" alt="64"><figcaption>64</figcaption></figure>
+    <figure><img src="teknopulse-icon-48.png" width="48" height="48" alt="48"><figcaption>48</figcaption></figure>
+    <figure><img src="teknopulse-icon-32.png" width="32" height="32" alt="32"><figcaption>32</figcaption></figure>
+    <figure><img src="teknopulse-icon-16.png" width="16" height="16" alt="16"><figcaption>16</figcaption></figure>
+    <figure class="dark"><img src="teknopulse-icon-rounded-128.png" width="88" height="88" alt="di latar gelap"><figcaption>di latar gelap</figcaption></figure>
+  </div>
+  <p class="size-note">16 &amp; 32 px memakai sumber garis lebih tebal agar tetap tajam di tab browser.</p>
+
+  <h2>Konteks pemakaian</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Favicon di tab browser</h3>
+      <p><img src="teknopulse-icon-16.png" width="16" height="16" alt="" style="vertical-align:-3px">
+         TeknoPulse — Berita Teknologi…<br>
+         Favicon = <code>favicon.svg</code> (fallback PNG 16/32).</p>
+    </div>
+    <div class="card">
+      <h3>Header situs</h3>
+      <p><img src="teknopulse-mark-256.png" width="22" height="22" alt="" style="vertical-align:-5px">
+         <strong style="color:#191512">TeknoPulse</strong> — mark + wordmark, pakai
+         <code>teknopulse-mark.svg</code>.</p>
+    </div>
+    <div class="card">
+      <h3>Avatar bulat &amp; PWA</h3>
+      <p>Tile rounded aman untuk crop lingkaran (avatar). Untuk Android/PWA gunakan
+         <code>maskable</code> 192/512.</p>
+    </div>
+  </div>
+
+  <h2>Alternatif — untuk latar gelap</h2>
+  <div class="grid dark">
+    <figure class="dark"><img src="alternatif/teknopulse-icon-dark-512.png" width="160" height="160" alt="tile gelap"><figcaption>tile gelap</figcaption></figure>
+    <figure class="dark"><img src="alternatif/teknopulse-mark-putih-512.png" width="160" height="160" alt="mark putih"><figcaption>mark putih</figcaption></figure>
+    <figure><img src="teknopulse-icon-maskable-512.png" width="160" height="160" alt="maskable"><figcaption>maskable (Android/PWA)</figcaption></figure>
+  </div>
+
+  <h2>Pasang cepat (Astro)</h2>
+  <pre>1) Salin favicon.svg -> public/favicon.svg   (timpa favicon bawaan, selesai)
+
+2) Apple touch icon (opsional):
+   teknopulse-icon-180.png -> public/apple-touch-icon.png
+   &lt;link rel="apple-touch-icon" href="/apple-touch-icon.png" /&gt;
+
+3) Mark di header (opsional):
+   &lt;img src="/teknopulse-mark.svg" alt="" width="28" height="28" /&gt;</pre>
+
+  <p class="sub">Regenerasi PNG dari SVG: <code>./render-all.sh</code> · detail lengkap di <code>README.txt</code></p>
+</div>
+</body>
+</html>

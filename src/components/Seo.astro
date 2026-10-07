@@ -73,10 +73,9 @@ if (article) {
       url: site.url,
       logo: {
         '@type': 'ImageObject',
-        // Raster 512×512 (public/logo-512.png, scripts/generate-og-default.mjs).
-        // Google mensyaratkan raster ≥112×112 untuk logo publisher; SVG
-        // (favicon) tidak dijamin didukung.
-        url: new URL('/logo-512.png', site.url).href,
+        // Raster 512×512 (public/teknopulse-icon-512.png). Google mensyaratkan
+        // raster ≥112×112 untuk logo publisher; SVG (favicon) tidak dijamin didukung.
+        url: new URL('/teknopulse-icon-512.png', site.url).href,
         width: 512,
         height: 512,
       },
