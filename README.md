@@ -94,6 +94,7 @@ tags: ['AI', 'Technology']
 category: AI # AI, Software, Developer, Automation, Experiments, Insights
 author: 'TeknoPulse Redaksi' # harus terdaftar di src/utils/authors.ts (byline + profil)
 coverImage: '../../assets/images/<slug>-16x9.png' # unik per artikel, 16:9, PNG 1280×720
+coverImageAlt: 'Deskripsi isi gambar cover' # opsional; kalau kosong template pakai title
 ogImage: '../../assets/images/<slug>-og-16x9.png' # opsional override og:image (unik per artikel)
 draft: false
 faq: # opsional, 2–4 pertanyaan (definisi/how-to) → JSON-LD FAQPage

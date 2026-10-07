@@ -12,7 +12,6 @@ tags:
   - RAG
   - AI Agents
   - Software Engineering
-coverImageAlt: 'Visualisasi struktur jaringan syaraf tiruan dan node konsep arsitektur kecerdasan buatan modern'
 author: 'TeknoPulse Redaksi'
 draft: true
 source:
@@ -62,7 +61,7 @@ Inilah mengapa arsitektur **RAG** menjadi salah satu pola arsitektur yang banyak
 
 Batas antara bot otomatisasi biasa dan agen AI terletak pada **derajat kebebasan memilih tindakan (_autonomy in task execution_)**:
 
-- **Alur Kerja Statis (_Fixed Workflow_):** Urutan langkah yang telah ditentukan secara kaku (misal: "ringkas tiket $\rightarrow$ klasifikasikan kategori $\rightarrow$ kirim ke departemen X").
+- **Alur Kerja Statis (_Fixed Workflow_):** Urutan langkah yang telah ditentukan secara kaku (misal: "ringkas tiket → klasifikasikan kategori → kirim ke departemen X").
 - **Agen AI (_AI Agent_):** Diberikan tujuan akhir dan seperangkat perkakas (_tools_). Agen membaca galat, memutuskan membaca file tertentu, memodifikasi kode, menjalankan tes ulang, dan mengevaluasi apakah hasilnya sudah memenuhi kriteria selesai.
 - **Pencegahan Malapetaka:** Jangan pernah memberi agen akses ke perkakas tanpa batasan izin (_permissions_), kuota pengeluaran token, dan kondisi henti (_stopping conditions_). Aksi-aksi berdampak permanen (seperti penghapusan tabel basis data atau pembayaran finansial) wajib melewati gerbang persetujuan manusia (_human-in-the-loop_).
 

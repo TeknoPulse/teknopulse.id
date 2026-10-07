@@ -1,7 +1,7 @@
 ---
 title: 'Membangun Agen Vertikal Bernilai Tinggi: Peluang Bisnis Konektor AI di Tengah Rendahnya Adopsi Berbayar'
 slug: 'membangun-agen-vertikal-peluang-konektor-ai'
-summary: 'Mengapa hanya 2% rumah tangga yang membayar AI, dan bagaimana peluang emas membangun konektor agen AI vertikal (seperti bot pendaftaran dan urusan administratif) ala IdeaBrowser.'
+summary: 'Mengapa hanya sekitar 2% rumah tangga AS yang membayar AI, dan bagaimana peluang emas membangun konektor agen AI vertikal (seperti bot pendaftaran dan urusan administratif) ala IdeaBrowser.'
 metaDescription: 'Analisis peluang agen AI vertikal: konektor asisten otonom memecahkan friksi dunia nyata bernilai tinggi di awal kurva adopsi AI.'
 publishedAt: 2026-10-06
 category: Automation
