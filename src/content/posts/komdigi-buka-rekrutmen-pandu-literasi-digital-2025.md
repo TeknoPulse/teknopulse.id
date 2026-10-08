@@ -38,7 +38,7 @@ Setelah lolos, peserta akan menjalankan tiga peran utama:
 
 ## Mengapa Literasi Digital Penting Saat Ini
 
-Di tengah ledakan konten AI dan penyebaran informasi yang semakin cepat, kemampuan memilah fakta dari hoaks menjadi keterampilan dasar warga. Komdigi menilai pendekatan dari *bottom-up* — melalui relawan di akar masyarakat — jauh lebih efektif dibanding kampanye satu arah.
+Di tengah ledakan konten AI dan penyebaran informasi yang semakin cepat, kemampuan memilah fakta dari hoaks menjadi keterampilan dasar warga. Komdigi menilai pendekatan dari _bottom-up_ — melalui relawan di akar masyarakat — jauh lebih efektif dibanding kampanye satu arah.
 
 Bagi pembaca di Indonesia, program ini menjadi ruang partisipasi nyata: bukan sekadar konsumen informasi, melainkan agen literasi di lingkungan sendiri.
 
