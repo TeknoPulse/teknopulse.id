@@ -13,7 +13,7 @@ tags:
   - PyTorch
   - Cloud Computing
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 source:
   - name: 'Startup Riders — Fireworks AI: $0 to $1B ARR in under 4 years'
     url: 'https://www.startupriders.com/p/fireworks-ai-growth-playbook'
