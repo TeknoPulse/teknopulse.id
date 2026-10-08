@@ -13,7 +13,7 @@ tags:
   - AI Engineering
   - Builder Velocity
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 source:
   - name: 'Kilo Code — Building for builders'
     url: 'https://blog.kilo.ai/p/building-for-builders'
