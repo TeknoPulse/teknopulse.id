@@ -15,7 +15,7 @@ tags:
 coverImage: '../../assets/images/2026-10-06-5-formula-hook-copywriting-menghasilkan-penjualan-16x9.png'
 coverImageAlt: 'Ilustrasi tipografi hook copywriting dengan pena di atas kertas, bergaya kartu editorial TeknoPulse'
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 source:
   - name: 'Alex McFarland — 5 hooks for writing that sells'
     url: 'https://alexmcfarland.substack.com/p/5-hooks-for-writing-that-sells'
