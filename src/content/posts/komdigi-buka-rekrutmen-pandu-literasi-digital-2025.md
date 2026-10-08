@@ -2,6 +2,7 @@
 title: 'Komdigi Buka Rekrutmen Pandu Literasi Digital 2025'
 slug: 'komdigi-buka-rekrutmen-pandu-literasi-digital-2025'
 summary: 'Pendaftaran terbuka hingga 28 September untuk WNI usia 20-65 tahun jadi relawan literasi digital nasional.'
+metaDescription: 'Komdigi buka rekrutmen Pandu Literasi Digital 2025 hingga 28 September untuk WNI 20-65 tahun: tugas, syarat, dan cara daftar relawan anti-hoaks.'
 publishedAt: 2025-09-19T07:00:00+07:00
 tags: ['Policy']
 category: AI
