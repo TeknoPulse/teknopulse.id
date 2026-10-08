@@ -13,7 +13,8 @@ tags:
   - AI Agents
   - Software Engineering
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
+coverImage: '../../assets/images/64-konsep-ai-software-engineer-bagian-1-16x9.png'
 source:
   - name: 'System Design One — 64 AI Concepts Every Software Engineer Should Know'
     url: 'https://newsletter.systemdesign.one/p/ai-concepts-explained-for-beginners'
