@@ -14,6 +14,7 @@ tags:
   - Academic Publishing
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/paradoks-41-juta-makalah-ai-riset-ilmiah-16x9.png'
 source:
   - name: "The Slow AI — The Paper I Didn't Need to Write"
     url: 'https://theslowai.substack.com/p/ai-narrowing-science-41-million-papers'
