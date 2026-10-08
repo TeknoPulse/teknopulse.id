@@ -14,6 +14,7 @@ tags:
   - Autonomous Agents
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/bedah-pertumbuhan-cognition-ai-1b-arr-16x9.png'
 source:
   - name: 'Startup Riders — Cognition: $0 to $1B ARR in under 3 years'
     url: 'https://www.startupriders.com/p/cognition-growth-playbook'
