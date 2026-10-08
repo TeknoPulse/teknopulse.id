@@ -13,7 +13,7 @@ tags:
   - SaaS Growth
   - Autonomous Agents
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 source:
   - name: 'Startup Riders — Cognition: $0 to $1B ARR in under 3 years'
     url: 'https://www.startupriders.com/p/cognition-growth-playbook'
