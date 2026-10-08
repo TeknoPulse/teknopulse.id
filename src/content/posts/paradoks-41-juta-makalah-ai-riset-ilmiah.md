@@ -13,7 +13,7 @@ tags:
   - Critical AI Literacy
   - Academic Publishing
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 source:
   - name: "The Slow AI — The Paper I Didn't Need to Write"
     url: 'https://theslowai.substack.com/p/ai-narrowing-science-41-million-papers'
