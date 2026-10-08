@@ -15,6 +15,7 @@ tags:
   - Developer Tools
 author: 'TeknoPulse Redaksi'
 draft: false
+coverImage: '../../assets/images/kilo-desktop-orkestrasi-agen-multi-repo-16x9.png'
 source:
   - name: 'Kilo Code — Introducing Kilo Desktop'
     url: 'https://blog.kilo.ai/p/desktop'
