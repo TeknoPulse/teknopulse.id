@@ -13,7 +13,8 @@ tags:
   - AI Engineering
   - Builder Velocity
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
+coverImage: '../../assets/images/membangun-untuk-sang-pembangun-kilo-devday-2026-16x9.png'
 source:
   - name: 'Kilo Code — Building for builders'
     url: 'https://blog.kilo.ai/p/building-for-builders'
