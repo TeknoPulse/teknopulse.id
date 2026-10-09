@@ -15,7 +15,7 @@ tags:
 coverImage: '../../assets/images/2026-10-06-membangun-agen-vertikal-peluang-konektor-ai-16x9.png'
 coverImageAlt: 'Ilustrasi kartu editorial TeknoPulse tentang peluang bisnis konektor agen AI vertikal'
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 source:
   - name: 'IdeaBrowser — Summer Camp Waitlist Bot (Muse connector idea)'
     url: 'https://www.ideabrowser.com/emails/2026-10-05'
