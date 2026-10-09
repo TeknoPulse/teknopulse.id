@@ -13,7 +13,8 @@ tags:
   - Solopreneurship
   - Productivity
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
+coverImage: '../../assets/images/solusi-sederhana-selalu-menang-pdf-gumroad-16x9.png'
 source:
   - name: 'Gloria Writers — I Almost Deleted This $3.99 Side Hustle'
     url: 'https://glorianotes2.substack.com/p/i-almost-deleted-this-399-side-hustle-e0e'
