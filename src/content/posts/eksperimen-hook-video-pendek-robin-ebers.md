@@ -37,7 +37,7 @@ Reaksi pertama hampir setiap kreator adalah menyalahkan kualitas video:
 
 Respons instan yang biasanya diambil adalah merekam ulang dari awal atau menghabiskan malam berikutnya untuk mempercantik suntingan visual.
 
-Namun, melalui satu eksperimen terbarunya yang sangat membuka mata, praktisi rekayasa perhatian dan pendiri The Attention Machine, **Robin Ebers**, menunjukkan bahwa sebagian besar asumsi tersebut bisa keliru. Masalahnya bukan pada kualitas rekaman video Anda—masalah utamanya terletak pada detik pertama: **hook Anda yang gagal**.
+Namun, melalui satu eksperimen terbarunya yang sangat membuka mata, praktisi rekayasa perhatian yang menggunakan The Attention Machine, **Robin Ebers**, menunjukkan bahwa sebagian besar asumsi tersebut bisa keliru. Masalahnya bukan pada kualitas rekaman video Anda—masalah utamanya terletak pada detik pertama: **hook Anda yang gagal**.
 
 Berikut adalah bedah eksperimen Robin Ebers di Dubai dan bagaimana satu pengujian terstruktur mencatat selisih jangkauan hingga 22 kali lipat dalam pengujian tersebut, tanpa merekam ulang satu detik pun.
 
