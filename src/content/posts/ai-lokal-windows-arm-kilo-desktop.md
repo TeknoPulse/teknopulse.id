@@ -69,7 +69,7 @@ Salah satu tantangan terbesar tim rekayasa perangkat lunak adalah sindrom _"it w
 
 Dalam era kepatuhan privasi yang semakin ketat, mengirimkan data operasional internal perusahaan atau kode sumber kepemilikan (_proprietary code_) ke server cloud publik menimbulkan risiko tata kelola yang tinggi.
 
-- Kilo Desktop memungkinkan pengembang mengunduh model berbobot terbuka (_open-weights_) seperti Llama, Mistral, atau model kode khusus, dan menyajikannya secara lokal hanya dengan beberapa klik.
+- Kilo Desktop memungkinkan pengembang mengunduh model berbobot terbuka (_open-weights_) dan menyajikannya secara lokal hanya dengan beberapa klik.
 - Setelah model dimuat ke memori, seluruh komputasi berlangsung di dalam batas perangkat keras lokal. Tidak ada paket data yang keluar ke jaringan internet.
 
 ### 3. Kompatibilitas Penuh dengan Standar OpenAI API

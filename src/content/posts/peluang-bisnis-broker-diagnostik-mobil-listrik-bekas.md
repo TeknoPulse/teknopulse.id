@@ -55,7 +55,7 @@ Pada mobil bermesin pembakaran internal konvensional (ICE), calon pembeli dapat 
 
 Pada mobil listrik, kondisi visual eksterior dan interior yang mulus mengilap sering kali tidak mencerminkan apa pun tentang kesehatan paket baterai litium-ion di bawah lantai kabin:
 
-- Paket baterai menyumbang **30% hingga 50% dari total nilai kendaraan**.
+- Paket baterai merupakan komponen paling mahal pada mobil listrik, sehingga kondisinya sangat memengaruhi nilai jual kembali kendaraan.
 - Degradasi kapasitas baterai (_capacity loss_) terjadi di tingkat kimiawi di dalam modul sel yang tersegel rapat.
 - Tenaga penjual di dealer mobil bekas umum hampir selalu menyatakan _"baterainya masih sangat prima"_—tanpa memiliki sertifikasi atau data telemetri yang valid.
 

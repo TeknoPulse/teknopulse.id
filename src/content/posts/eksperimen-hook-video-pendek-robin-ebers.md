@@ -18,7 +18,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 source:
-  - name: 'Robin Ebers — Your video isn\u2019t the problem'
+  - name: 'Robin Ebers — Your video isn’t the problem'
     url: 'https://robinebers.kit.com/posts/your-video-isn-t-the-problem'
     primary: true
   - name: 'Meta Newsroom — Trial Reels'
@@ -119,7 +119,7 @@ Bagi para kreator konten, solopreneur, dan praktisi pemasaran di Indonesia, beri
    - Sudut pandang kesalahan umum atau kerugian finansial.
    - Sudut pandang panduan spesifik untuk profesi tertentu.
    - Sudut pandang pengungkapan fakta yang jarang diketahui.
-3. **Uji Coba Melalui Trial Reels:** Manfaatkan fitur _Trial Reels_ di Instagram agar pengujian tidak mengotori linimasa pengikut utama Anda. Berikan waktu 48 hingga 72 jam bagi algoritma untuk mengumpulkan sampel audiens non-pengikut.
+3. **Uji Coba Melalui Trial Reels:** Manfaatkan fitur _Trial Reels_ di Instagram agar pengujian tidak mengotori linimasa pengikut utama Anda. Berikan waktu beberapa hari bagi algoritma untuk mengumpulkan sampel audiens non-pengikut.
 4. **Promosikan Pemenang ke Linimasa Utama:** Bandingkan grafik retensi dan angka tayangan. Pindahkan variasi yang memenangkan jangkauan tertinggi langsung ke feed profil Anda.
 
 Kunci pertumbuhan di platform video pendek bukanlah bekerja lebih keras di bilik rekaman, melainkan menguji hipotesis perhatian secara lebih cerdas di pintu gerbang pertama.
