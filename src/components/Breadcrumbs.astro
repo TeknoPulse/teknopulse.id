@@ -25,6 +25,13 @@ if (pathname.startsWith('/posts/') && postCategory && postTitle) {
     name: postTitle,
     url: pathname,
   });
+} else if (segments[0] === 'posts' && (segments.length === 1 || /^\d+$/.test(segments[1]))) {
+  // Indeks artikel /posts/: Beranda / Semua Artikel
+  // Paginasi /posts/n/: Beranda / Semua Artikel / Halaman n (CodeRabbit PR #88)
+  breadcrumbs.push({ name: 'Semua Artikel', url: '/posts/' });
+  if (segments.length > 1) {
+    breadcrumbs.push({ name: `Halaman ${segments[1]}`, url: pathname });
+  }
 } else if (pathname.startsWith('/authors/')) {
   // Halaman penulis: Beranda / Penulis / Nama Penulis
   breadcrumbs.push({ name: 'Penulis', url: '/authors/' });
