@@ -88,6 +88,6 @@ Dari pembedahan Robin Ebers, ada beberapa prinsip aksi yang bisa langsung kita t
 
 ## Catatan Rujukan
 
-- **Sumber Newsletter**: Buletin mingguan oleh Robin Ebers (team@robinebers.com), edisi 28 September 2026: "The content AI model that beat Fable 5.1".
+- **Sumber Newsletter**: Buletin mingguan oleh Robin Ebers (<!--email_off-->team@robinebers.com<!--/email_off-->), edisi 28 September 2026: "The content AI model that beat Fable 5.1".
 - **Platform Kreator**: [The Attention Machine](https://www.attentionmachine.ai) — Solusi otomatisasi konten video pendek berbasis AI untuk pelatih dan konsultan profesional.
 - **Penulis Asli**: Robin Ebers (Rob). Seluruh atribusi dan hak cipta wawasan awal tetap milik kreator sumber.
