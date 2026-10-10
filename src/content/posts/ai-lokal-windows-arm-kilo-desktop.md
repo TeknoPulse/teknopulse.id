@@ -1,6 +1,8 @@
 ---
 title: 'Menjalankan AI Lokal Asli di Windows on ARM: Kolaborasi Kilo Desktop dan Surface Laptop Ultra'
-slug: 'menjalankan-ai-lokal-windows-arm-kilo-desktop'
+slug: 'ai-lokal-windows-arm-kilo-desktop'
+coverImage: '../../assets/images/2026-10-10-ai-lokal-windows-arm-kilo-desktop-16x9.png'
+coverImageAlt: 'Ilustrasi abstrak chip prosesor dengan pin konektor di atas papan sirkuit biru tua'
 summary: 'Analisis pengumuman Kilo Code dan Anaconda tentang dukungan native ARM64 di Windows on ARM: melenyapkan friksi emulasi Prism, menjalankan model lokal via OpenAI API, dan lingkungan Conda portabel.'
 metaDescription: 'Kilo Desktop dan Anaconda hadir native di Windows on ARM untuk Surface Laptop Ultra, memungkinkan eksekusi AI lokal bebas emulasi dan aman.'
 publishedAt: 2026-10-10
@@ -22,9 +24,7 @@ source:
     primary: true
 ---
 
-![Chip prosesor laptop berarsitektur ARM modern dengan sirkuit logika AI dan komputasi lokal](https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1280&h=720&q=80)
-
-_Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari laporan teknis resmi Kilo Blog oleh Brian Turcotte (edisi 8 Oktober 2026)._
+_Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari laporan teknis resmi Kilo Blog oleh Brian Turcotte (8 Oktober 2026)._
 
 Selama bertahun-tahun, impian para pengembang perangkat lunak dan saintis data di ekosistem Windows untuk menikmati efisiensi daya dan performa arsitektur ARM selalu membentur dinding tebal: **rantai perkakas Python yang rapuh**.
 
@@ -59,17 +59,23 @@ Dukungan perangkat keras native hanyalah separuh dari persamaan; separuh lainnya
 Aplikasi ini menyederhanakan alur kerja penerapan AI lokal menjadi proses yang mulus:
 
 ### 1. Portabilitas Lingkungan Kerja Melalui `environment.yml`
-Salah satu tantangan terbesar tim rekayasa perangkat lunak adalah sindrom *"it works on my machine"*. Kilo Desktop memanfaatkan standar deklaratif Conda:
+
+Salah satu tantangan terbesar tim rekayasa perangkat lunak adalah sindrom _"it works on my machine"_. Kilo Desktop memanfaatkan standar deklaratif Conda:
+
 - Seluruh dependensi proyek, mulai dari versi Python hingga pustaka analitik tertentu, dicatat dalam satu berkas `environment.yml`.
-- Berkas lingkungan ini dapat diimpor langsung ke Kilo Desktop di mesin Windows on ARM, menarik paket ARM64 terkurasi dari Anaconda, dan mereproduksi lingkungan kerja yang persis sama dengan mesin rekan setim yang menggunakan platform berbeda.
+- Berkas lingkungan ini dapat diimpor langsung ke Kilo Desktop di mesin Windows on ARM, menarik paket ARM64 terkurasi dari Anaconda, dan mereproduksi lingkungan kerja yang setara di mesin rekan setim. Perlu dicatat: `environment.yml` mendeskripsikan spesifikasi lingkungan yang portabel, tetapi paket hasil resolusi dapat berbeda antar platform — ia bukan _lockfile_ yang menjamin biner identik.
 
 ### 2. Penyajian Model Open-Weights Secara Lokal (Zero-Cloud Leak)
+
 Dalam era kepatuhan privasi yang semakin ketat, mengirimkan data operasional internal perusahaan atau kode sumber kepemilikan (_proprietary code_) ke server cloud publik menimbulkan risiko tata kelola yang tinggi.
+
 - Kilo Desktop memungkinkan pengembang mengunduh model berbobot terbuka (_open-weights_) seperti Llama, Mistral, atau model kode khusus, dan menyajikannya secara lokal hanya dengan beberapa klik.
 - Setelah model dimuat ke memori, seluruh komputasi berlangsung di dalam batas perangkat keras lokal. Tidak ada paket data yang keluar ke jaringan internet.
 
 ### 3. Kompatibilitas Penuh dengan Standar OpenAI API
+
 Alih-alih memaksa pengembang mempelajari protokol komunikasi baru, server lokal Kilo Desktop mengadopsi antarmuka standar industri yang kompatibel dengan **OpenAI REST API**.
+
 - Pengembang tidak perlu menulis ulang kode aplikasi yang sudah ada.
 - Cukup dengan mengganti parameter URL endpoint dasar (`baseUrl`) dari server cloud publik ke alamat lokal (`http://localhost:PORT`), seluruh agen koding, skrip orkestrasi, dan framework otomatisasi dapat langsung berkomunikasi dengan model lokal di laptop.
 
@@ -100,5 +106,5 @@ Bagi para praktisi dan pengembang di Indonesia, perkembangan ini membawa dampak 
 
 ## Sumber Rujukan
 
-- Kilo Code — Brian Turcotte: *"Build Local AI on Surface Laptop Ultra with Kilo Desktop"* — 8 Oktober 2026 — https://blog.kilo.ai/p/kilo-on-surface
+- Kilo Code — Brian Turcotte: _"Build Local AI on Surface Laptop Ultra with Kilo Desktop"_ — 8 Oktober 2026 — https://blog.kilo.ai/p/kilo-on-surface
 - Dokumentasi Resmi Kilo Desktop — https://kilo.ai
