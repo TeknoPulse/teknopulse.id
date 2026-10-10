@@ -257,6 +257,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 For questions and support:
 
-- 📧 Email: hello@teknopulse.com
+- 📧 Email: hello@teknopulse.id
 - 🐛 Issues: [GitHub Issues](https://github.com/username/teknopulse/issues)
 - 💬 Discussions: [GitHub Discussions](https://github.com/username/teknopulse/discussions)
