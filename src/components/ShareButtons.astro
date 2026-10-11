@@ -16,12 +16,13 @@ const encodedUrl = encodeURIComponent(fullUrl);
 <div
   class="my-8 flex items-center space-x-4 border-t border-b border-gray-200 py-6 dark:border-gray-700"
 >
-  <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Share:</span>
+  <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Bagikan:</span>
 
   <a
     href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Bagikan ke Twitter"
     class="flex items-center space-x-2 text-blue-500 transition-colors hover:text-blue-600"
   >
     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -36,6 +37,7 @@ const encodedUrl = encodeURIComponent(fullUrl);
     href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Bagikan ke Facebook"
     class="flex items-center space-x-2 text-blue-600 transition-colors hover:text-blue-700"
   >
     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -50,6 +52,7 @@ const encodedUrl = encodeURIComponent(fullUrl);
     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`}
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Bagikan ke LinkedIn"
     class="flex items-center space-x-2 text-blue-700 transition-colors hover:text-blue-800"
   >
     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -61,8 +64,9 @@ const encodedUrl = encodeURIComponent(fullUrl);
   </a>
 
   <button
-    onclick="navigator.clipboard.writeText(this.dataset.url)"
+    onclick="navigator.clipboard.writeText(this.dataset.url).then(() => { const s = this.querySelector('span'); const o = s.innerText; s.innerText = 'Tersalin!'; setTimeout(() => s.innerText = o, 2000); })"
     data-url={fullUrl}
+    aria-label="Salin tautan"
     class="flex items-center space-x-2 text-gray-600 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
   >
     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -73,6 +77,6 @@ const encodedUrl = encodeURIComponent(fullUrl);
         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
       ></path>
     </svg>
-    <span class="text-sm">Copy</span>
+    <span class="text-sm">Salin</span>
   </button>
 </div>
