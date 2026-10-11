@@ -15,6 +15,7 @@ tags:
   - Developer Tools
   - Model Evaluation
 author: 'TeknoPulse Redaksi'
+coverImage: '../../assets/images/tiga-model-ai-baru-kilo-desktop-16x9.png'
 draft: true
 source:
   - name: 'Kilo Code — Three models you should be trying in Kilo this week'
@@ -32,7 +33,7 @@ Apakah itu sekadar merapikan sintaks fungsi validasi, membedah kegagalan tes int
 
 Pendekatan satu-model-untuk-semua ini bukan hanya memboroskan kuota token dan anggaran komputasi, tetapi juga mengabaikan karakteristik arsitektur khusus yang dirancang para peneliti model untuk tugas-tugas spesifik.
 
-Melalui laporan terbarunya, tim di balik **Kilo Desktop**—lingkungan rekayasa agenik terpadu yang mendukung ratusan model AI—mengulas tiga model penalaran baru yang menawarkan alasan kuat untuk mengubah kebiasaan koding Anda minggu ini: **Step 5 Preview** dari StepFun, **Claude Haiku 5.5** dari Anthropic, dan **Glyph Cluster** dari Vercel.
+Melalui laporan terbarunya, tim di balik **Kilo Desktop**—lingkungan rekayasa agenik terpadu yang mendukung ratusan model AI—mengulas tiga model penalaran baru yang menawarkan alasan kuat untuk mengubah kebiasaan koding Anda minggu ini: **Step 5 Preview** dari StepFun, **Claude Haiku 5.5** dari Anthropic, dan **Glyph Cluster** dari provider _stealth_ yang tersedia lewat Vercel AI Gateway.
 
 Berikut adalah dekonstruksi kemampuan masing-masing model, mengapa mereka layak diuji, dan bagaimana memasangkannya dengan jenis beban kerja rekayasa yang tepat.
 
@@ -40,19 +41,22 @@ Berikut adalah dekonstruksi kemampuan masing-masing model, mengapa mereka layak 
 
 ## 1. Step 5 Preview: Spesialis Kerja Agenik dan Pelacakan Bug Lintas-Berkas
 
-Banyak bug dalam aplikasi dunia nyata tidak bersembunyi di dalam satu fungsi terisolasi. Sebuah kegagalan kueri API sering kali berakar dari perbedaan penamaan parameter di lapisan frontend, melewati *middleware* transformasi, hingga akhirnya memicu penolakan skema di basis data backend.
+Banyak bug dalam aplikasi dunia nyata tidak bersembunyi di dalam satu fungsi terisolasi. Sebuah kegagalan kueri API sering kali berakar dari perbedaan penamaan parameter di lapisan frontend, melewati _middleware_ transformasi, hingga akhirnya memicu penolakan skema di basis data backend.
 
 Ketika pengembang meminta model AI biasa melacak galat semacam ini, model sering kali memberikan penjelasan teoretis yang terdengar meyakinkan di kolom obrolan, namun gagal memberikan solusi kode nyata yang benar-benar memperbaiki sistem.
 
 Di sinilah **Step 5 Preview** memposisikan dirinya:
+
 - **Jendela Konteks 1 Juta Token Multimodal:** Mendukung input teks, gambar arsitektur, hingga video rekaman interaksi pengguna untuk menganalisis aliran kerja sistem secara menyeluruh.
-- **Berorientasi Hasil Nyata (_Action-Oriented_):** Model ini dirancang khusus untuk alur kerja agenik (*agentic loops*): memanggil perkakas lokal, melangkah melalui beberapa tahapan verifikasi, dan terus bergerak hingga menghasilkan kode yang dapat dieksekusi.
+- **Berorientasi Hasil Nyata (_Action-Oriented_):** Model ini dirancang khusus untuk alur kerja agenik (_agentic loops_): memanggil perkakas lokal, melangkah melalui beberapa tahapan verifikasi, dan terus bergerak hingga menghasilkan kode yang dapat dieksekusi.
 
 ### Skenario Uji Rekomendasi
+
 Pilihlah sebuah bug nyata di proyek Anda yang melintasi beberapa file. Berikan pesan kesalahan terminal, jelaskan perilaku yang diharapkan, dan minta model menelusuri dependensi dari hulu ke hilir.
 
 **Contoh Prompt Evaluasi:**
-> *"Telusuri mengapa permintaan API ini gagal, mulai dari lapisan klien dan ikuti alurnya hingga ke server. Jelaskan akar masalahnya, buat perbaikan terkecil yang paling tepat, dan jalankan pengujian unit yang relevan."*
+
+> _"Telusuri mengapa permintaan API ini gagal, mulai dari lapisan klien dan ikuti alurnya hingga ke server. Jelaskan akar masalahnya, buat perbaikan terkecil yang paling tepat, dan jalankan pengujian unit yang relevan."_
 
 Titik kritis penilaian bukanlah seberapa panjang penjelasannya, melainkan apakah model tersebut benar-benar meninggalkan Anda dengan basis kode yang lolos pengujian tanpa regresi.
 
@@ -60,19 +64,22 @@ Titik kritis penilaian bukanlah seberapa panjang penjelasannya, melainkan apakah
 
 ## 2. Claude Haiku 5.5: Kecepatan Tinggi dan Penalaran Adaptif Tanpa Pemborosan Anggaran
 
-Dalam sesi pengembangan harian, sebagian besar waktu pengembang sebenarnya dihabiskan untuk tugas-tugas kecil berskala mikro: menambahkan cakupan kasus uji (*test coverage*), menyusun dokumentasi fungsi, memvalidasi input formulir, atau merangkum perubahan kode untuk pesan commit git.
+Dalam sesi pengembangan harian, sebagian besar waktu pengembang sebenarnya dihabiskan untuk tugas-tugas kecil berskala mikro: menambahkan cakupan kasus uji (_test coverage_), menyusun dokumentasi fungsi, memvalidasi input formulir, atau merangkum perubahan kode untuk pesan commit git.
 
 Menggunakan model penalaran raksasa untuk tugas-tugas mikro ini ibarat mengemudikan truk kontainer hanya untuk membeli secangkir kopi—lambat, boros bahan bakar, dan berlebihan.
 
 **Claude Haiku 5.5** hadir sebagai solusi efisiensi ekstrem dari Anthropic:
+
 - **Kemampuan Berpikir Adaptif (_Adaptive Thinking_):** Haiku 5.5 tidak lagi terpaku pada kecepatan tanpa logika; model ini dapat memperlambat inferensinya secara dinamis untuk menalar langkah-langkah logika yang rumit saat menghadapi ambiguitas, lalu kembali mengeksekusi dengan kecepatan penuh pada tugas mekanis.
-- **Peran Sub-Agen yang Andal:** Sangat ideal sebagai pekerja sub-agen (*worker subagents*) yang dijalankan secara paralel untuk mengklasifikasikan tiket masalah, memformat kode, atau mengekstrak skema data.
+- **Peran Sub-Agen yang Andal:** Sangat ideal sebagai pekerja sub-agen (_worker subagents_) yang dijalankan secara paralel untuk mengklasifikasikan tiket masalah, memformat kode, atau mengekstrak skema data.
 
 ### Skenario Uji Rekomendasi
+
 Ujilah Haiku 5.5 pada tugas yang memiliki batasan cakupan jelas dan hasil yang dapat diverifikasi secara instan dengan mesin pengujian lokal.
 
 **Contoh Prompt Evaluasi:**
-> *"Tambahkan pengujian unit untuk fungsi validasi ini. Cakup nilai yang hilang (missing values), input yang rusak, dan kasus batas ekstrem (boundary cases). Ikuti konvensi pengujian proyek yang sudah ada dan jalankan rangkaian tesnya."*
+
+> _"Tambahkan pengujian unit untuk fungsi validasi ini. Cakup nilai yang hilang (missing values), input yang rusak, dan kasus batas ekstrem (boundary cases). Ikuti konvensi pengujian proyek yang sudah ada dan jalankan rangkaian tesnya."_
 
 Jika Haiku mampu menghasilkan pengujian yang solid dalam hitungan detik tanpa perdebatan panjang, model ini layak menjadi pekerja harian utama Anda.
 
@@ -80,21 +87,24 @@ Jika Haiku mampu menghasilkan pengujian yang solid dalam hitungan detik tanpa pe
 
 ## 3. Glyph Cluster: Model Penalaran Terselubung untuk Keputusan Arsitektural dan Migrasi
 
-Sebelum insinyur menulis satu baris kode untuk merombak struktur sistem yang besar, tahap yang paling menyita energi mental adalah membedah ketergantungan antar-modul dan kompromi arsitektural (*architectural tradeoffs*).
+Sebelum insinyur menulis satu baris kode untuk merombak struktur sistem yang besar, tahap yang paling menyita energi mental adalah membedah ketergantungan antar-modul dan kompromi arsitektural (_architectural tradeoffs_).
 
-Ambil contoh migrasi rute dari kerangka kerja Express lama ke *Route Handlers* Next.js modern: sintaks kodenya mungkin tampak sederhana, tetapi bagaimana dengan manajemen sesi autentikasi, penanganan kesalahan terpusat, dan konfigurasi CORS?
+Ambil contoh migrasi rute dari kerangka kerja Express lama ke _Route Handlers_ Next.js modern: sintaks kodenya mungkin tampak sederhana, tetapi bagaimana dengan manajemen sesi autentikasi, penanganan kesalahan terpusat, dan konfigurasi CORS?
 
-**Glyph Cluster** dari Vercel adalah model penalaran terselubung (*stealth reasoning model*) yang dirancang khusus untuk membedah masalah-masalah struktural semacam ini:
+**Glyph Cluster** adalah model penalaran terselubung (_stealth reasoning model_) yang tersedia gratis lewat Vercel AI Gateway dengan provider _Stealth_. Menurut Kilo, model ini dirancang khusus untuk membedah masalah-masalah struktural semacam ini:
+
 - **Dukungan Pemanggilan Fungsi (_Function Calling_):** Memungkinkan agen menghubungkan peta penalaran teoretis langsung ke perkakas inspeksi basis kode di mesin lokal.
 - **Analisis Mendalam Sebelum Eksekusi:** Sangat kuat dalam meninjau rencana refaktorisasi multi-tahap, menandai keputusan yang membutuhkan persetujuan manusia, dan memitigasi risiko keamanan sebelum migrasi dimulai.
 
 ### Skenario Uji Rekomendasi
+
 Berikan skenario migrasi atau refaktorisasi arsitektur nyata kepada Glyph Cluster untuk melihat bagaimana model menyusun urutan prioritas kerja.
 
 **Contoh Prompt Evaluasi:**
-> *"Tinjau rute Express ini dan susun rencana migrasi bertahap ke Route Handlers Next.js. Identifikasi perubahan yang diperlukan untuk autentikasi, middleware, penanganan galat, dan pengujian. Usulkan urutan pengerjaan migrasi dan tandai keputusan mana yang membutuhkan masukan manual saya."*
 
-Perlu dicatat: Glyph Cluster saat ini beroperasi pada input teks murni dan belum mendukung output terstruktur (*structured outputs*). Selain itu, tinjau kebijakan privasi data rute Vercel jika Anda bekerja dengan basis kode privat korporat.
+> _"Tinjau rute Express ini dan susun rencana migrasi bertahap ke Route Handlers Next.js. Identifikasi perubahan yang diperlukan untuk autentikasi, middleware, penanganan galat, dan pengujian. Usulkan urutan pengerjaan migrasi dan tandai keputusan mana yang membutuhkan masukan manual saya."_
+
+Perlu dicatat: Glyph Cluster saat ini beroperasi pada input teks murni dan belum mendukung output terstruktur (_structured outputs_). Vercel juga menyatakan bahwa penawaran _stealth_-nya berpotensi memakai prompt dan respons untuk pelatihan model, jadi tinjau ketentuan privasi rute yang Anda pakai sebelum mengirim basis kode privat korporat.
 
 ---
 
@@ -112,5 +122,5 @@ Alih-alih menunggu satu model super yang sempurna dalam segala hal, gabungkan ke
 
 ## Sumber Rujukan
 
-- Kilo Code — *"Three models you should be trying in Kilo this week"* — 10 Oktober 2026 — https://blog.kilo.ai/p/three-models-you-should-be-trying
+- Kilo Code — _"Three models you should be trying in Kilo this week"_ — 10 Oktober 2026 — https://blog.kilo.ai/p/three-models-you-should-be-trying
 - Dokumentasi Resmi Kilo Desktop — https://kilo.ai
