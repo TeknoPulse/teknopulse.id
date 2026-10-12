@@ -15,14 +15,14 @@ tags:
   - Latent Space
 author: 'TeknoPulse Redaksi'
 draft: true
+coverImage: '../../assets/images/orkestrasi-agen-claude-dynamic-workflows-anthropic-16x9.png'
+coverImageAlt: 'Visualisasi arsitektur orkestrasi multi-agen dan pemrosesan komputasi terdistribusi'
 format: 'konteks'
 source:
   - name: 'Latent Space — How Anthropic’s Dynamic Workflows Coordinate Claude Agents'
     url: 'https://www.latent.space/p/claude-dynamic-workflows'
     primary: true
 ---
-
-![Visualisasi arsitektur orkestrasi multi-agen dan pemrosesan komputasi terdistribusi](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1280&h=720&fit=crop&q=80 "Orkestrasi Jaringan Multi-Agen Anthropic Claude")
 
 _Catatan: Tulisan ini mengulas dan membedah paparan teknis Anthropic dalam workshop AI Engineer New York 2026 yang dilaporkan oleh Latent Space._
 

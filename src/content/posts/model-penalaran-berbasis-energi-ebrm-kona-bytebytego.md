@@ -15,14 +15,14 @@ tags:
   - Machine Learning
 author: 'TeknoPulse Redaksi'
 draft: true
+coverImage: '../../assets/images/model-penalaran-berbasis-energi-ebrm-kona-bytebytego-16x9.png'
+coverImageAlt: 'Matriks logika matematika dan jaringan komputasi multidimensi'
 format: 'konteks'
 source:
   - name: 'ByteByteGo — How to Build Models Without Language, with Logical Intelligence'
     url: 'https://blog.bytebytego.com/p/how-to-build-models-without-language'
     primary: true
 ---
-
-![Matriks logika matematika dan jaringan komputasi multidimensi](https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1280&h=720&fit=crop&q=80 "Visualisasi Lanskap Energi dan Penalaran Logika Laten")
 
 _Catatan: Analisis mendalam ini disarikan dan dikembangkan dari wawancara teknis ByteByteGo bersama Eve Bodnia, pendiri dan CEO Logical Intelligence._
 
