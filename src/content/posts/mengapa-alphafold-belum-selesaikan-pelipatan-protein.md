@@ -37,7 +37,7 @@ Bagi masyarakat umum, ini terdengar seperti akhir dari sebuah babak pencarian il
 
 Dalam sebuah panel diskusi istimewa di podcast **Latent Space** yang dipandu oleh Brandon Anderson, dua tokoh kunci komputasi biologi modern—**Pushmeet Kohli** (Google DeepMind) dan **Sal Candido** (Chan Zuckerberg Biohub)—duduk bersama untuk membongkar mitos tersebut.
 
-Mereka membedah secara jujur mengapa AlphaFold belum memecahkan masalah dinamika protein, bagaimana scaling law tidak selalu berlaku otomatis; kondisi yang menghasilkan peningkatan perlu dicari dalam biologi basah (_wet lab_), dan mengapa masa depan kedokteran translasi membutuhkan lompatan 10x lipat, bukan sekadar optimasi model bahasa konvensional.
+Mereka membedah secara jujur mengapa AlphaFold belum memecahkan masalah dinamika protein, bagaimana scaling law tidak selalu berlaku otomatis dan kondisi data serta komputasi yang menghasilkan peningkatan perlu dicari, dan mengapa masa depan kedokteran translasi membutuhkan lompatan 10x lipat, bukan sekadar optimasi model bahasa konvensional.
 
 Berikut adalah telaah mendalam dari wawasan arsitektural yang mereka bagikan.
 
@@ -49,7 +49,7 @@ Dalam sejarah kecerdasan buatan, esai legendaris Rich Sutton bertajuk _"The Bitt
 
 Namun, apakah prinsip tersebut berlaku mutlak untuk biologi molekuler? Sal Candido menggarisbawahi kesalahpahaman terbesar komunitas pengembang saat ini:
 
-> _"Ada anggapan keliru bahwa hukum penskalaan (scaling laws) ada di mana-mana dan selalu otomatis bekerja. Kenyataannya, separuh dari kerja keras kami adalah mencari di mana hukum penskalaan itu sebenarnya berada."_
+> _"Ada anggapan keliru bahwa hukum penskalaan (scaling laws) ada di mana-mana dan selalu otomatis bekerja. Kenyataannya, sebagian besar kerja keras kami adalah mencari di mana hukum penskalaan itu sebenarnya berada."_
 
 Dalam pemrosesan bahasa alami (LLM), teks internet tersedia dalam triliunan token gratis. Di dunia biologi, data eksperimental berkualitas tinggi sangat mahal dan langka:
 
@@ -68,8 +68,8 @@ Di tengah tren AI modern yang beralih ke arsitektur generik berbasis _Transforme
 
 Pushmeet Kohli menjelaskan bahwa rancangan AlphaFold 2 bukanlah eksperimen acak:
 
-- Tim DeepMind menyematkan intuisi biofisika ke dalam arsitektur model: model memakai bias geometri dan interaksi antarresidu, sehingga residu asam amino tidak bergerak secara acak.
-- Memberikan "keunggulan tidak adil" (_unfair advantage_) berupa pengetahuan kimiawi ini membuat model menjadi sangat hemat data (_data-efficient_). AlphaFold mampu memprediksi struktur dengan akurasi setara kristalografi sinar-X dengan memanfaatkan data dari _Protein Data Bank_ (PDB) dan sekuens protein yang belum memiliki struktur.
+- Tim DeepMind menyematkan intuisi biofisika ke dalam arsitektur model: model memakai bias induktif dan interaksi antarresidu, sehingga residu asam amino tidak bergerak secara acak.
+- Memberikan "keunggulan tidak adil" (_unfair advantage_) berupa pengetahuan kimiawi ini membuat model menjadi sangat hemat data (_data-efficient_). AlphaFold mampu memprediksi struktur dengan akurasi tinggi dengan memanfaatkan data dari _Protein Data Bank_ (PDB) dan sekuens protein yang belum memiliki struktur.
 
 Namun, Sal Candido mengingatkan adanya titik balik (_tipping point_): ketika volume data biologis nantinya bertambah berlipat ganda, bias induktif manusia yang tidak tepat justru bisa membatasi kemampuan model untuk menemukan prinsip-prinsip fisika baru yang belum pernah disadari manusia.
 
@@ -121,7 +121,7 @@ Saat ditanya kapan kecerdasan buatan akan benar-benar merevolusi dunia klinis da
 
 Namun, untuk mencapai percepatan 10x hingga 100x yang dramatis dalam menyembuhkan penyakit manusia, Sal Candido menekankan filosofi kerja warisan masa kerjanya di Google dan kini di Biohub:
 
-> _"Terkadang jauh lebih mudah memecahkan masalah dengan bertanya apa yang dibutuhkan untuk membuat terobosan 10x lipat (10x breakthrough) daripada sekadar perbaikan 10% (10% improvement). Jalur 10x memaksa Anda kembali ke prinsip pertama (first principles), membuang asumsi lama, dan melihat solusi dari sudut pandang yang belum pernah disentuh siapa pun."_
+> _"Terkadang jauh lebih mudah memecahkan masalah dengan bertanya apa yang dibutuhkan untuk membuat perbaikan 10x lipat (10x improvement) daripada sekadar perbaikan 10% (10% improvement). Jalur 10x memaksa Anda kembali ke prinsip pertama (first principles), membuang asumsi lama, dan melihat solusi dari sudut pandang yang belum pernah disentuh siapa pun."_
 
 ---
 
