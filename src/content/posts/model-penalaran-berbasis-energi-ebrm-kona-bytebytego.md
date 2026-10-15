@@ -16,7 +16,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/model-penalaran-berbasis-energi-ebrm-kona-bytebytego-16x9.png'
-coverImageAlt: 'Matriks logika matematika dan jaringan komputasi multidimensi'
+coverImageAlt: 'Timbangan kuningan antik berpemberat logam di meja kayu usang, cahaya hangat jendela dan kain terlipat di sampingnya'
 format: 'konteks'
 source:
   - name: 'ByteByteGo — How to Build Models Without Language, with Logical Intelligence'
