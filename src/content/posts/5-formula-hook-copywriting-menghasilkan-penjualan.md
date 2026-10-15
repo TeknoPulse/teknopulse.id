@@ -13,7 +13,7 @@ tags:
   - Solopreneurship
   - Conversion
 coverImage: '../../assets/images/2026-10-06-5-formula-hook-copywriting-menghasilkan-penjualan-16x9.png'
-coverImageAlt: 'Ilustrasi tipografi hook copywriting dengan pena di atas kertas, bergaya kartu editorial TeknoPulse'
+coverImageAlt: 'Inkwell kaca antik berisi tinta dengan pena celup dan lembaran kertas kosong di meja tulis kayu, cahaya lampu hangat'
 author: 'TeknoPulse Redaksi'
 draft: false
 source:
