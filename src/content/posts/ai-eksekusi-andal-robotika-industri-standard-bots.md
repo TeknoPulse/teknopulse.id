@@ -2,7 +2,7 @@
 title: 'Membangun AI untuk Eksekusi Andal: Pelajaran Physical AI dari Robot Industri Standard Bots'
 slug: 'ai-eksekusi-andal-robotika-industri-standard-bots'
 summary: 'Bedah arsitektur Physical AI Standard Bots dari Evan Beard dan Leif Jentoft di Latent Space: inferensi edge on-premise, ko-optimasi hardware-software full stack, persepsi zero-shot, dan action chunks untuk manufaktur presisi.'
-metaDescription: 'Pelajaran Physical AI dari Standard Bots di Latent Space: mengapa robotika industri mengutamakan inferensi edge lokal dan data terarah daripada model raksasa.'
+metaDescription: 'Pelajaran Physical AI dari Standard Bots: mengapa robotika industri mengutamakan inferensi edge lokal dan data terarah daripada model raksasa.'
 publishedAt: 2026-10-11
 category: Automation
 tags:
