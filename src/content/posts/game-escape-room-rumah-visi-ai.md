@@ -31,7 +31,7 @@ Kita melihat ratusan aplikasi peringkas rapat, generator draf email, dan alat ot
 
 Kesenjangan inilah yang disorot oleh kurator bisnis **IdeaBrowser**. Di saat pasar AI B2B dipenuhi persaingan ketat, sektor hiburan berbasis pengalaman (_experiential consumer AI_) justru menyisakan ruang inovasi yang sangat segar.
 
-Mengaitkan data pengeluaran musiman global—di mana konsumen Amerika Serikat diperkirakan membelanjakan **$13,5 Miliar untuk perayaan Halloween**, dengan **$4,3 Miliar dialokasikan murni untuk dekorasi yang hanya digunakan satu malam**—IdeaBrowser merumuskan sebuah konsep bisnis cerdas: **mengubah foto rumah keluarga menjadi arena permainan _Haunted Escape Room_ interaktif di ponsel**.
+Mengaitkan data pengeluaran musiman global—di mana konsumen Amerika Serikat diperkirakan membelanjakan **$13,5 Miliar untuk perayaan Halloween**, dengan **$4,3 Miliar di antaranya direncanakan untuk belanja dekorasi Halloween**—IdeaBrowser merumuskan sebuah konsep bisnis cerdas: **mengubah foto rumah keluarga menjadi arena permainan _Haunted Escape Room_ interaktif di ponsel**.
 
 Berikut adalah dekonstruksi peluang bisnis game spasial berbasis visi AI dan langkah-langkah implementasinya bagi para pembangun startup.
 
@@ -57,9 +57,11 @@ Alih-alih membangun aplikasi game 3D yang mahal dan rumit, arsitektur produk ini
 
 Pengguna cukup memotret sudut-sudut rumah mereka: sofa ruang tamu, rak buku, meja makan, kulkas dapur, hingga pigura foto keluarga lama.
 
+_Foto rumah adalah data pribadi. Produk semacam ini perlu meminta izin eksplisit sebelum unggah, menyarankan pengguna menghindari detail sensitif (dokumen, layar, wajah orang lain), dan memberi opsi hapus otomatis setelah sesi permainan selesai._
+
 ### Langkah 2: Pemetaan Spasial dan Segmentasi Objek Berbasis Vision AI
 
-Model visi komputer multimodal (seperti GPT-4o Vision atau Gemini Pro Vision) memindai foto-foto tersebut:
+Model visi komputer multimodal (seperti GPT-4o Vision atau Gemini 2.5 Flash) memindai foto-foto tersebut:
 
 - Mendeteksi objek spesifik di dalam ruangan (misal: "jam dinding antik", "bantal sofa merah", "tanaman monstera di sudut").
 - Mengidentifikasi teks pada buku atau ornamen unik di dinding.
@@ -142,4 +144,4 @@ Bagi tim yang ingin masuk, langkah paling realistis adalah memilih satu momentum
 ## Sumber Rujukan
 
 - IdeaBrowser: _"Your house as a Halloween biz"_ — 11 Oktober 2026 — https://www.ideabrowser.com/emails/2026-10-11
-- National Retail Federation (NRF), _Halloween Data and Trends_ — pengeluaran Halloween AS total $13,5 miliar, dekorasi $4,3 miliar — https://nrf.com/topics/halloween-data-and-trends
+- National Retail Federation (NRF), _NRF Halloween Survey Shows Consumer Spending Expected to Reach $13,5 Billion_ — pengeluaran Halloween AS total $13,5 miliar, dekorasi $4,3 miliar. https://nrf.com/media-center/press-releases/nrf-halloween-survey-shows-consumer-spending-expected-to-reach-13-5-billion
