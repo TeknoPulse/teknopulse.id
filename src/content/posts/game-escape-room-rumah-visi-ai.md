@@ -45,7 +45,7 @@ Mengapa konsep ini memiliki peluang adopsi yang sangat tinggi?
 2. **Monetisasi Dekorasi Musiman:** Jutaan keluarga membeli ornamen labu, kerangka buatan, dan lampu temaram sejak bulan September. Menjadikan dekorasi fisik tersebut sebagai bagian dari teka-teki interaktif memberikan nilai tambah instan bagi belanja dekorasi yang mahal.
 3. **Fleksibilitas Sepanjang Tahun:** Meskipun momentum Halloween adalah pintu masuk terbaik, mekanika inti permainan dapat diadaptasi dengan cepat untuk tema pesta ulang tahun anak, perayaan Natal, atau perburuan harta karun keluarga di akhir pekan.
 
-Pola ini sejalan dengan seri peluang bisnis berbasis visi AI yang sudah kami ulas sebelumnya, seperti [AI estate sale planner](/posts/peluang-bisnis-ai-estate-sale-planner/) dan [broker diagnostik mobil listrik bekas](/posts/peluang-bisnis-broker-diagnostik-mobil-listrik-bekas/): memanfaatkan kamera ponsel sebagai sensor murah untuk mengubah objek fisik sehari-hari menjadi pengalaman digital bernilai.
+Pola ini sejalan dengan tren yang sudah kami ulas sebelumnya, seperti [membangun agen vertikal bernilai tinggi](/posts/membangun-agen-vertikal-peluang-konektor-ai/) dan [AI video yang mengubah presentasi menjadi konten](/posts/2026-08-25-alibaba-wan3-video/): memanfaatkan model generatif dan visi komputer untuk mengubah aset sehari-hari menjadi pengalaman digital bernilai.
 
 ---
 
