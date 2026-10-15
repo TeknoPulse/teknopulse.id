@@ -47,7 +47,7 @@ Peluncuran dilakukan secara bertahap. Pada 7 Oktober, akses diberikan kepada pen
 
 Perlu dicatat bahwa pembaruan ini berlaku khusus untuk fitur obrolan ChatGPT. Untuk produk Work dan Codex yang terpisah, model yang digunakan tidak berubah dalam rilis ini.
 
-## Apa Artinya bagi Penggasa Indonesia?
+## Apa Artinya bagi Pengguna Indonesia?
 
 Bagi pengguna di Indonesia yang selama ini mengandalkan ChatGPT untuk membantu pekerjaan sehari-hari, perubahan ini cukup signifikan. Kalkulator tagihan dan pembagian, perbandingan produk, perencanaan anggaran, atau visualisasi data tidak lagi menjadi sesuatu yang harus disalin ke aplikasi lain. Semua bisa dilakukan langsung di dalam obrolan.
 
