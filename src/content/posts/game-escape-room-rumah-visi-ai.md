@@ -14,7 +14,7 @@ tags:
   - Peluang Bisnis
   - Startups
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/game-escape-room-rumah-visi-ai-16x9.png'
 coverImageAlt: 'Meja kayu berdebu di loteng bertiang kayu dengan lentera lilin menyala, gembok kuningan, dan lingkar kunci antik'
 source:

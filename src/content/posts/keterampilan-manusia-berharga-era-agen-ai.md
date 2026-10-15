@@ -15,7 +15,7 @@ tags:
   - Vibe Coding
   - Keterampilan Masa Depan
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/keterampilan-manusia-berharga-era-agen-ai-16x9.png'
 coverImageAlt: 'Celemek kerja kulit usang tergantung di pasak kayu dinding bengkel, bangku kerja berisi serutan kayu dan perkakas di belakangnya'
 source:

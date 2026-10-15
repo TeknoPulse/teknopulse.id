@@ -14,7 +14,7 @@ tags:
   - Sam Illingworth
   - Etika AI
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/mengapa-asisten-ai-selalu-setuju-sycophancy-16x9.png'
 coverImageAlt: 'Lima bebek kayu ukiran berjajar di ambang jendela usang menghadap arah yang sama, cahaya pagi dari jendela berdebu'
 source:
