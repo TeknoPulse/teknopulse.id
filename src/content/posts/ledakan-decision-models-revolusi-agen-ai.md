@@ -1,8 +1,8 @@
 ---
 title: "Ledakan 'Decision Models': Mengapa Model Pilihan Bertipe Menembus $100M ARR dan Merevolusi Agen AI"
 slug: 'ledakan-decision-models-revolusi-agen-ai'
-summary: 'Bedah fenomena kategori AI baru Decision Models yang dipelopori TypeSafe/Jev hingga tembus $100M ARR: mengapa model output bertipe memangkas biaya agen hingga 64%, dan respons masif dari OpenAI, Cloudflare, hingga Vercel.'
-metaDescription: 'Kupas tuntas meledaknya Decision Models di industri AI: model luaran bertipe yang memangkas biaya agen 64% dan merevolusi arsitektur evaluasi LLM.'
+summary: 'Bedah fenomena kategori AI baru Decision Models yang dipelopori TypeSafe/Jev hingga tembus $100M ARR: mengapa model output bertipe efisien untuk perutean agen, merujuk temuan LangChain soal pemilihan model termurah yang memadai, plus respons OpenAI hingga Cloudflare.'
+metaDescription: 'Kupas meledaknya Decision Models di industri AI: model luaran bertipe yang efisien untuk perutean agen dan merevolusi arsitektur evaluasi LLM.'
 publishedAt: 2026-10-11
 category: Software
 tags:
@@ -48,7 +48,7 @@ Sebaliknya, **Decision Model** bekerja dengan mengembalikan luaran bertipe (_str
 - **Pilihan Terbatas (_Categorical Pick_):** Memilih satu opsi terbaik dari daftar pilihan yang diberikan.
 - **Skor / Tingkat Kualitas:** Memberikan nilai terkalibrasi berdasarkan kriteria rubrik evaluasi.
 
-Karena tidak memerlukan proses generasi autoregresif token demi token, waktu inferensi menjadi **hingga 10 kali lebih cepat** dan biaya komputasi turun drastis.
+Karena tidak memerlukan proses generasi autoregresif token demi token, model keputusan ini diklaim mampu menekan biaya komputasi sekaligus memangkas waktu inferensi secara signifikan.
 
 ---
 
@@ -64,7 +64,7 @@ Ketika para insinyur membangun agen AI otonom (_agentic workflows_), sebagian be
 
 Jika setiap percabangan logika tersebut memanggil model frontier raksasa seharga puluhan dolar per juta token, biaya eksekusi agen membengkak tak terkendali.
 
-Data riset industri dari LangChain membuktikan bahwa mengalihkan tugas evaluasi dan perutean dari LLM teks generik ke Decision Model berhasil **memangkas median biaya per tugas hingga 64%** pada tolok ukur _Open SWE Bench_.
+Data riset industri dari LangChain menunjukkan bahwa merutekan setiap tugas ke model **termurah yang memadai**—bukan sekadar mengganti ke model keputusan—berhasil **memangkas median biaya per tugas hingga 64%** pada tolok ukur _Open SWE Bench_.
 
 ---
 
@@ -72,10 +72,10 @@ Data riset industri dari LangChain membuktikan bahwa mengalihkan tugas evaluasi 
 
 Kemunculan Jev memicu respons instan dari para penyedia infrastruktur cloud AI:
 
-1. **OpenAI Decisions API:** Berjalan di atas model GPT-6 Luna, menawarkan biaya input super murah ($0.10 per 1M token input) **tanpa biaya token output sama sekali**, dengan klaim kecepatan 10x lebih tinggi dibanding API obrolan biasa.
+1. **OpenAI Decisions API:** Berjalan di atas model GPT-6 Luna, menawarkan biaya input super murah ($0.10 per 1M token input) **tanpa biaya token output sama sekali**, dengan klaim OpenAI sendiri bahwa API-nya **hingga 10x lebih cepat** dibanding API obrolan biasa.
 2. **Cloudflare Clef:** Merilis model _clef-omni_ yang mendukung input multimodal (audio, video, gambar, teks) dengan bobot terbuka di Hugging Face, diklaim 2x lebih cepat dan lebih murah dibanding penawaran komersial lainnya.
 3. **Perplexity Pplx-Decider (27B):** Mengklaim akurasi tertinggi pada _Decision Bench_ (94,5% di 1.071 kasus uji) dengan tarif hanya $0,017 per 1.000 keputusan.
-4. **Pelatihan Mandiri via Unsloth:** Komunitas sumber terbuka merilis panduan menyulap model kecil seperti Qwen3.5-4B menjadi model keputusan berakurasi tinggi hanya dengan 8GB VRAM dalam waktu 10 menit pelatihan.
+4. **Pelatihan Mandiri via Unsloth:** Komunitas sumber terbuka merilis panduan menyulap model kecil seperti Qwen3.5-4B menjadi model keputusan berakurasi tinggi dengan kebutuhan hanya 8GB VRAM. Panduan lain pada model yang jauh lebih kecil, Qwen3.5-0.8B, melaporkan akurasi naik dari 37% ke 65% dalam sekitar 10 menit pelatihan di 4GB VRAM.
 
 ---
 
@@ -93,7 +93,7 @@ Dengan Decision Models, luaran dijamin mematuhi tipe data matematis di tingkat l
 
 1. **Audit Alur Kerja Agen Anda:** Periksa berapa banyak panggilan API di sistem Anda yang sebenarnya hanya membutuhkan keputusan ya/tidak atau klasifikasi kategori. Alihkan tugas-tugas tersebut ke model keputusan untuk menghemat anggaran secara masif.
 2. **Pisahkan Mesin Penalaran dari Mesin Pembuat Konten:** Gunakan model bahasa generik hanya ketika Anda benar-benar membutuhkan narasi teks kaya untuk dibaca manusia.
-3. **Manfaatkan Model Keputusan Lokal:** Dengan kebutuhan komputasi yang sangat ringan (dapat berjalan di 4–8GB VRAM), model keputusan dapat dipasang langsung di server lokal atau perangkat tepi pengembang tanpa biaya API eksternal.
+3. **Manfaatkan Model Keputusan Lokal:** Kebutuhan komputasinya ringan—menurut panduan komunitas, varian kecilnya cukup berjalan di kisaran 4–8GB VRAM—sehingga model keputusan dapat dipasang langsung di server lokal atau perangkat tepi pengembang tanpa biaya API eksternal.
 
 ---
 

@@ -86,7 +86,7 @@ Ia membuka Google Docs dan menuliskan langkah-langkah solutif 1, 2, dan 3 secara
 
 Gloria kembali ke utas diskusi tempat orang mengeluh. Alih-alih membombardir tautan penjualan, ia menulis komentar informatif yang menjawab sebagian besar pertanyaan inti, lalu menutupnya dengan sopan:
 
-> _"Saya sempat mengalami kebingungan yang sama persis minggu lalu. Saya menyusun panduan langkah demi langkah yang berhasil menyelamatkan saya ke dalam dokumen ringkas. Ini tautannya jika ada yang membutuhkannya."_
+> _"Saya juga sempat mengalami kebingungan ini dan menyusun panduan singkat berisi langkah-langkah yang berhasil untuk saya. Ini tautannya jika ada yang membutuhkannya."_
 
 Satu jam kemudian, notifikasi penjualan pertama berbunyi di ponselnya ($6,65 bersih). Keesokan paginya, pendapatan mencapai $127, dan dalam waktu 24 jam menembus **$366**.
 

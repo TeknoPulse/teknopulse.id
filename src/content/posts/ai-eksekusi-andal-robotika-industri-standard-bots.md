@@ -28,9 +28,9 @@ _Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari taklimat rekaya
 
 Ketika publik membicarakan masa depan robotika dan kecerdasan buatan, sorotan media hampir selalu tertuju pada sosok robot humanoid dua kaki—seperti prototipe Figure atau robot rumah tangga NEO dari 1X. Robot humanoid adalah visi masa depan yang memikat, namun di lini manufaktur nyata tahun 2026, revolusi sesungguhnya sedang digerakkan oleh **robot industri lengan (_industrial robotic arms_)** yang bekerja tanpa henti di pabrik perakitan.
 
-Salah satu pemain paling agresif di sektor ini adalah **Standard Bots**, produsen robot industri berbasis AI-native terbesar di Amerika Serikat. Perusahaan ini baru saja mengumumkan pendanaan Seri C senilai $200 Juta dengan valuasi $1 Miliar yang dipimpin oleh General Catalyst dan RoboStrategy, dengan jajaran pelanggan raksasa seperti NASA, Amazon, dan Lockheed Martin.
+Salah satu pemain paling agresif di sektor ini adalah **Standard Bots**, yang menurut klaim perusahaan merupakan produsen robot industri berbasis AI-native terbesar di Amerika Serikat. Perusahaan ini baru saja mengumumkan pendanaan Seri C senilai $200 Juta dengan valuasi $1 Miliar yang dipimpin oleh General Catalyst dan RoboStrategy, dengan jajaran pelanggan raksasa seperti NASA, Amazon, dan Lockheed Martin.
 
-Dalam diskusi mendalam di Latent Space bersama Evan Beard (Co-founder & CEO) dan Leif Jentoft (Head of AI), terungkap cetak biru teknis bagaimana mereka membangun tumpukan kecerdasan buatan fisik (_Physical AI stack_) yang mampu mencapai keandalan 99,9% di lingkungan pabrik berkecepatan tinggi.
+Dalam diskusi mendalam di Latent Space bersama Evan Beard (Co-founder & CEO) dan Leif Jentoft (Head of AI), terungkap cetak biru teknis bagaimana mereka membangun tumpukan kecerdasan buatan fisik (_Physical AI stack_) yang dirancang memenuhi kebutuhan _cycle time_ dan keandalan produksi di lingkungan pabrik berkecepatan tinggi.
 
 Berikut adalah dekonstruksi arsitektur rekayasa Standard Bots dan pelajaran berharga bagi para insinyur sistem otomatisasi.
 
@@ -68,7 +68,7 @@ Salah satu batasan terbesar otomatisasi industri adalah konektivitas jaringan. P
 Oleh karena itu, seluruh inferensi Standard Bots dijalankan secara lokal di mesin:
 
 - Kamera di pergelangan lengan robot (_wrist cameras_) dan sensor taktil menyalurkan piksel mentah melalui jaringan internal Gigabit Ethernet berkecepatan tinggi tanpa kabel yang kusut.
-- Unit pemroses grafis tepi (_Edge GPUs_) di dalam sasis robot memproses data sensor secara lokal dan menghasilkan potongan tindakan (_action chunks_) dengan latensi milidetik yang langsung disalurkan ke subsistem kontrol tingkat rendah.
+- Unit pemroses grafis tepi (_Edge GPUs_) di dalam sasis robot memproses data sensor secara lokal dan menghasilkan potongan tindakan (_action chunks_) yang langsung disalurkan ke subsistem kontrol tingkat rendah, sehingga loop kendali tetap berada di dalam pabrik.
 
 ---
 
@@ -78,7 +78,7 @@ Banyak perusahaan rintisan perangkat lunak mengklaim sedang membangun kecerdasan
 
 > _"Tidak ada model fisik hari ini yang benar-benar agnostik terhadap perangkat keras. Mengontrol penuh tumpukan teknologi dari lengan mekanis, aktuator ujung (end effector), sistem kontrol, hingga lapisan AI memungkinkan kami mengo-optimasi model pembelajaran dan kebijakan kontrol secara simultan."_
 
-Ketika terjadi kegagalan eksekusi di lapangan, Standard Bots mengumpulkan sinyal galat dan koreksi operator manusia. Menariknya, intervensi di tempat (_in-situ interventions_) hanya membutuhkan **beberapa lusin contoh data nyata** untuk memperbaiki satu kasus batas ekstrem (_edge case_). Pembelajaran armada (_fleet learning_) ini kemudian didistribusikan ke seluruh robot di jaringan untuk meningkatkan akurasi secara kolektif.
+Ketika terjadi kegagalan eksekusi di lapangan, Standard Bots mengumpulkan sinyal galat dan koreksi operator manusia. Menariknya, intervensi di tempat (_in-situ interventions_) dapat memperbaiki satu kasus batas ekstrem (_edge case_) dengan **beberapa lusin contoh data nyata**. Pembelajaran armada (_fleet learning_) ini kemudian didistribusikan ke seluruh robot di jaringan untuk meningkatkan akurasi secara kolektif.
 
 ---
 
