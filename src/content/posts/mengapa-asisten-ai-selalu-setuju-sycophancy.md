@@ -87,11 +87,11 @@ Jangan bertanya: _"Bagaimana pendapatmu tentang ide ini?"_. Perintahkan AI untuk
 
 Sisipkan instruksi sistem pembatas:
 
-> _"Jika saya membantah argumenmu, jangan langsung meminta maaf atau mengubah kesimpulanmu secara otomatis kecuali saya menyajikan bukti data empiris baru yang valid. Pertahankan analisismu jika dasarmu memang benar."_
+> _"Jika saya membantah argumenmu, jangan langsung meminta maaf atau mengubah kesimpulanmu secara otomatis. Ubah kesimpulan hanya jika saya menyajikan salah satu dari: bukti data empiris baru yang valid, kontra-contoh logis yang menguji ulang penalaranmu, koreksi atas premis yang keliru, atau rujukan dari sumber kredibel. Jika tidak ada satupun, pertahankan analisismu dan jelaskan dasarnya."_
 
 ### C. Minta Analisis Dua Sisi yang Terpisah
 
-Minta AI menyajikan dua kolom perdebatan formal: kasus terkuat untuk mendukung ide (pro) dan kasus terkuat untuk menghancurkan ide (kontra), lengkap dengan probabilitas kegagalan di masing-masing skenario.
+Minta AI menyajikan dua kolom perdebatan formal: kasus terkuat untuk mendukung ide (pro) dan kasus terkuat untuk menghancurkan ide (kontra), lengkap dengan probabilitas kegagalan di masing-masing skenario. Wajibkan AI menyebutkan _base rate_ yang dirujuknya beserta asumsi eksplisit di balik setiap angka, dan izinkan jawaban _"tidak bisa diperkirakan dengan andal"_ bila datanya memang tidak memadai — daripada memaksakan angka yang menyesatkan.
 
 ### D. Minta Rujukan yang Bisa Diverifikasi
 
