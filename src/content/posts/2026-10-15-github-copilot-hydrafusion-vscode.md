@@ -9,6 +9,7 @@ draft: false
 slug: 'github-copilot-hydrafusion-vscode'
 metaDescription: 'GitHub Copilot Hadirkan HydraFusion di VS Code, otomatis pilih model AI & pola kerja untuk pengodean. Tersedia untuk Pro, Pro+, Business, Enterprise.'
 coverImage: '../../assets/images/2026-10-15-github-copilot-hydrafusion-vscode-16x9.png'
+coverImageAlt: 'Meja kayu usang di samping jendela dengan laptop berslayar gelap, buku catatan terbuka, pena, dan mug kopi'
 source:
   - name: 'GitHub Blog'
     url: 'https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases'

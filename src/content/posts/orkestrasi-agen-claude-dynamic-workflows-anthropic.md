@@ -16,7 +16,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/orkestrasi-agen-claude-dynamic-workflows-anthropic-16x9.png'
-coverImageAlt: 'Visualisasi arsitektur orkestrasi multi-agen dan pemrosesan komputasi terdistribusi'
+coverImageAlt: 'Manifold klep kuningan berpatina dengan pipa tembaga di dinding plester terkelupas bengkel tua, kunci pas tergeletak di bangku kayu berdebu'
 format: 'konteks'
 source:
   - name: 'Latent Space — How Anthropic’s Dynamic Workflows Coordinate Claude Agents'

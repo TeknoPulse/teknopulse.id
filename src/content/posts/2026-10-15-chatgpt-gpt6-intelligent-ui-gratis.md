@@ -9,6 +9,7 @@ author: 'TeknoPulse Redaksi'
 draft: false
 metaDescription: 'OpenAI luncurkan GPT-6 dengan Intelligent UI di ChatGPT: jawaban jadi kalkulator, grafik, peta, dan tombol interaktif untuk semua pengguna.'
 coverImage: '../../assets/images/2026-10-15-chatgpt-gpt6-intelligent-ui-gratis-16x9.png'
+coverImageAlt: 'Ponsel tegak di konter dapur kayu yang hangat, ditemani mug kopi beruap, tanaman kecil, dan kain terlipat'
 source:
   - name: 'The Live Today'
     url: 'https://thelivetoday.com/?p=1291'
