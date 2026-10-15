@@ -1,12 +1,26 @@
 ---
-title: "ChatGPT GPT-6 Hadir untuk Semua: Sekarang Jawaban Bisa Langsung Interaktif"
-slug: "chatgpt-gpt6-intelligent-ui-gratis"
-summary: "OpenAI luncurkan Intelligent UI di GPT-6: jawaban ChatGPT tidak lagi sekadar teks, tapi berubah jadi kalkulator, grafik, peta, dan tombol yang bisa langsung diklik — gratis untuk semua orang."
+title: 'ChatGPT GPT-6 Hadir untuk Semua: Sekarang Jawaban Bisa Langsung Interaktif'
+slug: 'chatgpt-gpt6-intelligent-ui-gratis'
+summary: 'OpenAI luncurkan Intelligent UI di GPT-6: jawaban ChatGPT tidak lagi sekadar teks, tapi berubah jadi kalkulator, grafik, peta, dan tombol yang bisa langsung diklik — gratis untuk semua orang.'
 publishedAt: 2026-10-15T06:15:00+07:00
-tags: ["ChatGPT", "GPT-6", "OpenAI", "AI", "Intelligent UI"]
+tags: ['ChatGPT', 'GPT-6', 'OpenAI', 'AI', 'Intelligent UI']
 category: AI
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
+metaDescription: 'OpenAI luncurkan GPT-6 dengan Intelligent UI di ChatGPT: jawaban jadi kalkulator, grafik, peta, dan tombol interaktif untuk semua pengguna.'
+coverImage: '../../assets/images/2026-10-15-chatgpt-gpt6-intelligent-ui-gratis-16x9.png'
+source:
+  - name: 'The Live Today'
+    url: 'https://thelivetoday.com/?p=1291'
+    primary: true
+  - name: 'AI Briefing'
+    url: 'https://aibriefing.dev/'
+  - name: 'TVBS TECH'
+    url: 'https://tech.tvbs.com.tw/tech/4033381'
+  - name: 'TMT Post'
+    url: 'https://www.tmtpost.com/agent/ai-article?id=20813'
+  - name: 'The Paper (Pengpai News)'
+    url: 'https://www.163.com/dy/article/L8NIKOUU0514R9P4.html'
 ---
 
 Dari sekadar teks hingga menjadi kalkulator yang bisa langsung dihitung, ChatGPT kini bertransformasi menjadi sesuatu yang lebih dari sekadar chatbot. OpenAI secara resmi memulai peluncuran GPT-6 beserta fitur andalan barunya yang bernama **Intelligent UI** pada 7 Oktober 2026, dimulai dari pengguna berbayar, lalu sehari kemudian diperluas ke pengguna gratis dan Go. Dengan perubahan ini, lebih dari 12 miliar pengguna aktif mingguan ChatGPT kini bisa merasakan cara baru dalam berinteraksi dengan AI.

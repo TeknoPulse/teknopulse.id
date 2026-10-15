@@ -1,11 +1,18 @@
 ---
-title: "GitHub Copilot Rilis HydraFusion, AI Pilih Model Terbaik Otomatis di VS Code"
-summary: "GitHub secara resmi membawa HydraFusion ke Visual Studio Code, fitur riset yang secara otomatis memilih model AI dan pola kerja terbaik untuk setiap tugas pengodean di GitHub Copilot."
+title: 'GitHub Copilot Rilis HydraFusion, AI Pilih Model Terbaik Otomatis di VS Code'
+summary: 'GitHub secara resmi membawa HydraFusion ke Visual Studio Code, fitur riset yang secara otomatis memilih model AI dan pola kerja terbaik untuk setiap tugas pengodean di GitHub Copilot.'
 publishedAt: 2026-10-15T06:22:00+07:00
-tags: ["GitHub", "VS Code", "AI Coding", "Developer Tools"]
+tags: ['GitHub', 'VS Code', 'AI Coding', 'Developer Tools']
 category: Developer
-author: "TeknoPulse Redaksi"
+author: 'TeknoPulse Redaksi'
 draft: false
+slug: 'github-copilot-hydrafusion-vscode'
+metaDescription: 'GitHub Copilot Hadirkan HydraFusion di VS Code, otomatis pilih model AI & pola kerja untuk pengodean. Tersedia untuk Pro, Pro+, Business, Enterprise.'
+coverImage: '../../assets/images/2026-10-15-github-copilot-hydrafusion-vscode-16x9.png'
+source:
+  - name: 'GitHub Blog'
+    url: 'https://github.blog/changelog/2026-10-01-github-copilot-in-vs-code-september-2026-releases'
+    primary: true
 ---
 
 Halo, pembaca setia! Ada perkembangan menarik dari dunia alat pengembang perangkat lunak. GitHub resmi membawa fitur **HydraFusion** ke Visual Studio Code, dan ini mengubah cara kita berpikir tentang asisten kode AI.
