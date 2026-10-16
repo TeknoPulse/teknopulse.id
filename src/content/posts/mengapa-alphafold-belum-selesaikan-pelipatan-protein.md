@@ -18,14 +18,12 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/2026-10-10-alphafold-pelipatan-protein-16x9.png'
-coverImageAlt: 'Visualisasi abstrak jaringan titik dan garis bercahaya yang merepresentasikan rantai protein'
+coverImageAlt: 'Mikroskop kuningan antik di atas meja kayu berdebu dengan kaca objek kecil di sampingnya, cahaya jendela lembut'
 source:
   - name: "Latent Space — Why AlphaFold Didn't Solve Protein Folding"
     url: 'https://www.latent.space/p/biohub-deepmind'
     primary: true
 ---
-
-![Visualisasi komputasi struktur 3D molekul protein bercahaya dengan diagram pemodelan biologi kecerdasan buatan](https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=1280&h=720&q=80)
 
 _Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari taklimat dan diskusi teknis [Latent Space](https://www.latent.space/p/biohub-deepmind) bersama Pushmeet Kohli (Google DeepMind) dan Sal Candido (Chan Zuckerberg Biohub) edisi 10 Oktober 2026._
 
