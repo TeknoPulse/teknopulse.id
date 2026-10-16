@@ -64,7 +64,7 @@ const encodedUrl = encodeURIComponent(fullUrl);
   </a>
 
   <button
-    onclick="navigator.clipboard.writeText(this.dataset.url).then(() => { const s = this.querySelector('span'); const o = s.innerText; s.innerText = 'Tersalin!'; setTimeout(() => s.innerText = o, 2000); })"
+    onclick="navigator.clipboard.writeText(this.dataset.url).then(() => { const s = this.querySelector('span'); clearTimeout(this.copyTimeout); s.innerText = 'Tersalin!'; this.copyTimeout = setTimeout(() => s.innerText = 'Salin', 2000); })"
     data-url={fullUrl}
     aria-label="Salin tautan"
     class="flex items-center space-x-2 text-gray-600 transition-colors hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200"
@@ -77,6 +77,6 @@ const encodedUrl = encodeURIComponent(fullUrl);
         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
       ></path>
     </svg>
-    <span class="text-sm">Salin</span>
+    <span class="text-sm" aria-live="polite">Salin</span>
   </button>
 </div>
