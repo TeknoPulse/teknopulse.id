@@ -30,7 +30,7 @@ Bagi komunitas perekayasa perangkat lunak, dua pekan terakhir di bulan Oktober 2
 1. **Perubahan Paket Langganan (12 Oktober):** Paket Plus seharga $8 kini dibatasi secara eksklusif hanya untuk model Grok. Sementara itu, paket Premium, Super, dan Ultra tidak lagi menyertakan alokasi kuota bawaan untuk model pihak ketiga; setiap panggilan ke model seperti GPT-6 langsung ditagihkan sesuai harga daftar API sejak token pertama.
 2. **Penghentian Akses OpenAI (12 November):** OpenAI memutuskan untuk mengakhiri kemitraan penyediaan model langsung ke Cursor dan tidak akan menyuplai model generasi masa depan ke platform tersebut.
 
-Bagi tim rekayasa enterprise yang telah menanamkan alur kerja mereka ke dalam Cursor demi mendapatkan akses ke model kecerdasan buatan terbaik, pertanyaan krusial pun mencuat: **apakah ketergantungan pada satu vendor alat (*tool vendor lock-in*) masih layak dipertahankan?**
+Bagi tim rekayasa enterprise yang telah menanamkan alur kerja mereka ke dalam Cursor demi mendapatkan akses ke model kecerdasan buatan terbaik, pertanyaan krusial pun mencuat: **apakah ketergantungan pada satu vendor alat (_tool vendor lock-in_) masih layak dipertahankan?**
 
 Merespons krisis ini, [Kilo Code](https://blog.kilo.ai/p/cursor-exodus) melancarkan kampanye migrasi besar-besaran seraya mengampanyekan kembali prinsip fundamental arsitektur mereka: **Model Freedom**.
 
@@ -38,12 +38,13 @@ Merespons krisis ini, [Kilo Code](https://blog.kilo.ai/p/cursor-exodus) melancar
 
 ## 1. Menu Dropdown Bukanlah Kebebasan Model yang Sejati
 
-Banyak pengembang mengira bahwa selama editor mereka memiliki menu *dropdown* untuk memilih model, mereka sudah memiliki kebebasan. 
+Banyak pengembang mengira bahwa selama editor mereka memiliki menu _dropdown_ untuk memilih model, mereka sudah memiliki kebebasan.
 
 Kilo Code membantah ilusi ini dengan tajam:
-> *"Menu dropdown pada editor tertutup hanyalah cerminan kesepakatan bisnis yang dibuat vendor Anda dengan penyedia model pada kuartal tersebut. Ketika kesepakatan bisnis itu berubah atau pecah, alur kerja tim Anda terpaksa berubah bersamanya."*
 
-Ketika sebuah alat *coding* mengikat nasibnya pada kontrak eksklusif, pengembang menjadi pihak yang paling dirugikan. Data internal Kilo menunjukkan bahwa ketika developer diberikan kebebasan penuh menyeimbangkan antara biaya komputasi dan performa penalaran, **lebih dari 70% tim secara aktif menggunakan tiga atau lebih penyedia model berbeda** secara bergantian dalam proyek harian mereka.
+> _"Menu dropdown pada editor tertutup hanyalah cerminan kesepakatan bisnis yang dibuat vendor Anda dengan penyedia model pada kuartal tersebut. Ketika kesepakatan bisnis itu berubah atau pecah, alur kerja tim Anda terpaksa berubah bersamanya."_
+
+Ketika sebuah alat _coding_ mengikat nasibnya pada kontrak eksklusif, pengembang menjadi pihak yang paling dirugikan. Data internal Kilo menunjukkan bahwa ketika developer diberikan kebebasan penuh menyeimbangkan antara biaya komputasi dan performa penalaran, **lebih dari 70% tim secara aktif menggunakan tiga atau lebih penyedia model berbeda** secara bergantian dalam proyek harian mereka.
 
 ```
 Perbandingan Paradigma Arsitektur AI Coding:
@@ -61,11 +62,11 @@ Pendekatan Model Freedom (Kilo Gateway):
 
 ## 2. Fitur "Sign in with ChatGPT": Menghindari Tagihan Token Ganda
 
-Salah satu inovasi taktis paling menarik yang diluncurkan Kilo adalah integrasi **"Sign in with ChatGPT"**. 
+Salah satu inovasi taktis paling menarik yang diluncurkan Kilo adalah integrasi **"Sign in with ChatGPT"**.
 
-Bagi ribuan perusahaan yang timnya sudah memiliki langganan ChatGPT Plus, Team, atau Enterprise, kebijakan pemutusan akses OpenAI di Cursor mengharuskan mereka membayar API per token yang sangat mahal. Kilo mengatasi ini dengan memungkinkan developer menghubungkan akun ChatGPT resmi mereka langsung ke VS Code, JetBrains, CLI, hingga sistem peninjauan kode (*Code Reviews*).
+Bagi ribuan perusahaan yang timnya sudah memiliki langganan ChatGPT Plus, Team, atau Enterprise, kebijakan pemutusan akses OpenAI di Cursor mengharuskan mereka membayar API per token yang sangat mahal. Kilo mengatasi ini dengan memungkinkan developer menghubungkan akun ChatGPT resmi mereka langsung ke VS Code, JetBrains, CLI, hingga sistem peninjauan kode (_Code Reviews_).
 
-Panggilan agen AI langsung memotong kuota langganan yang sudah dibayar perusahaan tanpa ada biaya tambahan per token, sementara 500+ model *open-weight* lainnya tetap dapat diakses berdampingan melalui gerbang Kilo Gateway.
+Panggilan agen AI langsung memotong kuota langganan yang sudah dibayar perusahaan tanpa ada biaya tambahan per token, sementara 500+ model _open-weight_ lainnya tetap dapat diakses berdampingan melalui gerbang Kilo Gateway.
 
 ---
 
@@ -73,15 +74,15 @@ Panggilan agen AI langsung memotong kuota langganan yang sudah dibayar perusahaa
 
 Pelajaran penting lainnya dari migrasi tim teknologi besar (seperti para insinyur Anaconda yang berpindah dari Cursor ke Kilo) adalah implementasi **Auto-Efficient Routing**:
 
-* Tidak semua tugas pengkodean memerlukan model termahal sekelas GPT-6 atau Claude Opus.
-* Menulis *docstring*, membuat pengujian unit sederhana (*unit test scaffolding*), atau memformat skema JSON dapat ditangani dengan sempurna oleh model *open-weight* yang berbiaya sepersepuluh dari model frontier.
-* Kilo secara cerdas mengarahkan setiap *prompt* ke model termurah yang telah terbukti mampu menyelesaikan tugas tersebut secara deterministik, lengkap dengan visibilitas biaya waktu-nyata di setiap sesi eksekusi.
+- Tidak semua tugas pengkodean memerlukan model termahal sekelas GPT-6 atau Claude Opus.
+- Menulis _docstring_, membuat pengujian unit sederhana (_unit test scaffolding_), atau memformat skema JSON dapat ditangani dengan sempurna oleh model _open-weight_ yang berbiaya sepersepuluh dari model frontier.
+- Kilo secara cerdas mengarahkan setiap _prompt_ ke model termurah yang telah terbukti mampu menyelesaikan tugas tersebut secara deterministik, lengkap dengan visibilitas biaya waktu-nyata di setiap sesi eksekusi.
 
 ---
 
 ## Pelajaran bagi Praktisi Rekayasa Perangkat Lunak
 
-Pelajaran terbesar dari drama Cursor vs OpenAI adalah pengingat abadi dunia rekayasa: **jangan pernah membiarkan fondasi alat kerja tim Anda digembok oleh satu ekosistem tertutup.** 
+Pelajaran terbesar dari drama Cursor vs OpenAI adalah pengingat abadi dunia rekayasa: **jangan pernah membiarkan fondasi alat kerja tim Anda digembok oleh satu ekosistem tertutup.**
 
 Alat bantu AI terbaik bukanlah alat yang memaksa Anda tunduk pada negosiasi bisnis di Silicon Valley, melainkan platform yang memberi Anda kendali penuh atas model, biaya, dan kedaulatan data kode Anda sendiri.
 
@@ -89,6 +90,6 @@ Alat bantu AI terbaik bukanlah alat yang memaksa Anda tunduk pada negosiasi bisn
 
 ## Sumber dan Rujukan Terkait
 
-* [Kilo Code — Leaving Cursor? Kilo Enterprise is free for up to a year](https://blog.kilo.ai/p/cursor-exodus)
-* [Kilo Code Architectural Essay — Your coding tool should not choose](https://blog.kilo.ai)
-* [Anaconda Engineering Case Study on Moving from Cursor to Kilo](https://anaconda.com/blog)
+- [Kilo Code — Leaving Cursor? Kilo Enterprise is free for up to a year](https://blog.kilo.ai/p/cursor-exodus)
+- [Kilo Code Architectural Essay — Your coding tool should not choose](https://blog.kilo.ai)
+- [Anaconda Engineering Case Study on Moving from Cursor to Kilo](https://anaconda.com/blog)
