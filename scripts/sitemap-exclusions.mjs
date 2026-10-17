@@ -77,7 +77,11 @@ export function emptyCategorySlugs(postsDir) {
     const slug = unquote(category).toLowerCase();
     counts.set(slug, (counts.get(slug) ?? 0) + 1);
   }
-  return new Set(['ai', 'developer', 'software', 'automation', 'experiments', 'insights'].filter((slug) => !counts.has(slug)));
+  return new Set(
+    ['ai', 'developer', 'software', 'automation', 'experiments', 'insights'].filter(
+      (slug) => !counts.has(slug)
+    )
+  );
 }
 
 /** Buat predicate `filter` untuk integrasi @astrojs/sitemap. */
