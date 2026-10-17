@@ -213,16 +213,11 @@ const faq = post.data.faq ?? [];
                 dapat internal link dari setiap halaman artikel. */}
             <h2 class="mb-4 text-xl font-bold">Jelajahi Kategori</h2>
             <div class="mb-10 flex flex-wrap gap-2">
-              {
-                allCategories.map((cat) => (
-                  <a
-                    href={getCategoryUrl(cat.name)}
-                    class={`category-badge category-${cat.slug}`}
-                  >
-                    {cat.name}
-                  </a>
-                ))
-              }
+              {allCategories.map((cat) => (
+                <a href={getCategoryUrl(cat.name)} class={`category-badge category-${cat.slug}`}>
+                  {cat.name}
+                </a>
+              ))}
             </div>
             <h2 class="mb-6 text-2xl font-bold">Artikel Terkait</h2>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
