@@ -8,22 +8,32 @@ import PostCard from '../../components/PostCard.astro';
 import { authors, getAuthor, type Author } from '../../utils/authors';
 import { site } from '../../config';
 
-export function getStaticPaths() {
-  return authors.map((author) => ({ params: { slug: author.slug }, props: { author } }));
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts');
+  const validPosts = allPosts.filter((post) => !post.data.draft);
+
+  // Sort posts once
+  validPosts.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+  return authors.map((author) => {
+    // Filter posts for this specific author
+    const authorPosts = validPosts.filter(
+      (post) => getAuthor(post.data.author)?.slug === author.slug
+    );
+
+    return {
+      params: { slug: author.slug },
+      props: { author, posts: authorPosts },
+    };
+  });
 }
 
 interface Props {
   author: Author;
+  posts: CollectionEntry<'posts'>[];
 }
 
-const { author } = Astro.props;
-
-const posts = (await getCollection('posts'))
-  .filter(
-    (post: CollectionEntry<'posts'>) =>
-      !post.data.draft && getAuthor(post.data.author)?.slug === author.slug
-  )
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const { author, posts } = Astro.props;
 
 // JSON-LD Person untuk halaman profil
 const personLd = {
