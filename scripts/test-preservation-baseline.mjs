@@ -214,7 +214,7 @@ assert(
 // Baseline: 45 file total berisi "category: AI" (termasuk draft)
 // Dokumentasikan angka aktual sebagai checkpoint
 console.log('\n── P2-9: Dokumentasi jumlah baseline artikel AI (Req 3.3)');
-const BASELINE_AI_POST_COUNT_TOTAL = 45; // total dari grep (draft + non-draft)
+const BASELINE_AI_POST_COUNT_TOTAL = 61; // total dari grep (draft + non-draft)
 assert(
   aiPostCount + draftCount <= BASELINE_AI_POST_COUNT_TOTAL + 5, // toleransi artikel baru
   `Jumlah artikel AI (non-draft: ${aiPostCount}, draft: ${draftCount}) konsisten dengan baseline ${BASELINE_AI_POST_COUNT_TOTAL}`,

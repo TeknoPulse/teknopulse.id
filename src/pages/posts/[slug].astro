@@ -18,6 +18,11 @@ export const prerender = true;
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
 
+  // Sort once for related posts calculation
+  const sortedPosts = [...posts].sort(
+    (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+  );
+
   // og:image harus unik per artikel (TEKAA-5): coverImage yang dipakai
   // bersama oleh ≥2 artikel tidak boleh jadi og:image — ganti dengan kartu
   // OG hasil generate `/og/<slug>.png` yang unik per slug.
@@ -33,16 +38,25 @@ export async function getStaticPaths() {
     const ogImage =
       post.data.ogImage ??
       (post.data.coverImage && !coverShared ? post.data.coverImage : `/og/${post.slug}.png`);
-    return { params: { slug: post.slug }, props: { post, ogImage } };
+
+    // Calculate related posts here to avoid doing it per-page during render
+    const otherPosts = sortedPosts.filter((p) => p.slug !== post.slug);
+    const tagRelated = otherPosts.filter((p) =>
+      (p.data.tags ?? []).some((tag) => (post.data.tags ?? []).includes(tag))
+    );
+    const relatedPosts = (tagRelated.length > 0 ? tagRelated : otherPosts).slice(0, 3);
+
+    return { params: { slug: post.slug }, props: { post, ogImage, relatedPosts } };
   });
 }
 
 interface Props {
   post: CollectionEntry<'posts'>;
   ogImage: CollectionEntry<'posts'>['data']['coverImage'] | string;
+  relatedPosts: CollectionEntry<'posts'>[];
 }
 
-const { post, ogImage } = Astro.props;
+const { post, ogImage, relatedPosts } = Astro.props;
 
 if (!post) {
   return Astro.redirect('/404');
@@ -67,18 +81,6 @@ const updated =
     post.data.publishedAt.toISOString().slice(0, 10)
     ? post.data.updatedAt
     : undefined;
-
-// Ambil postingan terkait berdasarkan tag, urut terbaru (TEKAA-3 P0-5).
-// Fallback: kalau tidak ada yang se-tag, pakai artikel terbaru lain supaya
-// setiap artikel selalu punya tautan internal di dalam konten.
-const allPosts = await getCollection('posts');
-const otherPosts = allPosts
-  .filter((p) => p.slug !== post.slug && !p.data.draft)
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const tagRelated = otherPosts.filter((p) =>
-  (p.data.tags ?? []).some((tag) => (post.data.tags ?? []).includes(tag))
-);
-const relatedPosts = (tagRelated.length > 0 ? tagRelated : otherPosts).slice(0, 3);
 
 const faq = post.data.faq ?? [];
 ---
@@ -213,16 +215,11 @@ const faq = post.data.faq ?? [];
                 dapat internal link dari setiap halaman artikel. */}
             <h2 class="mb-4 text-xl font-bold">Jelajahi Kategori</h2>
             <div class="mb-10 flex flex-wrap gap-2">
-              {
-                allCategories.map((cat) => (
-                  <a
-                    href={getCategoryUrl(cat.name)}
-                    class={`category-badge category-${cat.slug}`}
-                  >
-                    {cat.name}
-                  </a>
-                ))
-              }
+              {allCategories.map((cat) => (
+                <a href={getCategoryUrl(cat.name)} class={`category-badge category-${cat.slug}`}>
+                  {cat.name}
+                </a>
+              ))}
             </div>
             <h2 class="mb-6 text-2xl font-bold">Artikel Terkait</h2>
             <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
