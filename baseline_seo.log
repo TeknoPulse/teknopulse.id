@@ -1,0 +1,9 @@
+npm warn Unknown project config "onlyBuiltDependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm error Missing script: "seo-check"
+npm error
+npm error Did you mean this?
+npm error   npm run seo:check # run the "seo:check" package script
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /home/ubuntu/.npm/_logs/2026-10-17T11_17_48_200Z-debug-0.log

@@ -16,6 +16,7 @@
     "lint:fix": "eslint . --fix && prettier --write .",
     "prebuild": "node scripts/seo-check.mjs",
     "seo:check": "node scripts/seo-check.mjs",
+    "seo-check": "node scripts/seo-check.mjs",
     "seo:check:strict": "node scripts/seo-check.mjs --strict",
     "covers:audit": "node scripts/covers.mjs audit",
     "covers:plan": "node scripts/covers.mjs plan",

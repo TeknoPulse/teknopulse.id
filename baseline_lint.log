@@ -1,0 +1,19 @@
+npm warn Unknown project config "onlyBuiltDependencies". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> teknopulse@0.0.1 lint
+> eslint . && prettier --check .
+
+
+/home/ubuntu/.paperclip/instances/default/projects/7464bbc6-2bee-442d-ad0c-c1e23c6c4734/3d356978-9551-4c60-9359-5afb8dd569e2/_default/repo/src/components/Seo.astro
+  13:11  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 1 problem (0 errors, 1 warning)
+
+Checking formatting...
+[warn] docs/jules/sentinel.md
+[warn] scripts/sitemap-exclusions.mjs
+[warn] src/content/posts/agen-ai-bongkar-polisenantisitas-jaringan-saraf-goodfire.md
+[warn] src/content/posts/psikologi-retensi-ai-companion-harvard-the-slow-ai.md
+[warn] src/pages/posts/[slug].astro
+[warn] teknopulse-icon/preview.html
+[warn] Code style issues found in 6 files. Run Prettier with --write to fix.
