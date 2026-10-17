@@ -7,3 +7,7 @@
 
 **Learning:** Added ARIA attributes to navigation menus and a Skip to content link to improve accessibility for keyboard and screen reader users. The site is in Indonesian, so 'Lewati ke konten utama' is the correct localization.
 **Action:** Always ensure accessibility labels match the primary locale of the site (Indonesian `id-ID` in this repo).
+
+## 2026-10-25 - Avoid repeated getCollection in prerendered dynamic routes
+**Learning:** Calling \`getCollection\` inside the component body of a dynamically prerendered route (like \`[slug].astro\`) causes it to execute once per generated page during \`astro build\`. This leads to $O(N^2)$ build time complexity when $N$ is the number of posts.
+**Action:** Always fetch and process the full collection once inside \`getStaticPaths()\` and pass the computed results (like related posts) down to the component via \`props\`.
