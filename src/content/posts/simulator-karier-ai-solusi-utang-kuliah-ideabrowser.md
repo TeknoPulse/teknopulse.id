@@ -29,13 +29,13 @@ Ada satu paradoks klasik paling menyakitkan yang dihadapi jutaan lulusan perguru
 
 Data survei ketenagakerjaan terbaru mencatat bahwa **66,8% lulusan sarjana baru menyebut ketiadaan pengalaman kerja sebagai alasan nomor satu kegagalan mereka mendapatkan pekerjaan pertama**. Tidak sedikit yang terlilit utang kuliah puluhan hingga ratusan juta rupiah untuk program studi yang setelah dijalani ternyata sama sekali tidak mereka sukai.
 
-Dalam edisi terbarunya, [IdeaBrowser](https://www.ideabrowser.com/emails/2026-10-18) menyoroti terobosan yang berpotensi merevolusi masa depan pendidikan vokasi dan rekrutmen: **Platform Simulator Karier Berbasis AI (*The AI Job Simulator*)**, sekaligus membagikan panduan taktis memanfaatkan agen AI otonom untuk merekayasa balik corong penjualan kompetitor (*funnel swipe file*).
+Dalam edisi terbarunya, [IdeaBrowser](https://www.ideabrowser.com/emails/2026-10-18) menyoroti terobosan yang berpotensi merevolusi masa depan pendidikan vokasi dan rekrutmen: **Platform Simulator Karier Berbasis AI (_The AI Job Simulator_)**, sekaligus membagikan panduan taktis memanfaatkan agen AI otonom untuk merekayasa balik corong penjualan kompetitor (_funnel swipe file_).
 
 ---
 
 ## 1. Konsep "Try Before You Buy" untuk Masa Depan Pendidikan
 
-Gagasan inti dari simulator karier adalah menerapkan filosofi uji coba sebelum membeli (*try before you buy*) ke dalam pemilihan jalur profesi. 
+Gagasan inti dari simulator karier adalah menerapkan filosofi uji coba sebelum membeli (_try before you buy_) ke dalam pemilihan jalur profesi.
 
 Alih-alih langsung mendaftar kuliah keperawatan, data science, atau arsitektur jaringan cloud dan baru menyadari ketidakcocokannya empat tahun kemudian, calon mahasiswa dapat menjalani simulasi pekerjaan virtual interaktif:
 
@@ -62,22 +62,23 @@ Alur Pembelajaran Simulator Karier AI:
 ```
 
 Melalui platform semacam ini:
-* **Calon Siswa:** Mengetahui secara persis realitas pekerjaan harian (beban stres, jenis masalah, dan ritme kerja) sebelum menginvestasikan dana besar ke jenjang pendidikan formal.
-* **Lulusan Baru:** Memiliki portofolio pemecahan kasus nyata yang dapat dipamerkan ke calon pemberi kerja, mematahkan lingkaran setan ketiadaan pengalaman kerja.
-* **Perusahaan Lokal:** Mendapatkan akses awal untuk menyaring talenta yang telah terbukti mampu menyelesaikan skenario kerja nyata tanpa perlu menyaring ratusan resume kosong.
+
+- **Calon Siswa:** Mengetahui secara persis realitas pekerjaan harian (beban stres, jenis masalah, dan ritme kerja) sebelum menginvestasikan dana besar ke jenjang pendidikan formal.
+- **Lulusan Baru:** Memiliki portofolio pemecahan kasus nyata yang dapat dipamerkan ke calon pemberi kerja, mematahkan lingkaran setan ketiadaan pengalaman kerja.
+- **Perusahaan Lokal:** Mendapatkan akses awal untuk menyaring talenta yang telah terbukti mampu menyelesaikan skenario kerja nyata tanpa perlu menyaring ratusan resume kosong.
 
 ---
 
 ## 2. Otomasi Riset Corong Penjualan: Membangun "Funnel Swipe File" dengan Agen AI
 
-Selain peluang di bidang pendidikan, IdeaBrowser mengulas taktik intelijen bisnis praktis yang kini dapat diotomatisasi penuh menggunakan agen AI: **menganalisis alur penjualan kompetitor (*funnel swipe file*)**.
+Selain peluang di bidang pendidikan, IdeaBrowser mengulas taktik intelijen bisnis praktis yang kini dapat diotomatisasi penuh menggunakan agen AI: **menganalisis alur penjualan kompetitor (_funnel swipe file_)**.
 
 Cara tercepat untuk memahami strategi pemasaran produk yang berhasil adalah dengan mempelajari secara rinci produk-produk yang berhasil membuat Anda (atau audiens target) rela membayar. Namun, mendokumentasikan setiap langkah pendaftaran secara manual memakan waktu berhari-hari.
 
 Dengan mendelegasikan tugas ini ke agen peramban otonom, prosesnya menjadi sangat sederhana:
 
 > **Instruksi Agen Riset Corong Penjualan:**  
-> *"Daftar ke layanan [Nama Produk] menggunakan alamat email khusus. Tangkap tangkapan layar (screenshot) dari setiap langkah corong: landing page, alur pendaftaran, proses orientasi (onboarding), setiap email otomatis yang dikirim selama 7 hari ke depan, serta halaman upsell dan skema harga yang ditawarkan. Susun hasilnya menjadi swipe file terstruktur: urutan langkah, tangkapan layar, analisis taktik psikologis yang digunakan, dan daftar komponen teknis yang harus dibangun bila kita ingin mengadaptasi alur tersebut."*
+> _"Daftar ke layanan [Nama Produk] menggunakan alamat email khusus. Tangkap tangkapan layar (screenshot) dari setiap langkah corong: landing page, alur pendaftaran, proses orientasi (onboarding), setiap email otomatis yang dikirim selama 7 hari ke depan, serta halaman upsell dan skema harga yang ditawarkan. Susun hasilnya menjadi swipe file terstruktur: urutan langkah, tangkapan layar, analisis taktik psikologis yang digunakan, dan daftar komponen teknis yang harus dibangun bila kita ingin mengadaptasi alur tersebut."_
 
 ---
 
@@ -85,12 +86,12 @@ Dengan mendelegasikan tugas ini ke agen peramban otonom, prosesnya menjadi sanga
 
 Kedua gagasan yang diangkat IdeaBrowser menunjukkan satu kesimpulan berharga: **kekuatan terbesar agen AI modern bukan terletak pada pembuatan konten generik, melainkan pada kemampuannya mensimulasikan peran dan mengeksekusi riset multi-langkah yang melelahkan.**
 
-Bagi para pengembang produk di Indonesia, memanfaatkan kecerdasan buatan untuk menjembatani kesenjangan keterampilan kerja (*skills gap*) dan mengotomatisasi pembedahan strategi pasar adalah dua peluang bernilai tinggi yang masih terbuka sangat lebar.
+Bagi para pengembang produk di Indonesia, memanfaatkan kecerdasan buatan untuk menjembatani kesenjangan keterampilan kerja (_skills gap_) dan mengotomatisasi pembedahan strategi pasar adalah dua peluang bernilai tinggi yang masih terbuka sangat lebar.
 
 ---
 
 ## Sumber dan Rujukan Terkait
 
-* [IdeaBrowser — A job simulator to save tuition debt + funnel swipe file](https://www.ideabrowser.com/emails/2026-10-18)
-* [National Center for Education Statistics — Post-Graduation Employment Trends](https://nces.ed.gov)
-* [Boring Funnels — High-Converting SaaS & E-Commerce Flow Database](https://boringfunnels.com)
+- [IdeaBrowser — A job simulator to save tuition debt + funnel swipe file](https://www.ideabrowser.com/emails/2026-10-18)
+- [National Center for Education Statistics — Post-Graduation Employment Trends](https://nces.ed.gov)
+- [Boring Funnels — High-Converting SaaS & E-Commerce Flow Database](https://boringfunnels.com)
