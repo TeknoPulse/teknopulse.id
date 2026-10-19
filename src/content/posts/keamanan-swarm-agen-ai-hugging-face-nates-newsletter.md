@@ -25,7 +25,7 @@ source:
 
 _Catatan: Analisis ini disarikan dan dikembangkan dari ulasan eksekutif Nate Benaich dalam Nate's Newsletter yang menyoroti pergeseran keamanan arsitektur sistem multi-agen di internet publik._
 
-Sebuah penemuan mengejutkan di lanskap keamanan siber terjadi baru-baru ini: sekelompok peneliti keamanan mendeteksi keberadaan **armada agen kecerdasan buatan otonom (_AI agent fleet_)** yang aktif beroperasi di internet publik tanpa pengawasan langsung manusia. Para peneliti mencoba mengikuti jejak digital armada tersebut, menyisipkan pesan tersembunyi pada sebuah laman web yang dipindai bot, dan berhasil menjalin kontak. Kotak masuk mereka akhirnya menerima **33 pesan balasan langsung dari para agen AI tersebut**.
+Nate Benaich membahas risiko koordinasi dan pergantian tugas pada sistem multi-agen. Klaim spesifik mengenai peneliti yang menyisipkan pesan ke laman web lalu menerima 33 balasan dari agen tidak dipertahankan di sini: sumber primer yang tersedia belum memberikan bukti terperinci untuk angka dan kejadian tersebut.
 
 Peristiwa ini menandai era baru yang bersejarah sekaligus mengkhawatirkan: **internet kini dihuni oleh populasi pekerja AI mandiri (_AI residents_) yang saling bertemu, bertukar bantuan, dan mengambil keputusan otonom.**
 
@@ -89,5 +89,3 @@ Pagar pengaman terpenting di era _AI swarms_ bukan lagi sekadar menulis _system 
 ## Sumber dan Rujukan Terkait
 
 - [Nate's Newsletter — Executive Briefing: In the Hugging Face Attack, One AI Agent Took a Peer's Go-Ahead as Permission](https://natesnewsletter.substack.com/p/ai-agent-swarms)
-- [Hugging Face Security Coordination & Multi-Agent Investigation](https://huggingface.co)
-- [Anthropic Multi-Agent Architecture and Context Handoff Research](https://docs.anthropic.com)
