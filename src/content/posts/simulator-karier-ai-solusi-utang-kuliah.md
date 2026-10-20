@@ -40,7 +40,7 @@ Angka yang paling banyak dikutip dari edisi itu adalah **66,8 persen lulusan bar
 
 ## 1. Simulator karier: "try before you buy"
 
-Buletin merumuskan idenya dalam satu kalimat: **"Make the G2 crowd review site for professions."** G2 adalah situs ulasan perangkat lunak yang dipakai orang untuk menilai produk sebelum membeli. Ide IdeaBrowser adalah memindahkan pola itu ke dunia profesi, lalu memetakannya ke karier nyata. »IdeaBrowser juga menautkan halaman peluang yang lebih dalam, [Career simulations written by working professionals](https://www.ideabrowser.com/hub/ideas/career-simulations-written-by-working-professionals-90c6b937), yang menjadi rujukan tambahan untuk idenya.
+Buletin merumuskan idenya dalam satu kalimat: **"Make the G2 crowd review site for professions."** G2 adalah situs ulasan perangkat lunak yang dipakai orang untuk menilai produk sebelum membeli. Ide IdeaBrowser adalah memindahkan pola itu ke dunia profesi, lalu memetakannya ke karier nyata. IdeaBrowser juga menautkan halaman peluang yang lebih dalam, [Career simulations written by working professionals](https://www.ideabrowser.com/hub/ideas/career-simulations-written-by-working-professionals-90c6b937), yang menjadi rujukan tambahan untuk idenya.
 
 Alur yang dijelaskan IdeaBrowser berjalan seperti ini. Sumber materi diambil dari grup industri di Facebook, utas Reddit, dan sesi daring, lalu dirangkum menjadi gambaran hari kerja sebuah profesi.
 
