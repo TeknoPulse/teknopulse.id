@@ -3,7 +3,7 @@ title: 'Simulator Karier Berbasis AI: Memutus Jebakan Utang Kuliah Lewat Pengala
 slug: 'simulator-karier-ai-solusi-utang-kuliah'
 summary: 'Edisi IdeaBrowser 18 Oktober 2026 mengusulkan platform simulator karier berbasis AI dan taktik funnel swipe file yang dikerjakan agen otonom.'
 metaDescription: 'Simulator karier berbasis AI ala IdeaBrowser: 66,8 persen lulusan baru sebut pengalaman sebagai rintangan terbesar, plus tiga langkah funnel swipe file.'
-publishedAt: 2026-10-19
+publishedAt: 2026-10-20
 updatedAt: 2026-10-20
 category: Insights
 tags:
@@ -14,7 +14,7 @@ tags:
   - Competitor Intelligence
   - Productivity
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/simulator-karier-ai-solusi-utang-kuliah-16x9.png'
 coverImageAlt: 'Ilustrasi seorang profesional muda mengamati simulasi lingkungan kerja virtual interaktif'
 format: 'konteks'

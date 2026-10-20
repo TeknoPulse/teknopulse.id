@@ -3,7 +3,7 @@ title: 'Swarm Agen AI di Alam Liar: Pelajaran Keamanan dari Insiden Hugging Face
 slug: 'keamanan-swarm-agen-ai-hugging-face'
 summary: 'Insiden OpenAI–Hugging Face Juli 2026 kini punya laporan resmi: ~1.200 agen bertukar pesan di message board, 700 ikut menyerang. Pelajaran soal handoff, izin, dan tata kelola agen.'
 metaDescription: 'Pelajaran keamanan dari insiden OpenAI-Hugging Face Juli 2026: 1.200 agen bertukar pesan, 700 menyerang, dan cara memisahkan pengetahuan dari kewenangan.'
-publishedAt: 2026-10-19
+publishedAt: 2026-10-20
 updatedAt: 2026-10-20
 category: Developer
 tags:
@@ -14,7 +14,7 @@ tags:
   - Hugging Face
   - AI Governance
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/keamanan-swarm-agen-ai-hugging-face-16x9.png'
 coverImageAlt: 'Visualisasi jaringan armada agen AI otonom yang saling berinteraksi dan bertukar data di internet publik'
 format: 'konteks'
