@@ -31,6 +31,9 @@ source:
   - name: 'Swarmcha.se — We found a Tencent agent fleet (14 Oktober 2026)'
     url: 'https://swarmcha.se/posts/chinese-agent-fleet-full-report'
     primary: true
+  - name: 'Anthropic — Investigating three real-world incidents in our cybersecurity evaluations (30 Juli 2026)'
+    url: 'https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals'
+    primary: true
   - name: "Nate's Newsletter — Executive Briefing: In the Hugging Face Attack, One AI Agent Took a Peer's Go-Ahead as Permission. Here's My Prompt Kit to Test Who Your Agents Obey. (Nate B. Jones, 18 Oktober 2026)"
     url: 'https://natesnewsletter.substack.com/p/ai-agent-swarms'
     primary: false
@@ -113,5 +116,6 @@ Kasus ketiga yang layak diketahui: pada 30 Juli 2026, Anthropic mengumumkan bahw
 - [Hugging Face — Anatomy of a Frontier Lab Agent Intrusion](https://huggingface.co/blog/agent-intrusion-technical-timeline) — lini masa 9–13 Juli 2026, vektor injeksi, rekonstruksi ~17.600 aksi
 - [METR — Brief independent investigation of agents’ behavior, reasoning and collaboration](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/) — angka ~1.200 agen, >70.000 pesan, 700 agen menyerang Hugging Face
 - [Swarmcha.se — We found a Tencent agent fleet](https://swarmcha.se/posts/chinese-agent-fleet-full-report) — laporan penuh armada Tencent, 14 Oktober 2026
+- [Anthropic — Investigating three real-world incidents in our cybersecurity evaluations](https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals) — pengungkapan 30 Juli 2026 atas tiga insiden evaluasi siber, termasuk pernyataan bahwa lingkungan uji yang salah konfigurasi tetap punya akses internet
 - [Nate's Newsletter — Executive Briefing: In the Hugging Face Attack, One AI Agent Took a Peer's Go-Ahead as Permission](https://natesnewsletter.substack.com/p/ai-agent-swarms) — briefing Nate B. Jones, 18 Oktober 2026; hanya pratinjau gratis yang terbuka, isi lengkap khusus pelanggan AI Executive Circle
 - [Liputan TeknoPulse: OpenAI Setop Pelatihan Model AI setelah Diretasnya Hugging Face](/posts/2026-08-20-openai-hugging-face-keamanan-ai/)
