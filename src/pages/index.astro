@@ -4,6 +4,7 @@ import { site } from '../config';
 import { getCategoryLabel, getCategoryToken } from '../utils/categories';
 import { coverAlt } from '../utils/coverAlt';
 import { getCollection } from 'astro:content';
+import { getPostUrl, getTagUrl, slugifyTag } from '../utils/urls.mjs';
 import { Image } from 'astro:assets';
 import HeroSection from '../components/HeroSection.astro';
 import PostCard from '../components/PostCard.astro';
@@ -64,7 +65,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
           latestPosts.length > 0 && (
             <div class="mb-8">
               <a
-                href={`/posts/${latestPosts[0].slug}`}
+                href={getPostUrl(latestPosts[0].slug)}
                 class="card card-elevated group block overflow-hidden md:grid md:grid-cols-2 md:gap-0"
               >
                 {latestPosts[0].data.coverImage && (
@@ -146,7 +147,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
           {
             allTags.slice(0, 20).map((tag) => (
               <a
-                href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getTagUrl(slugifyTag(tag))}
                 class="rounded-full bg-surface px-4 py-2 text-sm font-medium transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-white hover:shadow-md dark:bg-surface-dark"
               >
                 #{tag}
@@ -157,7 +158,7 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
         {
           allTags.length > 20 && (
             <div class="mt-6 text-center">
-              <a href="/tags" class="font-medium text-primary hover:text-primary-hover">
+              <a href="/tags/" class="font-medium text-primary hover:text-primary-hover">
                 Lihat semua {allTags.length} tag →
               </a>
             </div>

@@ -32,3 +32,17 @@
 # robots.txt sudah benar (sitemap-index.xml); redirect defensif ini
 # mengubah sisa referensi stale menjadi 301 ke sitemap yang benar.
 /sitemap.xml /sitemap-index.xml 301
+
+# TEKAA-377: URL lama yang masih 404 (GSC > Page Indexing > "Tidak ditemukan").
+# Setiap aturan ditulis berpasangan — dengan dan tanpa slash — karena
+# Cloudflare Pages mencocokkan path apa adanya, sementara kanonik situs
+# sekarang selalu ber-slash (`trailingSlash: 'always'`).
+/posts/menjalankan-ai-lokal-windows-arm-kilo-desktop /posts/kilo-desktop-orkestrasi-agen-multi-repo/ 301
+/posts/menjalankan-ai-lokal-windows-arm-kilo-desktop/ /posts/kilo-desktop-orkestrasi-agen-multi-repo/ 301
+/posts/insgiht1 /posts/panduan-prompting-claude-opus-55/ 301
+/posts/insgiht1/ /posts/panduan-prompting-claude-opus-55/ 301
+#
+# CATATAN TARGET: /posts/ai-lokal-windows-arm-kilo-desktop/ (target di issue)
+# masih `draft: true` dan belum pernah terbit, jadi 301 ke sana akan
+# mendarat di 404. Redirect diarahkan ke artikel Kilo Desktop yang hidup
+# (200) dan paling dekat topiknya.

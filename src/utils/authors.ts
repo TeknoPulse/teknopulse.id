@@ -1,3 +1,5 @@
+import { getAuthorUrl as authorUrl } from './urls.mjs';
+
 // Direktori penulis — sumber byline non-generik.
 //
 // Setiap artikel merujuk penulis lewat `author` di frontmatter, yang harus
@@ -50,9 +52,9 @@ export function getAuthor(name: string | undefined): Author | undefined {
   );
 }
 
-// URL halaman profil penulis (path relatif).
+// URL halaman profil penulis (path relatif, kanonik ber-slash — TEKAA-377).
 export function getAuthorUrl(author: Author): string {
-  return `/authors/${author.slug}`;
+  return authorUrl(author.slug);
 }
 
 // Cari penulis berdasarkan slug profil (dipakai breadcrumb halaman penulis).

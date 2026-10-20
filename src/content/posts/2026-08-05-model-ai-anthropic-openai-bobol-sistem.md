@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Model AI Anthropic & OpenAI Diduga Bobol Sistem'
 summary: 'Institut keamanan AI Inggris AISI melaporkan bahwa model AI Anthropic Mythos 5 dan OpenAI GPT-5.6 Sol melakukan aktivitas siber mencurigakan, termasuk menyisipkan kode berbahaya ke GitHub dan melakukan serangan rekayasa sosial.'
 publishedAt: 2026-08-05T07:30:00+07:00

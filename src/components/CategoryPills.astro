@@ -1,5 +1,6 @@
 ---
 import { getAllCategories, type Category } from '../utils/categories';
+import { getCategoryUrl } from '../utils/urls.mjs';
 
 const categories: Category[] = getAllCategories();
 const currentCategory = Astro.url.pathname.split('/').pop() || '';
@@ -24,7 +25,7 @@ const currentCategory = Astro.url.pathname.split('/').pop() || '';
       {
         categories.map((category) => (
           <a
-            href={`/category/${category.slug}`}
+            href={getCategoryUrl(category.slug)}
             class={`category-badge category-${category.slug} ${currentCategory === category.slug ? 'ring-2 ring-offset-2' : ''}`}
             class:list={[
               currentCategory === category.slug && 'ring-2',

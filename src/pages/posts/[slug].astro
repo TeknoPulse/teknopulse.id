@@ -9,6 +9,7 @@ import ShareButtons from '../../components/ShareButtons.astro';
 import GiscusComments from '../../components/GiscusComments.astro';
 import { Image } from 'astro:assets';
 import { getAllCategories, getCategoryUrl } from '../../utils/categories';
+import { getPostUrl, getTagUrl, slugifyTag } from '../../utils/urls.mjs';
 
 const allCategories = getAllCategories();
 
@@ -173,7 +174,7 @@ const faq = post.data.faq ?? [];
           {
             post.data.tags?.map((tag) => (
               <a
-                href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getTagUrl(slugifyTag(tag))}
                 class="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200"
               >
                 {tag}
@@ -225,7 +226,7 @@ const faq = post.data.faq ?? [];
             <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
               {relatedPosts.map((relatedPost) => (
                 <a
-                  href={`/posts/${relatedPost.slug}`}
+                  href={getPostUrl(relatedPost.slug)}
                   class="block rounded-lg border p-4 transition-shadow hover:shadow-md"
                 >
                   <h3 class="mb-2 font-semibold">{relatedPost.data.title}</h3>

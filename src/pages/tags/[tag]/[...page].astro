@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
 import PostCard from '../../../components/PostCard.astro';
 import Pagination from '../../../components/Pagination.astro';
+import { getTagUrl, slugifyTag } from '../../../utils/urls.mjs';
+import { isThinTag, mergeTagEntries } from '../../../utils/tags.mjs';
 
 export const prerender = true;
 
@@ -11,15 +13,19 @@ export async function getStaticPaths({ paginate }) {
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
-  const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
+  // Dedup per SLUG, bukan per tag mentah (TEKAA-377): 'NVIDIA' dan 'Nvidia'
+  // adalah satu topik, bukan dua halaman yang saling menimpa.
+  const entries = mergeTagEntries(posts.map((post) => post.data.tags));
 
-  return allTags.flatMap((tag) => {
-    const tagPosts = posts.filter((post) => post.data.tags.includes(tag));
+  return entries.flatMap((entry) => {
+    const tagPosts = posts.filter((post) =>
+      (post.data.tags ?? []).some((t) => slugifyTag(t) === entry.slug)
+    );
     return paginate(tagPosts, {
-      params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
-      // tagLabel = nama tag asli (bukan versi slug); tagCount untuk noindex
-      // halaman tipis (TEKAA-3 P1-8).
-      props: { tagLabel: tag, tagCount: tagPosts.length },
+      params: { tag: entry.slug },
+      // tagLabel = label tampilan pilihan SSOT; tagCount untuk noindex
+      // halaman tipis — aturannya sama dengan filter sitemap (src/utils/tags.mjs).
+      props: { tagLabel: entry.label, tagCount: tagPosts.length },
       pageSize: 6,
     });
   });
@@ -30,10 +36,11 @@ const { tag } = Astro.params;
 const tagName = tagLabel ?? tag.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
 
 // Judul unik per paginasi + noindex untuk halaman tipis/paginasi
-// (TEKAA-3 P1-8): tag ≤1 artikel dan halaman ≥2 tidak punya nilai unik —
-// dikeluarkan dari sitemap (scripts/sitemap-exclusions.mjs) dan noindex.
+// (TEKAA-3 P1-8, dinaikkan ke ≤2 artikel di TEKAA-377): halaman ≥2 dan tag
+// tipis tidak punya nilai unik — dikeluarkan dari sitemap lewat aturan yang
+// sama (src/utils/tags.mjs) dan noindex di sini.
 const isPaginated = page.currentPage > 1;
-const isThin = tagCount <= 1;
+const isThin = isThinTag(tagCount);
 const title = isPaginated ? `${tagName} — Halaman ${page.currentPage}` : tagName;
 const description = `Kumpulan artikel TeknoPulse dengan topik "${tagName}"${
   isPaginated ? `, halaman ${page.currentPage}` : ''
@@ -57,7 +64,7 @@ const robots = isPaginated || isThin ? 'noindex, follow' : 'index, follow';
     <Pagination
       currentPage={page.currentPage}
       totalPages={page.lastPage}
-      baseUrl={`/tags/${tag}`}
+      baseUrl={getTagUrl(tag)}
     />
   </main>
 </Layout>

@@ -38,6 +38,6 @@ const robots = isPaginated ? 'noindex, follow' : 'index, follow';
       {page.data.map((post) => <PostCard post={post} />)}
     </div>
 
-    <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl="/posts" />
+    <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl="/posts/" />
   </main>
 </Layout>

@@ -1,10 +1,17 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { getTagUrl } from '../../utils/urls.mjs';
+import { mergeTagEntries } from '../../utils/tags.mjs';
 
 const posts = (await getCollection('posts')).filter((post) => !post.data.draft);
 
-const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
+// Satu tautan per SLUG (TEKAA-377). Sebelumnya daftar ini memakai tag
+// mentah, sehingga 'Kecerdasan Buatan' dan 'kecerdasan buatan' muncul
+// sebagai dua chip yang menunjuk halaman yang sama.
+const allTags = mergeTagEntries(posts.map((post) => post.data.tags)).sort(
+  (a, b) => b.postCount - a.postCount || a.label.localeCompare(b.label, 'id')
+);
 ---
 
 <Layout title="Semua Topik" description="Jelajahi semua topik artikel di TeknoPulse.">
@@ -13,11 +20,8 @@ const allTags = [...new Set(posts.flatMap((post) => post.data.tags))];
     <div class="flex flex-wrap gap-4">
       {
         allTags.map((tag) => (
-          <a
-            href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
-            class="rounded-full bg-gray-200 px-4 py-2 dark:bg-gray-700"
-          >
-            {tag}
+          <a href={getTagUrl(tag.slug)} class="rounded-full bg-gray-200 px-4 py-2 dark:bg-gray-700">
+            {tag.label}
           </a>
         ))
       }

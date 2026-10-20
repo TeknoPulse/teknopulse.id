@@ -16,6 +16,13 @@ import { createLastmodSerializer } from './scripts/sitemap-lastmod.mjs';
 // during `astro build` and no native addon lands in any runtime bundle.
 export default defineConfig({
   site: 'https://teknopulse.id',
+  // TEKAA-377: satu bentuk URL kanonik. `build.format: 'directory'` (default)
+  // menghasilkan berkas `index.html` per folder, jadi URL kanonik selalu
+  // berakhiran `/`. Tanpa ini Cloudflare Pages melayani `/about` dan
+  // mengarahkan 308 ke `/about/`, sementara tautan internal ditulis tanpa
+  // slash — audit indexasi 342 URL mencatat 318 dari 497 tautan internal
+  // (64%) berupa redirect 308.
+  trailingSlash: 'always',
   integrations: [
     tailwind(),
     // Sitemap bersih dari halaman tipis (TEKAA-3 P1-8): paginasi ≥2 dan
