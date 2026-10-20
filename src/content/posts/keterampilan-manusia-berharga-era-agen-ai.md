@@ -1,8 +1,8 @@
 ---
-title: '5 Keterampilan Manusia yang Makin Berharga di Era Agen AI'
+title: 'Keterampilan Manusia yang Semakin Berharga di Era Agen AI: 5 Kunci Menembus Batas Produktivitas'
 slug: 'keterampilan-manusia-berharga-era-agen-ai'
-summary: 'Bedah taklimat eksekutif Nate B. Jones: ledakan personal software dan agen otonom seperti Meta Muse menuntut lima keahlian manusia yang saling menguatkan (Taste, Agency, Focus, Resourcefulness, dan Follow-through) untuk menembus batasan lama.'
-metaDescription: "Bedah Nate's Newsletter: agen AI dan personal software membuat lima keterampilan manusia—Taste, Agency, Focus, Resourcefulness, Follow-through—berharga."
+summary: 'Bedah taklimat eksekutif Nate Birt: ledakan personal software dan agen otonom seperti Meta Muse menuntut lima keahlian manusia yang saling menguatkan (Taste, Agency, Focus, Resourcefulness, dan Follow-through) untuk menembus batasan lama.'
+metaDescription: "Nate's Newsletter: agen AI dan personal software membuat lima keterampilan manusia—Taste, Agency, Focus, Resourcefulness, Follow-through—makin berharga."
 publishedAt: 2026-10-12
 category: Insights
 tags:
@@ -24,13 +24,11 @@ source:
     primary: true
 ---
 
-_Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari taklimat eksekutif [Nate's Newsletter](https://natesnewsletter.substack.com/p/human-skills-ai-more-valuable) oleh Nate B. Jones edisi 11 Oktober 2026._
+_Catatan: Artikel ini diadaptasi dan diulas secara mendalam dari taklimat eksekutif [Nate's Newsletter](https://natesnewsletter.substack.com/p/human-skills-ai-more-valuable) oleh Nate Birt edisi 11 Oktober 2026._
 
 Di mana pun Anda memandang lanskap teknologi saat ini, sebuah fenomena baru sedang meledak dengan kecepatan yang belum pernah terjadi sebelumnya: **perangkat lunak personal (_personal software_)**.
 
 Orang-orang di sekitar kita tidak lagi menunggu tim produk raksasa membangun aplikasi yang mereka butuhkan. Mereka membangun perangkat lunak kustom mereka sendiri untuk menyelesaikan friksi spesifik dalam alur kerja harian mereka. Sejak kehadiran agen AI pribadi seperti **Meta Muse**—yang dirancang untuk mengeksekusi tugas otonom lintas peramban web dan aplikasi yang terhubung—tren ini melesat dari sekadar _vibe coding_ eksperimental menjadi eksekusi agen mandiri kelas produksi.
-
-Namun, di tengah kemudahan otomatisasi teknis ini, analis strategi **Nate B. Jones** mengajukan satu pertanyaan mendasar yang sangat provokatif:
 
 > _"Kecerdasan buatan telah memperluas apa yang secara teknis bisa kita bangun jauh lebih cepat daripada perubahan kemauan kita untuk mencobanya. Batasan mana dalam rencana strategis Anda yang benar-benar nyata, dan mana yang sekadar residu trauma dari kegagalan terakhir kali Anda mencoba?"_
 

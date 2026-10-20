@@ -1,5 +1,5 @@
 ---
-title: 'Game Escape Room di Rumah Pakai Visi AI: Bisnis $13,5 M'
+title: 'Mengubah Rumah Menjadi Game Escape Room Berbasis Visi AI: Peluang Bisnis Hiburan Musiman $13,5 Miliar'
 slug: 'game-escape-room-rumah-visi-ai'
 summary: 'Bedah ide bisnis IdeaBrowser memanfaatkan belanja Halloween $13,5 miliar: aplikasi web mobile yang mengubah 10–15 foto sudut rumah menjadi teka-teki escape room interaktif berbasis model visi AI.'
 metaDescription: 'Ide bisnis AI mengubah foto rumah jadi escape room interaktif di ponsel: manfaatkan belanja dekorasi Halloween senilai $13,5 miliar tanpa aplikasi native.'
@@ -31,7 +31,7 @@ Kita melihat ratusan aplikasi peringkas rapat, generator draf email, dan alat ot
 
 Kesenjangan inilah yang disorot oleh kurator bisnis **IdeaBrowser**. Di saat pasar AI B2B dipenuhi persaingan ketat, sektor hiburan berbasis pengalaman (_experiential consumer AI_) justru menyisakan ruang inovasi yang sangat segar.
 
-Mengaitkan data pengeluaran musiman global—di mana konsumen Amerika Serikat diperkirakan membelanjakan **$13,5 Miliar untuk perayaan Halloween**, dengan **$4,3 Miliar di antaranya direncanakan untuk belanja dekorasi Halloween**—IdeaBrowser merumuskan sebuah konsep bisnis cerdas: **mengubah foto rumah keluarga menjadi arena permainan _Haunted Escape Room_ interaktif di ponsel**.
+Mengaitkan data pengeluaran musiman global—di mana konsumen Amerika Serikat diperkirakan membelanjakan **$13,5 Miliar untuk perayaan Halloween**, dengan **$4,3 Miliar dialokasikan murni untuk dekorasi yang hanya digunakan satu malam**—IdeaBrowser merumuskan sebuah konsep bisnis cerdas: **mengubah foto rumah keluarga menjadi arena permainan _Haunted Escape Room_ interaktif di ponsel**.
 
 Berikut adalah dekonstruksi peluang bisnis game spasial berbasis visi AI dan langkah-langkah implementasinya bagi para pembangun startup.
 
@@ -41,7 +41,7 @@ Berikut adalah dekonstruksi peluang bisnis game spasial berbasis visi AI dan lan
 
 Mengapa konsep ini memiliki peluang adopsi yang sangat tinggi?
 
-1. **Pasar Game Papan Escape Room Sudah Terbukti:** Lini permainan papan bertema escape room rumahan (seperti seri _Unlock!_ dari Space Cowboys) telah terjual jutaan kopi di seluruh dunia. Konsumen menyukai sensasi memecahkan misteri bersama keluarga di ruang tamu mereka sendiri.
+1. **Pasar Game Papan Escape Room Sudah Terbukti:** Lini permainan papan bertema escape room rumahan (seperti seri _Unlock!_ dari Space Cowboys) telah terjual lebih dari 5 juta kopi di seluruh dunia. Konsumen menyukai sensasi memecahkan misteri bersama keluarga di ruang tamu mereka sendiri.
 2. **Monetisasi Dekorasi Musiman:** Jutaan keluarga membeli ornamen labu, kerangka buatan, dan lampu temaram sejak bulan September. Menjadikan dekorasi fisik tersebut sebagai bagian dari teka-teki interaktif memberikan nilai tambah instan bagi belanja dekorasi yang mahal.
 3. **Fleksibilitas Sepanjang Tahun:** Meskipun momentum Halloween adalah pintu masuk terbaik, mekanika inti permainan dapat diadaptasi dengan cepat untuk tema pesta ulang tahun anak, perayaan Natal, atau perburuan harta karun keluarga di akhir pekan.
 

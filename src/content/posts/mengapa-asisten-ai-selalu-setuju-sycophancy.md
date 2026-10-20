@@ -1,5 +1,5 @@
 ---
-title: 'Mengapa Asisten AI Selalu Setuju dengan Anda (Sycophancy)'
+title: 'Mengapa Asisten AI Selalu Menyetujui Anda: Membedah Sindrom Sycophancy dan Membangun Literasi AI Kritis'
 slug: 'mengapa-asisten-ai-selalu-setuju-sycophancy'
 summary: 'Refleksi kritis The Slow AI oleh Sam Illingworth: fenomena sycophancy di mana chatbot seketika mengubah putusan saat ditekan pengguna, bahaya bias konfirmasi, dan cara membangun literasi AI kritis.'
 metaDescription: 'Kupas tuntas masalah AI sycophancy dari The Slow AI: mengapa chatbot selalu menyetujui Anda saat didebat dan bagaimana melatih pemikiran kritis bersama AI.'
