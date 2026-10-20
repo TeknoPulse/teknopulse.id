@@ -34,7 +34,7 @@ Orang-orang di sekitar kita tidak lagi menunggu tim produk raksasa membangun apl
 
 Banyak batasan mental kita terbentuk bertahun-tahun lalu ketika perkakas belum memadai, anggaran masih terbatas, atau kita belum memiliki keterampilan rekayasa. Ketika teknologi melompat 100 kali lipat, penilaian lama kita sering kali tetap tertinggal.
 
-Berikut adalah telaah mendalam dari taklimat Nate B. Jones mengenai **lima keterampilan manusia yang justru menjadi semakin bernilai dan langka di era agen AI**.
+Berikut adalah telaah mendalam dari taklimat Nate Birt mengenai **lima keterampilan manusia yang justru menjadi semakin bernilai dan langka di era agen AI**.
 
 Bagi tim TeknoPulse yang mengikuti gelombang agen otonom, telaah ini melengkapi gambaran besar yang sudah dibahas di [Apa Itu AI Agent](/posts/ai-agent-adalah/) dan [perbedaan AI generatif dengan AI agent](/posts/bedanya-ai-generatif-dan-ai-agent/): ketika eksekusi teknis makin murah, yang jadi pembeda justru kualitas manusia di baliknya.
 
