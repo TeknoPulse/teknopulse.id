@@ -1,6 +1,8 @@
 ---
 import { site } from '../config';
-import { getCategoryUrl } from '../utils/urls.mjs';
+// Versi sadar-nama (slugify internal) — postCategory masih berupa nama
+// seperti 'AI', bukan slug 'ai' (TEKAA-377).
+import { getCategoryUrl } from '../utils/categories';
 import { getAuthorBySlug } from '../utils/authors';
 
 interface Props {

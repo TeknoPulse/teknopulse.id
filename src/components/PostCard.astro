@@ -1,7 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCategoryLabel, getCategoryToken } from '../utils/categories';
-import { getCategoryUrl, getPostUrl } from '../utils/urls.mjs';
+// getCategoryUrl di sini adalah versi sadar-nama (slugify internal):
+// post.data.category berisi 'AI', bukan slug 'ai' (TEKAA-377).
+import { getCategoryLabel, getCategoryToken, getCategoryUrl } from '../utils/categories';
+import { getPostUrl } from '../utils/urls.mjs';
 import { calculateReadingTime } from '../utils/readingTime';
 import { coverAlt } from '../utils/coverAlt';
 import { Image } from 'astro:assets';

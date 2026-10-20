@@ -111,7 +111,13 @@ export function mergeTagEntries(rawTagLists) {
   return [...bySlug].map(([slug, labels]) => {
     let label = '';
     let best = -1;
+    // postCount = TOTAL artikel untuk slug ini, dijumlah dari semua varian
+    // label. Kalau hanya `labels.get(label)`, tiga artikel berlabel
+    // 'NVIDIA'/'Nvidia'/'NVIDIA' akan terhitung 2 — page jadi index sementara
+    // sitemap menganggapnya tipis, dan keduanya kembali bertentangan.
+    let postCount = 0;
     for (const [candidate, count] of labels) {
+      postCount += count;
       if (count > best) {
         label = candidate;
         best = count;
@@ -119,6 +125,6 @@ export function mergeTagEntries(rawTagLists) {
         label = preferLabel(label, candidate);
       }
     }
-    return { label, slug, postCount: labels.get(label) ?? 0 };
+    return { label, slug, postCount };
   });
 }
