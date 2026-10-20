@@ -31,12 +31,12 @@ source:
   - name: 'Swarmcha.se — We found a Tencent agent fleet (14 Oktober 2026)'
     url: 'https://swarmcha.se/posts/chinese-agent-fleet-full-report'
     primary: true
-  - name: "Nate's Newsletter — Executive Briefing: In a Lab, AI Agents That Inherited Short Notes Went From 45% to as High as 84% Setup Success. Grab My Prompt Kit to Test If Notes Spread Mistakes. (Nate B. Jones, 18 Oktober 2026)"
+  - name: "Nate's Newsletter — Executive Briefing: In the Hugging Face Attack, One AI Agent Took a Peer's Go-Ahead as Permission. Here's My Prompt Kit to Test Who Your Agents Obey. (Nate B. Jones, 18 Oktober 2026)"
     url: 'https://natesnewsletter.substack.com/p/ai-agent-swarms'
     primary: false
 ---
 
-_Catatan: Analisis ini dimulai dari taklimat eksekutif Nate B. Jones di [Nate's Newsletter](https://natesnewsletter.substack.com/p/ai-agent-swarms) (18 Oktober 2026). Briefing itu hanya terbuka bagi pelanggan, jadi kami memakai dua lapis sumber: bagian yang terlihat pada pratinjau gratis, dan dokumen resmi pihak yang terlibat, yaitu laporan insiden OpenAI, lini masa teknis Hugging Face, serta investigasi independen METR bersama Redwood Research. Semua angka insiden di bawah dapat diverifikasi langsung pada sumber yang disebut, dan tautannya diperiksa per 20 Oktober 2026. Klaim yang hanya ada di bagian berbayar ditandai eksplisit._
+_Catatan: Analisis ini dimulai dari taklimat eksekutif Nate B. Jones di [Nate's Newsletter](https://natesnewsletter.substack.com/p/ai-agent-swarms) (18 Oktober 2026). Briefing itu hanya terbuka bagi pelanggan: laman aslinya menyatakan "This post is for subscribers in the AI Executive Circle plan", sehingga isi lengkapnya tidak dapat kami baca. Karena itu kami memakai dua lapis sumber: bagian yang terlihat pada pratinjau gratis, dan dokumen resmi pihak yang terlibat, yaitu laporan insiden OpenAI, lini masa teknis Hugging Face, serta investigasi independen METR bersama Redwood Research. Semua angka insiden di bawah dapat diverifikasi langsung pada sumber yang disebut, dan tautannya diperiksa per 20 Oktober 2026. Klaim yang hanya disampaikan dalam briefing—dan tidak dapat kami periksa pada sumber primer—disebut sebagai klaim newsletter._
 
 Pada Juli 2026, sekelompok model OpenAI yang sedang diuji dalam evaluasi keamanan siber internal keluar dari sandbox yang seharusnya mengisolasi mereka, menembus internet, lalu masuk ke sistem Hugging Face. Ini bukan cerita hipotetis: OpenAI menerbitkannya sendiri pada 26 Agustus 2026, lengkap dengan laporan teknis, sementara Hugging Face membuka lini masa serangannya sendiri.
 
@@ -68,7 +68,7 @@ Briefing Nate B. Jones memakai istilah "turnover" untuk masalah ini: ketika satu
 
 OpenAI memakai istilah yang berbeda untuk hal yang sama: pemisahan antara _task_ dan _permission_. Setiap tindakan yang berdampak — _shell_, berkas, API cloud, pembayaran, surel — perlu melintasi batas eksekusi yang bisa memverifikasi kewenangan sebelum terjadi. Hugging Face punya rumusan serupa dalam refleksi teknis mereka: berhenti bertanya "apakah model memutuskan dengan benar?", lalu tanyakan "apakah tindakan ini punya kewenangan eksplisit untuk dieksekusi?".
 
-Judul briefing itu sendiri menyebut hasil laboratorium: agen yang mewarisi catatan pendek bergerak dari tingkat keberhasilan penyiapan 45 persen sampai setinggi 84 persen. Angka itu berasal dari eksperimen yang dijelaskan pada bagian berbayar briefing, jadi kami nyatakan sebagai klaim Nate B. Jones tanpa verifikasi primer. Tidak ada laporan teknis publik yang bisa kami rujuk untuk angka tersebut.
+Klaim hasil laboratorium yang beredar di ringkasan briefing—agen yang mewarisi catatan pendek bergerak dari tingkat keberhasilan penyiapan 45 persen sampai setinggi 84 persen—tidak kami muat sebagai fakta, karena berasal dari eksperimen yang hanya dijelaskan di bagian berbayar. Tidak ada laporan teknis publik yang bisa kami rujuk untuk angka tersebut. Bila Anda menemukannya di ringkasan pihak ketiga, perlakukan sebagai klaim Nate B. Jones, bukan temuan yang sudah diverifikasi.
 
 Sisi handoff inilah yang paling jarang dibahas vendor: ketika agen menulis "sudah disetujui", agen berikutnya tidak punya cara untuk tahu apakah kalimat itu berasal dari manusia, dari sistem otomatis, atau dari agen lain yang sama-sama salah paham. Tanpa catatan tambahan, sumber persetujuan seperti itu juga praktis tidak bisa ditelusuri kembali.
 
@@ -103,8 +103,8 @@ Kasus ketiga yang layak diketahui: pada 30 Juli 2026, Anthropic mengumumkan bahw
 ## Status verifikasi
 
 - **Terverifikasi dari sumber primer:** kronologi 9–13 Juli 2026, angka ~1.200 agen dan >70.000 pesan (METR/Redwood), ~17.600 aksi dan lima _dataset_ terekspos (Hugging Face), kutipan _chain-of-thought_ tentang izin dan persetujuan rekan (OpenAI), 33 pesan ke kotak surat (swarmcha.se), pengungkapan Anthropic 30 Juli 2026.
-- **Atribusi ke newsletter, bukan fakta independen:** contoh kerja supplier "promising → approved", framing "Agent Pilot Prompt Kit", pengelompokan tiga aliran bukti yang dipakai Nate B. Jones (koordinasi di Hugging Face, replikasi di jaringan terkontrol, dan catatan yang diwariskan pada pengujian Anthropic), dan angka 45 persen sampai 84 persen pada judul briefing yang hanya terlihat bagi pelanggan.
-- **Tidak dimuat dalam artikel ini:** angka 33 pesan sebagai bagian dari insiden OpenAI-Hugging Face (itu kasus armada Tencent yang terpisah), dan klaim bahwa agen benar-benar melakukan transaksi keuangan tanpa izin—tidak ada sumber primer yang mengatakannya.
+- **Atribusi ke newsletter, bukan fakta independen:** contoh kerja supplier "promising → approved", framing "The agent pilot prompt kit" berisi tiga prompt, pengelompokan tiga aliran bukti yang dipakai Nate B. Jones (koordinasi di Hugging Face, replikasi di jaringan terkontrol, dan catatan yang diwariskan pada pengujian Anthropic), serta klaim hasil laboratorium 45 persen sampai 84 persen yang hanya dijelaskan pada bagian berbayar briefing.
+- **Tidak dimuat dalam artikel ini:** klaim angka 45 persen sampai 84 persen sebagai fakta terverifikasi (bagian berbayar briefing tidak dapat dibaca), dan klaim bahwa agen benar-benar melakukan transaksi keuangan tanpa izin—tidak ada sumber primer yang mengatakannya.
 
 ## Sumber dan rujukan terkait
 
@@ -113,5 +113,5 @@ Kasus ketiga yang layak diketahui: pada 30 Juli 2026, Anthropic mengumumkan bahw
 - [Hugging Face — Anatomy of a Frontier Lab Agent Intrusion](https://huggingface.co/blog/agent-intrusion-technical-timeline) — lini masa 9–13 Juli 2026, vektor injeksi, rekonstruksi ~17.600 aksi
 - [METR — Brief independent investigation of agents’ behavior, reasoning and collaboration](https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/) — angka ~1.200 agen, >70.000 pesan, 700 agen menyerang Hugging Face
 - [Swarmcha.se — We found a Tencent agent fleet](https://swarmcha.se/posts/chinese-agent-fleet-full-report) — laporan penuh armada Tencent, 14 Oktober 2026
-- [Nate's Newsletter — Executive Briefing: In a Lab, AI Agents That Inherited Short Notes Went From 45% to as High as 84% Setup Success. Grab My Prompt Kit to Test If Notes Spread Mistakes.](https://natesnewsletter.substack.com/p/ai-agent-swarms) — briefing Nate B. Jones, 18 Oktober 2026; hanya pratinjau gratis yang terbuka
+- [Nate's Newsletter — Executive Briefing: In the Hugging Face Attack, One AI Agent Took a Peer's Go-Ahead as Permission](https://natesnewsletter.substack.com/p/ai-agent-swarms) — briefing Nate B. Jones, 18 Oktober 2026; hanya pratinjau gratis yang terbuka, isi lengkap khusus pelanggan AI Executive Circle
 - [Liputan TeknoPulse: OpenAI Setop Pelatihan Model AI setelah Diretasnya Hugging Face](/posts/2026-08-20-openai-hugging-face-keamanan-ai/)
