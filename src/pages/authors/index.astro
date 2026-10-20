@@ -2,6 +2,7 @@
 // src/pages/authors/index.astro — daftar penulis (TEKAA-5).
 import Layout from '../../layouts/Layout.astro';
 import { authors } from '../../utils/authors';
+import { getAuthorUrl } from '../../utils/urls.mjs';
 ---
 
 <Layout title="Para Penulis" description="Penulis dan kontributor TeknoPulse.">
@@ -18,7 +19,7 @@ import { authors } from '../../utils/authors';
         {
           authors.map((author) => (
             <a
-              href={`/authors/${author.slug}`}
+              href={getAuthorUrl(author.slug)}
               class="card card-elevated block rounded-lg border p-6 transition-shadow hover:shadow-md"
             >
               <h2 class="text-xl font-semibold">{author.name}</h2>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Unitree Melantai di Bursa, Nilai Saham Melonjak 460%'
 summary: 'Unitree Robotics resmi melantai di Bursa Efek Shanghai dengan harga IPO 150,80 yuan per saham. Pada hari pertama perdagangan, harga melonjak hingga 460%, menjadikan perusahaan robotika humanoid asal Tiongkok ini salah satu IPO terbesar di sektor teknologi.'
 publishedAt: 2026-08-20T09:00:00+07:00

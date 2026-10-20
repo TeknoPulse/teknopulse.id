@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCategoryLabel, getCategoryToken } from '../utils/categories';
+import { getPostUrl } from '../utils/urls.mjs';
 import { coverAlt } from '../utils/coverAlt';
 import { Image } from 'astro:assets';
 
@@ -29,7 +30,7 @@ const { posts } = Astro.props;
       {
         posts.map((post, index) => (
           <a
-            href={`/posts/${post.slug}`}
+            href={getPostUrl(post.slug)}
             class="group -mx-4 block rounded-lg border-b border-gray-200 px-4 py-4 transition-colors duration-200 last:border-b-0 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-gray-800"
           >
             <article class="flex items-center gap-4 sm:gap-6">

@@ -2,10 +2,19 @@
 interface Props {
   currentPage: number;
   totalPages: number;
+  /** Basis URL halaman 1, kanonik ber-slash (mis. `/posts/`, `/tags/ai/`). */
   baseUrl: string;
 }
 
 const { currentPage, totalPages, baseUrl } = Astro.props;
+
+// TEKAA-377: halaman 1 = baseUrl apa adanya (sudah ber-slash), halaman ≥2
+// menambah satu segmen nomor. Tanpa `/` ganda dan tanpa bentuk tanpa-slash
+// yang memicu 308 di Cloudflare Pages.
+const pageUrl = (page: number): string => {
+  if (page <= 1) return baseUrl;
+  return `${baseUrl.replace(/\/+$/, '')}/${page}/`;
+};
 
 const prevPage = currentPage > 1 ? currentPage - 1 : null;
 const nextPage = currentPage < totalPages ? currentPage + 1 : null;
@@ -49,7 +58,7 @@ const pageNumbers = getPageNumbers();
     <nav class="mt-12 flex items-center justify-center space-x-2" aria-label="Pagination">
       {prevPage && (
         <a
-          href={prevPage === 1 ? `${baseUrl}/` : `${baseUrl}/${prevPage}`}
+          href={pageUrl(prevPage)}
           class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
         >
           Previous
@@ -65,7 +74,7 @@ const pageNumbers = getPageNumbers();
           </span>
         ) : (
           <a
-            href={page === 1 ? `${baseUrl}/` : `${baseUrl}/${page}`}
+            href={pageUrl(page)}
             class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
           >
             {page}
@@ -75,7 +84,7 @@ const pageNumbers = getPageNumbers();
 
       {nextPage && (
         <a
-          href={`${baseUrl}/${nextPage}`}
+          href={pageUrl(nextPage)}
           class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
         >
           Next

@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCategoryLabel, getCategoryToken } from '../utils/categories';
+import { getPostUrl } from '../utils/urls.mjs';
 import { coverAlt } from '../utils/coverAlt';
 import { Image } from 'astro:assets';
 
@@ -35,7 +36,7 @@ const formatDate = (date: Date) => {
     <div class="lg:col-span-7 xl:col-span-8">
       <article class="group relative h-full">
         <a
-          href={`/posts/${leadPost.slug}`}
+          href={getPostUrl(leadPost.slug)}
           class="card block h-full transition-shadow duration-300 hover:shadow-lg"
         >
           <div class="relative aspect-video w-full overflow-hidden rounded-t-xl">
@@ -108,7 +109,7 @@ const formatDate = (date: Date) => {
             <article
               class={`flex flex-1 flex-col justify-center py-4 ${index !== Math.min(3, secondaryPosts.length - 1) ? 'border-b border-gray-200 dark:border-gray-800' : ''}`}
             >
-              <a href={`/posts/${post.slug}`} class="group flex items-start space-x-4">
+              <a href={getPostUrl(post.slug)} class="group flex items-start space-x-4">
                 <div class="aspect-square h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg">
                   {post.data.coverImage ? (
                     <Image

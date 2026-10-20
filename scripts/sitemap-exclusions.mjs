@@ -1,85 +1,72 @@
-// Filter sitemap (TEKAA-3 P1-8): jaga sitemap bebas halaman tipis.
+// Filter sitemap (TEKAA-3 P1-8, disatukan di TEKAA-377): sitemap hanya boleh
+// memuat URL yang benar-benar `index`.
 //
-// @astrojs/sitemap hanya memberi URL hasil build ke `filter`, jadi daftar
-// tag tipis dihitung dari frontmatter Markdown di sini — saat config
-// dimuat — dengan pola parse yang sama dengan route:
-//   - slug tag = `tag.toLowerCase().replace(/\s+/g, '-')`  (tags/[tag])
-//   - halaman paginasi = `/tags/<slug>/2/`, `/category/<slug>/3/`  ([...page])
+// @astrojs/sitemap hanya memberi URL hasil build ke `filter`, jadi status
+// "index vs noindex" dihitung dari sumber yang sama dengan route — bukan
+// dari regex terpisah seperti sebelumnya. Sumber kebenaran:
 //
-// Yang dikeluarkan dari sitemap:
-//   1. Semua halaman paginasi ≥2 (tags & kategori) — judul identik dengan
-//      halaman 1, tipis, dan sudah `noindex,follow`.
-//   2. Tag dengan ≤1 artikel — halaman tipis tanpa nilai unik, sudah
-//      `noindex,follow` (halamannya tetap ada supaya chip tag tidak 404).
-//   3. Kategori kosong — route tetap ada untuk navigasi, tetapi noindex.
+//   src/utils/tags.ts   → parse tag, dedup per slug, aturan "tipis"
+//   src/utils/urls.ts   → slugifyTag (dipakai route /tags/<slug>/)
 //
-// Parser mendukung tiga bentuk `tags` yang dipakai repo: flow satu baris,
-// flow multi-baris, dan block list. Kalau format YAML baru tidak dikenali,
-// URL dianggap tidak tipis dan tetap masuk sitemap (fail-open).
+// Yang dikeluarkan dari sitemap (semuanya `noindex, follow` di HTML):
+//   1. Paginasi ≥2 untuk semua arsip — /posts/n/, /tags/<slug>/n/,
+//      /category/<slug>/n/. Halaman ini hanya mengulang kartu halaman 1.
+//   2. Tag dengan artikel ≤ THIN_TAG_MAX_POSTS (halaman tipis).
+//   3. Kategori tanpa artikel.
+//
+// Setiap aturan di sini WAJIB punya pasangan `noindex` di route-nya;
+// keduanya memakai helper yang sama supaya tidak bisa berbeda lagi.
 
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import { slugifyTag } from '../src/utils/urls.mjs';
+import { isThinTag, mergeTagEntries, parseTagsFromFrontmatter } from '../src/utils/tags.mjs';
 
-export const slugifyTag = (tag) => tag.toLowerCase().replace(/\s+/g, '-');
+export { slugifyTag };
 
-const unquote = (value) => value.trim().replace(/^["']|["']$/g, '');
-
-/** Ambil tag dari tiga format YAML yang saat ini dipakai koleksi artikel. */
-function parseTags(raw) {
-  const frontmatter = /^\uFEFF?---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1];
-  if (!frontmatter) return [];
-
-  const tagsFlow = /^tags:\s*\[([\s\S]*?)\]/m.exec(frontmatter);
-  const tagsBlock = tagsFlow
-    ? undefined
-    : /^tags:\s*\r?\n((?:\s*-\s*.+\r?\n?)+)/m.exec(frontmatter);
-  const tagsRaw = tagsFlow?.[1] ?? tagsBlock?.[1];
-  if (!tagsRaw) return [];
-
-  return tagsRaw
-    .split(/,|\r?\n/)
-    .map((tag) => tag.replace(/^\s*-\s*/, ''))
-    .map(unquote)
-    .filter(Boolean);
-}
-
-/** Hitung pemakaian tag dari frontmatter semua artikel non-draft. */
-export function collectTagCounts(postsDir) {
-  const counts = new Map();
-  for (const entry of readdirSync(postsDir)) {
-    if (!entry.endsWith('.md')) continue;
-    const raw = readFileSync(path.join(postsDir, entry), 'utf8');
-    if (/^draft:\s*true\b/m.test(raw)) continue;
-    for (const tag of parseTags(raw)) {
-      const slug = slugifyTag(tag);
-      counts.set(slug, (counts.get(slug) ?? 0) + 1);
-    }
-  }
-  return counts;
-}
-
-/** Slug tag yang dipakai ≤ `max` artikel → dikeluarkan dari sitemap. */
-export function thinTagSlugs(postsDir, max = 1) {
-  const counts = collectTagCounts(postsDir);
-  return new Set([...counts].filter(([, count]) => count <= max).map(([slug]) => slug));
-}
-
-/** Kategori tanpa artikel terbit → dikeluarkan dari sitemap. */
-export function emptyCategorySlugs(postsDir) {
-  const counts = new Map();
+/** Frontmatter artikel non-draft. */
+function readPublishedPosts(postsDir) {
+  const posts = [];
   for (const entry of readdirSync(postsDir)) {
     if (!entry.endsWith('.md')) continue;
     const raw = readFileSync(path.join(postsDir, entry), 'utf8');
     if (/^draft:\s*true\b/m.test(raw)) continue;
     const frontmatter = /^\uFEFF?---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1];
-    const category = /^category:\s*([^\r\n]+)$/m.exec(frontmatter ?? '')?.[1];
-    if (!category) continue;
-    const slug = unquote(category).toLowerCase();
-    counts.set(slug, (counts.get(slug) ?? 0) + 1);
+    if (!frontmatter) continue;
+    const category = /^category:\s*([^\r\n]+)$/m.exec(frontmatter)?.[1];
+    posts.push({
+      tags: parseTagsFromFrontmatter(raw),
+      category: category
+        ? category
+            .trim()
+            .replace(/^["']|["']$/g, '')
+            .toLowerCase()
+        : undefined,
+    });
   }
+  return posts;
+}
+
+/** Slug tag yang halamannya `noindex` karena artikelnya ≤ threshold. */
+export function thinTagSlugs(postsDir) {
+  const posts = readPublishedPosts(postsDir);
+  return new Set(
+    mergeTagEntries(posts.map((post) => post.tags))
+      .filter((entry) => isThinTag(entry.postCount))
+      .map((entry) => entry.slug)
+  );
+}
+
+/** Kategori tanpa artikel terbit → halaman `noindex`. */
+export function emptyCategorySlugs(postsDir) {
+  const used = new Set(
+    readPublishedPosts(postsDir)
+      .map((post) => post.category)
+      .filter(Boolean)
+  );
   return new Set(
     ['ai', 'developer', 'software', 'automation', 'experiments', 'insights'].filter(
-      (slug) => !counts.has(slug)
+      (slug) => !used.has(slug)
     )
   );
 }
@@ -95,12 +82,12 @@ export function createSitemapFilter({ site, postsDir }) {
     } catch {
       return true;
     }
-    // Paginasi ≥2 halaman tag/kategori.
-    if (/^\/(?:tags|category)\/[^/]+\/\d+\/$/.test(pathname)) return false;
-    // Halaman tag tipis (halaman 1).
+    // 1. Paginasi ≥2 — /posts/n/, /tags/<slug>/n/, /category/<slug>/n/.
+    if (/^\/(?:posts|tags\/[^/]+|category\/[^/]+)\/\d+\/$/.test(pathname)) return false;
+    // 2. Halaman tag tipis (halaman 1).
     const tagMatch = pathname.match(/^\/tags\/([^/]+)\/$/);
     if (tagMatch && thin.has(decodeURIComponent(tagMatch[1]))) return false;
-    // Kategori kosong memiliki noindex,follow dan tidak memberi nilai sitemap.
+    // 3. Kategori kosong.
     const categoryMatch = pathname.match(/^\/category\/([^/]+)\/$/);
     if (categoryMatch && emptyCategories.has(decodeURIComponent(categoryMatch[1]))) return false;
     return true;

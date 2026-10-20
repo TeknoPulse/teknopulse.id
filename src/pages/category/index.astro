@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getAllCategories } from '../../utils/categories';
+import { getCategoryUrl } from '../../utils/urls.mjs';
 
 // Single source of truth: categories.ts (slug, display name, description).
 // Previously this derived the list from posts, which silently dropped
@@ -18,7 +19,7 @@ const description = 'Jelajahi artikel TeknoPulse berdasarkan kategori.';
       {
         categories.map((category) => (
           <a
-            href={`/category/${category.slug}`}
+            href={getCategoryUrl(category.slug)}
             class="block rounded-lg border border-gray-200 p-6 shadow-md transition-shadow duration-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
           >
             <h2 class="mb-2 text-2xl font-semibold">{category.name}</h2>
