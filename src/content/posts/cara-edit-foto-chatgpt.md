@@ -1,9 +1,10 @@
 ---
-title: 'Cara Edit Foto di ChatGPT (HP & Laptop): Gratis, Tanpa Ubah Wajah'
+title: 'Cara Edit Foto di ChatGPT (HP & Laptop): Prompt Gratis'
 slug: 'cara-edit-foto-chatgpt'
 summary: 'Panduan edit foto pakai ChatGPT untuk pemula: langkah di HP dan laptop, 10 prompt siap salin, batasan versi gratis, serta etika yang perlu dipegang.'
-metaDescription: 'Langkah edit foto di ChatGPT dari HP & laptop, prompt siap salin, batas versi gratis, dan cara mengedit tanpa mengubah wajah asli.'
+metaDescription: 'Langkah edit foto di ChatGPT dari HP & laptop, prompt siap salin, batas versi gratis, dan cara mengedit tanpa mengubah wajah asli. Tanpa aplikasi lain.'
 publishedAt: 2026-09-17T07:00:00+07:00
+updatedAt: 2026-10-21T09:00:00+07:00
 tags: ['ChatGPT', 'tutorial']
 category: AI
 author: 'TeknoPulse Redaksi'
@@ -135,7 +136,7 @@ Ganti bagian dalam kurung siku sesuai fotomu. Semua prompt di bawah sudah menyer
 
 Simpan prompt yang paling sering kamu pakai — sembari menemukan formula favoritmu, kamu akan mulai menulis variasi sendiri yang lebih cocok dengan gaya fotomu.
 
-## Edit Tanpa Mengubah Wajah
+## Apakah Bisa Edit Foto Tanpa Mengubah Wajah?
 
 Permintaan paling sering untuk edit foto di ChatGPT: ubah yang lain, tapi wajah jangan berubah. Bisa — asalkan kamu membantu modelnya. ChatGPT menggambar ulang foto, bukan menggeser piksel, dan wajah adalah bagian yang paling rawan bergeser. Empat kebiasaan yang menjaga wajah tetap identik:
 

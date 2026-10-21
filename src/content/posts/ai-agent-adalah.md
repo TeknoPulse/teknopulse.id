@@ -4,6 +4,7 @@ slug: 'ai-agent-adalah'
 summary: 'AI agent adalah program AI yang merencanakan dan menjalankan tugas multi-langkah secara mandiri. Kenali definisi, cara kerja, bedanya dengan chatbot, dan contoh gratis yang bisa dicoba.'
 metaDescription: 'AI agent bukan sekadar chatbot. Pahami definisi, cara kerja, batasannya, dan contoh AI agent gratis yang bisa kamu coba hari ini — bahasa sederhana.'
 publishedAt: 2026-09-21T07:00:00+07:00
+updatedAt: 2026-10-21T09:00:00+07:00
 tags: ['AI', 'istilah']
 category: AI
 author: 'TeknoPulse Redaksi'
@@ -34,7 +35,7 @@ source:
     primary: true
 ---
 
-AI agent adalah program kecerdasan buatan yang tidak berhenti di menjawab pertanyaan: ia merencanakan dan menjalankan serangkaian langkah sampai tugas yang kamu titipkan benar-benar selesai — mulai dari mencari informasi, memakai aplikasi, sampai menyusun dan mengirim hasilnya, tanpa kamu bimbing langkah demi langkah. Bedanya dengan chatbot biasa bisa diringkas dalam satu kalimat: chatbot menunggu pertanyaan berikutnya, agent yang menyelesaikan urusan berikutnya.
+**AI agent adalah** program kecerdasan buatan yang tidak berhenti di menjawab pertanyaan: ia merencanakan dan menjalankan serangkaian langkah sampai tugas yang kamu titipkan benar-benar selesai — mulai dari mencari informasi, memakai aplikasi, sampai menyusun dan mengirim hasilnya, tanpa kamu bimbing langkah demi langkah. Bedanya dengan chatbot biasa bisa diringkas dalam satu kalimat: chatbot menunggu pertanyaan berikutnya, agent yang menyelesaikan urusan berikutnya.
 
 Istilah ini makin sering muncul bukan tanpa alasan. Sepanjang September 2026 saja, [OpenAI resmi menghadirkan Sponsor Agents — agen bermerek di dalam ChatGPT](/posts/2026-09-17-openai-sponsor-agents-chatgpt-iklan/), Anthropic merilis Claude Fable 5.1 yang [menurunkan biaya tugas AI agent hingga 45%](/posts/2026-09-03-anthropic-fable-51-turunkan-biaya-ai-agent/), dan GPT-6 Astra mulai digulirkan dengan kemampuan menjalankan tugas secara otonom. Agen bukan lagi fitur eksperimen di lab — ia jadi fitur yang bisa kamu sentuh langsung, bahkan lewat versi gratis. Semua contoh gratis di artikel ini kami cek ketersediaannya per 18 September 2026; kuota dan batasnya bisa berubah sewaktu-waktu.
 
