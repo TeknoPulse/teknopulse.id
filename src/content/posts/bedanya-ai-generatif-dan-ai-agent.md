@@ -1,7 +1,7 @@
 ---
-title: 'Bedanya AI Generatif dan AI Agent bagi Pengguna Awam'
+title: 'Apa Itu AI Generatif? Bedanya dengan AI Agent, Dijelaskan'
 slug: 'bedanya-ai-generatif-dan-ai-agent'
-summary: 'AI generatif adalah AI yang membuat teks, gambar, atau audio dari perintah Anda; AI agent adalah AI yang menjalankan tugasnya sendiri. Ini bedanya.'
+summary: 'Apa itu AI generatif? AI yang membuat teks, gambar, atau audio dari perintah Anda — beda dengan AI agent yang menjalankan tugasnya sendiri. Ini penjelasannya.'
 metaDescription: 'Apa itu AI generatif? AI yang membuat teks, gambar, atau lagu dari perintah Anda — beda dengan AI agent yang menjalankan tugas sendiri. Cek contohnya.'
 publishedAt: 2026-07-19T00:00:00.000Z
 updatedAt: 2026-10-21T00:00:00.000Z
@@ -11,6 +11,13 @@ author: 'Tim Redaksi Teknopulse'
 draft: false
 coverImage: '../../assets/images/bedanya-ai-generatif-dan-ai-agent-16x9.png'
 format: panduan-pembaca
+faq:
+  - question: 'Apa itu AI generatif?'
+    answer: 'AI generatif adalah kecerdasan buatan yang membuat teks, gambar, atau audio dari perintah Anda, lalu berhenti dan menunggu perintah berikutnya.'
+  - question: 'Apa bedanya AI generatif dan AI agent?'
+    answer: 'AI generatif membuat sesuatu lalu berhenti; AI agent membuat sekaligus bertindak sendiri — membuka situs, mencoba cara lain saat gagal — sampai tugas selesai.'
+  - question: 'Apakah AI generatif sama dengan ChatGPT?'
+    answer: 'Tidak. ChatGPT hanya salah satu contoh AI generatif. Istilahnya mencakup juga pembuat gambar seperti Midjourney atau Canva AI dan pembuat lagu seperti Suno.'
 ---
 
 **Apa itu AI generatif?** AI generatif adalah kecerdasan buatan yang **membuat** sesuatu dari sebuah perintah — teks, gambar, atau audio — lalu berhenti dan menunggu perintah berikutnya. Anda mengetik apa yang diinginkan, ia menghasilkan hasilnya. Contoh yang paling akrab: **ChatGPT** menulis dan merangkum teks, **Midjourney** atau **Canva AI** membuat gambar dari deskripsi, **Suno** menciptakan lagu dari genre yang Anda pilih.
@@ -77,6 +84,8 @@ Karena AI agent bisa bertindak sendiri, ada hal yang perlu Anda jaga:
 AI generatif dan AI agent bukan lawan, melainkan dua tingkatan kemampuan. Generatif membantu Anda berpikir dan berkarya; agent membantu Anda mengeksekusi. Dengan mengenali keduanya, Anda bisa memilih alat yang pas sehingga teknologi justru mengurangi beban, bukan menambahnya.
 
 Mulailah dari satu kebutuhan kecil minggu ini. Rasakan bedanya menggunakan asisten yang sekadar membuat jawaban dibanding asisten yang benar-benar menyelesaikan urusan Anda.
+
+**Apakah AI generatif bisa salah?** Bisa. Ia memprediksi kelanjutan pola, bukan memahami isi, jadi hasilnya bisa terdengar meyakinkan sekaligus keliru. Periksa ulang fakta dan angka sebelum dipakai.
 
 ---
 
