@@ -62,7 +62,7 @@ Kalau tidak punya waktu membaca semuanya, ini petanya:
 | Tiap hari menulis kode di editor             | **GitHub Copilot**           | Menyarankan kode saat kamu mengetik, bukan lewat salin-tempel chat; gratis untuk mahasiswa                     |
 | Sesi panjang memahami/membenahi proyek besar | **Claude**                   | Fokus pada kode panjang dan punya produk coding agent tersendiri (Claude Code); batas pemakaian per sesi 5 jam |
 | Belajar konsep + tugas campuran non-coding   | **ChatGPT**                  | Serbaguna; paket Go Rp75.000 jadi titik masuk termurah                                                         |
-| Pengguna gratis yang mau kuota longgar       | **Gemini** atau **DeepSeek** | Keduanya bisa dipakai gratis tanpa kuota yang memberatkan untuk pemakaian harian ringan                        |
+| Pengguna gratis yang mau kuota longgar       | **Gemini** atau **DeepSeek** | Kuota gratis Gemini paling lega di ekosistem Google; DeepSeek gratis dipakai di aplikasi dan web                |
 | Eksperimen tanpa mau bikin akun kartu kredit | **DeepSeek**                 | Gratis dipakai di aplikasi dan web                                                                             |
 
 Satu catatan penting sebelum lanjut: urutan di atas bukan rangking kualitas model. Model coding berubah beberapa kali setahun — [perbandingan ChatGPT vs Gemini vs Claude kami](/posts/chatgpt-vs-gemini-vs-claude-2026/) bahkan sudah tertinggal beberapa kali sejak terbit. Pembaca yang sedang mencari opsi tanpa akun bisa melihat juga [panduan ChatGPT gratis tanpa login](/posts/chatgpt-gratis-tanpa-login/). Yang lebih tahan lama adalah **cara memilih**: kebutuhan → batas gratis → harga. Itulah yang artikel ini ajarkan sekaligus kerjakan untukmu.
