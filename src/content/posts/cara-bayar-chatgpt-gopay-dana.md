@@ -1,7 +1,7 @@
 ---
-title: 'Cara Bayar ChatGPT Pakai GoPay/DANA 2026 Resmi'
+title: 'Harga ChatGPT Plus Indonesia 2026 + Cara Bayar GoPay/DANA'
 slug: 'cara-bayar-chatgpt-gopay-dana'
-summary: 'Panduan berlangganan ChatGPT tanpa kartu kredit: bayar pakai GoPay, DANA, atau QRIS lewat Google Play, lengkap dengan harga rupiah dan solusi kalau pembayaran gagal.'
+summary: 'Harga ChatGPT Plus Rp 349.000 dan Go Rp 75.000 di Indonesia, plus panduan bayar tanpa kartu kredit pakai GoPay, DANA, atau QRIS lewat Google Play, lengkap dengan solusi kalau pembayaran gagal.'
 metaDescription: 'Panduan resmi 2026: bayar ChatGPT tanpa kartu kredit via GoPay, DANA & QRIS lewat Google Play. Harga Go Rp75rb & Plus Rp349rb + solusi gagal bayar.'
 publishedAt: 2026-09-16T07:00:00+07:00
 updatedAt: 2026-10-21T09:00:00+07:00
@@ -15,7 +15,7 @@ faq:
   - question: 'Apakah ChatGPT bisa dibayar pakai GoPay?'
     answer: 'Bisa. Di Android, langganan ChatGPT ditagihkan lewat Google Play, dan Google Play menerima GoPay, DANA, serta QRIS sebagai metode pembayaran di Indonesia. Sambungkan e-wallet ke akun Google, lalu biaya langganan ditarik otomatis dari saldo.'
   - question: 'Berapa harga ChatGPT Go dan Plus di Indonesia?'
-    answer: 'ChatGPT Go dijual Rp 75.000 per bulan (termasuk PPN) dan ChatGPT Plus Rp 349.000 per bulan untuk pasar Indonesia, sesuai harga resmi OpenAI. Nominal final selalu tampil di lembar pembayaran sebelum kamu mengonfirmasi.'
+    answer: 'ChatGPT Go dijual Rp 75.000 per bulan dan ChatGPT Plus Rp 349.000 per bulan untuk pasar Indonesia. Tagihan konsumen Indonesia memuat PPN, jadi nominal final selalu tampil di lembar pembayaran Google Play sebelum kamu mengonfirmasi.'
   - question: 'Apakah bisa berlangganan ChatGPT tanpa kartu kredit?'
     answer: 'Bisa. Jalur paling mudah adalah lewat aplikasi ChatGPT di Android dengan pembayaran Google Play pakai GoPay, DANA, atau QRIS. Pengguna iPhone bisa memakai voucher App Store yang dibeli dengan GoPay, DANA, atau tunai, lalu di-redeem ke saldo Apple Account.'
   - question: 'Kenapa pembayaran ChatGPT saya ditolak?'
