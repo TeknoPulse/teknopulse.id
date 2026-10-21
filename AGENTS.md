@@ -55,7 +55,7 @@ This site is **static-output only**. SSR was intentionally dropped:
   TEKAA-398); `primary: true` entries are listed first with a "Sumber primer" badge and all
   links are `target="_blank" rel="noopener"`. The section is suppressed when the post body
   already has a manual sources heading (`## Sumber`, `## Sumber Rujukan`, `## Sumber dan
-  Rujukan Terkait`, …) so a page never shows two source lists; JSON-LD `citation` still
+Rujukan Terkait`, …) so a page never shows two source lists; JSON-LD `citation` still
   carries every entry (`isBasedOn` only the `primary: true` ones).
 - Bylines come from `src/utils/authors.ts`; a matching `author` frontmatter links the byline
   to `/authors/<slug>/` (Person JSON-LD) and sets `author.url` in Article JSON-LD.
