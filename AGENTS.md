@@ -51,6 +51,12 @@ This site is **static-output only**. SSR was intentionally dropped:
 - `metaDescription` frontmatter (120–155 chars) feeds `<meta name="description">` /
   og:description; falls back to `summary`. `faq` frontmatter (2–4 Q&A) renders an FAQ block
   and emits `FAQPage` JSON-LD.
+- `source` frontmatter renders as a "Sumber" H2 section (`src/utils/sources.ts`,
+  TEKAA-398); `primary: true` entries are listed first with a "Sumber primer" badge and all
+  links are `target="_blank" rel="noopener"`. The section is suppressed when the post body
+  already has a manual sources heading (`## Sumber`, `## Sumber Rujukan`, `## Sumber dan
+  Rujukan Terkait`, …) so a page never shows two source lists; JSON-LD `citation` still
+  carries every entry (`isBasedOn` only the `primary: true` ones).
 - Bylines come from `src/utils/authors.ts`; a matching `author` frontmatter links the byline
   to `/authors/<slug>/` (Person JSON-LD) and sets `author.url` in Article JSON-LD.
 - `scripts/seo-check.mjs` runs as `prebuild` (advisory warnings); `pnpm seo:check:strict` is
