@@ -100,8 +100,22 @@ draft: false
 faq: # opsional, 2–4 pertanyaan (definisi/how-to) → JSON-LD FAQPage
   - question: 'Pertanyaan yang sering diajukan?'
     answer: 'Jawaban 2–3 kalimat.'
+source: # opsional; dirender jadi section "Sumber" + JSON-LD `citation`
+  - name: 'Judul dokumen resmi — penerbit (tanggal)'
+    url: 'https://example.com/dokumen-resmi'
+    primary: true # true = sumber primer (dokumen/karya asli) → `isBasedOn` JSON-LD
+  - name: 'Liputan media pendukung'
+    url: 'https://example.com/liputan'
+    primary: false
 ---
 ```
+
+**`source:` frontmatter (TEKAA-398).** `src/utils/sources.ts` menormalkan URL, membuang
+sumber duplikat, dan mendahulukan `primary: true` (diberi badge "Sumber primer"). Section
+"Sumber" (H2) hanya dirender kalau badan artikel **belum** punya heading sumber manual
+(`## Sumber`, `## Sumber Rujukan`, `## Sumber dan Rujukan Terkait`, …) — jadi pilih satu:
+frontmatter saja, atau blok manual saja. Jangan dua-duanya. Semua sumber tetap masuk
+JSON-LD (`citation`; `isBasedOn` hanya yang `primary: true`) meski section-nya tidak dirender.
 
 **Aturan SEO on-page (TEKAA-4/TEKAA-5):** tepat satu H1 per halaman — template sudah
 membuang/menurunkan H1 duplikat di awal Markdown (`src/utils/rehype-unique-h1.js`);
@@ -109,7 +123,8 @@ artikel baru jangan diawali `# Judul`. og:image otomatis = `coverImage`, kecuali
 dipakai bareng artikel lain → otomatis diganti kartu OG generate `/og/<slug>.png` (unik).
 Byline yang terdaftar di `src/utils/authors.ts` jadi tautan profil `/authors/<slug>/` +
 `author.url` di JSON-LD. Struktur data: `Article` (+`dateModified`), `FAQPage`,
-`BreadcrumbList` (di `Breadcrumbs.astro`), `Person` (halaman profil).
+`BreadcrumbList` (di `Breadcrumbs.astro`), `Person` (halaman profil), dan `citation`/`isBasedOn`
+dari `source:` frontmatter.
 
 Jalankan `pnpm seo:check` sebelum publish; `pnpm seo:check:strict` untuk gate ketat.
 

@@ -19,6 +19,13 @@ interface Props {
     tags: string[];
     category?: string;
     faq?: FaqItem[];
+    // Sumber yang dirender di section "Sumber" (TEKAA-398). Masuk ke
+    // JSON-LD sebagai `citation` — properti schema.org untuk "CreativeWork
+    // yang dirujuk artikel ini", rekomendasi resmi Google untuk artikel
+    // yang mengutip sumber lain. `isBasedOn` hanya diisi sumber `primary`
+    // (karya asli yang jadi dasar artikel): sumber sekunder tidak boleh
+    // diklaim sebagai dasar karya turunan.
+    sources?: { name: string; url: string; primary: boolean }[];
   };
   canonical?: string;
   robots?: string;
@@ -88,6 +95,20 @@ if (article) {
     },
     keywords: article.tags.join(', '),
     ...(article.category ? { articleSection: getCategoryLabel(article.category) } : {}),
+    ...(article.sources && article.sources.length > 0
+      ? {
+          citation: article.sources.map((source) => ({
+            '@type': 'CreativeWork',
+            name: source.name,
+            url: source.url,
+          })),
+        }
+      : {}),
+    ...(article.sources?.some((source) => source.primary)
+      ? {
+          isBasedOn: article.sources.filter((source) => source.primary).map((source) => source.url),
+        }
+      : {}),
   });
 
   if (article.faq && article.faq.length > 0) {
