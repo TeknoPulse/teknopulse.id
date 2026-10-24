@@ -13,7 +13,7 @@ tags:
   - Automation
   - Solopreneurship
 coverImage: '../../assets/images/2026-10-06-membangun-agen-vertikal-peluang-konektor-ai-16x9.png'
-coverImageAlt: 'Ilustrasi kartu editorial TeknoPulse tentang peluang bisnis konektor agen AI vertikal'
+coverImageAlt: 'Konektor logam multi-pin dengan gulungan kabel karet tebal di lantai beton bengkel usang, beberapa cable tie putih di dekatnya'
 author: 'TeknoPulse Redaksi'
 draft: false
 source:

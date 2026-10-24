@@ -1,6 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCategoryLabel, getCategorySlug, getCategoryToken } from '../utils/categories';
+// getCategoryUrl di sini adalah versi sadar-nama (slugify internal):
+// post.data.category berisi 'AI', bukan slug 'ai' (TEKAA-377).
+import { getCategoryLabel, getCategoryToken, getCategoryUrl } from '../utils/categories';
+import { getPostUrl } from '../utils/urls.mjs';
 import { calculateReadingTime } from '../utils/readingTime';
 import { coverAlt } from '../utils/coverAlt';
 import { Image } from 'astro:assets';
@@ -21,7 +24,7 @@ const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
   {
     post.data.coverImage && (
       <div class="relative overflow-hidden rounded-t-lg">
-        <a href={`/posts/${post.slug}`} class="block">
+        <a href={getPostUrl(post.slug)} class="block">
           <Image
             src={post.data.coverImage}
             alt={coverAlt(post)}
@@ -35,7 +38,7 @@ const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
              dari setiap kartu artikel (TEKAA-221) */}
         <div class="absolute top-3 left-3">
           <a
-            href={`/category/${getCategorySlug(post.data.category)}`}
+            href={getCategoryUrl(post.data.category)}
             class={`category-badge category-${getCategoryToken(post.data.category)}`}
           >
             {getCategoryLabel(post.data.category)}
@@ -60,7 +63,7 @@ const readingTime = post.data.readingTime ?? calculateReadingTime(post.body);
         featured ? 'text-xl' : 'text-lg'
       }`}
     >
-      <a href={`/posts/${post.slug}`}>
+      <a href={getPostUrl(post.slug)}>
         {post.data.title}
       </a>
     </h3>

@@ -4,6 +4,7 @@ import { getAllCategories, getCategoryBySlug } from '../../../utils/categories';
 import Layout from '../../../layouts/Layout.astro';
 import PostCard from '../../../components/PostCard.astro';
 import Pagination from '../../../components/Pagination.astro';
+import { getCategoryUrl } from '../../../utils/urls.mjs';
 
 export const prerender = true;
 
@@ -67,7 +68,7 @@ const robots = isPaginated || isEmpty ? 'noindex, follow' : 'index, follow';
     <Pagination
       currentPage={page.currentPage}
       totalPages={page.lastPage}
-      baseUrl={`/category/${category}`}
+      baseUrl={getCategoryUrl(category)}
     />
   </main>
 </Layout>

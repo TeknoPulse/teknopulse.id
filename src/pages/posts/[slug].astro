@@ -9,6 +9,8 @@ import ShareButtons from '../../components/ShareButtons.astro';
 import GiscusComments from '../../components/GiscusComments.astro';
 import { Image } from 'astro:assets';
 import { getAllCategories, getCategoryUrl } from '../../utils/categories';
+import { getPostUrl, getTagUrl, slugifyTag } from '../../utils/urls.mjs';
+import { hasManualSourcesSection, normalizeSources } from '../../utils/sources';
 
 const allCategories = getAllCategories();
 
@@ -17,6 +19,11 @@ export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
+
+  // Sort once for related posts calculation
+  const sortedPosts = [...posts].sort(
+    (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+  );
 
   // og:image harus unik per artikel (TEKAA-5): coverImage yang dipakai
   // bersama oleh ≥2 artikel tidak boleh jadi og:image — ganti dengan kartu
@@ -33,16 +40,25 @@ export async function getStaticPaths() {
     const ogImage =
       post.data.ogImage ??
       (post.data.coverImage && !coverShared ? post.data.coverImage : `/og/${post.slug}.png`);
-    return { params: { slug: post.slug }, props: { post, ogImage } };
+
+    // Calculate related posts here to avoid doing it per-page during render
+    const otherPosts = sortedPosts.filter((p) => p.slug !== post.slug);
+    const tagRelated = otherPosts.filter((p) =>
+      (p.data.tags ?? []).some((tag) => (post.data.tags ?? []).includes(tag))
+    );
+    const relatedPosts = (tagRelated.length > 0 ? tagRelated : otherPosts).slice(0, 3);
+
+    return { params: { slug: post.slug }, props: { post, ogImage, relatedPosts } };
   });
 }
 
 interface Props {
   post: CollectionEntry<'posts'>;
   ogImage: CollectionEntry<'posts'>['data']['coverImage'] | string;
+  relatedPosts: CollectionEntry<'posts'>[];
 }
 
-const { post, ogImage } = Astro.props;
+const { post, ogImage, relatedPosts } = Astro.props;
 
 if (!post) {
   return Astro.redirect('/404');
@@ -68,19 +84,19 @@ const updated =
     ? post.data.updatedAt
     : undefined;
 
-// Ambil postingan terkait berdasarkan tag, urut terbaru (TEKAA-3 P0-5).
-// Fallback: kalau tidak ada yang se-tag, pakai artikel terbaru lain supaya
-// setiap artikel selalu punya tautan internal di dalam konten.
-const allPosts = await getCollection('posts');
-const otherPosts = allPosts
-  .filter((p) => p.slug !== post.slug && !p.data.draft)
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const tagRelated = otherPosts.filter((p) =>
-  (p.data.tags ?? []).some((tag) => (post.data.tags ?? []).includes(tag))
-);
-const relatedPosts = (tagRelated.length > 0 ? tagRelated : otherPosts).slice(0, 3);
-
 const faq = post.data.faq ?? [];
+
+// Section "Sumber" (TEKAA-398): `source:` frontmatter sudah divalidasi schema
+// tapi sebelumnya tidak pernah dirender. Sumber primary didahulukan dan diberi
+// penanda; URL dinormalisasi + didedup di `utils/sources.ts`.
+//
+// Banyak artikel lama sudah punya daftar sumber manual di badan
+// (`## Sumber`, `## Sumber Rujukan`, …). Kalau section itu ada, frontmatter
+// tidak dirender lagi — dua daftar sumber di satu halaman membingungkan
+// pembaca dan menduplikasi sinyal untuk crawler. Frontmatter tetap dikirim ke
+// JSON-LD karena `citation` di sana justru harus lengkap.
+const sources = normalizeSources(post.data.source);
+const showSources = sources.length > 0 && !hasManualSourcesSection(post.body);
 ---
 
 <Layout
@@ -98,6 +114,7 @@ const faq = post.data.faq ?? [];
     tags: post.data.tags,
     category: post.data.category,
     faq,
+    sources,
   }}
   postCategory={post.data.category}
   postTitle={post.data.title}
@@ -171,7 +188,7 @@ const faq = post.data.faq ?? [];
           {
             post.data.tags?.map((tag) => (
               <a
-                href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                href={getTagUrl(slugifyTag(tag))}
                 class="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 dark:bg-blue-900 dark:text-blue-200"
               >
                 {tag}
@@ -203,6 +220,38 @@ const faq = post.data.faq ?? [];
         )
       }
 
+      {
+        showSources && (
+          <section class="mt-10" aria-labelledby="sumber-heading">
+            <h2 id="sumber-heading" class="mb-4 text-2xl font-bold">
+              Sumber
+            </h2>
+            <ul class="space-y-3">
+              {sources.map((source) => (
+                <li class="flex items-start gap-2">
+                  {source.primary && (
+                    <span class="mt-0.5 shrink-0 rounded bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                      Sumber primer
+                    </span>
+                  )}
+                  <span>
+                    <span class="text-gray-900 dark:text-gray-100">{source.name}</span>{' '}
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener"
+                      class="break-all text-primary hover:underline"
+                    >
+                      {source.label}
+                    </a>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
       <ShareButtons title={post.data.title} url={`/posts/${post.slug}`} />
 
       {
@@ -223,7 +272,7 @@ const faq = post.data.faq ?? [];
             <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
               {relatedPosts.map((relatedPost) => (
                 <a
-                  href={`/posts/${relatedPost.slug}`}
+                  href={getPostUrl(relatedPost.slug)}
                   class="block rounded-lg border p-4 transition-shadow hover:shadow-md"
                 >
                   <h3 class="mb-2 font-semibold">{relatedPost.data.title}</h3>

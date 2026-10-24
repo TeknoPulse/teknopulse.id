@@ -1,3 +1,5 @@
+import { getCategoryUrl as categoryUrl } from './urls.mjs';
+
 export interface Category {
   name: string;
   slug: string;
@@ -89,8 +91,9 @@ export const getCategoryToken = (name: string): string => {
   return getCategorySlug(name);
 };
 
+// Kanonik ber-slash (TEKAA-377) — lihat src/utils/urls.mjs.
 export const getCategoryUrl = (name: string): string => {
-  return `/category/${getCategorySlug(name)}`;
+  return categoryUrl(getCategorySlug(name));
 };
 
 export const getCategoryColorClasses = (categoryName: string): string => {
