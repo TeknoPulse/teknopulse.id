@@ -46,7 +46,10 @@ const pageNumbers = getPageNumbers();
 
 {
   totalPages > 1 && (
-    <nav class="mt-12 flex items-center justify-center space-x-2" aria-label="Navigasi halaman">
+    <nav
+      class="mt-12 flex flex-wrap items-center justify-center gap-2"
+      aria-label="Navigasi halaman"
+    >
       {prevPage && (
         <a
           href={prevPage === 1 ? `${baseUrl}/` : `${baseUrl}/${prevPage}`}
