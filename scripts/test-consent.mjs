@@ -7,49 +7,7 @@
  */
 
 import assert from 'node:assert/strict';
-
-// ── Local JS copies of the pure functions (browser effects excluded) ──────────
-
-const CYCLE_MAX = 3;
-const REST_DAYS = 30;
-
-function _daysBetween(dateStr1, dateStr2) {
-  const [y1, m1, d1] = dateStr1.split('-').map(Number);
-  const [y2, m2, d2] = dateStr2.split('-').map(Number);
-  return Math.floor((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000);
-}
-
-function next(prev, event, today) {
-  switch (event) {
-    case 'accept':
-    case 'toggleOn':
-      return { decision: 'granted', dismissCount: 0, lastDismissed: null, cycleStarted: today };
-    case 'deny':
-    case 'toggleOff':
-      return { decision: 'denied', dismissCount: 0, lastDismissed: null, cycleStarted: null };
-    case 'defer':
-      return {
-        decision: 'deferred',
-        dismissCount: (prev?.dismissCount ?? 0) + 1,
-        lastDismissed: today,
-        cycleStarted: prev?.cycleStarted ?? today,
-      };
-  }
-}
-
-function shouldShow(prev, today) {
-  if (!prev || prev.decision !== 'deferred') {
-    return prev === null;
-  }
-  if (!prev.lastDismissed) return true;
-  const days = _daysBetween(prev.lastDismissed, today);
-  if (prev.dismissCount < CYCLE_MAX) return days >= 1;
-  return days >= REST_DAYS;
-}
-
-function isEnabled(state) {
-  return state?.decision === 'granted';
-}
+import { next, shouldShow, isEnabled } from '../src/utils/consent.ts';
 
 // ── Test runner ───────────────────────────────────────────────────────────────
 
