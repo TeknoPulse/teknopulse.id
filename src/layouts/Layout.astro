@@ -26,7 +26,6 @@ export interface Props {
   postCategory?: string;
   postTitle?: string;
   showBreadcrumbs?: boolean;
-  variant?: 'demo' | 'real';
   pagefindIgnore?: boolean;
 }
 
@@ -41,7 +40,6 @@ const {
   postCategory,
   postTitle,
   showBreadcrumbs = true,
-  variant = 'demo',
   pagefindIgnore = false,
 } = Astro.props;
 ---
@@ -78,12 +76,12 @@ const {
     >
       Lewati ke konten utama
     </a>
-    <Header variant={variant} />
+    <Header />
     {showBreadcrumbs && <Breadcrumbs postCategory={postCategory} postTitle={postTitle} />}
     <div id="main-content" tabindex="-1">
       <slot />
     </div>
-    <Footer variant={variant} />
+    <Footer />
     <CookieConsent />
   </body>
 </html>

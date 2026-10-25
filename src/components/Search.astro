@@ -5,65 +5,93 @@
 <script src="/pagefind/pagefind.js" is:inline></script>
 
 <div id="search">
+  <label for="search-input" class="sr-only">Cari artikel</label>
   <input
-    type="text"
+    type="search"
     id="search-input"
-    placeholder="Cari berita..."
-    class="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+    placeholder="Kata kunci, topik, atau judul…"
+    autocomplete="off"
+    class="w-full border-b-2 border-rule-strong bg-transparent py-3 font-serif text-2xl text-ink placeholder:text-ink-muted focus:border-cobalt focus:outline-none sm:text-3xl"
   />
-  <div id="search-results" class="mt-4"></div>
+  <p id="search-status" class="kicker mt-3 text-ink-muted" role="status" aria-live="polite">
+    Ketik minimal dua huruf untuk mulai mencari.
+  </p>
+  <div
+    id="search-results"
+    class="[&_a]:block [&_a]:py-5 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:leading-tight [&_mark]:bg-cobalt-tint [&_mark]:px-0.5 [&_mark]:text-ink [&_p]:mt-1.5 [&_p]:text-sm [&_p]:leading-relaxed [&_p]:text-ink-muted mt-4 divide-y divide-rule"
+  >
+  </div>
 </div>
 
 <script>
-  const searchInput = document.getElementById('search-input') as HTMLInputElement;
+  const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
   const searchResults = document.getElementById('search-results');
+  const searchStatus = document.getElementById('search-status');
 
-  if (searchInput && searchResults) {
-    if (typeof Pagefind === 'undefined') {
-      searchResults.innerHTML =
-        '<p class="text-gray-500 dark:text-gray-400 text-sm">Search functionality will be available after deployment with Pagefind integration.</p>';
-    } else {
-      searchResults.innerHTML =
-        '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
-    }
+  type PagefindResult = {
+    data: () => Promise<{ url: string; excerpt: string; meta: { title?: string } }>;
+  };
 
-    searchInput.addEventListener('input', async (e) => {
-      const query = (e.target as HTMLInputElement).value;
+  if (searchInput && searchResults && searchStatus) {
+    searchResults.innerHTML =
+      '<p class="py-6 text-sm leading-relaxed text-ink-muted">Hasil pencarian akan muncul di sini. Indeks dibangun saat situs diterbitkan.</p>';
 
-      if (query.length > 1) {
+    const setStatus = (message: string) => {
+      searchStatus.textContent = message;
+    };
+
+    searchInput.addEventListener('input', async (event) => {
+      const query = (event.target as HTMLInputElement).value.trim();
+
+      if (query.length < 2) {
         searchResults.innerHTML =
-          '<p class="text-gray-500 dark:text-gray-400 text-sm">Searching...</p>';
-        const search = await Pagefind.search(query);
+          '<p class="py-6 text-sm leading-relaxed text-ink-muted">Hasil pencarian akan muncul di sini.</p>';
+        setStatus('Ketik minimal dua huruf untuk mulai mencari.');
+        return;
+      }
 
-        if (search.results.length > 0) {
-          searchResults.innerHTML = '';
-          for (const result of search.results) {
-            const data = await result.data();
-
-            const a = document.createElement('a');
-            a.href = data.url;
-            a.className = 'block rounded-md p-4 hover:bg-gray-100 dark:hover:bg-gray-800';
-
-            const h3 = document.createElement('h3');
-            h3.className = 'font-semibold text-lg text-gray-900 dark:text-white';
-            h3.textContent = data.meta.title;
-
-            const p = document.createElement('p');
-            p.className = 'text-sm text-gray-600 dark:text-gray-400';
-            // Pagefind provides the excerpt with <mark> tags safely
-            p.innerHTML = data.excerpt;
-
-            a.appendChild(h3);
-            a.appendChild(p);
-            searchResults.appendChild(a);
-          }
-        } else {
-          searchResults.innerHTML =
-            '<p class="text-gray-500 dark:text-gray-400 text-sm">No results found.</p>';
+      const pagefind = (
+        window as unknown as {
+          Pagefind?: { search: (q: string) => Promise<{ results: PagefindResult[] }> };
         }
-      } else {
-        searchResults.innerHTML =
-          '<p class="text-gray-500 dark:text-gray-400 text-sm">Start typing to search.</p>';
+      ).Pagefind;
+      if (!pagefind) {
+        setStatus('Pencarian belum tersedia di lingkungan pengembangan.');
+        return;
+      }
+
+      setStatus('Mencari…');
+
+      try {
+        const search = await pagefind.search(query);
+
+        if (search.results.length === 0) {
+          searchResults.innerHTML = '';
+          setStatus(`Tidak ada hasil untuk “${query}”.`);
+          return;
+        }
+
+        searchResults.innerHTML = '';
+        for (const result of search.results) {
+          const data = await result.data();
+
+          const link = document.createElement('a');
+          link.href = data.url;
+          link.className = 'group transition-colors hover:text-cobalt';
+
+          const title = document.createElement('h3');
+          title.textContent = data.meta.title ?? 'Tanpa judul';
+
+          const excerpt = document.createElement('p');
+          excerpt.innerHTML = data.excerpt;
+
+          link.append(title, excerpt);
+          searchResults.appendChild(link);
+        }
+
+        setStatus(`${search.results.length} hasil untuk “${query}”.`);
+      } catch {
+        setStatus('Pencarian gagal dimuat. Coba muat ulang halaman.');
       }
     });
   }

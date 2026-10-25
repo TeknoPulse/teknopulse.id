@@ -42,12 +42,7 @@ const recentCategories = categories
 const leadMinutes = lead.data.readingTime ?? calculateReadingTime(lead.body);
 ---
 
-<Layout
-  title={site.homeTitle}
-  description={site.homeDescription}
-  showBreadcrumbs={false}
-  variant="real"
->
+<Layout title={site.homeTitle} description={site.homeDescription} showBreadcrumbs={false}>
   <header class="border-b-2 border-rule-strong">
     <div class="wrap pt-5 pb-4 sm:pt-7">
       <div class="kicker flex items-center justify-between gap-4 text-ink-muted">

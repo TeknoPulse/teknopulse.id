@@ -49,13 +49,7 @@ const robots = isPaginated || isThin ? 'noindex, follow' : 'index, follow';
 const startIndex = (page.currentPage - 1) * page.size;
 ---
 
-<Layout
-  title={title}
-  description={description}
-  robots={robots}
-  showBreadcrumbs={false}
-  variant="real"
->
+<Layout title={title} description={description} robots={robots} showBreadcrumbs={false}>
   <header class="border-b-2 border-rule-strong">
     <div class="wrap pt-8 pb-7 sm:pt-12">
       <p class="kicker text-cobalt">
