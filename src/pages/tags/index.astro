@@ -14,17 +14,51 @@ const allTags = mergeTagEntries(posts.map((post) => post.data.tags)).sort(
 );
 ---
 
-<Layout title="Semua Topik" description="Jelajahi semua topik artikel di TeknoPulse.">
-  <main class="container mx-auto px-4 py-8">
-    <h1 class="mb-8 text-4xl font-bold">Semua Topik</h1>
-    <div class="flex flex-wrap gap-4">
+<Layout
+  title="Semua Topik"
+  description="Jelajahi semua topik artikel di TeknoPulse."
+  showBreadcrumbs={false}
+  variant="real"
+>
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">Indeks topik / {allTags.length} label</p>
+      <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+        <h1
+          class="font-serif text-[clamp(3rem,9vw,7rem)] font-semibold leading-[0.8] tracking-headline"
+        >
+          Topik<span class="text-cobalt">.</span>
+        </h1>
+        <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+          Semua label yang dipakai artikel TeknoPulse, diurutkan dari yang paling sering dibahas.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap py-8 sm:py-10">
+    <div class="flex flex-wrap gap-x-1.5 gap-y-2.5">
       {
         allTags.map((tag) => (
-          <a href={getTagUrl(tag.slug)} class="rounded-full bg-gray-200 px-4 py-2 dark:bg-gray-700">
+          <a
+            href={getTagUrl(tag.slug)}
+            class="kicker inline-flex items-baseline gap-1.5 border border-rule px-3 py-2 text-ink-soft transition-colors hover:border-cobalt hover:text-cobalt"
+          >
             {tag.label}
+            <span class="text-[0.625rem] text-ink-muted">{tag.postCount}</span>
           </a>
         ))
       }
+    </div>
+
+    <div
+      class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t-2 border-rule-strong pt-5"
+    >
+      <p class="text-xs text-ink-muted">{posts.length} artikel · {allTags.length} topik</p>
+      <div class="flex flex-wrap gap-x-5 gap-y-2">
+        <a href="/category/" class="kicker text-cobalt hover:text-cobalt-dark">Semua rubrik →</a>
+        <a href="/posts/" class="kicker text-cobalt hover:text-cobalt-dark">Arsip lengkap →</a>
+      </div>
     </div>
   </main>
 </Layout>

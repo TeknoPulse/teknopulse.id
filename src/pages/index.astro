@@ -1,220 +1,275 @@
 ---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import Masthead from '../components/Masthead.astro';
-import DemoNotice from '../components/DemoNotice.astro';
-import ArticleRow from '../components/ArticleRow.astro';
-import ReadLaterButton from '../components/ReadLaterButton.astro';
-import {
-  arrangeIssue,
-  articleUrl,
-  formatDate,
-  formatShortDate,
-  getIssueArticles,
-  getIssues,
-  getTopic,
-  issueUrl,
-  padIssue,
-  readingTime,
-  topics,
-} from '../utils/edisi';
+import PostRow from '../components/PostRow.astro';
+import { site } from '../config';
+import { getAllCategories, getCategorySlug, getCategoryUrl } from '../utils/categories';
+import { calculateReadingTime } from '../utils/readingTime';
+import { coverAlt } from '../utils/coverAlt';
+import { getPostUrl } from '../utils/urls.mjs';
+import { formatDate, formatShortDate } from '../utils/edisi';
 
-const issues = await getIssues();
-const articles = await getIssueArticles();
-const current = issues[0];
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
-if (!current) {
-  throw new Error('Tidak ada edisi demo di src/content/issues.');
+const [lead, ...rest] = posts;
+
+if (!lead) {
+  throw new Error('Tidak ada artikel terbit di src/content/posts.');
 }
 
-const arranged = arrangeIssue(current, articles);
-const cover = arranged.cover;
+const picks = rest.slice(0, 2);
+const briefs = rest.slice(2, 5);
+const recent = posts.slice(0, 12);
 
-if (!cover) {
-  throw new Error(
-    `Edisi ${current.data.number} menunjuk coverStory "${current.data.coverStory}" yang tidak ditemukan.`
-  );
-}
-
-const picks = arranged.picks;
-const briefs = arranged.briefs;
-const pastIssues = issues.slice(1);
-const coverTopic = getTopic(cover.data.topic);
-
-const indexArticles = [cover, ...picks, ...briefs].filter(
-  (article, index, list) => list.findIndex((item) => item.id === article.id) === index
-);
-
-const topicsInIssue = topics
-  .map((topic) => ({
-    ...topic,
-    count: indexArticles.filter((article) => article.data.topic === topic.slug).length,
+const categories = getAllCategories()
+  .map((category) => ({
+    ...category,
+    count: posts.filter((post) => getCategorySlug(post.data.category) === category.slug).length,
   }))
-  .filter((topic) => topic.count > 0);
+  .filter((category) => category.count > 0)
+  .sort((a, b) => b.count - a.count);
 
-const title = `TeknoPulse — Edisi ${padIssue(current.data.number)} (demo): ${current.data.theme}`;
-const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`;
+const recentCategories = categories
+  .map((category) => ({
+    ...category,
+    count: recent.filter((post) => getCategorySlug(post.data.category) === category.slug).length,
+  }))
+  .filter((category) => category.count > 0);
+
+const leadMinutes = lead.data.readingTime ?? calculateReadingTime(lead.body);
 ---
 
-<Layout title={title} description={description} showBreadcrumbs={false}>
-  <Masthead issue={current} />
-  <DemoNotice />
+<Layout
+  title={site.homeTitle}
+  description={site.homeDescription}
+  showBreadcrumbs={false}
+  variant="real"
+>
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-5 pb-4 sm:pt-7">
+      <div class="kicker flex items-center justify-between gap-4 text-ink-muted">
+        <span>Surat kabar teknologi</span>
+        <span class="text-cobalt">Arsip terbuka</span>
+      </div>
+
+      <div
+        class="mt-4 grid grid-cols-1 items-end gap-5 border-y border-rule py-5 sm:grid-cols-[8rem_1fr_10rem] sm:gap-6 sm:py-7"
+      >
+        <div class="hidden sm:block">
+          <p class="kicker text-ink-muted">Arsip</p>
+          <p class="mt-1 font-display text-6xl font-semibold leading-[0.8] text-cobalt">
+            {posts.length}
+          </p>
+          <p class="kicker mt-1 text-ink-muted">Artikel</p>
+        </div>
+
+        <div class="text-center">
+          <p
+            class="display-line text-[clamp(3.1rem,10.5vw,7.6rem)] font-semibold leading-[0.8] tracking-headline text-ink"
+          >
+            TeknoPulse<span class="text-cobalt">.</span>
+          </p>
+          <p class="mt-3 font-serif text-base italic leading-snug text-ink-soft sm:text-lg">
+            Teknologi, manusia, dan keputusan yang kita ambil.
+          </p>
+        </div>
+
+        <div class="hidden text-right sm:block">
+          <p class="kicker text-ink-muted">Terakhir</p>
+          <time
+            datetime={lead.data.publishedAt.toISOString()}
+            class="mt-1 block font-serif text-xl leading-tight"
+          >
+            {formatDate(lead.data.publishedAt)}
+          </time>
+        </div>
+      </div>
+
+      <div class="mt-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+        <p class="kicker text-ink-muted">AI · Software · Developer · Automation</p>
+        <p class="kicker text-ink-muted sm:hidden">{formatShortDate(lead.data.publishedAt)}</p>
+      </div>
+    </div>
+  </header>
 
   <main>
-    <!-- Laporan utama + pilihan editor -->
-    <section class="wrap py-9 sm:py-12" aria-labelledby="laporan-utama">
+    <section class="wrap py-9 sm:py-12" aria-labelledby="artikel-utama">
       <div class="grid gap-10 lg:grid-cols-12 lg:gap-0">
         <div class="lg:col-span-8 lg:pr-10">
           <div class="h-0.5 w-14 bg-cobalt" aria-hidden="true"></div>
           <p class="kicker mt-3 text-cobalt">
-            Laporan utama <span class="mx-1.5 text-rule">/</span> Edisi {
-              padIssue(current.data.number)
+            Artikel terbaru <span class="mx-1.5 text-rule">/</span>
+            {
+              categories.find((category) => category.slug === getCategorySlug(lead.data.category))
+                ?.name ?? lead.data.category
             }
           </p>
 
-          <h2
-            id="laporan-utama"
+          <h1
+            id="artikel-utama"
             class="headline-balance mt-3 font-serif text-[clamp(2.5rem,5.6vw,4.9rem)] font-semibold leading-[0.94] tracking-headline"
           >
-            <a href={articleUrl(cover)} class="transition-colors hover:text-cobalt">
-              {cover.data.title}
+            <a href={getPostUrl(lead.slug)} class="transition-colors hover:text-cobalt">
+              {lead.data.title}
             </a>
-          </h2>
+          </h1>
 
           <p class="mt-5 max-w-2xl font-serif text-xl leading-snug text-ink-soft sm:text-2xl">
-            {cover.data.dek}
+            {lead.data.summary}
           </p>
 
-          <div class="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-rule pt-4">
-            <span class="kicker text-ink">{cover.data.author}</span>
-            <time datetime={current.data.date.toISOString()} class="kicker text-ink-muted">
-              {formatDate(current.data.date)}
+          {
+            lead.data.coverImage && (
+              <div class="mt-7 overflow-hidden">
+                <Image
+                  src={lead.data.coverImage}
+                  alt={coverAlt(lead)}
+                  width={1200}
+                  height={675}
+                  loading="eager"
+                  fetchpriority="high"
+                  class="w-full object-cover"
+                />
+              </div>
+            )
+          }
+
+          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-rule pt-4">
+            <span class="kicker text-ink">{lead.data.author}</span>
+            <time datetime={lead.data.publishedAt.toISOString()} class="kicker text-ink-muted">
+              {formatDate(lead.data.publishedAt)}
             </time>
-            <span class="kicker text-ink-muted">{readingTime(cover.body)} menit baca</span>
-            <div class="ml-auto">
-              <ReadLaterButton id={cover.id} title={cover.data.title} />
-            </div>
+            <span class="kicker text-ink-muted">{leadMinutes} menit baca</span>
           </div>
 
           <div class="mt-6 flex flex-wrap items-center gap-4">
             <a
-              href={articleUrl(cover)}
+              href={getPostUrl(lead.slug)}
               class="kicker inline-flex items-center gap-2 bg-ink px-5 py-3 text-paper-light transition-colors hover:bg-cobalt"
             >
-              Baca laporan utama
+              Baca artikel
               <span aria-hidden="true">→</span>
             </a>
-            <span class="kicker text-ink-muted">{coverTopic.label}</span>
+            <a
+              href={getCategoryUrl(lead.data.category)}
+              class="kicker text-ink-muted transition-colors hover:text-cobalt"
+            >
+              Semua {lead.data.category}
+            </a>
           </div>
         </div>
 
         <aside
           class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10"
-          aria-labelledby="pilihan-editor"
+          aria-labelledby="pilihan-redaksi"
         >
           <div class="flex items-baseline justify-between border-b-2 border-rule-strong pb-2">
-            <h2 id="pilihan-editor" class="font-serif text-2xl font-semibold">Pilihan Editor</h2>
-            <span class="kicker text-ink-muted">Edisi ini</span>
+            <h2 id="pilihan-redaksi" class="font-serif text-2xl font-semibold">Pilihan Redaksi</h2>
+            <span class="kicker text-ink-muted">Arsip</span>
           </div>
 
           <ol class="divide-y divide-rule">
             {
-              picks.map((article, index) => {
-                const topic = getTopic(article.data.topic);
-                return (
-                  <li class="py-5">
-                    <div class="flex gap-4">
-                      <span class="font-display text-3xl leading-none text-cobalt">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      <div>
-                        <p class="kicker text-cobalt">{topic.label}</p>
-                        <h3 class="mt-1.5 font-serif text-[1.4rem] font-semibold leading-[1.12]">
-                          <a href={articleUrl(article)} class="transition-colors hover:text-cobalt">
-                            {article.data.title}
-                          </a>
-                        </h3>
-                        <p class="line-clamp-2 mt-2 text-sm leading-relaxed text-ink-muted">
-                          {article.data.dek}
-                        </p>
-                        <div class="mt-3">
-                          <ReadLaterButton id={article.id} title={article.data.title} compact />
-                        </div>
-                      </div>
+              picks.map((post, index) => (
+                <li class="py-5">
+                  <div class="flex gap-4">
+                    <span class="font-display text-3xl leading-none text-cobalt">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <a
+                        href={getCategoryUrl(post.data.category)}
+                        class="kicker text-cobalt transition-colors hover:text-cobalt-dark"
+                      >
+                        {post.data.category}
+                      </a>
+                      <h3 class="mt-1.5 font-serif text-[1.4rem] font-semibold leading-[1.12]">
+                        <a href={getPostUrl(post.slug)} class="transition-colors hover:text-cobalt">
+                          {post.data.title}
+                        </a>
+                      </h3>
+                      <p class="line-clamp-2 mt-2 text-sm leading-relaxed text-ink-muted">
+                        {post.data.summary}
+                      </p>
+                      <p class="mt-3 text-xs text-ink-muted">
+                        {formatShortDate(post.data.publishedAt)}
+                      </p>
                     </div>
-                  </li>
-                );
-              })
+                  </div>
+                </li>
+              ))
             }
           </ol>
         </aside>
       </div>
     </section>
 
-    <!-- Ringkas + edisi sebelumnya + pencarian -->
     <section class="wrap border-t-2 border-rule-strong py-9 sm:py-12">
       <div class="grid gap-10 lg:grid-cols-12 lg:gap-0">
         <div class="lg:col-span-7 lg:pr-10">
           <div class="flex items-baseline justify-between border-b border-rule pb-2">
-            <h2 class="font-serif text-2xl font-semibold">Ringkas</h2>
-            <span class="kicker text-ink-muted">Berita pendek · demo</span>
+            <h2 class="font-serif text-2xl font-semibold">Terbaru</h2>
+            <span class="kicker text-ink-muted">Langsung dari arsip</span>
           </div>
 
           <ul class="divide-y divide-rule">
             {
-              briefs.map((article, index) => {
-                const topic = getTopic(article.data.topic);
-                return (
-                  <li class="grid gap-3 py-5 sm:grid-cols-[2rem_1fr] sm:gap-4">
-                    <span class="font-display text-xl leading-none text-cobalt">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div>
-                      <p class="kicker text-cobalt">{topic.label}</p>
-                      <h3 class="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">
-                        <a href={articleUrl(article)} class="transition-colors hover:text-cobalt">
-                          {article.data.title}
-                        </a>
-                      </h3>
-                      <p class="mt-2 text-sm leading-relaxed text-ink-muted">{article.data.dek}</p>
-                      <div class="mt-3 flex flex-wrap items-center gap-3">
-                        <ReadLaterButton id={article.id} title={article.data.title} compact />
-                        <span class="text-xs text-ink-muted">
-                          {formatShortDate(article.data.publishedAt)}
-                        </span>
-                      </div>
-                    </div>
-                  </li>
-                );
-              })
+              briefs.map((post, index) => (
+                <li class="grid gap-3 py-5 sm:grid-cols-[2rem_1fr] sm:gap-4">
+                  <span class="font-display text-xl leading-none text-cobalt">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <a
+                      href={getCategoryUrl(post.data.category)}
+                      class="kicker text-cobalt transition-colors hover:text-cobalt-dark"
+                    >
+                      {post.data.category}
+                    </a>
+                    <h3 class="mt-1 font-serif text-xl font-semibold leading-tight sm:text-2xl">
+                      <a href={getPostUrl(post.slug)} class="transition-colors hover:text-cobalt">
+                        {post.data.title}
+                      </a>
+                    </h3>
+                    <p class="mt-2 text-sm leading-relaxed text-ink-muted">{post.data.summary}</p>
+                    <p class="mt-3 text-xs text-ink-muted">
+                      {formatShortDate(post.data.publishedAt)}
+                    </p>
+                  </div>
+                </li>
+              ))
             }
           </ul>
         </div>
 
         <aside
           class="lg:col-span-5 lg:border-l lg:border-rule lg:pl-10"
-          aria-labelledby="edisi-sebelumnya"
+          aria-labelledby="rubrik-arsip"
         >
           <div class="flex items-baseline justify-between border-b border-rule pb-2">
-            <h2 id="edisi-sebelumnya" class="font-serif text-2xl font-semibold">
-              Edisi Sebelumnya
-            </h2>
-            <a href="/edisi/" class="kicker text-cobalt hover:text-cobalt-dark">Semua edisi →</a>
+            <h2 id="rubrik-arsip" class="font-serif text-2xl font-semibold">Rubrik</h2>
+            <a href="/category/" class="kicker text-cobalt hover:text-cobalt-dark">
+              Semua rubrik →
+            </a>
           </div>
 
           <div class="divide-y divide-rule">
             {
-              pastIssues.map((issue) => (
-                <a href={issueUrl(issue.data.number)} class="group flex gap-5 py-5">
+              categories.map((category) => (
+                <a href={getCategoryUrl(category.name)} class="group flex gap-5 py-5">
                   <span class="font-display text-5xl font-semibold leading-[0.8] text-cobalt">
-                    {padIssue(issue.data.number)}
+                    {String(category.count).padStart(2, '0')}
                   </span>
                   <span class="min-w-0">
-                    <span class="kicker text-ink-muted">{formatShortDate(issue.data.date)}</span>
+                    <span class="kicker text-ink-muted">Artikel</span>
                     <span class="mt-1 block font-serif text-xl font-semibold leading-tight transition-colors group-hover:text-cobalt">
-                      {issue.data.theme}
+                      {category.name}
                     </span>
                     <span class="line-clamp-2 mt-1.5 block text-sm leading-relaxed text-ink-muted">
-                      {issue.data.summary}
+                      {category.description}
                     </span>
                   </span>
                 </a>
@@ -223,19 +278,19 @@ const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`
           </div>
 
           <div class="mt-6 border-t border-rule pt-5">
-            <h2 class="font-serif text-xl font-semibold">Cari di arsip edisi</h2>
+            <h2 class="font-serif text-xl font-semibold">Cari di arsip</h2>
             <form
-              action="/cari/"
+              action="/search/"
               method="get"
               role="search"
               class="mt-3 flex border-b border-rule-strong"
             >
-              <label for="home-search" class="sr-only">Cari artikel demo</label>
+              <label for="home-search" class="sr-only">Cari artikel</label>
               <input
                 id="home-search"
                 name="q"
                 type="search"
-                placeholder="Kata kunci, topik, atau penulis…"
+                placeholder="Kata kunci atau topik…"
                 class="w-full min-w-0 bg-transparent py-2 text-sm text-ink placeholder:text-ink-muted"
               />
               <button type="submit" class="kicker px-2 text-cobalt hover:text-cobalt-dark">
@@ -243,34 +298,32 @@ const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`
               </button>
             </form>
             <p class="mt-3 text-xs leading-relaxed text-ink-muted">
-              Pencarian mencakup seluruh edisi demo. Simpan artikel dengan tombol
-              <span class="text-ink-soft"> Baca nanti</span>; daftar tersimpan di peramban ini.
+              Pencarian mencakup seluruh {posts.length} artikel yang sudah terbit.
             </p>
-            <a
-              href="/baca-nanti/"
-              class="kicker mt-3 inline-block text-cobalt hover:text-cobalt-dark"
-            >
-              Lihat daftar baca nanti →
+            <a href="/posts/" class="kicker mt-3 inline-block text-cobalt hover:text-cobalt-dark">
+              Lihat semua artikel →
             </a>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- Indeks + filter topik -->
-    <section class="border-y border-rule bg-paper-deep/40 py-9 sm:py-12" aria-labelledby="indeks">
+    <section
+      class="border-y border-rule bg-paper-deep/40 py-9 sm:py-12"
+      aria-labelledby="indeks-terbaru"
+    >
       <div class="wrap">
         <div class="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p class="kicker text-cobalt">Filter topik</p>
-            <h2 id="indeks" class="mt-1 font-serif text-3xl font-semibold sm:text-4xl">
-              Indeks edisi {padIssue(current.data.number)}
+            <p class="kicker text-cobalt">Filter rubrik</p>
+            <h2 id="indeks-terbaru" class="mt-1 font-serif text-3xl font-semibold sm:text-4xl">
+              Indeks terbaru
             </h2>
           </div>
           <p class="max-w-sm text-sm leading-relaxed text-ink-muted">
             Pilih rubrik untuk menyaring daftar.
             <span id="filter-count" class="font-medium text-ink" aria-live="polite">
-              {indexArticles.length} tulisan
+              {recent.length} tulisan
             </span>
           </p>
         </div>
@@ -278,40 +331,36 @@ const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`
         <div
           class="mt-5 flex flex-wrap gap-x-1 gap-y-2 border-y border-rule py-3"
           role="group"
-          aria-label="Filter artikel berdasarkan topik"
+          aria-label="Filter artikel berdasarkan rubrik"
         >
           <button
             type="button"
             class="filter-chip"
             data-topic-filter="all"
             aria-pressed="true"
-            aria-controls="issue-index"
+            aria-controls="recent-index"
           >
             Semua
-            <span class="ml-1 text-ink-muted">{indexArticles.length}</span>
+            <span class="ml-1 text-ink-muted">{recent.length}</span>
           </button>
           {
-            topicsInIssue.map((topic) => (
+            recentCategories.map((category) => (
               <button
                 type="button"
                 class="filter-chip"
-                data-topic-filter={topic.slug}
+                data-topic-filter={category.slug}
                 aria-pressed="false"
-                aria-controls="issue-index"
+                aria-controls="recent-index"
               >
-                {topic.label}
-                <span class="ml-1 text-ink-muted">{topic.count}</span>
+                {category.name}
+                <span class="ml-1 text-ink-muted">{category.count}</span>
               </button>
             ))
           }
         </div>
 
-        <div id="issue-index" class="mt-2">
-          {
-            indexArticles.map((article, index) => (
-              <ArticleRow article={article} index={index + 1} />
-            ))
-          }
+        <div id="recent-index" class="mt-2">
+          {recent.map((post, index) => <PostRow post={post} index={index + 1} />)}
         </div>
 
         <p
@@ -319,18 +368,16 @@ const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`
           class="hidden py-10 text-center font-serif text-xl text-ink-muted"
           role="status"
         >
-          Belum ada tulisan untuk topik ini di edisi sekarang.
+          Belum ada tulisan untuk rubrik ini di daftar terbaru.
         </p>
 
         <div
           class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-5"
         >
           <p class="text-xs text-ink-muted">
-            {indexArticles.length} tulisan · {topicsInIssue.length} rubrik · semua konten demo
+            {recent.length} tulisan terbaru · {posts.length} artikel di arsip
           </p>
-          <a href="/edisi/" class="kicker text-cobalt hover:text-cobalt-dark">
-            Arsip semua edisi →
-          </a>
+          <a href="/posts/" class="kicker text-cobalt hover:text-cobalt-dark"> Arsip lengkap → </a>
         </div>
       </div>
     </section>
@@ -343,10 +390,7 @@ const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`
   const count = document.getElementById('filter-count');
   const empty = document.getElementById('filter-empty');
 
-  let active = 'all';
-
   const applyFilter = (topic: string) => {
-    active = topic;
     let visible = 0;
 
     rows.forEach((row) => {
@@ -356,7 +400,7 @@ const description = `Edisi demo surat kabar TeknoPulse: ${current.data.summary}`
     });
 
     buttons.forEach((button) => {
-      button.setAttribute('aria-pressed', String(button.dataset.topicFilter === active));
+      button.setAttribute('aria-pressed', String(button.dataset.topicFilter === topic));
     });
 
     if (count) count.textContent = `${visible} tulisan`;

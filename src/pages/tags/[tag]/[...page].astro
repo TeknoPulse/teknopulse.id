@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import PostCard from '../../../components/PostCard.astro';
+import PostRow from '../../../components/PostRow.astro';
 import Pagination from '../../../components/Pagination.astro';
 import { getTagUrl, slugifyTag } from '../../../utils/urls.mjs';
 import { isThinTag, mergeTagEntries } from '../../../utils/tags.mjs';
@@ -46,19 +46,49 @@ const description = `Kumpulan artikel TeknoPulse dengan topik "${tagName}"${
   isPaginated ? `, halaman ${page.currentPage}` : ''
 }.`;
 const robots = isPaginated || isThin ? 'noindex, follow' : 'index, follow';
+const startIndex = (page.currentPage - 1) * page.size;
 ---
 
-<Layout title={title} description={description} robots={robots}>
-  <main class="container mx-auto px-4 py-8">
-    <div class="mb-8">
-      <h1 class="mb-4 text-4xl font-bold">#{tagName}</h1>
-      <p class="text-gray-600 dark:text-gray-400">
-        Kumpulan artikel dengan topik "{tagName}"
+<Layout
+  title={title}
+  description={description}
+  robots={robots}
+  showBreadcrumbs={false}
+  variant="real"
+>
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">
+        Topik
+        <span class="text-ink-muted">/ {tagCount} artikel</span>
       </p>
+      <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+        <h1
+          class="font-serif text-[clamp(2.6rem,8vw,6rem)] font-semibold leading-[0.85] tracking-headline"
+        >
+          <span class="text-cobalt">#</span>{tagName}
+        </h1>
+        <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+          Kumpulan artikel TeknoPulse yang membahas topik ini.
+        </p>
+      </div>
+      <div class="mt-5 flex flex-wrap items-baseline gap-x-5 gap-y-1 border-t border-rule pt-3">
+        <span class="kicker text-ink-muted">Halaman {page.currentPage} dari {page.lastPage}</span>
+        <a href="/tags/" class="kicker text-cobalt hover:text-cobalt-dark">Semua topik →</a>
+        <a href="/posts/" class="kicker ml-auto text-cobalt hover:text-cobalt-dark">
+          Semua artikel →
+        </a>
+      </div>
     </div>
+  </header>
 
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-      {page.data.map((post) => <PostCard post={post} />)}
+  <main class="wrap py-8 sm:py-10">
+    <div>
+      {
+        page.data.map((post, index) => (
+          <PostRow post={post} index={startIndex + index + 1} thumbnail />
+        ))
+      }
     </div>
 
     <Pagination
