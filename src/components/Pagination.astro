@@ -19,9 +19,8 @@ const pageUrl = (page: number): string => {
 const prevPage = currentPage > 1 ? currentPage - 1 : null;
 const nextPage = currentPage < totalPages ? currentPage + 1 : null;
 
-// Generate page numbers to show
 const getPageNumbers = () => {
-  const pages = [];
+  const pages: (number | '...')[] = [];
   const maxVisible = 5;
 
   if (totalPages <= maxVisible) {
@@ -51,55 +50,53 @@ const getPageNumbers = () => {
 };
 
 const pageNumbers = getPageNumbers();
+const itemClass =
+  'kicker inline-flex min-h-11 min-w-11 items-center justify-center border border-rule px-3 py-2 text-ink-soft transition-colors hover:border-cobalt hover:text-cobalt';
 ---
 
 {
   totalPages > 1 && (
     <nav
-      class="mt-12 flex flex-wrap items-center justify-center gap-2"
+      class="mt-12 flex flex-wrap items-center justify-center gap-1.5 border-t-2 border-rule-strong pt-6"
       aria-label="Navigasi halaman"
     >
-      {prevPage && (
-        <a
-          href={pageUrl(prevPage)}
-          class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
-          aria-label="Ke halaman sebelumnya"
-        >
-          Sebelumnya
+      {prevPage ? (
+        <a href={pageUrl(prevPage)} class={itemClass} aria-label="Ke halaman sebelumnya">
+          ← Sebelumnya
         </a>
+      ) : (
+        <span class={`${itemClass} cursor-not-allowed text-rule`} aria-hidden="true">
+          ← Sebelumnya
+        </span>
       )}
 
       {pageNumbers.map((page) =>
         page === '...' ? (
-          <span class="px-4 py-2 text-sm font-medium text-gray-500" aria-hidden="true">
-            ...
+          <span class="px-2 text-ink-muted" aria-hidden="true">
+            …
           </span>
         ) : page === currentPage ? (
           <span
-            class="rounded-md border border-blue-600 bg-blue-600 px-4 py-2 text-sm font-medium text-white"
+            class="kicker min-h-11 min-w-11 inline-flex items-center justify-center border border-ink bg-ink px-3 py-2 text-paper-light"
             aria-current="page"
           >
             {page}
           </span>
         ) : (
-          <a
-            href={pageUrl(page)}
-            class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
-            aria-label={`Ke halaman ${page}`}
-          >
+          <a href={pageUrl(page)} class={itemClass} aria-label={`Ke halaman ${page}`}>
             {page}
           </a>
         )
       )}
 
-      {nextPage && (
-        <a
-          href={pageUrl(nextPage)}
-          class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700"
-          aria-label="Ke halaman selanjutnya"
-        >
-          Selanjutnya
+      {nextPage ? (
+        <a href={pageUrl(nextPage)} class={itemClass} aria-label="Ke halaman selanjutnya">
+          Selanjutnya →
         </a>
+      ) : (
+        <span class={`${itemClass} cursor-not-allowed text-rule`} aria-hidden="true">
+          Selanjutnya →
+        </span>
       )}
     </nav>
   )

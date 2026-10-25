@@ -3,9 +3,91 @@ import Layout from '../layouts/Layout.astro';
 import Search from '../components/Search.astro';
 ---
 
-<Layout>
-  <main class="container mx-auto px-4 py-8">
-    <h1 class="mb-8 text-4xl font-bold">Search</h1>
-    <Search />
+<Layout
+  title="Cari artikel — TeknoPulse"
+  description="Cari artikel TeknoPulse berdasarkan kata kunci, judul, atau topik di seluruh arsip."
+  showBreadcrumbs={false}
+>
+  <main>
+    <header class="border-b-2 border-rule-strong">
+      <div class="wrap pt-8 pb-7 sm:pt-12">
+        <p class="kicker text-cobalt">Pencarian / seluruh arsip</p>
+        <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+          <h1
+            class="font-serif text-[clamp(3.4rem,9vw,7rem)] font-semibold leading-[0.8] tracking-headline"
+          >
+            Cari<span class="text-cobalt">.</span>
+          </h1>
+          <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+            Telusuri judul, ringkasan, dan isi artikel. Indeks pencarian dibangun dari seluruh
+            artikel yang sudah terbit.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap grid gap-12 py-10 sm:py-14 lg:grid-cols-12 lg:gap-0">
+      <div class="lg:col-span-8 lg:pr-12">
+        <Search />
+      </div>
+
+      <aside class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+        <section aria-labelledby="mulai-dari">
+          <h2
+            id="mulai-dari"
+            class="border-b-2 border-rule-strong pb-2 font-serif text-2xl font-semibold"
+          >
+            Mulai dari
+          </h2>
+          <ul class="mt-2 divide-y divide-rule">
+            <li>
+              <a
+                href="/posts/"
+                class="flex items-baseline justify-between gap-4 py-3 text-sm hover:text-cobalt"
+              >
+                <span>Arsip lengkap</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/category/"
+                class="flex items-baseline justify-between gap-4 py-3 text-sm hover:text-cobalt"
+              >
+                <span>Semua rubrik</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/tags/"
+                class="flex items-baseline justify-between gap-4 py-3 text-sm hover:text-cobalt"
+              >
+                <span>Indeks topik</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="mt-8 border-t border-rule pt-5" aria-labelledby="tips-cari">
+          <h2 id="tips-cari" class="kicker text-ink-muted">Tips mencari</h2>
+          <ul class="mt-3 space-y-3 text-sm leading-relaxed text-ink-muted">
+            <li>Gunakan kata kunci spesifik, misalnya nama produk atau model AI.</li>
+            <li>Pencarian mencocokkan judul, ringkasan, dan isi artikel.</li>
+            <li>
+              Untuk menelusuri per rubrik, buka <a href="/category/" class="text-cobalt">Rubrik</a>.
+            </li>
+          </ul>
+        </section>
+
+        <noscript>
+          <p class="mt-8 border-l-2 border-cobalt pl-4 text-sm text-ink-muted">
+            Pencarian memerlukan JavaScript. Anda tetap bisa menelusuri arsip lewat tautan rubrik di
+            atas.
+          </p>
+        </noscript>
+      </aside>
+    </div>
   </main>
 </Layout>

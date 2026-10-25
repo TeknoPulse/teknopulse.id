@@ -2,131 +2,176 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Privacy Policy" description="TeknoPulse.id Privacy Policy">
-  <main class="prose mx-auto px-4 py-8">
-    <h1>Privacy Policy</h1>
-    <p>
-      <strong>Effective Date:</strong> 2 September 2025<br />
-      <strong>Last Updated:</strong> 25 September 2026
-    </p>
-
-    <!-- GA4 Analytics Settings Card -->
-    <div
-      class="not-prose mb-8 rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800"
-    >
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <h2 class="text-base font-semibold text-gray-900 dark:text-white">
-            Pengaturan Google Analytics
-          </h2>
-          <p class="mt-0.5 text-sm text-gray-600 dark:text-gray-400">
-            Aktifkan atau nonaktifkan pelacakan analitik untuk situs ini.
+<Layout
+  title="Kebijakan Privasi — TeknoPulse"
+  description="Kebijakan privasi TeknoPulse: data yang dikumpulkan, cara penggunaannya, cookie, dan kendali persetujuan analitik."
+  showBreadcrumbs={false}
+>
+  <main>
+    <header class="border-b-2 border-rule-strong">
+      <div class="wrap pt-8 pb-7 sm:pt-12">
+        <p class="kicker text-cobalt">Legal <span class="mx-1.5 text-rule">/</span> Privasi</p>
+        <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+          <h1
+            class="font-serif text-[clamp(3.2rem,8.5vw,6.6rem)] font-semibold leading-[0.8] tracking-headline"
+          >
+            Privasi<span class="text-cobalt">.</span>
+          </h1>
+          <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+            Kami menghargai privasi pembaca. Halaman ini menjelaskan data apa yang kami kumpulkan
+            dan bagaimana Anda mengendalikannya.
           </p>
         </div>
-        <button
-          id="ga4-toggle"
-          type="button"
-          role="switch"
-          aria-checked="false"
-          class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:bg-gray-600"
-        >
-          <span class="sr-only">Toggle Google Analytics</span>
-          <span
-            id="ga4-toggle-thumb"
-            class="inline-block h-4 w-4 translate-x-1 transform rounded-full bg-white shadow transition-transform"
-          ></span>
-        </button>
+        <p class="kicker mt-5 border-t border-rule pt-3 text-ink-muted">
+          Berlaku sejak 2 September 2025 · Terakhir diperbarui 25 September 2026
+        </p>
       </div>
-      <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">
-        Status: <span id="ga4-status-text">Nonaktif</span>
-      </p>
+    </header>
+
+    <div class="wrap grid gap-12 py-10 sm:py-14 lg:grid-cols-12 lg:gap-0">
+      <article class="prose-news max-w-reading lg:col-span-8 lg:pr-12">
+        <p>
+          TeknoPulse.id ("kami", "kita", atau "layanan") menghargai privasi pengunjung dan pengguna
+          kami ("Anda"). Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan,
+          menyimpan, dan melindungi informasi pribadi Anda.
+        </p>
+
+        <h2>1. Data yang kami kumpulkan</h2>
+        <ul>
+          <li>Informasi yang Anda berikan (nama, alamat email, informasi kontak).</li>
+          <li>Data teknis (alamat IP, perangkat, browser, halaman yang dikunjungi).</li>
+          <li>
+            Informasi dari pihak ketiga jika menggunakan fitur login/berbagi via Meta (Facebook,
+            Instagram) atau Google.
+          </li>
+        </ul>
+        <p>Kami <strong>tidak</strong> mengumpulkan data sensitif tanpa persetujuan eksplisit.</p>
+
+        <h2>2. Cara kami menggunakan data</h2>
+        <ul>
+          <li>Menyediakan dan meningkatkan layanan TeknoPulse.id.</li>
+          <li>Autentikasi &amp; keamanan (contoh: Facebook Login).</li>
+          <li>Analitik penggunaan dan pengembangan fitur baru.</li>
+          <li>Mengirimkan pembaruan dan komunikasi penting.</li>
+        </ul>
+
+        <h2>3. Pembagian data</h2>
+        <p>
+          Kami tidak menjual data pribadi Anda. Data dapat dibagikan dengan penyedia layanan pihak
+          ketiga (hosting, analitik, autentikasi) atau regulator bila diwajibkan hukum.
+        </p>
+
+        <h2>4. Keamanan data</h2>
+        <p>
+          Kami menerapkan langkah teknis untuk melindungi informasi pribadi, meski tidak ada sistem
+          online yang 100% aman.
+        </p>
+
+        <h2>5. Hak Anda</h2>
+        <ul>
+          <li>Mengakses atau meminta salinan data pribadi.</li>
+          <li>Memperbarui data yang tidak akurat.</li>
+          <li>Meminta penghapusan data tertentu.</li>
+          <li>Menarik persetujuan yang telah diberikan.</li>
+        </ul>
+
+        <h2>6. Cookie &amp; persetujuan analitik</h2>
+        <p>Situs ini memakai dua layanan analitik:</p>
+        <ul>
+          <li>
+            <strong>Cloudflare Web Analytics</strong> — cookieless, tidak menyimpan cookie di browser
+            Anda dan tidak membuat profil individu; aktif untuk semua pengunjung.
+          </li>
+          <li>
+            <strong>Google Analytics 4</strong> — menaruh cookie <code>_ga</code> untuk statistik kunjungan.
+            Cookie ini <strong>hanya dipasang setelah Anda menekan "Setuju"</strong> pada banner persetujuan
+            atau mengaktifkan tombol di samping. Gunakan tombol tersebut untuk mengubah preferensi kapan
+            saja.
+          </li>
+        </ul>
+        <p>
+          Persetujuan dicatat di penyimpanan lokal browser Anda (kunci
+          <code>teknopulse-consent-ga4</code>). Menarik persetujuan menghentikan pengiriman data
+          pada sesi berjalan dan mencegah GA4 dimuat kembali pada kunjungan berikutnya; muat ulang
+          halaman untuk membersihkan sisa cookie <code>_ga</code>.
+        </p>
+
+        <h2>7. Layanan pihak ketiga</h2>
+        <p>
+          Layanan ini terhubung dengan pihak ketiga (Meta, Google). Data Anda tunduk pada kebijakan
+          mereka masing-masing.
+        </p>
+
+        <h2>8. Perubahan kebijakan</h2>
+        <p>
+          Kebijakan ini dapat diperbarui sewaktu-waktu. Perubahan akan diumumkan di halaman ini
+          dengan tanggal terbaru.
+        </p>
+
+        <h2>9. Hubungi kami</h2>
+        <p>
+          Email: <!--email_off-->
+          <a href="mailto:redaksi@teknopulse.id">redaksi@teknopulse.id</a><!--/email_off-->
+          <br />
+          Alamat: Jakarta, Indonesia
+        </p>
+      </article>
+
+      <aside class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+        <section aria-labelledby="pengaturan-analitik">
+          <div class="flex items-baseline justify-between border-b-2 border-rule-strong pb-2">
+            <h2 id="pengaturan-analitik" class="font-serif text-2xl font-semibold">
+              Pengaturan analitik
+            </h2>
+            <span class="kicker text-ink-muted">GA4</span>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-ink-muted">
+            Aktifkan atau nonaktifkan pelacakan Google Analytics untuk situs ini.
+          </p>
+          <div class="mt-4 flex items-center justify-between gap-4 border-y border-rule py-4">
+            <span class="kicker text-ink">Pelacakan</span>
+            <button
+              id="ga4-toggle"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-rule transition-colors"
+            >
+              <span class="sr-only">Aktifkan Google Analytics</span>
+              <span
+                id="ga4-toggle-thumb"
+                class="inline-block h-4 w-4 translate-x-1 transform rounded-full bg-paper-light shadow transition-transform"
+              ></span>
+            </button>
+          </div>
+          <p class="mt-3 text-xs text-ink-muted">
+            Status: <span id="ga4-status-text" class="text-ink">Nonaktif</span>
+          </p>
+        </section>
+
+        <section class="mt-8 border-t border-rule pt-5" aria-labelledby="tautan-privasi">
+          <h2 id="tautan-privasi" class="kicker text-ink-muted">Tautan</h2>
+          <ul class="mt-2 divide-y divide-rule">
+            <li>
+              <a href="/terms-of-service/" class="block py-2.5 text-sm hover:text-cobalt"
+                >Syarat dan ketentuan</a
+              >
+            </li>
+            <li>
+              <a href="/contact/" class="block py-2.5 text-sm hover:text-cobalt">Hubungi redaksi</a>
+            </li>
+            <li>
+              <a href="/about/" class="block py-2.5 text-sm hover:text-cobalt">Tentang kami</a>
+            </li>
+          </ul>
+        </section>
+
+        <p class="mt-8 border-l-2 border-cobalt pl-4 text-sm leading-relaxed text-ink-muted">
+          Cloudflare Web Analytics tidak memakai cookie. Penolakan GA4 tidak membatasi akses ke
+          artikel apa pun.
+        </p>
+      </aside>
     </div>
-
-    <h2>1. Introduction</h2>
-    <p>
-      TeknoPulse.id ("kami", "kita", atau "layanan") menghargai privasi pengunjung dan pengguna kami
-      ("Anda"). Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, menyimpan, dan
-      melindungi informasi pribadi Anda.
-    </p>
-
-    <h2>2. Data We Collect</h2>
-    <ul>
-      <li>Informasi yang Anda berikan (nama, alamat email, informasi kontak).</li>
-      <li>Data teknis (alamat IP, perangkat, browser, halaman yang dikunjungi).</li>
-      <li>
-        Informasi dari pihak ketiga jika menggunakan fitur login/berbagi via Meta (Facebook,
-        Instagram) atau Google.
-      </li>
-    </ul>
-    <p>Kami <strong>tidak</strong> mengumpulkan data sensitif tanpa persetujuan eksplisit.</p>
-
-    <h2>3. How We Use Data</h2>
-    <ul>
-      <li>Menyediakan dan meningkatkan layanan TeknoPulse.id.</li>
-      <li>Autentikasi &amp; keamanan (contoh: Facebook Login).</li>
-      <li>Analitik penggunaan dan pengembangan fitur baru.</li>
-      <li>Mengirimkan pembaruan dan komunikasi penting.</li>
-    </ul>
-
-    <h2>4. Sharing of Data</h2>
-    <p>
-      Kami tidak menjual data pribadi Anda. Data dapat dibagikan dengan penyedia layanan pihak
-      ketiga (hosting, analitik, autentikasi) atau regulator bila diwajibkan hukum.
-    </p>
-
-    <h2>5. Data Security</h2>
-    <p>
-      Kami menerapkan langkah teknis untuk melindungi informasi pribadi, meski tidak ada sistem
-      online yang 100% aman.
-    </p>
-
-    <h2>6. Your Rights</h2>
-    <ul>
-      <li>Mengakses atau meminta salinan data pribadi.</li>
-      <li>Memperbarui data yang tidak akurat.</li>
-      <li>Meminta penghapusan data tertentu.</li>
-      <li>Menarik persetujuan yang telah diberikan.</li>
-    </ul>
-
-    <h2>7. Cookies &amp; Analytics Consent</h2>
-    <p>Situs ini memakai dua layanan analitik:</p>
-    <ul>
-      <li>
-        <strong>Cloudflare Web Analytics</strong> — cookieless, tidak menyimpan cookie di browser Anda
-        dan tidak membuat profil individu; aktif untuk semua pengunjung.
-      </li>
-      <li>
-        <strong>Google Analytics 4</strong> — menaruh cookie <code>_ga</code> untuk statistik kunjungan.
-        Cookie ini <strong>hanya dipasang setelah Anda menekan "Setuju"</strong> pada banner persetujuan
-        atau mengaktifkan toggle di atas. Gunakan toggle di atas untuk mengubah preferensi kapan saja.
-      </li>
-    </ul>
-    <p>
-      Persetujuan dicatat di penyimpanan lokal browser Anda (kunci
-      <code>teknopulse-consent-ga4</code>). Menarik persetujuan via toggle di atas menghentikan
-      pengiriman data pada sesi berjalan dan mencegah GA4 dimuat kembali pada kunjungan berikutnya;
-      muat ulang halaman untuk membersihkan sisa cookie <code>_ga</code>.
-    </p>
-
-    <h2>8. Third-Party Services</h2>
-    <p>
-      Layanan ini terhubung dengan pihak ketiga (Meta, Google). Data Anda tunduk pada kebijakan
-      mereka masing-masing.
-    </p>
-
-    <h2>9. Changes to This Policy</h2>
-    <p>
-      Kebijakan ini dapat diperbarui sewaktu-waktu. Perubahan akan diumumkan di halaman ini dengan
-      tanggal terbaru.
-    </p>
-
-    <h2>10. Contact Us</h2>
-    <p>
-      Email: <!--email_off-->
-      <a href="mailto:redaksi@teknopulse.id">redaksi@teknopulse.id</a><!--/email_off-->
-      <br />
-      Alamat: Jakarta, Indonesia
-    </p>
   </main>
 </Layout>
 
@@ -146,15 +191,15 @@ import Layout from '../layouts/Layout.astro';
 
     const setUI = (enabled: boolean) => {
       if (enabled) {
-        toggle.classList.add('bg-primary');
-        toggle.classList.remove('bg-gray-300', 'dark:bg-gray-600');
+        toggle.classList.add('bg-cobalt');
+        toggle.classList.remove('bg-rule');
         thumb.classList.add('translate-x-6');
         thumb.classList.remove('translate-x-1');
         toggle.setAttribute('aria-checked', 'true');
         statusText.textContent = 'Aktif';
       } else {
-        toggle.classList.remove('bg-primary');
-        toggle.classList.add('bg-gray-300', 'dark:bg-gray-600');
+        toggle.classList.remove('bg-cobalt');
+        toggle.classList.add('bg-rule');
         thumb.classList.remove('translate-x-6');
         thumb.classList.add('translate-x-1');
         toggle.setAttribute('aria-checked', 'false');
@@ -189,7 +234,7 @@ import Layout from '../layouts/Layout.astro';
           // Storage blocked — leave UI reflecting current granted state, show error.
           const err = document.createElement('p');
           err.id = 'ga4-save-error';
-          err.className = 'mt-2 text-xs text-red-600 dark:text-red-400';
+          err.className = 'mt-2 text-xs text-cobalt';
           err.textContent =
             'Gagal menyimpan preferensi. Coba hapus data situs di pengaturan browser.';
           if (!document.getElementById('ga4-save-error')) {
@@ -229,7 +274,7 @@ import Layout from '../layouts/Layout.astro';
         // will complete the cleanup of any remaining browser-side state.
         const msg = document.createElement('p');
         msg.id = 'ga4-reload-notice';
-        msg.className = 'mt-2 text-xs text-amber-600 dark:text-amber-400';
+        msg.className = 'mt-2 text-xs text-ink-muted';
         msg.textContent =
           'GA4 telah dinonaktifkan. Pengiriman data sesi ini dihentikan; muat ulang halaman untuk memastikan tidak ada sisa cookie yang tertinggal.';
         // Only insert once.

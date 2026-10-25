@@ -5,28 +5,37 @@ import { authors } from '../../utils/authors';
 import { getAuthorUrl } from '../../utils/urls.mjs';
 ---
 
-<Layout title="Para Penulis" description="Penulis dan kontributor TeknoPulse.">
-  <main class="container mx-auto px-4 py-8">
-    <header class="mx-auto mb-10 max-w-4xl">
-      <h1 class="text-4xl font-bold">Para Penulis</h1>
-      <p class="mt-3 max-w-2xl text-gray-600 dark:text-gray-400">
+<Layout
+  title="Para Penulis"
+  description="Penulis dan kontributor TeknoPulse."
+  showBreadcrumbs={false}
+>
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">Redaksi / {authors.length} penulis</p>
+      <h1
+        class="mt-2 font-serif text-[clamp(3rem,8vw,6rem)] font-semibold leading-[0.85] tracking-headline"
+      >
+        Para penulis<span class="text-cobalt">.</span>
+      </h1>
+      <p class="mt-5 max-w-2xl font-serif text-lg leading-snug text-ink-soft">
         Tim penulis dan kontributor di balik TeknoPulse.
       </p>
-    </header>
+    </div>
+  </header>
 
-    <section class="mx-auto max-w-4xl" aria-label="Daftar penulis">
-      <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+  <main class="wrap py-8 sm:py-12">
+    <section aria-label="Daftar penulis">
+      <div class="grid gap-x-12 md:grid-cols-2">
         {
           authors.map((author) => (
             <a
               href={getAuthorUrl(author.slug)}
-              class="card card-elevated block rounded-lg border p-6 transition-shadow hover:shadow-md"
+              class="group border-t border-rule py-6 transition-colors hover:text-cobalt"
             >
-              <h2 class="text-xl font-semibold">{author.name}</h2>
-              <p class="mt-1 text-sm font-medium uppercase tracking-wide text-primary">
-                {author.role}
-              </p>
-              <p class="mt-3 text-sm text-gray-600 dark:text-gray-400">{author.bio}</p>
+              <h2 class="font-serif text-2xl font-semibold leading-tight">{author.name}</h2>
+              <p class="kicker mt-2 text-cobalt">{author.role}</p>
+              <p class="mt-3 max-w-xl text-sm leading-relaxed text-ink-muted">{author.bio}</p>
             </a>
           ))
         }

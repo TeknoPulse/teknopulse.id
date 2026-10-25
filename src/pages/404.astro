@@ -10,31 +10,42 @@ const description =
   'Halaman yang Anda cari tidak ditemukan atau sudah dipindahkan. Jelajahi berita teknologi terbaru di TeknoPulse.';
 ---
 
-<Layout title={title} description={description}>
-  <main
-    class="container mx-auto flex min-h-[50vh] flex-col items-center justify-center px-4 py-16 text-center"
-  >
-    <p class="text-7xl font-bold text-primary">404</p>
-    <h1 class="mt-4 text-3xl font-bold text-text-primary dark:text-gray-100">
-      Halaman tidak ditemukan
-    </h1>
-    <p class="mt-3 max-w-md text-gray-600 dark:text-gray-400">
-      Alamat yang Anda buka tidak ada atau sudah dipindahkan. Coba mulai dari beranda atau cari
-      artikel lain.
-    </p>
-    <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <a
-        href="/"
-        class="rounded-md bg-primary px-5 py-2.5 font-medium text-white transition-colors hover:bg-primary-hover"
+<Layout title={title} description={description} showBreadcrumbs={false}>
+  <main class="wrap flex min-h-[60vh] flex-col justify-center py-14 sm:py-20">
+    <p class="kicker text-cobalt">Error 404 / Halaman tidak ditemukan</p>
+    <div class="mt-3 border-y-2 border-rule-strong py-8 sm:py-10">
+      <p class="font-display text-[clamp(5rem,17vw,11rem)] font-semibold leading-[0.75] text-rule">
+        404
+      </p>
+      <h1
+        class="headline-balance mt-4 max-w-3xl font-serif text-[clamp(2.2rem,5vw,4rem)] font-semibold leading-[0.94] tracking-headline"
       >
-        Ke Beranda
-      </a>
-      <a
-        href="/search/"
-        class="rounded-md border border-gray-300 px-5 py-2.5 font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800"
-      >
-        Cari Artikel
-      </a>
+        Alamat ini tidak ada<span class="text-cobalt">.</span>
+      </h1>
+      <p class="mt-4 max-w-xl font-serif text-xl leading-snug text-ink-soft">
+        Halaman yang Anda buka mungkin sudah dipindahkan atau tautannya salah ketik. Mulai lagi dari
+        beranda, atau cari artikel yang Anda ingat.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a
+          href="/"
+          class="kicker inline-flex items-center gap-2 bg-ink px-5 py-3 text-paper-light transition-colors hover:bg-cobalt"
+        >
+          Ke beranda <span aria-hidden="true">→</span>
+        </a>
+        <a
+          href="/search/"
+          class="kicker inline-flex items-center gap-2 border border-rule px-5 py-3 text-ink-soft transition-colors hover:border-cobalt hover:text-cobalt"
+        >
+          Cari artikel
+        </a>
+      </div>
+    </div>
+    <div class="mt-5 flex flex-wrap items-baseline gap-x-5 gap-y-1">
+      <span class="kicker text-ink-muted">Atau jelajahi</span>
+      <a href="/posts/" class="kicker text-cobalt hover:text-cobalt-dark">Arsip artikel →</a>
+      <a href="/category/" class="kicker text-cobalt hover:text-cobalt-dark">Semua rubrik →</a>
+      <a href="/tags/" class="kicker text-cobalt hover:text-cobalt-dark">Topik →</a>
     </div>
   </main>
 </Layout>

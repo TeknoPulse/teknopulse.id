@@ -4,7 +4,7 @@
 // ke halaman ini dan JSON-LD Article.author mendapat `url` ke sini.
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import PostCard from '../../components/PostCard.astro';
+import PostRow from '../../components/PostRow.astro';
 import { authors, getAuthor, type Author } from '../../utils/authors';
 import { site } from '../../config';
 
@@ -58,43 +58,54 @@ const personLd = {
 };
 ---
 
-<Layout title={author.name} description={author.bio}>
-  <main class="container mx-auto px-4 py-8">
-    <header class="mx-auto mb-10 max-w-4xl">
-      <h1 class="text-4xl font-bold">{author.name}</h1>
-      <p class="mt-2 text-sm font-medium uppercase tracking-wide text-primary">{author.role}</p>
-      <p class="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">{author.bio}</p>
+<Layout title={author.name} description={author.bio} showBreadcrumbs={false}>
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">Profil penulis</p>
+      <h1
+        class="mt-2 font-serif text-[clamp(2.6rem,6vw,4.6rem)] font-semibold leading-[0.9] tracking-headline"
+      >
+        {author.name}
+      </h1>
+      <p class="kicker mt-4 text-cobalt">{author.role}</p>
+      <p class="mt-4 max-w-2xl font-serif text-lg leading-snug text-ink-soft">{author.bio}</p>
 
       {
         author.links && author.links.length > 0 && (
-          <div class="mt-4 flex flex-wrap gap-3">
+          <div class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
             {author.links.map((link) => (
               <a
                 href={link.url}
-                class="text-sm text-primary hover:underline"
+                class="kicker text-ink-soft transition-colors hover:text-cobalt"
                 rel="noopener noreferrer"
               >
-                {link.label}
+                {link.label} →
               </a>
             ))}
           </div>
         )
       }
-    </header>
+    </div>
+  </header>
 
-    <section class="mx-auto max-w-5xl" aria-label={`Artikel oleh ${author.name}`}>
-      <h2 class="mb-6 text-2xl font-bold">
-        Artikel ({posts.length})
-      </h2>
+  <main class="wrap py-8 sm:py-12">
+    <section aria-label={`Artikel oleh ${author.name}`}>
+      <div
+        class="flex flex-wrap items-baseline justify-between gap-4 border-b-2 border-rule-strong pb-3"
+      >
+        <h2 class="font-serif text-2xl font-semibold">Artikel</h2>
+        <span class="kicker text-ink-muted">{posts.length} tulisan</span>
+      </div>
+
       {
         posts.length > 0 ? (
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div>
             {posts.map((post) => (
-              <PostCard post={post} />
+              <PostRow post={post} thumbnail />
             ))}
           </div>
         ) : (
-          <p class="text-gray-600 dark:text-gray-400">Belum ada artikel yang diterbitkan.</p>
+          <p class="py-10 text-ink-muted">Belum ada artikel yang diterbitkan.</p>
         )
       }
     </section>

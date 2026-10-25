@@ -1,212 +1,122 @@
 ---
-import { site } from '../config';
-import { getAllCategories, getCategoryUrl } from '../utils/categories';
+const pathname = Astro.url.pathname;
 
-const allCategories = getAllCategories();
+const links = [
+  { href: '/', label: 'Beranda' },
+  { href: '/posts/', label: 'Artikel' },
+  { href: '/category/', label: 'Rubrik' },
+  { href: '/tags/', label: 'Topik' },
+  { href: '/search/', label: 'Cari' },
+  { href: '/about/', label: 'Tentang' },
+];
+
+const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 ---
 
-<header class="sticky top-0 z-50 bg-background shadow-sm dark:bg-background-dark">
-  <nav class="container mx-auto flex items-center justify-between px-4 py-4">
-    <a href="/" class="flex items-center gap-2 text-2xl font-bold text-primary dark:text-accent">
-      <img src="/teknopulse-mark.svg" alt="" width="28" height="28" class="h-7 w-7 dark:hidden" />
-      <img
-        src="/teknopulse-mark-white.svg"
-        alt=""
-        width="28"
-        height="28"
-        class="hidden h-7 w-7 dark:block"
-      />
-      {site.name}
+<header class="sticky top-0 z-50 border-b border-rule bg-paper/95 backdrop-blur">
+  <div class="wrap flex h-14 items-center justify-between gap-4">
+    <a
+      href="/"
+      class="font-display text-[1.35rem] font-semibold leading-none tracking-headline text-ink"
+      aria-label="TeknoPulse — beranda"
+    >
+      TeknoPulse<span class="text-cobalt">.</span>
     </a>
 
-    <div class="hidden items-center space-x-6 md:flex">
+    <nav class="hidden items-center gap-5 md:flex lg:gap-7" aria-label="Navigasi utama">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'kicker transition-colors hover:text-cobalt',
+              isActive(link.href) ? 'text-cobalt' : 'text-ink-soft',
+            ]}
+            aria-current={isActive(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <span class="h-4 w-px bg-rule" aria-hidden="true"></span>
       <a
-        href="/"
-        class="font-medium text-gray-700 transition-colors duration-200 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+        href="/baca-nanti/"
+        class:list={[
+          'kicker inline-flex items-center gap-1.5 transition-colors hover:text-cobalt',
+          isActive('/baca-nanti/') ? 'text-cobalt' : 'text-ink-soft',
+        ]}
+        aria-current={isActive('/baca-nanti/') ? 'page' : undefined}
       >
-        Beranda
-      </a>
-
-      <div class="group relative">
-        <button
-          class="flex items-center text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-          aria-controls="desktop-categories-menu"
+        <svg
+          class="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          aria-hidden="true"
         >
-          Kategori
-          <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.061l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <div
-          id="desktop-categories-menu"
-          class="absolute left-0 top-full hidden w-40 rounded-md bg-background py-2 shadow-lg group-focus-within:block group-hover:block dark:bg-background-dark"
+          <path d="M6 4.5h12v15l-6-3.8-6 3.8z" stroke-linejoin="round"></path>
+        </svg>
+        Baca nanti
+        <span
+          data-readlater-count
+          hidden
+          class="min-w-5 ml-0.5 inline-flex items-center justify-center bg-cobalt px-1.5 py-0.5 text-[0.625rem] leading-none text-paper-light"
         >
-          {
-            allCategories.map((cat) => (
-              <a
-                href={getCategoryUrl(cat.name)}
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-              >
-                {cat.name}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-
-      <a
-        href="/ai-tools/"
-        class="font-medium text-gray-700 transition-colors duration-200 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        AI Tools
+          0
+        </span>
       </a>
+    </nav>
 
-      <a
-        href="/tags/"
-        class="font-medium text-gray-700 transition-colors duration-200 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
+    <a
+      href="/baca-nanti/"
+      class="kicker inline-flex items-center gap-1.5 text-ink-soft hover:text-cobalt md:hidden"
+      aria-label="Baca nanti"
+    >
+      <svg
+        class="h-4 w-4"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        aria-hidden="true"
       >
-        Tag
-      </a>
+        <path d="M6 4.5h12v15l-6-3.8-6 3.8z" stroke-linejoin="round"></path>
+      </svg>
+      <span
+        data-readlater-count
+        hidden
+        class="min-w-5 inline-flex items-center justify-center bg-cobalt px-1.5 py-0.5 text-[0.625rem] leading-none text-paper-light"
+      >
+        0
+      </span>
+    </a>
+  </div>
 
-      <a
-        href="/about/"
-        class="font-medium text-gray-700 transition-colors duration-200 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        Tentang
-      </a>
-
-      <a
-        href="/search/"
-        class="font-medium text-gray-700 transition-colors duration-200 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-      >
-        Cari
-      </a>
-      <button
-        id="theme-toggle"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-        title="Ganti tema"
-        aria-label="Ganti tema"
-      >
-        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fill-rule="evenodd"
-            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </button>
-    </div>
-
-    <div class="md:hidden">
-      <button
-        id="mobile-menu-button"
-        class="text-gray-700 hover:text-primary dark:text-gray-300 dark:hover:text-accent"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        title="Buka menu utama"
-        aria-label="Buka menu utama"
-      >
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
+  <nav class="border-t border-rule/70 md:hidden" aria-label="Navigasi utama seluler">
+    <div class="wrap flex snap-x items-center gap-0.5 py-1.5">
+      {
+        links
+          .filter((link) => link.href !== '/about/')
+          .map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                'kicker shrink-0 snap-start px-2 py-2 transition-colors hover:text-cobalt',
+                isActive(link.href) ? 'text-cobalt' : 'text-ink-soft',
+              ]}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          ))
+      }
     </div>
   </nav>
-
-  <div id="mobile-menu" class="hidden md:hidden">
-    <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-      <a
-        href="/"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary"
-        >Beranda</a
-      >
-      <div>
-        <button
-          id="mobile-categories-button"
-          class="flex w-full items-center justify-between rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-          aria-expanded="false"
-          aria-controls="mobile-categories-menu"
-        >
-          Kategori
-          <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.061l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <div id="mobile-categories-menu" class="mt-1 hidden space-y-1">
-          {
-            allCategories.map((cat) => (
-              <a
-                href={getCategoryUrl(cat.name)}
-                class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-accent/10 hover:text-primary dark:text-gray-300 dark:hover:bg-accent/20 dark:hover:text-accent"
-              >
-                {cat.name}
-              </a>
-            ))
-          }
-        </div>
-      </div>
-      <a
-        href="/ai-tools/"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary"
-        >AI Tools</a
-      >
-      <a
-        href="/tags/"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary"
-        >Tag</a
-      >
-      <a
-        href="/about/"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary"
-        >Tentang</a
-      >
-      <a
-        href="/search/"
-        class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 transition-colors duration-200 hover:bg-primary/10 hover:text-primary dark:text-gray-300 dark:hover:bg-primary/20 dark:hover:text-primary"
-        >Cari</a
-      >
-    </div>
-  </div>
 </header>
 
 <script>
-  const themeToggle = document.getElementById('theme-toggle');
-  const html = document.documentElement;
+  import { initReadLater } from '../scripts/read-later';
 
-  // Check for saved theme preference or default to 'light'
-  const currentTheme = localStorage.getItem('theme') || 'light';
-  html.classList.toggle('dark', currentTheme === 'dark');
-
-  themeToggle?.addEventListener('click', () => {
-    const isDark = html.classList.contains('dark');
-    html.classList.toggle('dark', !isDark);
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
-  });
-
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-    const isHidden = mobileMenu?.classList.contains('hidden');
-    mobileMenuButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
-  });
-
-  const mobileCategoriesButton = document.getElementById('mobile-categories-button');
-  const mobileCategoriesMenu = document.getElementById('mobile-categories-menu');
-
-  mobileCategoriesButton?.addEventListener('click', () => {
-    mobileCategoriesMenu?.classList.toggle('hidden');
-    const isHidden = mobileCategoriesMenu?.classList.contains('hidden');
-    mobileCategoriesButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
-  });
+  initReadLater();
 </script>

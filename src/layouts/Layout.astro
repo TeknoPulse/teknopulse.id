@@ -25,10 +25,21 @@ export interface Props {
   robots?: string;
   postCategory?: string;
   postTitle?: string;
+  showBreadcrumbs?: boolean;
 }
 
-const { title, description, image, imageAlt, article, canonical, robots, postCategory, postTitle } =
-  Astro.props;
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  article,
+  canonical,
+  robots,
+  postCategory,
+  postTitle,
+  showBreadcrumbs = true,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -40,9 +51,9 @@ const { title, description, image, imageAlt, article, canonical, robots, postCat
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" content="#F47825" />
+    <meta name="theme-color" content="#f4f0e6" />
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-    <!-- Inter di-self-host via @fontsource (lihat src/styles/global.css) —
+    <!-- Inter & Newsreader di-self-host via @fontsource (lihat src/styles/global.css) —
          link & preconnect Google Fonts dihapus karena render-blocking. -->
     <meta name="generator" content={Astro.generator} />
     <Seo
@@ -56,15 +67,15 @@ const { title, description, image, imageAlt, article, canonical, robots, postCat
     />
     <Analytics />
   </head>
-  <body class="bg-background text-gray-900 dark:bg-background-dark dark:text-gray-100">
+  <body class="bg-paper text-ink">
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-background focus:p-4 focus:text-primary"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-paper-light focus:p-4 focus:text-cobalt"
     >
       Lewati ke konten utama
     </a>
     <Header />
-    <Breadcrumbs postCategory={postCategory} postTitle={postTitle} />
+    {showBreadcrumbs && <Breadcrumbs postCategory={postCategory} postTitle={postTitle} />}
     <div id="main-content" tabindex="-1">
       <slot />
     </div>

@@ -46,3 +46,16 @@
 # masih `draft: true` dan belum pernah terbit, jadi 301 ke sana akan
 # mendarat di 404. Redirect diarahkan ke artikel Kilo Desktop yang hidup
 # (200) dan paling dekat topiknya.
+
+# Redesign koran: rute demo/eksperimen dilebur ke halaman produksi.
+# /edisi dan /topik hanya ada di branch desain, tetapi redirect defensif
+# menjaga tautan lama di preview PR tetap mendarat di arsip yang benar.
+/edisi/* /posts/ 301
+/edisi/ /posts/ 301
+/edisi /posts/ 301
+/topik/* /category/ 301
+/topik/ /category/ 301
+/topik /category/ 301
+/pratinjau/* / 301
+/cari/ /search/ 301
+/cari /search/ 301

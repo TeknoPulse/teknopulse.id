@@ -5,9 +5,10 @@ A production-ready Tech & AI news website built with Astro, TypeScript, and pnpm
 ## Features
 
 - 🚀 **Astro v5** with TypeScript for optimal performance
-- 🎨 **Tailwind CSS** with dark/light theme toggle
+- 🗞️ **Newspaper-style design system** (paper/ink/cobalt) built on Tailwind CSS
 - 📝 **Content Collections** for type-safe content management
-- 🔍 **Pagefind** for client-side search
+- 🔍 **Pagefind** search at `/search/`, plus rubrik and topic indexes
+- 🔖 **Baca nanti** — local read-later list stored in the browser
 - 💬 **Giscus** comments integration
 - 📊 **RSS & JSON Feed** generation
 - 🗺️ **Sitemap** generation
@@ -23,8 +24,8 @@ A production-ready Tech & AI news website built with Astro, TypeScript, and pnpm
 - **Package Manager**: pnpm
 - **Search**: Pagefind
 - **Comments**: Giscus (GitHub Discussions)
-- **Analytics**: Plausible (optional)
-- **Deployment**: Vercel
+- **Analytics**: Google Analytics 4 (consent-gated)
+- **Deployment**: Cloudflare Pages (static output)
 
 ## Quick Start
 
@@ -184,14 +185,18 @@ PLAUSIBLE_DOMAIN=yoursite.com
 
 ## Deployment
 
-### Vercel (Recommended)
+The site builds to static files in `dist/` and is deployed to **Cloudflare Pages**.
+SSR is intentionally disabled — OG images are prerendered at build time so the
+`@resvg/resvg-js` native module never has to run on Workers (see `AGENTS.md`).
+
+### Cloudflare Pages
 
 1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Set environment variables in Vercel dashboard
-4. Deploy!
+2. Connect the repository in the Cloudflare Pages dashboard
+3. Build command `pnpm build`, output directory `dist`
+4. Deploy
 
-The site is configured to work out-of-the-box on Vercel Free tier.
+`public/_headers` and `public/_redirects` are served by Cloudflare Pages.
 
 ### Manual Deployment Steps
 

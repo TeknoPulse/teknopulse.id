@@ -417,11 +417,11 @@ const totalTools = sections.reduce((sum, s) => sum + s.tools.length, 0);
 
 const badgeClass: Record<Tool['pricing'], string> = {
   Gratis:
-    'shrink-0 rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-medium text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
+    'shrink-0 bg-paper-deep px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-ink-soft',
   Freemium:
-    'shrink-0 rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
+    'shrink-0 border border-rule px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-ink-muted',
   Berbayar:
-    'shrink-0 rounded-full bg-rose-100 px-2.5 py-0.5 text-xs font-medium text-rose-800 dark:bg-rose-900/40 dark:text-rose-300',
+    'shrink-0 bg-ink px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-paper-light',
 };
 
 const faqs = [
@@ -462,38 +462,35 @@ const faqSchema = {
   title={`${totalTools} AI Tools Terbaik untuk Pengguna Indonesia (2026)`}
   description={`Kurasi ${totalTools} AI tools terbaik untuk pengguna Indonesia: chatbot, desain, video, produktivitas, dan coding. Ada opsi gratis, catatan dukungan bahasa Indonesia, dan tips memilih.`}
 >
-  <main class="container mx-auto px-4 py-8">
-    <div class="mx-auto max-w-5xl">
-      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-primary dark:text-accent">
-        Direktori AI Tools
-      </p>
-      <h1 class="mb-4 text-4xl font-bold md:text-5xl">
+  <main class="wrap py-10 sm:py-12">
+    <div>
+      <p class="kicker text-cobalt">Direktori AI Tools</p>
+      <h1
+        class="headline-balance mt-3 font-serif text-[clamp(2.5rem,5.6vw,4.4rem)] font-semibold leading-[0.94] tracking-headline"
+      >
         {totalTools} AI Tools Terbaik untuk Pengguna Indonesia
       </h1>
-      <div
-        class="mb-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 dark:text-gray-400"
-      >
+      <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-muted">
         <span>Terakhir diperbarui: {lastUpdated}</span>
         <span aria-hidden="true">•</span>
         <span>Dikurasi manual oleh tim TeknoPulse</span>
       </div>
-      <p class="mb-8 max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+      <p class="mb-8 mt-5 max-w-3xl font-serif text-xl leading-snug text-ink-soft">
         Bukan sekadar daftar panjang. Setiap tool di halaman ini dipilih dan dinilai dari sisi yang
         paling relevan buat pengguna Indonesia: kualitas hasil, dukungan bahasa Indonesia, harga
         termasuk opsi gratisnya, dan mudah tidaknya mulai dipakai. Pilih kategorinya, lalu temukan
         yang paling cocok dengan kebutuhanmu. Belum tahu mulai dari mana? Rangkuman
-        <a
-          href="/posts/ai-terbaik-2026/"
-          class="font-medium text-primary hover:underline dark:text-accent">10 AI Terbaik 2026</a
+        <a href="/posts/ai-terbaik-2026/" class="font-medium text-cobalt hover:underline"
+          >10 AI Terbaik 2026</a
         >
         jadi titik awal yang baik.
       </p>
 
       <section id="perbandingan-2026" class="scroll-mt-24 py-8">
-        <h2 class="mb-2 text-2xl font-bold md:text-3xl">
+        <h2 class="mb-2 font-serif text-2xl font-semibold md:text-3xl">
           Perbandingan Cepat: AI Terpopuler 2026 &amp; Harganya
         </h2>
-        <p class="mb-6 text-gray-600 dark:text-gray-400">
+        <p class="mb-6 text-ink-muted">
           Ringkasan satu tabel dari pilihan utama di halaman ini — kategori, biaya, dan kegunaan
           terbaiknya. Angka harga adalah langganan resmi: harga rupiah untuk layanan dengan harga
           pasar Indonesia, dan harga US$ asli dari penyedia untuk layanan yang tidak memublikasikan
@@ -502,16 +499,14 @@ const faqSchema = {
         <div class="overflow-x-auto">
           <table class="w-full min-w-[640px] border-collapse text-left text-sm">
             <thead>
-              <tr
-                class="border-b border-gray-200 text-xs uppercase tracking-wide text-gray-500 dark:border-gray-800 dark:text-gray-400"
-              >
+              <tr class="kicker border-b border-rule-strong text-ink-muted">
                 <th scope="col" class="py-2 pr-4 font-semibold">Tool</th>
                 <th scope="col" class="py-2 pr-4 font-semibold">Kategori</th>
                 <th scope="col" class="py-2 pr-4 font-semibold">Biaya</th>
                 <th scope="col" class="py-2 font-semibold">Paling cocok untuk</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+            <tbody class="divide-y divide-rule">
               <tr>
                 <th scope="row" class="py-3 pr-4 font-semibold">ChatGPT</th>
                 <td class="py-3 pr-4">Asisten &amp; chatbot</td>
@@ -557,17 +552,16 @@ const faqSchema = {
             </tbody>
           </table>
         </div>
-        <p class="mt-3 text-xs text-gray-500 dark:text-gray-400">
+        <p class="mt-3 text-xs text-ink-muted">
           Harga dicek 14–20 September 2026 dari halaman resmi masing-masing layanan dan bisa
           berubah. Bandingkan chatbotnya lebih dalam di
           <a
             href="/posts/chatgpt-vs-gemini-vs-claude-2026/"
-            class="font-medium text-primary hover:underline dark:text-accent"
+            class="font-medium text-cobalt hover:underline"
             >ChatGPT vs Gemini vs Claude (uji 2026)</a
           >, atau lihat harga lengkap versi gratis &amp; berbayar di
-          <a
-            href="/posts/ai-terbaik-2026/"
-            class="font-medium text-primary hover:underline dark:text-accent">10 AI Terbaik 2026</a
+          <a href="/posts/ai-terbaik-2026/" class="font-medium text-cobalt hover:underline"
+            >10 AI Terbaik 2026</a
           >.
         </p>
       </section>
@@ -575,7 +569,7 @@ const faqSchema = {
       <nav aria-label="Kategori AI tools" class="mb-10 flex flex-wrap gap-2">
         <a
           href="#perbandingan-2026"
-          class="rounded-full border border-gray-200 bg-surface px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary dark:border-gray-800 dark:bg-surface-dark dark:text-gray-300 dark:hover:border-accent dark:hover:text-accent"
+          class="border border-rule bg-paper-light px-4 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-cobalt hover:text-cobalt"
         >
           Perbandingan Cepat
         </a>
@@ -583,48 +577,48 @@ const faqSchema = {
           sections.map((section) => (
             <a
               href={`#${section.id}`}
-              class="rounded-full border border-gray-200 bg-surface px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary dark:border-gray-800 dark:bg-surface-dark dark:text-gray-300 dark:hover:border-accent dark:hover:text-accent"
+              class="border border-rule bg-paper-light px-4 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-cobalt hover:text-cobalt"
             >
               {section.title}
-              <span class="text-gray-400 dark:text-gray-500"> ({section.tools.length})</span>
+              <span class="text-ink-muted"> ({section.tools.length})</span>
             </a>
           ))
         }
         <a
           href="#panduan-review"
-          class="rounded-full border border-gray-200 bg-surface px-4 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:border-primary hover:text-primary dark:border-gray-800 dark:bg-surface-dark dark:text-gray-300 dark:hover:border-accent dark:hover:text-accent"
+          class="border border-rule bg-paper-light px-4 py-1.5 text-sm font-medium text-ink-soft transition-colors hover:border-cobalt hover:text-cobalt"
         >
           Panduan &amp; Review
-          <span class="text-gray-400 dark:text-gray-500"> ({hubArticles.length})</span>
+          <span class="text-ink-muted"> ({hubArticles.length})</span>
         </a>
       </nav>
 
       {
         sections.map((section) => (
           <section id={section.id} class="scroll-mt-24 py-8">
-            <h2 class="mb-2 text-2xl font-bold md:text-3xl">{section.title}</h2>
-            <p class="mb-6 text-gray-600 dark:text-gray-400">{section.blurb}</p>
+            <h2 class="mb-2 font-serif text-2xl font-semibold md:text-3xl">{section.title}</h2>
+            <p class="mb-6 text-ink-muted">{section.blurb}</p>
             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {section.tools.map((tool) => (
-                <article class="flex flex-col rounded-lg border border-gray-200 bg-surface p-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-surface-dark">
+                <article class="flex flex-col border border-rule bg-paper-light p-5 transition-colors hover:border-cobalt">
                   <div class="mb-2 flex items-start justify-between gap-2">
-                    <h3 class="text-lg font-semibold">
+                    <h3 class="font-serif text-lg font-semibold">
                       <a
                         href={tool.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="transition-colors hover:text-primary dark:hover:text-accent"
+                        class="transition-colors hover:text-cobalt"
                       >
                         {tool.name}
                       </a>
                     </h3>
                     <span class={badgeClass[tool.pricing]}>{tool.pricing}</span>
                   </div>
-                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">{tool.priceNote}</p>
-                  <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">{tool.why}</p>
+                  <p class="mb-2 text-sm text-ink-muted">{tool.priceNote}</p>
+                  <p class="text-sm leading-relaxed text-ink-soft">{tool.why}</p>
                   {tool.related && tool.related.length > 0 && (
-                    <div class="mt-auto border-t border-gray-100 pt-3 dark:border-gray-800">
-                      <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                    <div class="mt-auto border-t border-rule pt-3">
+                      <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-ink-muted">
                         Panduan terkait
                       </p>
                       <ul class="space-y-1">
@@ -632,7 +626,7 @@ const faqSchema = {
                           <li>
                             <a
                               href={rel.href}
-                              class="text-sm font-medium text-primary hover:underline dark:text-accent"
+                              class="text-sm font-medium text-cobalt hover:underline"
                             >
                               {rel.title}
                             </a>
@@ -649,8 +643,10 @@ const faqSchema = {
       }
 
       <section id="panduan-review" class="scroll-mt-24 py-8">
-        <h2 class="mb-2 text-2xl font-bold md:text-3xl">Panduan &amp; Review dari TeknoPulse</h2>
-        <p class="mb-6 text-gray-600 dark:text-gray-400">
+        <h2 class="mb-2 font-serif text-2xl font-semibold md:text-3xl">
+          Panduan &amp; Review dari TeknoPulse
+        </h2>
+        <p class="mb-6 text-ink-muted">
           Sudah punya kandidat tool? Dalami lewat panduan dan perbandingan yang sudah kami tulis
           berdasarkan pemakaian nyata.
         </p>
@@ -660,26 +656,24 @@ const faqSchema = {
               <li>
                 <a
                   href={article.href}
-                  class="group flex h-full items-start gap-3 rounded-lg border border-gray-200 bg-surface p-4 transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-surface-dark"
+                  class="group flex h-full items-start gap-3 border border-rule bg-paper-light p-4 transition-colors hover:border-cobalt"
                 >
                   <span
-                    class={`mt-0.5 shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ${
+                    class={`mt-0.5 shrink-0 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide ${
                       article.kind === 'Panduan'
-                        ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300'
+                        ? 'bg-cobalt text-paper-light'
                         : article.kind === 'Review'
-                          ? 'bg-violet-100 text-violet-800 dark:bg-violet-900/40 dark:text-violet-300'
-                          : 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                          ? 'border border-cobalt text-cobalt'
+                          : 'bg-paper-deep text-ink-soft'
                     }`}
                   >
                     {article.kind}
                   </span>
                   <span>
-                    <span class="block font-semibold text-gray-900 transition-colors group-hover:text-primary dark:text-gray-100 dark:group-hover:text-accent">
+                    <span class="block font-semibold text-ink transition-colors group-hover:text-cobalt">
                       {article.title}
                     </span>
-                    <span class="mt-0.5 block text-sm text-gray-500 dark:text-gray-400">
-                      {article.note}
-                    </span>
+                    <span class="mt-0.5 block text-sm text-ink-muted">{article.note}</span>
                   </span>
                 </a>
               </li>
@@ -688,13 +682,9 @@ const faqSchema = {
         </ul>
       </section>
 
-      <section
-        class="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-6 dark:border-gray-800 dark:bg-surface-dark"
-      >
-        <h2 class="mb-3 text-xl font-bold">Cara kami mengkurasi daftar ini</h2>
-        <ul
-          class="list-inside list-disc space-y-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300"
-        >
+      <section class="mt-4 border border-rule bg-paper-deep p-6">
+        <h2 class="mb-3 font-serif text-xl font-semibold">Cara kami mengkurasi daftar ini</h2>
+        <ul class="list-inside list-disc space-y-2 text-sm leading-relaxed text-ink-soft">
           <li>Tool dites langsung oleh tim, bukan sekadar kumpulan nama dari daftar lain.</li>
           <li>
             Dinilai dari kualitas output, dukungan bahasa Indonesia, nilai versus harga, dan
@@ -708,29 +698,27 @@ const faqSchema = {
       </section>
 
       <section class="py-10">
-        <h2 class="mb-6 text-2xl font-bold md:text-3xl">Pertanyaan Umum</h2>
+        <h2 class="mb-6 font-serif text-2xl font-semibold md:text-3xl">Pertanyaan Umum</h2>
         <div class="space-y-3">
           {
             faqs.map((faq) => (
-              <details class="rounded-lg border border-gray-200 bg-surface p-4 dark:border-gray-800 dark:bg-surface-dark">
+              <details class="border border-rule bg-paper-light p-4">
                 <summary class="cursor-pointer font-semibold">{faq.q}</summary>
-                <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">{faq.a}</p>
+                <p class="mt-2 text-sm leading-relaxed text-ink-soft">{faq.a}</p>
               </details>
             ))
           }
         </div>
       </section>
 
-      <section
-        class="mb-8 rounded-lg border border-gray-200 bg-surface p-6 text-center dark:border-gray-800 dark:bg-surface-dark"
-      >
-        <h2 class="mb-2 text-xl font-bold">Ikuti Perkembangan AI Lebih Jauh</h2>
-        <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+      <section class="mb-8 border border-rule bg-paper-light p-6 text-center">
+        <h2 class="mb-2 font-serif text-xl font-semibold">Ikuti Perkembangan AI Lebih Jauh</h2>
+        <p class="mb-4 text-sm text-ink-muted">
           Berita, analisis, dan update terbaru dunia AI untuk pengguna Indonesia.
         </p>
         <a
           href="/category/ai/"
-          class="btn-primary inline-block rounded-lg px-6 py-2.5 font-semibold text-white transition-colors hover:bg-primary-hover"
+          class="kicker inline-block bg-ink px-6 py-3 text-paper-light transition-colors hover:bg-cobalt"
         >
           Lihat Berita AI Terbaru
         </a>

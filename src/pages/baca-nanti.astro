@@ -1,0 +1,234 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { getCategoryLabel } from '../utils/categories';
+import { calculateReadingTime } from '../utils/readingTime';
+import { formatShortDate } from '../utils/dates';
+import { getPostUrl } from '../utils/urls.mjs';
+
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const index = posts.map((post) => ({
+  id: post.slug,
+  title: post.data.title,
+  dek: post.data.summary,
+  topicLabel: getCategoryLabel(post.data.category),
+  author: post.data.author,
+  date: formatShortDate(post.data.publishedAt),
+  readingTime: post.data.readingTime ?? calculateReadingTime(post.body),
+  url: getPostUrl(post.slug),
+}));
+
+const payload = JSON.stringify(index).replace(/</g, '\\u003c');
+---
+
+<Layout
+  title="Baca nanti — TeknoPulse"
+  description="Daftar artikel TeknoPulse yang disimpan di peramban ini untuk dibaca nanti."
+  showBreadcrumbs={false}
+>
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">Koleksi pribadi</p>
+      <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+        <h1
+          class="font-serif text-[clamp(3.1rem,9vw,7rem)] font-semibold leading-[0.8] tracking-headline"
+        >
+          Baca nanti<span class="text-cobalt">.</span>
+        </h1>
+        <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+          Artikel yang kamu simpan tinggal di peramban ini — tanpa akun, tanpa sinkronisasi, tanpa
+          data yang dikirim ke mana pun.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap py-8 sm:py-12">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-0">
+      <div class="lg:col-span-8 lg:pr-12">
+        <div
+          class="flex flex-wrap items-center justify-between gap-4 border-b-2 border-rule-strong pb-3"
+        >
+          <p id="saved-status" class="kicker text-ink-muted" role="status" aria-live="polite">
+            0 artikel tersimpan
+          </p>
+          <button
+            type="button"
+            id="clear-saved"
+            class="kicker hidden text-ink-muted underline decoration-rule underline-offset-4 hover:text-cobalt"
+          >
+            Hapus semua
+          </button>
+        </div>
+
+        <div id="saved-list"></div>
+
+        <div id="saved-empty" class="py-14 text-center">
+          <p class="font-serif text-2xl text-ink">Belum ada artikel yang disimpan.</p>
+          <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink-muted">
+            Tekan tombol <span class="font-medium text-ink-soft">Baca nanti</span> pada artikel mana
+            pun untuk menyimpannya di daftar ini.
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-4">
+            <a href="/posts/" class="kicker bg-ink px-4 py-2.5 text-paper-light hover:bg-cobalt">
+              Jelajahi arsip
+            </a>
+            <a
+              href="/search/"
+              class="kicker border border-rule px-4 py-2.5 text-ink-soft hover:border-cobalt hover:text-cobalt"
+            >
+              Cari artikel
+            </a>
+          </div>
+        </div>
+
+        <noscript>
+          <p class="mt-6 border-l-2 border-cobalt pl-4 text-sm text-ink-muted">
+            Daftar Baca nanti disimpan di peramban dan memerlukan JavaScript untuk ditampilkan.
+          </p>
+        </noscript>
+      </div>
+
+      <aside class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+        <section aria-labelledby="cara-kerja">
+          <h2 id="cara-kerja" class="border-b border-rule pb-2 font-serif text-2xl font-semibold">
+            Cara kerja
+          </h2>
+          <ol class="mt-3 space-y-4 text-sm leading-relaxed text-ink-muted">
+            <li class="flex gap-3">
+              <span class="font-display text-lg leading-none text-cobalt">01</span>
+              <span>Simpan artikel dari beranda, halaman artikel, atau arsip.</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="font-display text-lg leading-none text-cobalt">02</span>
+              <span
+                >Daftar disimpan di <code class="text-ink-soft">localStorage</code> peramban ini.</span
+              >
+            </li>
+            <li class="flex gap-3">
+              <span class="font-display text-lg leading-none text-cobalt">03</span>
+              <span>Hapus satu per satu di sini, atau bersihkan seluruh daftar kapan saja.</span>
+            </li>
+          </ol>
+        </section>
+
+        <section class="mt-8 border-t border-rule pt-5" aria-labelledby="tautan-baca">
+          <h2 id="tautan-baca" class="kicker text-ink-muted">Lanjut membaca</h2>
+          <ul class="mt-2 divide-y divide-rule">
+            <li>
+              <a href="/posts/" class="block py-2.5 text-sm hover:text-cobalt">Arsip lengkap</a>
+            </li>
+            <li>
+              <a href="/category/" class="block py-2.5 text-sm hover:text-cobalt">Semua rubrik</a>
+            </li>
+            <li>
+              <a href="/search/" class="block py-2.5 text-sm hover:text-cobalt">Pencarian artikel</a
+              >
+            </li>
+          </ul>
+        </section>
+
+        <p class="mt-8 border-l-2 border-cobalt pl-4 text-sm leading-relaxed text-ink-muted">
+          Menghapus data peramban akan menghapus daftar ini. Tidak ada cadangan di server.
+        </p>
+      </aside>
+    </div>
+  </main>
+</Layout>
+
+<script type="application/json" id="saved-index" set:html={payload} is:inline />
+
+<script>
+  import { initReadLater, readLaterIds, removeSaved, clearSaved } from '../scripts/read-later';
+
+  interface SavedItem {
+    id: string;
+    title: string;
+    dek: string;
+    topicLabel: string;
+    author: string;
+    date: string;
+    readingTime: number;
+    url: string;
+  }
+
+  const dataElement = document.getElementById('saved-index');
+  const items: SavedItem[] = dataElement?.textContent ? JSON.parse(dataElement.textContent) : [];
+  const list = document.getElementById('saved-list');
+  const empty = document.getElementById('saved-empty');
+  const status = document.getElementById('saved-status');
+  const clearButton = document.getElementById('clear-saved');
+
+  const escapeHtml = (value: string): string =>
+    value.replace(/[&<>"']/g, (character) => {
+      const entities: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      };
+      return entities[character] ?? character;
+    });
+
+  const render = (): void => {
+    const byId = new Map(items.map((item) => [item.id, item]));
+    const saved = readLaterIds()
+      .map((id) => byId.get(id))
+      .filter((item): item is SavedItem => Boolean(item))
+      .reverse();
+
+    if (list) {
+      list.innerHTML = saved
+        .map(
+          (item) => `
+            <article class="grid gap-4 border-b border-rule py-6 sm:grid-cols-[1fr_auto] sm:gap-8">
+              <div>
+                <p class="kicker text-cobalt">${escapeHtml(item.topicLabel)}</p>
+                <h2 class="mt-1.5 font-serif text-[1.4rem] leading-tight font-semibold sm:text-2xl">
+                  <a href="${escapeHtml(item.url)}" class="transition-colors hover:text-cobalt">${escapeHtml(item.title)}</a>
+                </h2>
+                <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted">${escapeHtml(item.dek)}</p>
+                <p class="mt-2.5 text-xs text-ink-muted">${escapeHtml(item.author)} <span class="mx-1.5 text-rule">/</span> ${escapeHtml(item.date)} <span class="mx-1.5 text-rule">/</span> ${item.readingTime} mnt baca</p>
+              </div>
+              <div class="flex items-start gap-4 sm:flex-col sm:items-end">
+                <a href="${escapeHtml(item.url)}" class="kicker text-cobalt hover:text-cobalt-dark">Baca →</a>
+                <button type="button" data-remove-saved="${escapeHtml(item.id)}" class="kicker text-ink-muted underline decoration-rule underline-offset-4 hover:text-cobalt">Hapus</button>
+              </div>
+            </article>
+          `
+        )
+        .join('');
+    }
+
+    const hasItems = saved.length > 0;
+    empty?.classList.toggle('hidden', hasItems);
+    clearButton?.classList.toggle('hidden', !hasItems);
+
+    if (status) {
+      status.textContent = `${saved.length} artikel tersimpan`;
+    }
+  };
+
+  list?.addEventListener('click', (event) => {
+    const button = (event.target as Element).closest<HTMLButtonElement>('[data-remove-saved]');
+    if (!button) return;
+    const id = button.dataset.removeSaved;
+    if (id) removeSaved(id);
+  });
+
+  clearButton?.addEventListener('click', () => {
+    if (window.confirm('Hapus semua artikel dari daftar Baca nanti?')) {
+      clearSaved();
+    }
+  });
+
+  document.addEventListener('readlater:change', render);
+  window.addEventListener('storage', render);
+
+  render();
+  initReadLater();
+</script>
