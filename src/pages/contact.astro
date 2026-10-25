@@ -1,103 +1,136 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const channels = [
+  {
+    label: 'Editorial',
+    description: 'Tips berita, press release, koreksi, atau kolaborasi editorial.',
+    email: 'redaksi@teknopulse.id',
+  },
+  {
+    label: 'Pertanyaan umum',
+    description: 'Pertanyaan tentang TeknoPulse dan masukan umum.',
+    email: 'hello@teknopulse.id',
+  },
+  {
+    label: 'Dukungan teknis',
+    description: 'Masalah teknis dengan situs, RSS, atau pencarian.',
+    email: 'support@teknopulse.id',
+  },
+];
 ---
 
-<Layout title="Contact - TeknoPulse" description="Get in touch with the TeknoPulse team">
-  <main class="container mx-auto px-4 py-8">
-    <div class="mx-auto max-w-4xl">
-      <h1 class="mb-8 text-4xl font-bold">Contact Us</h1>
-
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <div>
-          <h2 class="mb-6 text-2xl font-semibold">Get in Touch</h2>
-          <div class="space-y-4">
-            <div>
-              <h3 class="mb-2 text-lg font-semibold">Editorial</h3>
-              <p class="text-gray-600 dark:text-gray-400">
-                Untuk tips berita, press release, atau kolaborasi editorial.
-              </p>
-              <!--email_off-->
-              <a href="mailto:redaksi@teknopulse.id" class="text-blue-600 hover:text-blue-800">
-                redaksi@teknopulse.id
-              </a><!--/email_off-->
-            </div>
-
-            <div>
-              <h3 class="mb-2 text-lg font-semibold">General Inquiries</h3>
-              <p class="text-gray-600 dark:text-gray-400">Untuk pertanyaan umum dan feedback.</p>
-              <!--email_off-->
-              <a href="mailto:hello@teknopulse.id" class="text-blue-600 hover:text-blue-800">
-                hello@teknopulse.id
-              </a><!--/email_off-->
-            </div>
-
-            <div>
-              <h3 class="mb-2 text-lg font-semibold">Technical Support</h3>
-              <p class="text-gray-600 dark:text-gray-400">Untuk masalah teknis dengan website.</p>
-              <!--email_off-->
-              <a href="mailto:support@teknopulse.id" class="text-blue-600 hover:text-blue-800">
-                support@teknopulse.id
-              </a><!--/email_off-->
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="mb-6 text-2xl font-semibold">Send us a Message</h2>
-          <form class="space-y-4">
-            <div>
-              <label for="name" class="mb-2 block text-sm font-medium">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="mb-2 block text-sm font-medium">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
-              />
-            </div>
-
-            <div>
-              <label for="subject" class="mb-2 block text-sm font-medium">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                required
-                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
-              />
-            </div>
-
-            <div>
-              <label for="message" class="mb-2 block text-sm font-medium">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                class="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              class="w-full rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
-              Send Message
-            </button>
-          </form>
+<Layout
+  title="Kontak — TeknoPulse"
+  description="Hubungi redaksi TeknoPulse untuk tips berita, koreksi, kolaborasi editorial, atau pertanyaan teknis."
+  showBreadcrumbs={false}
+  variant="real"
+>
+  <main>
+    <header class="border-b-2 border-rule-strong">
+      <div class="wrap pt-8 pb-7 sm:pt-12">
+        <p class="kicker text-cobalt">Redaksi <span class="mx-1.5 text-rule">/</span> Kontak</p>
+        <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+          <h1
+            class="font-serif text-[clamp(3.4rem,9vw,7rem)] font-semibold leading-[0.8] tracking-headline"
+          >
+            Kontak<span class="text-cobalt">.</span>
+          </h1>
+          <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+            Satu surel yang tepat lebih cepat sampai daripada formulir yang tidak terbaca siapa pun.
+          </p>
         </div>
       </div>
+    </header>
+
+    <div class="wrap grid gap-12 py-10 sm:py-14 lg:grid-cols-12 lg:gap-0">
+      <section class="lg:col-span-8 lg:pr-12" aria-labelledby="saluran">
+        <h2
+          id="saluran"
+          class="border-b-2 border-rule-strong pb-2 font-serif text-2xl font-semibold"
+        >
+          Pilih saluran
+        </h2>
+        <div class="divide-y divide-rule">
+          {
+            channels.map((channel, index) => (
+              <div class="grid gap-3 py-6 sm:grid-cols-[2.5rem_1fr_auto] sm:items-baseline sm:gap-6">
+                <span class="font-display text-xl leading-none text-cobalt">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold">{channel.label}</h3>
+                  <p class="mt-1 text-sm leading-relaxed text-ink-muted">{channel.description}</p>
+                </div>
+                <a
+                  href={`mailto:${channel.email}`}
+                  class="kicker text-cobalt hover:text-cobalt-dark"
+                >
+                  {channel.email}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 border-l-2 border-cobalt pl-4">
+          <p class="text-sm leading-relaxed text-ink-soft">
+            Untuk koreksi artikel, sebutkan judul dan tautan artikelnya agar redaksi bisa menelusuri
+            sumber dan memperbarui tulisan lebih cepat.
+          </p>
+        </div>
+      </section>
+
+      <aside class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+        <section aria-labelledby="waktu-respons">
+          <h2
+            id="waktu-respons"
+            class="border-b-2 border-rule-strong pb-2 font-serif text-2xl font-semibold"
+          >
+            Waktu respons
+          </h2>
+          <dl class="divide-y divide-rule text-sm">
+            <div class="flex items-baseline justify-between gap-4 py-3">
+              <dt class="kicker text-ink-muted">Koreksi</dt>
+              <dd class="text-right text-ink">1–2 hari kerja</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 py-3">
+              <dt class="kicker text-ink-muted">Tips berita</dt>
+              <dd class="text-right text-ink">Sesuai prioritas</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 py-3">
+              <dt class="kicker text-ink-muted">Kolaborasi</dt>
+              <dd class="text-right text-ink">3–5 hari kerja</dd>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 py-3">
+              <dt class="kicker text-ink-muted">Teknis</dt>
+              <dd class="text-right text-ink">1–2 hari kerja</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="mt-8 border-t border-rule pt-5" aria-labelledby="tautan-kontak">
+          <h2 id="tautan-kontak" class="kicker text-ink-muted">Lanjut membaca</h2>
+          <ul class="mt-2 divide-y divide-rule">
+            <li>
+              <a href="/about/" class="block py-2.5 text-sm hover:text-cobalt">Tentang redaksi</a>
+            </li>
+            <li>
+              <a href="/privacy-policy/" class="block py-2.5 text-sm hover:text-cobalt"
+                >Kebijakan privasi</a
+              >
+            </li>
+            <li>
+              <a href="/posts/" class="block py-2.5 text-sm hover:text-cobalt">Arsip artikel</a>
+            </li>
+          </ul>
+        </section>
+
+        <p class="mt-8 border-l-2 border-cobalt pl-4 text-sm leading-relaxed text-ink-muted">
+          TeknoPulse tidak menerima pembayaran untuk liputan atau tautan sponsor tanpa label yang
+          jelas.
+        </p>
+      </aside>
     </div>
   </main>
 </Layout>

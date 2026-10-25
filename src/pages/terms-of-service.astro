@@ -2,64 +2,88 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Terms of Service" description="TeknoPulse.id Terms of Service">
-  <main class="prose mx-auto px-4 py-8">
-    <h1>Terms of Service</h1>
-    <p><strong>Effective Date:</strong> 2 September 2025</p>
+<Layout
+  title="Syarat dan Ketentuan — TeknoPulse"
+  description="Syarat dan ketentuan penggunaan TeknoPulse.id: penggunaan layanan, hak cipta, tautan pihak ketiga, dan batasan tanggung jawab."
+  showBreadcrumbs={false}
+  variant="real"
+>
+  <main>
+    <header class="border-b-2 border-rule-strong">
+      <div class="wrap pt-8 pb-7 sm:pt-12">
+        <p class="kicker text-cobalt">Legal <span class="mx-1.5 text-rule">/</span> Ketentuan</p>
+        <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+          <h1
+            class="font-serif text-[clamp(3rem,8.5vw,6.6rem)] font-semibold leading-[0.8] tracking-headline"
+          >
+            Ketentuan<span class="text-cobalt">.</span>
+          </h1>
+          <p class="max-w-sm pb-2 font-serif text-lg leading-snug text-ink-soft">
+            Aturan penggunaan situs, hak atas konten, dan batasan tanggung jawab kami.
+          </p>
+        </div>
+        <p class="kicker mt-5 border-t border-rule pt-3 text-ink-muted">
+          Berlaku sejak 2 September 2025
+        </p>
+      </div>
+    </header>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>
-      Dengan mengakses atau menggunakan TeknoPulse.id, Anda menyetujui untuk terikat dengan Syarat
-      dan Ketentuan ini. Jika Anda tidak setuju, harap hentikan penggunaan layanan kami.
-    </p>
+    <div class="wrap py-10 sm:py-14">
+      <article class="prose-news max-w-reading">
+        <p>
+          Dengan mengakses atau menggunakan TeknoPulse.id, Anda menyetujui untuk terikat dengan
+          Syarat dan Ketentuan ini. Jika Anda tidak setuju, harap hentikan penggunaan layanan kami.
+        </p>
 
-    <h2>2. Use of Service</h2>
-    <ul>
-      <li>Layanan hanya boleh digunakan untuk tujuan yang sah dan sesuai hukum.</li>
-      <li>
-        Anda dilarang melakukan aktivitas yang dapat merusak, mengganggu, atau membebani layanan
-        kami.
-      </li>
-      <li>Kami berhak membatasi atau menghentikan akses Anda jika melanggar ketentuan ini.</li>
-    </ul>
+        <h2>1. Penggunaan layanan</h2>
+        <ul>
+          <li>Layanan hanya boleh digunakan untuk tujuan yang sah dan sesuai hukum.</li>
+          <li>
+            Anda dilarang melakukan aktivitas yang dapat merusak, mengganggu, atau membebani layanan
+            kami.
+          </li>
+          <li>Kami berhak membatasi atau menghentikan akses Anda jika melanggar ketentuan ini.</li>
+        </ul>
 
-    <h2>3. Intellectual Property</h2>
-    <p>
-      Semua konten di TeknoPulse.id (artikel, desain, logo, kode, dll) adalah milik kami atau mitra
-      kami dan dilindungi oleh hukum hak cipta. Anda tidak boleh menggunakan, menyalin, atau
-      mendistribusikan tanpa izin tertulis.
-    </p>
+        <h2>2. Hak kekayaan intelektual</h2>
+        <p>
+          Semua konten di TeknoPulse.id (artikel, desain, logo, kode, dll) adalah milik kami atau
+          mitra kami dan dilindungi oleh hukum hak cipta. Anda tidak boleh menggunakan, menyalin,
+          atau mendistribusikan tanpa izin tertulis.
+        </p>
 
-    <h2>4. Third-Party Links</h2>
-    <p>
-      Situs kami dapat berisi tautan ke pihak ketiga. Kami tidak bertanggung jawab atas konten atau
-      praktik privasi mereka.
-    </p>
+        <h2>3. Tautan pihak ketiga</h2>
+        <p>
+          Situs kami dapat berisi tautan ke pihak ketiga. Kami tidak bertanggung jawab atas konten
+          atau praktik privasi mereka.
+        </p>
 
-    <h2>5. Disclaimer & Limitation of Liability</h2>
-    <p>
-      Layanan ini disediakan “apa adanya” tanpa jaminan apapun. TeknoPulse.id tidak bertanggung
-      jawab atas kerugian langsung maupun tidak langsung yang timbul dari penggunaan layanan.
-    </p>
+        <h2>4. Penyangkalan &amp; batasan tanggung jawab</h2>
+        <p>
+          Layanan ini disediakan "apa adanya" tanpa jaminan apapun. TeknoPulse.id tidak bertanggung
+          jawab atas kerugian langsung maupun tidak langsung yang timbul dari penggunaan layanan.
+        </p>
 
-    <h2>6. Changes to Terms</h2>
-    <p>
-      Kami dapat memperbarui Syarat dan Ketentuan ini sewaktu-waktu. Versi terbaru akan
-      dipublikasikan di halaman ini.
-    </p>
+        <h2>5. Perubahan ketentuan</h2>
+        <p>
+          Kami dapat memperbarui Syarat dan Ketentuan ini sewaktu-waktu. Versi terbaru akan
+          dipublikasikan di halaman ini.
+        </p>
 
-    <h2>7. Governing Law</h2>
-    <p>
-      Syarat dan Ketentuan ini diatur oleh hukum Republik Indonesia. Sengketa diselesaikan melalui
-      mekanisme hukum yang berlaku.
-    </p>
+        <h2>6. Hukum yang berlaku</h2>
+        <p>
+          Syarat dan Ketentuan ini diatur oleh hukum Republik Indonesia. Sengketa diselesaikan
+          melalui mekanisme hukum yang berlaku.
+        </p>
 
-    <h2>8. Contact Us</h2>
-    <p>
-      Email: <!--email_off-->
-      <a href="mailto:redaksi@teknopulse.id">redaksi@teknopulse.id</a><!--/email_off-->
-      <br />
-      Alamat: Jakarta, Indonesia
-    </p>
+        <h2>7. Hubungi kami</h2>
+        <p>
+          Email: <!--email_off-->
+          <a href="mailto:redaksi@teknopulse.id">redaksi@teknopulse.id</a><!--/email_off-->
+          <br />
+          Alamat: Jakarta, Indonesia
+        </p>
+      </article>
+    </div>
   </main>
 </Layout>
