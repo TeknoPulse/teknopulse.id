@@ -13,7 +13,6 @@
 //      /category/<slug>/n/. Halaman ini hanya mengulang kartu halaman 1.
 //   2. Tag dengan artikel ≤ THIN_TAG_MAX_POSTS (halaman tipis).
 //   3. Kategori tanpa artikel.
-//   4. Pratinjau desain /pratinjau/* — noindex dan tidak boleh masuk indeks.
 //
 // Setiap aturan di sini WAJIB punya pasangan `noindex` di route-nya;
 // keduanya memakai helper yang sama supaya tidak bisa berbeda lagi.
@@ -91,8 +90,6 @@ export function createSitemapFilter({ site, postsDir }) {
     // 3. Kategori kosong.
     const categoryMatch = pathname.match(/^\/category\/([^/]+)\/$/);
     if (categoryMatch && emptyCategories.has(decodeURIComponent(categoryMatch[1]))) return false;
-    // 4. Pratinjau desain — selalu noindex, bukan halaman publik.
-    if (/^\/pratinjau(?:\/|$)/.test(pathname)) return false;
     return true;
   };
 }

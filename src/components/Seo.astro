@@ -132,12 +132,12 @@ if (article) {
     name: site.name,
     description: site.description,
     url: site.url,
-    // Sitelinks search box (TEKAA-3 P1-9); /cari membaca param ?q=.
+    // Sitelinks search box (TEKAA-3 P1-9); /search/ membaca param ?q=.
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${site.url}/cari?q={search_term_string}`,
+        urlTemplate: `${site.url}/search/?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },

@@ -19,10 +19,9 @@ interface Props {
   relatedPosts: CollectionEntry<'posts'>[];
   categoryPosts: CollectionEntry<'posts'>[];
   ogImage?: CollectionEntry<'posts'>['data']['coverImage'] | string;
-  preview?: boolean;
 }
 
-const { post, relatedPosts, categoryPosts, ogImage, preview = false } = Astro.props;
+const { post, relatedPosts, categoryPosts, ogImage } = Astro.props;
 
 const { Content } = await post.render();
 
@@ -49,38 +48,26 @@ const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name
 ---
 
 <Layout
-  title={preview ? `${post.data.title} (pratinjau) — TeknoPulse` : post.data.title}
+  title={post.data.title}
   description={description}
   image={ogImage}
   imageAlt={post.data.title}
-  article={preview
-    ? undefined
-    : {
-        publishedTime: post.data.publishedAt.toISOString(),
-        modifiedTime: post.data.updatedAt?.toISOString(),
-        author: {
-          name: authorName,
-          url: author ? getAuthorUrl(author) : undefined,
-        },
-        tags: post.data.tags,
-        category: post.data.category,
-        faq,
-        sources,
-      }}
-  robots={preview ? 'noindex, follow' : undefined}
-  pagefindIgnore={preview}
+  article={{
+    publishedTime: post.data.publishedAt.toISOString(),
+    modifiedTime: post.data.updatedAt?.toISOString(),
+    author: {
+      name: authorName,
+      url: author ? getAuthorUrl(author) : undefined,
+    },
+    tags: post.data.tags,
+    category: post.data.category,
+    faq,
+    sources,
+  }}
   showBreadcrumbs={false}
 >
   <main>
-    {
-      !preview && (
-        <Breadcrumbs
-          postCategory={post.data.category}
-          postTitle={post.data.title}
-          showNav={false}
-        />
-      )
-    }
+    <Breadcrumbs postCategory={post.data.category} postTitle={post.data.title} showNav={false} />
 
     <article>
       <header class="border-b-2 border-rule-strong">
@@ -140,11 +127,6 @@ const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name
               )
             }
             <span class="kicker text-ink-muted">{readingTime} menit baca</span>
-            {
-              preview && (
-                <span class="kicker border border-cobalt px-2 py-0.5 text-cobalt">Pratinjau</span>
-              )
-            }
             <ReadLaterButton id={post.slug} title={post.data.title} />
           </div>
         </div>
@@ -169,7 +151,7 @@ const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name
       <div class="wrap py-10 sm:py-14">
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-0">
           <div class="lg:col-span-8 lg:pr-12">
-            <div class="prose-news max-w-reading">
+            <div class="prose-news max-w-reading" data-pagefind-body>
               <Content />
             </div>
 
@@ -343,11 +325,7 @@ const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name
               </section>
 
               <p class="mt-8 border-l-2 border-cobalt pl-4 text-sm leading-relaxed text-ink-muted">
-                {
-                  preview
-                    ? 'Pratinjau desain artikel dengan konten asli.'
-                    : 'Menemukan kesalahan atau informasi yang sudah tidak relevan?'
-                }
+                Menemukan kesalahan atau informasi yang sudah tidak relevan?
                 <a href="/contact/" class="text-cobalt hover:text-cobalt-dark">
                   {' '}Hubungi redaksi →
                 </a>

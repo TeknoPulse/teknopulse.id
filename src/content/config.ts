@@ -66,36 +66,4 @@ const posts = defineCollection({
     }),
 });
 
-// Edisi percontohan untuk desain surat kabar. Dipisahkan dari `posts` supaya
-// konten demo tidak masuk RSS, sitemap artikel, atau feed — dan tidak pernah
-// tampil sebagai berita sungguhan. Semua entri wajib `demo: true`.
-const issues = defineCollection({
-  type: 'content',
-  schema: z.object({
-    number: z.number().int().positive(),
-    date: z.date(),
-    theme: z.string(),
-    summary: z.string(),
-    coverStory: z.string(),
-    editorPicks: z.array(z.string()).default([]),
-    briefs: z.array(z.string()).default([]),
-    demo: z.literal(true).default(true),
-  }),
-});
-
-const issueArticles = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    dek: z.string(),
-    topic: z.enum(['ai', 'perangkat', 'budaya', 'open-source', 'bisnis']),
-    kicker: z.string(),
-    author: z.string(),
-    publishedAt: z.date(),
-    issue: z.number().int().positive(),
-    format: z.enum(['laporan', 'analisis', 'esai', 'ringkas']).default('laporan'),
-    demo: z.literal(true).default(true),
-  }),
-});
-
-export const collections = { posts, issues, issueArticles };
+export const collections = { posts };

@@ -26,7 +26,6 @@ export interface Props {
   postCategory?: string;
   postTitle?: string;
   showBreadcrumbs?: boolean;
-  pagefindIgnore?: boolean;
 }
 
 const {
@@ -40,7 +39,6 @@ const {
   postCategory,
   postTitle,
   showBreadcrumbs = true,
-  pagefindIgnore = false,
 } = Astro.props;
 ---
 
@@ -69,7 +67,7 @@ const {
     />
     <Analytics />
   </head>
-  <body class="bg-paper text-ink" data-pagefind-ignore={pagefindIgnore ? '' : undefined}>
+  <body class="bg-paper text-ink">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:bg-paper-light focus:p-4 focus:text-cobalt"

@@ -2,8 +2,6 @@
 
 ---
 
-<script src="/pagefind/pagefind.js" is:inline></script>
-
 <div id="search">
   <label for="search-input" class="sr-only">Cari artikel</label>
   <input
@@ -32,6 +30,10 @@
     data: () => Promise<{ url: string; excerpt: string; meta: { title?: string } }>;
   };
 
+  type PagefindModule = {
+    search: (q: string) => Promise<{ results: PagefindResult[] }>;
+  };
+
   if (searchInput && searchResults && searchStatus) {
     searchResults.innerHTML =
       '<p class="py-6 text-sm leading-relaxed text-ink-muted">Hasil pencarian akan muncul di sini. Indeks dibangun saat situs diterbitkan.</p>';
@@ -39,6 +41,19 @@
     const setStatus = (message: string) => {
       searchStatus.textContent = message;
     };
+
+    // pagefind.js adalah ES module hasil postbuild, jadi harus diimpor saat
+    // runtime. Di dev server berkas ini belum ada — impor gagal dan status
+    // menjelaskan bahwa indeks belum tersedia.
+    let pagefind: PagefindModule | null = null;
+    const pagefindReady = (async () => {
+      try {
+        const url = '/pagefind/pagefind.js';
+        pagefind = (await import(/* @vite-ignore */ url)) as PagefindModule;
+      } catch {
+        pagefind = null;
+      }
+    })();
 
     searchInput.addEventListener('input', async (event) => {
       const query = (event.target as HTMLInputElement).value.trim();
@@ -50,13 +65,9 @@
         return;
       }
 
-      const pagefind = (
-        window as unknown as {
-          Pagefind?: { search: (q: string) => Promise<{ results: PagefindResult[] }> };
-        }
-      ).Pagefind;
+      await pagefindReady;
       if (!pagefind) {
-        setStatus('Pencarian belum tersedia di lingkungan pengembangan.');
+        setStatus('Indeks pencarian belum termuat. Coba muat ulang halaman.');
         return;
       }
 
