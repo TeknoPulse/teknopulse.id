@@ -1,20 +1,34 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import DemoNotice from '../components/DemoNotice.astro';
-import { buildClientIndex, getIssueArticles, serializeForScript } from '../utils/edisi';
+import { getCategoryLabel } from '../utils/categories';
+import { calculateReadingTime } from '../utils/readingTime';
+import { formatShortDate } from '../utils/dates';
+import { getPostUrl } from '../utils/urls.mjs';
 
-const articles = await getIssueArticles();
-const index = buildClientIndex(articles);
-const payload = serializeForScript(index);
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const index = posts.map((post) => ({
+  id: post.slug,
+  title: post.data.title,
+  dek: post.data.summary,
+  topicLabel: getCategoryLabel(post.data.category),
+  author: post.data.author,
+  date: formatShortDate(post.data.publishedAt),
+  readingTime: post.data.readingTime ?? calculateReadingTime(post.body),
+  url: getPostUrl(post.slug),
+}));
+
+const payload = JSON.stringify(index).replace(/</g, '\\u003c');
 ---
 
 <Layout
   title="Baca nanti — TeknoPulse"
-  description="Daftar artikel edisi demo TeknoPulse yang disimpan di peramban ini untuk dibaca nanti."
+  description="Daftar artikel TeknoPulse yang disimpan di peramban ini untuk dibaca nanti."
   showBreadcrumbs={false}
 >
-  <DemoNotice compact />
-
   <header class="border-b-2 border-rule-strong">
     <div class="wrap pt-8 pb-7 sm:pt-12">
       <p class="kicker text-cobalt">Koleksi pribadi</p>
@@ -59,11 +73,11 @@ const payload = serializeForScript(index);
             pun untuk menyimpannya di daftar ini.
           </p>
           <div class="mt-6 flex flex-wrap justify-center gap-4">
-            <a href="/edisi/" class="kicker bg-ink px-4 py-2.5 text-paper-light hover:bg-cobalt">
-              Jelajahi edisi
+            <a href="/posts/" class="kicker bg-ink px-4 py-2.5 text-paper-light hover:bg-cobalt">
+              Jelajahi arsip
             </a>
             <a
-              href="/cari/"
+              href="/search/"
               class="kicker border border-rule px-4 py-2.5 text-ink-soft hover:border-cobalt hover:text-cobalt"
             >
               Cari artikel
@@ -86,7 +100,7 @@ const payload = serializeForScript(index);
           <ol class="mt-3 space-y-4 text-sm leading-relaxed text-ink-muted">
             <li class="flex gap-3">
               <span class="font-display text-lg leading-none text-cobalt">01</span>
-              <span>Simpan artikel dari beranda, edisi, rubrik, atau hasil pencarian.</span>
+              <span>Simpan artikel dari beranda, halaman artikel, atau arsip.</span>
             </li>
             <li class="flex gap-3">
               <span class="font-display text-lg leading-none text-cobalt">02</span>
@@ -105,13 +119,14 @@ const payload = serializeForScript(index);
           <h2 id="tautan-baca" class="kicker text-ink-muted">Lanjut membaca</h2>
           <ul class="mt-2 divide-y divide-rule">
             <li>
-              <a href="/edisi/" class="block py-2.5 text-sm hover:text-cobalt">Arsip edisi</a>
+              <a href="/posts/" class="block py-2.5 text-sm hover:text-cobalt">Arsip lengkap</a>
             </li>
             <li>
-              <a href="/topik/" class="block py-2.5 text-sm hover:text-cobalt">Semua rubrik</a>
+              <a href="/category/" class="block py-2.5 text-sm hover:text-cobalt">Semua rubrik</a>
             </li>
             <li>
-              <a href="/cari/" class="block py-2.5 text-sm hover:text-cobalt">Pencarian artikel</a>
+              <a href="/search/" class="block py-2.5 text-sm hover:text-cobalt">Pencarian artikel</a
+              >
             </li>
           </ul>
         </section>
@@ -124,7 +139,7 @@ const payload = serializeForScript(index);
   </main>
 </Layout>
 
-<script type="application/json" id="edisi-index" set:html={payload} is:inline />
+<script type="application/json" id="saved-index" set:html={payload} is:inline />
 
 <script>
   import { initReadLater, readLaterIds, removeSaved, clearSaved } from '../scripts/read-later';
@@ -135,13 +150,12 @@ const payload = serializeForScript(index);
     dek: string;
     topicLabel: string;
     author: string;
-    issueLabel: string;
     date: string;
     readingTime: number;
     url: string;
   }
 
-  const dataElement = document.getElementById('edisi-index');
+  const dataElement = document.getElementById('saved-index');
   const items: SavedItem[] = dataElement?.textContent ? JSON.parse(dataElement.textContent) : [];
   const list = document.getElementById('saved-list');
   const empty = document.getElementById('saved-empty');
@@ -173,7 +187,7 @@ const payload = serializeForScript(index);
           (item) => `
             <article class="grid gap-4 border-b border-rule py-6 sm:grid-cols-[1fr_auto] sm:gap-8">
               <div>
-                <p class="kicker text-cobalt">${escapeHtml(item.topicLabel)} <span class="mx-2 text-rule">/</span> ${escapeHtml(item.issueLabel)}</p>
+                <p class="kicker text-cobalt">${escapeHtml(item.topicLabel)}</p>
                 <h2 class="mt-1.5 font-serif text-[1.4rem] leading-tight font-semibold sm:text-2xl">
                   <a href="${escapeHtml(item.url)}" class="transition-colors hover:text-cobalt">${escapeHtml(item.title)}</a>
                 </h2>

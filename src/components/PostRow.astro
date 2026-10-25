@@ -5,7 +5,8 @@ import { getCategoryLabel, getCategorySlug, getCategoryUrl } from '../utils/cate
 import { getPostUrl } from '../utils/urls.mjs';
 import { calculateReadingTime } from '../utils/readingTime';
 import { coverAlt } from '../utils/coverAlt';
-import { formatShortDate } from '../utils/edisi';
+import { formatShortDate } from '../utils/dates';
+import ReadLaterButton from './ReadLaterButton.astro';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -27,7 +28,7 @@ const href = getPostUrl(post.slug);
   ]}
   data-article-topic={categorySlug}
 >
-  <div class="flex items-baseline gap-3 sm:block">
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-2 sm:block">
     {
       index !== undefined && (
         <span class="font-display text-lg leading-none text-cobalt">
@@ -41,6 +42,7 @@ const href = getPostUrl(post.slug);
     >
       {category}
     </a>
+    <ReadLaterButton id={post.slug} title={post.data.title} compact iconOnly class="sm:mt-2" />
   </div>
 
   <div>

@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import ShareButtons from './ShareButtons.astro';
+import ReadLaterButton from './ReadLaterButton.astro';
 import GiscusComments from './GiscusComments.astro';
 import { calculateReadingTime } from '../utils/readingTime';
 import { getAuthor, getAuthorUrl } from '../utils/authors';
@@ -11,7 +12,7 @@ import { coverAlt } from '../utils/coverAlt';
 import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../utils/categories';
 import { getPostUrl, getTagUrl, slugifyTag } from '../utils/urls.mjs';
 import { hasManualSourcesSection, normalizeSources } from '../utils/sources';
-import { formatDate, formatShortDate } from '../utils/edisi';
+import { formatDate, formatShortDate } from '../utils/dates';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -144,6 +145,7 @@ const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name
                 <span class="kicker border border-cobalt px-2 py-0.5 text-cobalt">Pratinjau</span>
               )
             }
+            <ReadLaterButton id={post.slug} title={post.data.title} />
           </div>
         </div>
       </header>

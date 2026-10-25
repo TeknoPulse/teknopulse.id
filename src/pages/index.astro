@@ -3,12 +3,13 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import PostRow from '../components/PostRow.astro';
+import ReadLaterButton from '../components/ReadLaterButton.astro';
 import { site } from '../config';
 import { getAllCategories, getCategorySlug, getCategoryUrl } from '../utils/categories';
 import { calculateReadingTime } from '../utils/readingTime';
 import { coverAlt } from '../utils/coverAlt';
 import { getPostUrl } from '../utils/urls.mjs';
-import { formatDate, formatShortDate } from '../utils/edisi';
+import { formatDate, formatShortDate } from '../utils/dates';
 
 const posts = (await getCollection('posts'))
   .filter((post) => !post.data.draft)
@@ -148,6 +149,7 @@ const leadMinutes = lead.data.readingTime ?? calculateReadingTime(lead.body);
               Baca artikel
               <span aria-hidden="true">→</span>
             </a>
+            <ReadLaterButton id={lead.slug} title={lead.data.title} />
             <a
               href={getCategoryUrl(lead.data.category)}
               class="kicker text-ink-muted transition-colors hover:text-cobalt"

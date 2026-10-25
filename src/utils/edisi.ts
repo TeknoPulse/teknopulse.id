@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { calculateReadingTime } from './readingTime';
+import { formatDate } from './dates';
 
 export type Issue = CollectionEntry<'issues'>;
 export type IssueArticle = CollectionEntry<'issueArticles'>;
@@ -70,21 +71,7 @@ export const articleUrl = (article: IssueArticle): string =>
 
 export const topicUrl = (slug: string): string => `/topik/${slug}/`;
 
-export const formatDate = (date: Date): string =>
-  date.toLocaleDateString('id-ID', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'Asia/Jakarta',
-  });
-
-export const formatShortDate = (date: Date): string =>
-  date.toLocaleDateString('id-ID', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    timeZone: 'Asia/Jakarta',
-  });
+export { formatDate, formatShortDate } from './dates';
 
 export const readingTime = (body: string): number => Math.max(1, calculateReadingTime(body));
 

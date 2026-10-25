@@ -1,4 +1,4 @@
-export const READ_LATER_KEY = 'teknopulse:read-later';
+export const READ_LATER_KEY = 'teknopulse:read-later:v2';
 
 function safeRead(): string[] {
   try {
