@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PostRow from '../../components/PostRow.astro';
+import { getAllCategories, getCategorySlug, getCategoryUrl } from '../../utils/categories';
+
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const pageSize = 12;
+const visible = posts.slice(0, pageSize);
+const totalPages = Math.ceil(posts.length / pageSize);
+
+const categories = getAllCategories()
+  .map((category) => ({
+    ...category,
+    count: posts.filter((post) => getCategorySlug(post.data.category) === category.slug).length,
+  }))
+  .filter((category) => category.count > 0)
+  .sort((a, b) => b.count - a.count);
+---
+
+<Layout
+  title="Pratinjau blog — TeknoPulse"
+  description={`Arsip lengkap ${posts.length} artikel TeknoPulse: AI, software, developer, dan automation.`}
+  showBreadcrumbs={false}
+  robots="noindex, follow"
+  variant="real"
+  pagefindIgnore
+>
+  <main>
+    <header class="wrap pt-9 pb-8 sm:pt-12">
+      <p class="kicker text-cobalt">Blog <span class="mx-1.5 text-rule">/</span> Arsip terbuka</p>
+      <div
+        class="mt-3 flex flex-wrap items-end justify-between gap-x-10 gap-y-6 border-b-2 border-rule-strong pb-6"
+      >
+        <div>
+          <h1
+            class="font-serif text-[clamp(3.4rem,9vw,7rem)] font-semibold leading-[0.8] tracking-headline"
+          >
+            Blog<span class="text-cobalt">.</span>
+          </h1>
+          <p class="mt-4 max-w-xl font-serif text-lg leading-snug text-ink-soft">
+            Semua {posts.length} artikel yang sudah terbit, terbaru di atas. Setiap tulisan ditulis untuk
+            dibaca sekali duduk, dengan konteks yang cukup untuk dipakai.
+          </p>
+        </div>
+
+        <form action="/search/" method="get" role="search" class="w-full max-w-sm">
+          <label for="blog-search" class="kicker text-ink-muted">Cari arsip</label>
+          <div class="mt-2 flex border-b border-rule-strong">
+            <input
+              id="blog-search"
+              name="q"
+              type="search"
+              placeholder="Kata kunci atau topik…"
+              class="w-full min-w-0 bg-transparent py-2 text-sm text-ink placeholder:text-ink-muted"
+            />
+            <button type="submit" class="kicker px-2 text-cobalt hover:text-cobalt-dark">
+              Cari
+            </button>
+          </div>
+        </form>
+      </div>
+    </header>
+
+    <div class="wrap pb-14">
+      <div
+        class="flex flex-wrap items-center gap-x-1 gap-y-2 border-b border-rule py-3"
+        aria-label="Rubrik"
+      >
+        <span
+          class="border border-ink bg-ink px-3 py-1.5 font-sans text-[0.6875rem] font-semibold uppercase tracking-kicker text-paper-light"
+        >
+          Semua
+          <span class="ml-1 text-paper/70">{posts.length}</span>
+        </span>
+        {
+          categories.map((category) => (
+            <a href={getCategoryUrl(category.name)} class="filter-chip">
+              {category.name}
+              <span class="ml-1 text-ink-muted">{category.count}</span>
+            </a>
+          ))
+        }
+        <a href="/category/" class="kicker ml-auto text-cobalt hover:text-cobalt-dark">
+          Indeks rubrik →
+        </a>
+      </div>
+
+      <div>
+        {visible.map((post, index) => <PostRow post={post} index={index + 1} thumbnail />)}
+      </div>
+
+      <nav
+        class="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-5"
+        aria-label="Halaman arsip"
+      >
+        <p class="kicker text-ink-muted">
+          Halaman 01 / {String(totalPages).padStart(2, '0')}
+          <span class="mx-2 text-rule">/</span>
+          {pageSize} artikel per halaman
+        </p>
+        <a href="/posts/2/" class="kicker text-cobalt hover:text-cobalt-dark">
+          Halaman berikutnya →
+        </a>
+      </nav>
+    </div>
+  </main>
+</Layout>

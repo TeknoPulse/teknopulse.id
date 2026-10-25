@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DemoNotice from '../components/DemoNotice.astro';
+import { buildClientIndex, getIssueArticles, serializeForScript } from '../utils/edisi';
+
+const articles = await getIssueArticles();
+const index = buildClientIndex(articles);
+const payload = serializeForScript(index);
+---
+
+<Layout
+  title="Cari — TeknoPulse"
+  description="Cari di seluruh artikel edisi demo TeknoPulse: judul, ringkasan, rubrik, penulis, dan isi tulisan."
+  showBreadcrumbs={false}
+>
+  <DemoNotice compact />
+
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">Pencarian</p>
+      <h1
+        class="mt-2 font-serif text-[clamp(3.4rem,9vw,7rem)] font-semibold leading-[0.8] tracking-headline"
+      >
+        Cari<span class="text-cobalt">.</span>
+      </h1>
+      <p class="mt-4 max-w-xl font-serif text-lg leading-snug text-ink-soft">
+        Telusuri {index.length} tulisan demo dari tiga edisi. Pencarian mencakup judul, ringkasan, rubrik,
+        penulis, dan isi artikel.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap py-8 sm:py-12">
+    <form id="archive-search-form" action="/cari/" method="get" role="search" class="max-w-3xl">
+      <label for="archive-query" class="kicker text-ink-muted">Kata kunci</label>
+      <div class="mt-2 flex items-baseline gap-3 border-b-2 border-rule-strong pb-2">
+        <input
+          id="archive-query"
+          name="q"
+          type="search"
+          autocomplete="off"
+          placeholder="Misalnya: dokumentasi, baterai, atau budaya…"
+          class="w-full min-w-0 bg-transparent py-2 font-serif text-2xl text-ink placeholder:text-ink-muted sm:text-3xl"
+        />
+        <button type="submit" class="kicker shrink-0 text-cobalt hover:text-cobalt-dark"
+          >Cari</button
+        >
+      </div>
+    </form>
+
+    <section class="mt-10" aria-labelledby="hasil-pencarian">
+      <div
+        class="flex flex-wrap items-baseline justify-between gap-3 border-b-2 border-rule-strong pb-2"
+      >
+        <h2 id="hasil-pencarian" class="font-serif text-2xl font-semibold">Hasil</h2>
+        <p id="search-status" class="kicker text-ink-muted" role="status" aria-live="polite">
+          {index.length} tulisan tersedia
+        </p>
+      </div>
+
+      <ol id="search-results" class="divide-y divide-rule"></ol>
+
+      <div id="search-empty" class="hidden py-14 text-center" role="status">
+        <p class="font-serif text-2xl text-ink">Tidak ada tulisan yang cocok.</p>
+        <p class="mt-2 text-sm text-ink-muted">
+          Coba kata yang lebih umum, atau jelajahi <a
+            href="/topik/"
+            class="text-cobalt hover:text-cobalt-dark">semua rubrik</a
+          >.
+        </p>
+      </div>
+
+      <noscript>
+        <p class="mt-6 border-l-2 border-cobalt pl-4 text-sm text-ink-muted">
+          Pencarian langsung memerlukan JavaScript. Daftar lengkap tetap tersedia di
+          <a href="/edisi/" class="text-cobalt">arsip edisi</a>.
+        </p>
+      </noscript>
+    </section>
+
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-5">
+      <p class="text-xs text-ink-muted">
+        Simpan hasil dengan tombol Baca nanti. Daftar tersimpan di peramban ini.
+      </p>
+      <a href="/baca-nanti/" class="kicker text-cobalt hover:text-cobalt-dark">Baca nanti →</a>
+    </div>
+  </main>
+</Layout>
+
+<script type="application/json" id="edisi-search-index" set:html={payload} is:inline />
+
+<script>
+  import { bindReadLaterButtons, initReadLater } from '../scripts/read-later';
+
+  interface SearchItem {
+    id: string;
+    title: string;
+    dek: string;
+    kicker: string;
+    topicLabel: string;
+    author: string;
+    issueLabel: string;
+    date: string;
+    readingTime: number;
+    url: string;
+    searchText: string;
+  }
+
+  const dataElement = document.getElementById('edisi-search-index');
+  const items: SearchItem[] = dataElement?.textContent ? JSON.parse(dataElement.textContent) : [];
+
+  const form = document.getElementById('archive-search-form') as HTMLFormElement | null;
+  const input = document.getElementById('archive-query') as HTMLInputElement | null;
+  const results = document.getElementById('search-results');
+  const empty = document.getElementById('search-empty');
+  const status = document.getElementById('search-status');
+
+  const normalize = (value: string): string =>
+    value
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+  // Kata utuh untuk kueri pendek ("ai" tidak boleh cocok dengan "air"),
+  // prefiks untuk kueri ≥3 huruf supaya "dokumen" tetap menemukan "dokumentasi".
+  const tokenize = (value: string): string[] =>
+    normalize(value)
+      .split(/[^a-z0-9]+/)
+      .filter(Boolean);
+
+  const fits = (tokens: string[], term: string): boolean =>
+    term.length >= 3 ? tokens.some((token) => token.startsWith(term)) : tokens.includes(term);
+
+  const scoreIn = (tokens: string[], term: string): number =>
+    tokens.includes(term) ? 2 : tokens.some((token) => token.startsWith(term)) ? 1 : 0;
+
+  const escapeHtml = (value: string): string =>
+    value.replace(/[&<>"']/g, (character) => {
+      const entities: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      };
+      return entities[character] ?? character;
+    });
+
+  const renderCard = (item: SearchItem): string => `
+    <li class="py-6">
+      <p class="kicker text-cobalt">${escapeHtml(item.topicLabel)} <span class="mx-2 text-rule">/</span> ${escapeHtml(item.issueLabel)}</p>
+      <h3 class="mt-1.5 font-serif text-[1.35rem] leading-tight font-semibold sm:text-2xl">
+        <a href="${escapeHtml(item.url)}" class="transition-colors hover:text-cobalt">${escapeHtml(item.title)}</a>
+      </h3>
+      <p class="mt-2 max-w-3xl text-sm leading-relaxed text-ink-muted">${escapeHtml(item.dek)}</p>
+      <div class="mt-3 flex flex-wrap items-center gap-x-5 gap-y-3">
+        <span class="text-xs text-ink-muted">${escapeHtml(item.author)} <span class="mx-1.5 text-rule">/</span> ${escapeHtml(item.date)} <span class="mx-1.5 text-rule">/</span> ${item.readingTime} mnt baca</span>
+        <button type="button" class="readlater-toggle px-2" data-readlater-toggle="${escapeHtml(item.id)}" data-title="${escapeHtml(item.title)}" aria-pressed="false" aria-label="Simpan ${escapeHtml(item.title)} ke Baca nanti">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5h12v15l-6-3.8-6 3.8z" stroke-linejoin="round"></path></svg>
+          <span data-readlater-label>Baca nanti</span>
+        </button>
+      </div>
+    </li>
+  `;
+
+  const applyQuery = (rawQuery: string): void => {
+    const query = rawQuery.trim();
+    const terms = normalize(query).split(/\s+/).filter(Boolean);
+
+    const matches = items
+      .map((item) => {
+        const haystack = tokenize(
+          `${item.title} ${item.dek} ${item.topicLabel} ${item.author} ${item.kicker} ${item.searchText}`
+        );
+        if (!terms.every((term) => fits(haystack, term))) return null;
+
+        let score = 0;
+        const title = tokenize(item.title);
+        const dek = tokenize(item.dek);
+        const topic = tokenize(item.topicLabel);
+        for (const term of terms) {
+          score += scoreIn(title, term) * 6;
+          score += scoreIn(dek, term) * 2;
+          score += scoreIn(topic, term);
+        }
+        return { item, score };
+      })
+      .filter((entry): entry is { item: SearchItem; score: number } => entry !== null)
+      .sort((a, b) => b.score - a.score);
+
+    if (results) {
+      results.innerHTML = matches.map(({ item }) => renderCard(item)).join('');
+      bindReadLaterButtons(results);
+    }
+
+    const hasResults = matches.length > 0;
+    empty?.classList.toggle('hidden', hasResults);
+
+    if (status) {
+      status.textContent = query
+        ? `${matches.length} hasil untuk “${query}”`
+        : `${items.length} tulisan di arsip demo`;
+    }
+
+    const url = new URL(window.location.href);
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
+    window.history.replaceState({}, '', url);
+  };
+
+  let debounce: number | undefined;
+  const schedule = (value: string): void => {
+    window.clearTimeout(debounce);
+    debounce = window.setTimeout(() => applyQuery(value), 140);
+  };
+
+  if (input) {
+    const initialQuery = new URLSearchParams(window.location.search).get('q') ?? '';
+    input.value = initialQuery;
+    applyQuery(initialQuery);
+    input.addEventListener('input', () => schedule(input.value));
+  } else {
+    applyQuery('');
+  }
+
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    applyQuery(input?.value ?? '');
+  });
+
+  initReadLater();
+</script>

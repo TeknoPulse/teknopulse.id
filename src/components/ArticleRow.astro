@@ -1,0 +1,62 @@
+---
+import ReadLaterButton from './ReadLaterButton.astro';
+import type { IssueArticle } from '../utils/edisi';
+import { articleUrl, formatShortDate, getTopic, readingTime } from '../utils/edisi';
+
+interface Props {
+  article: IssueArticle;
+  index?: number;
+  showIssue?: boolean;
+}
+
+const { article, index, showIssue = false } = Astro.props;
+const topic = getTopic(article.data.topic);
+const href = articleUrl(article);
+---
+
+<article
+  class="group grid gap-3 border-t border-rule py-5 sm:grid-cols-[8.5rem_1fr_auto] sm:gap-6"
+  data-article-topic={article.data.topic}
+>
+  <div class="flex items-baseline gap-2 sm:block">
+    {
+      index !== undefined && (
+        <span class="font-display text-lg leading-none text-cobalt">
+          {String(index).padStart(2, '0')}
+        </span>
+      )
+    }
+    <span class="kicker text-ink-muted sm:mt-1 sm:block">{article.data.kicker}</span>
+  </div>
+
+  <div>
+    <p class="kicker text-cobalt">{topic.label}</p>
+    <h3 class="mt-1.5 font-serif text-[1.35rem] font-semibold leading-[1.15] sm:text-2xl">
+      <a href={href} class="transition-colors group-hover:text-cobalt">{article.data.title}</a>
+    </h3>
+    <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-muted">{article.data.dek}</p>
+    <p class="mt-2.5 text-xs text-ink-muted">
+      {
+        showIssue && (
+          <>
+            <span class="font-medium text-cobalt">
+              Edisi {String(article.data.issue).padStart(2, '0')}
+            </span>
+            <span class="mx-1.5 text-rule">/</span>
+          </>
+        )
+      }
+      {article.data.author}
+      <span class="mx-1.5 text-rule">/</span>
+      <time datetime={article.data.publishedAt.toISOString()}>
+        {formatShortDate(article.data.publishedAt)}
+      </time>
+      <span class="mx-1.5 text-rule">/</span>
+      {readingTime(article.body)} mnt baca
+    </p>
+  </div>
+
+  <div class="sm:pt-6">
+    <ReadLaterButton id={article.id} title={article.data.title} compact />
+  </div>
+</article>

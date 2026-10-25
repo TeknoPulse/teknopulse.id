@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import DemoNotice from '../../components/DemoNotice.astro';
+import {
+  articleUrl,
+  getIssueArticles,
+  getTopic,
+  padIssue,
+  topics,
+  topicUrl,
+} from '../../utils/edisi';
+
+const articles = await getIssueArticles();
+
+const sections = topics.map((topic) => {
+  const items = articles.filter((article) => article.data.topic === topic.slug);
+  return {
+    ...topic,
+    count: items.length,
+    latest: items.slice(0, 2),
+  };
+});
+---
+
+<Layout
+  title="Topik — TeknoPulse"
+  description="Lima rubrik edisi demo TeknoPulse: kecerdasan buatan, perangkat, budaya digital, open source, dan bisnis teknologi."
+  showBreadcrumbs={false}
+>
+  <DemoNotice compact />
+
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-7 sm:pt-12">
+      <p class="kicker text-cobalt">Rubrik</p>
+      <div class="mt-2 flex flex-wrap items-end justify-between gap-6">
+        <h1
+          class="font-serif text-[clamp(3.6rem,10vw,7.5rem)] font-semibold leading-[0.8] tracking-headline"
+        >
+          Topik<span class="text-cobalt">.</span>
+        </h1>
+        <p class="max-w-md pb-2 font-serif text-lg leading-snug text-ink-soft">
+          Lima rubrik yang menyusun edisi demo. Setiap rubrik mengumpulkan tulisan dari ketiga edisi
+          — berguna untuk melihat bagaimana satu tema berkembang dari minggu ke minggu.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap py-10 sm:py-14">
+    <div class="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+      {
+        sections.map((section) => (
+          <section
+            class="border-t-2 border-rule-strong pt-4"
+            aria-labelledby={`topik-${section.slug}`}
+          >
+            <div class="flex items-baseline justify-between gap-4">
+              <h2 id={`topik-${section.slug}`} class="font-serif text-3xl font-semibold">
+                <a href={topicUrl(section.slug)} class="transition-colors hover:text-cobalt">
+                  {section.label}
+                </a>
+              </h2>
+              <span class="kicker text-ink-muted">{section.count} tulisan</span>
+            </div>
+            <p class="mt-2 max-w-xl font-serif text-lg leading-snug text-ink-soft">
+              {section.description}
+            </p>
+
+            <ul class="mt-4 divide-y divide-rule border-t border-rule">
+              {section.latest.map((article) => (
+                <li class="py-3">
+                  <a href={articleUrl(article)} class="group block">
+                    <span class="kicker text-cobalt">
+                      No. {padIssue(article.data.issue)}
+                      <span class="mx-1.5 text-rule">/</span>
+                      {getTopic(article.data.topic).short}
+                    </span>
+                    <span class="mt-1 block font-serif text-lg leading-tight group-hover:text-cobalt">
+                      {article.data.title}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-4">
+              <a href={topicUrl(section.slug)} class="kicker text-cobalt hover:text-cobalt-dark">
+                Semua tulisan →
+              </a>
+            </div>
+          </section>
+        ))
+      }
+    </div>
+
+    <section
+      class="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-rule pt-6"
+    >
+      <p class="max-w-xl text-sm leading-relaxed text-ink-muted">
+        Semua tulisan di rubrik ini adalah contoh untuk demonstrasi desain. Nama penulis dan
+        organisasi fiktif.
+      </p>
+      <a href="/cari/" class="kicker text-cobalt hover:text-cobalt-dark">Cari di seluruh edisi →</a>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,244 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import DemoNotice from '../../../components/DemoNotice.astro';
+import ArticleRow from '../../../components/ArticleRow.astro';
+import ReadLaterButton from '../../../components/ReadLaterButton.astro';
+import {
+  arrangeIssue,
+  articleUrl,
+  formatDate,
+  getIssueArticles,
+  getIssues,
+  getTopic,
+  issueUrl,
+  padIssue,
+  readingTime,
+  topics,
+} from '../../../utils/edisi';
+import type { Issue } from '../../../utils/edisi';
+
+export async function getStaticPaths() {
+  const issues = await getIssues();
+  return issues.map((issue) => ({
+    params: { issue: padIssue(issue.data.number) },
+    props: { issue },
+  }));
+}
+
+interface Props {
+  issue: Issue;
+}
+
+const { issue } = Astro.props;
+
+const [issues, articles] = await Promise.all([getIssues(), getIssueArticles()]);
+const arranged = arrangeIssue(issue, articles);
+const cover = arranged.cover;
+
+if (!cover) {
+  throw new Error(`Edisi ${issue.data.number} belum punya laporan utama yang valid.`);
+}
+
+const { Content: EditorialNote } = await issue.render();
+const number = padIssue(issue.data.number);
+const position = issues.findIndex((item) => item.data.number === issue.data.number);
+const newer = position > 0 ? issues[position - 1] : undefined;
+const older = position < issues.length - 1 ? issues[position + 1] : undefined;
+
+const contents = [cover, ...arranged.picks, ...arranged.briefs].filter(
+  (article, index, list) => list.findIndex((item) => item.id === article.id) === index
+);
+const rest = contents.filter((article) => article.id !== cover.id);
+
+const topicsInIssue = topics
+  .map((topic) => ({
+    ...topic,
+    count: contents.filter((article) => article.data.topic === topic.slug).length,
+  }))
+  .filter((topic) => topic.count > 0);
+
+const coverTopic = getTopic(cover.data.topic);
+---
+
+<Layout
+  title={`Edisi ${number} (demo) — ${issue.data.theme}`}
+  description={`Edisi demo TeknoPulse nomor ${number}: ${issue.data.summary}`}
+  showBreadcrumbs={false}
+>
+  <DemoNotice compact />
+
+  <header class="border-b-2 border-rule-strong">
+    <div class="wrap pt-8 pb-8 sm:pt-10">
+      <nav aria-label="Remah roti" class="kicker flex flex-wrap items-center gap-2 text-ink-muted">
+        <a href="/edisi/" class="hover:text-cobalt">Edisi</a>
+        <span aria-hidden="true">/</span>
+        <span class="text-ink">No. {number}</span>
+      </nav>
+
+      <div class="mt-6 grid gap-6 sm:grid-cols-[10rem_1fr] sm:gap-10">
+        <div>
+          <p class="kicker text-ink-muted">Edisi</p>
+          <p class="font-display text-[6.5rem] font-semibold leading-[0.72] text-cobalt">
+            {number}
+          </p>
+          <time
+            datetime={issue.data.date.toISOString()}
+            class="mt-4 block font-serif text-lg leading-tight"
+          >
+            {formatDate(issue.data.date)}
+          </time>
+        </div>
+
+        <div class="sm:border-l sm:border-rule sm:pl-10">
+          <h1
+            class="headline-balance max-w-4xl font-serif text-[clamp(2.4rem,5.8vw,4.6rem)] font-semibold leading-[0.95] tracking-headline"
+          >
+            {issue.data.theme}
+          </h1>
+          <p class="mt-4 max-w-2xl font-serif text-xl leading-snug text-ink-soft sm:text-2xl">
+            {issue.data.summary}
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap py-10 sm:py-14">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-0">
+      <div class="lg:col-span-8 lg:pr-12">
+        <section aria-labelledby="catatan-redaksi">
+          <h2 id="catatan-redaksi" class="kicker text-cobalt">Dari meja redaksi</h2>
+          <div class="prose-news mt-4 max-w-reading">
+            <EditorialNote />
+          </div>
+        </section>
+
+        <section class="mt-12 border-t-2 border-rule-strong pt-6" aria-labelledby="laporan-utama">
+          <div class="h-0.5 w-14 bg-cobalt" aria-hidden="true"></div>
+          <p class="kicker mt-3 text-cobalt">
+            Laporan utama <span class="mx-1.5 text-rule">/</span>
+            {coverTopic.label}
+          </p>
+          <h2
+            id="laporan-utama"
+            class="headline-balance mt-3 max-w-4xl font-serif text-[clamp(2.2rem,4.6vw,3.7rem)] font-semibold leading-[0.97] tracking-headline"
+          >
+            <a href={articleUrl(cover)} class="transition-colors hover:text-cobalt">
+              {cover.data.title}
+            </a>
+          </h2>
+          <p class="mt-4 max-w-2xl font-serif text-xl leading-snug text-ink-soft">
+            {cover.data.dek}
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 border-t border-rule pt-4">
+            <span class="kicker text-ink">{cover.data.author}</span>
+            <span class="kicker text-ink-muted">{readingTime(cover.body)} menit baca</span>
+            <div class="ml-auto">
+              <ReadLaterButton id={cover.id} title={cover.data.title} />
+            </div>
+          </div>
+          <a
+            href={articleUrl(cover)}
+            class="kicker mt-5 inline-flex items-center gap-2 bg-ink px-5 py-3 text-paper-light transition-colors hover:bg-cobalt"
+          >
+            Baca laporan utama <span aria-hidden="true">→</span>
+          </a>
+        </section>
+
+        {
+          rest.length > 0 && (
+            <section class="mt-12" aria-labelledby="isi-edisi">
+              <div class="flex items-baseline justify-between border-b-2 border-rule-strong pb-2">
+                <h2 id="isi-edisi" class="font-serif text-2xl font-semibold">
+                  Isi edisi
+                </h2>
+                <span class="kicker text-ink-muted">{contents.length} tulisan</span>
+              </div>
+              <div>
+                {rest.map((article, index) => (
+                  <ArticleRow article={article} index={index + 1} />
+                ))}
+              </div>
+            </section>
+          )
+        }
+
+        <nav
+          class="mt-12 grid gap-4 border-t border-rule pt-6 sm:grid-cols-2"
+          aria-label="Edisi lain"
+        >
+          {
+            older ? (
+              <a href={issueUrl(older.data.number)} class="group">
+                <span class="kicker text-ink-muted">← Edisi lebih lama</span>
+                <span class="mt-1 block font-serif text-lg leading-tight group-hover:text-cobalt">
+                  No. {padIssue(older.data.number)} — {older.data.theme}
+                </span>
+              </a>
+            ) : (
+              <span />
+            )
+          }
+          {
+            newer ? (
+              <a href={issueUrl(newer.data.number)} class="group sm:text-right">
+                <span class="kicker text-ink-muted">Edisi lebih baru →</span>
+                <span class="mt-1 block font-serif text-lg leading-tight group-hover:text-cobalt">
+                  No. {padIssue(newer.data.number)} — {newer.data.theme}
+                </span>
+              </a>
+            ) : (
+              <span />
+            )
+          }
+        </nav>
+      </div>
+
+      <aside class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+        <div class="lg:sticky lg:top-24">
+          <section aria-labelledby="daftar-isi">
+            <h2 id="daftar-isi" class="border-b border-rule pb-2 font-serif text-2xl font-semibold">
+              Daftar isi
+            </h2>
+            <ol class="divide-y divide-rule">
+              {
+                contents.map((article, index) => (
+                  <li class="flex gap-3 py-3">
+                    <span class="font-display text-lg leading-none text-cobalt">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <a href={articleUrl(article)} class="text-sm leading-snug hover:text-cobalt">
+                        {article.data.title}
+                      </a>
+                      <p class="kicker mt-1 text-ink-muted">{article.data.kicker}</p>
+                    </div>
+                  </li>
+                ))
+              }
+            </ol>
+          </section>
+
+          <section class="mt-8 border-t border-rule pt-5" aria-labelledby="rubrik-edisi">
+            <h2 id="rubrik-edisi" class="kicker text-ink-muted">Rubrik edisi ini</h2>
+            <ul class="mt-2 flex flex-wrap gap-2">
+              {
+                topicsInIssue.map((topic) => (
+                  <li class="border border-rule px-2 py-1 text-xs text-ink-soft">
+                    {topic.label} <span class="text-ink-muted">{topic.count}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+
+          <p class="mt-8 border-l-2 border-cobalt pl-4 text-sm leading-relaxed text-ink-muted">
+            Semua artikel di edisi ini adalah contoh. Simpan dengan tombol
+            <span class="text-ink-soft"> Baca nanti</span> —
+            <a href="/baca-nanti/" class="text-cobalt hover:text-cobalt-dark">lihat daftar →</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+</Layout>

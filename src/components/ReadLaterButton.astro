@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  compact?: boolean;
+}
+
+const { id, title, compact = false } = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={['readlater-toggle', compact && 'px-2']}
+  data-readlater-toggle={id}
+  data-title={title}
+  aria-pressed="false"
+  aria-label={`Simpan ${title} ke Baca nanti`}
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 4.5h12v15l-6-3.8-6 3.8z" stroke-linejoin="round"></path>
+  </svg>
+  <span data-readlater-label>Baca nanti</span>
+</button>

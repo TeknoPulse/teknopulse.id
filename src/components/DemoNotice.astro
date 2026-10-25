@@ -1,0 +1,20 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<aside
+  class:list={['border-y border-cobalt/25 bg-cobalt-tint/70', compact ? 'text-xs' : 'text-sm']}
+  aria-label="Pemberitahuan konten demo"
+>
+  <div class="wrap flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:gap-4">
+    <span class="kicker w-fit bg-cobalt px-2 py-1 text-paper-light">Demo</span>
+    <p class="leading-relaxed text-ink-soft">
+      Edisi percontohan — semua nama, organisasi, dan peristiwa di dalamnya fiktif. Dibuat untuk
+      demonstrasi desain, <span class="text-ink-muted">bukan berita sungguhan.</span>
+    </p>
+  </div>
+</aside>

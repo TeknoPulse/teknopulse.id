@@ -1,0 +1,59 @@
+---
+import type { Issue } from '../utils/edisi';
+import { formatDate, padIssue } from '../utils/edisi';
+
+interface Props {
+  issue: Issue;
+}
+
+const { issue } = Astro.props;
+const number = padIssue(issue.data.number);
+---
+
+<header class="border-b-2 border-rule-strong">
+  <div class="wrap pt-5 pb-4 sm:pt-7">
+    <div class="kicker flex items-center justify-between gap-4 text-ink-muted">
+      <span>Surat kabar teknologi mingguan</span>
+      <span class="text-cobalt">Edisi demo</span>
+    </div>
+
+    <div
+      class="mt-4 grid grid-cols-1 items-end gap-5 border-y border-rule py-5 sm:grid-cols-[8rem_1fr_10rem] sm:gap-6 sm:py-7"
+    >
+      <div class="hidden sm:block">
+        <p class="kicker text-ink-muted">Nomor</p>
+        <p class="mt-1 font-display text-6xl font-semibold leading-[0.8] text-cobalt">{number}</p>
+      </div>
+
+      <div class="text-center">
+        <h1
+          class="display-line text-[clamp(3.1rem,10.5vw,7.6rem)] font-semibold leading-[0.8] tracking-headline text-ink"
+        >
+          TeknoPulse<span class="text-cobalt">.</span>
+        </h1>
+        <p class="mt-3 font-serif text-base italic leading-snug text-ink-soft sm:text-lg">
+          Teknologi, manusia, dan keputusan yang kita ambil.
+        </p>
+      </div>
+
+      <div class="hidden text-right sm:block">
+        <p class="kicker text-ink-muted">Tanggal</p>
+        <time
+          datetime={issue.data.date.toISOString()}
+          class="mt-1 block font-serif text-xl leading-tight"
+        >
+          {formatDate(issue.data.date)}
+        </time>
+      </div>
+    </div>
+
+    <div class="mt-3 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+      <p class="kicker text-ink-muted">
+        <span class="text-cobalt">No. {number}</span>
+        <span class="mx-2 text-rule">/</span>
+        {issue.data.theme}
+      </p>
+      <p class="kicker text-ink-muted sm:hidden">{formatDate(issue.data.date)}</p>
+    </div>
+  </div>
+</header>

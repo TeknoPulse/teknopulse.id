@@ -4,91 +4,129 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand Colors - Tech Blue Theme
-        primary: {
-          DEFAULT: 'hsl(24, 90%, 55%)', // Warm orange - Main brand color
-          50: 'hsl(24, 90%, 95%)',
-          100: 'hsl(24, 90%, 90%)',
-          200: 'hsl(24, 90%, 80%)',
-          300: 'hsl(24, 90%, 70%)',
-          400: 'hsl(24, 90%, 60%)',
-          500: 'hsl(24, 90%, 55%)',
-          600: 'hsl(24, 90%, 50%)',
-          700: 'hsl(24, 90%, 45%)',
-          800: 'hsl(24, 90%, 35%)',
-          900: 'hsl(24, 90%, 25%)',
+        // Newspaper palette — off-white paper, near-black ink, cobalt accents.
+        paper: '#f4f0e6',
+        'paper-deep': '#e9e2d2',
+        'paper-light': '#fbf8f1',
+        ink: '#171614',
+        'ink-soft': '#3b3831',
+        'ink-muted': '#6c6659',
+        rule: '#cec6b4',
+        'rule-strong': '#1d1c19',
+        cobalt: {
+          DEFAULT: '#1d3fbf',
+          dark: '#142f96',
+          tint: '#e5e9fa',
         },
-        'primary-hover': 'hsl(24, 90%, 45%)', // Darker orange for interactions
-        'primary-light': 'hsl(24, 90%, 95%)', // Light orange backgrounds
+
+        // Brand tokens remapped to cobalt so older routes inherit the redesign.
+        primary: {
+          DEFAULT: '#1d3fbf',
+          50: '#eef1fc',
+          100: '#dfe4fa',
+          200: '#c3cdf6',
+          300: '#9faff0',
+          400: '#7289e6',
+          500: '#4d68d8',
+          600: '#1d3fbf',
+          700: '#1834a0',
+          800: '#142a7e',
+          900: '#101f5c',
+        },
+        'primary-hover': '#142f96',
+        'primary-light': '#e9edfb',
         secondary: {
-          DEFAULT: 'hsl(38, 85%, 50%)', // Warm amber accent
-          50: 'hsl(38, 85%, 95%)',
-          100: 'hsl(38, 85%, 90%)',
-          200: 'hsl(38, 85%, 80%)',
-          300: 'hsl(38, 85%, 70%)',
-          400: 'hsl(38, 85%, 60%)',
-          500: 'hsl(38, 85%, 50%)',
-          600: 'hsl(38, 85%, 45%)',
-          700: 'hsl(38, 85%, 40%)',
-          800: 'hsl(38, 85%, 30%)',
-          900: 'hsl(38, 85%, 20%)',
+          DEFAULT: '#2b3f7d',
+          50: '#eef0f7',
+          100: '#dde2f0',
+          200: '#bcc6e1',
+          300: '#96a5cd',
+          400: '#7083b5',
+          500: '#52679c',
+          600: '#2b3f7d',
+          700: '#233366',
+          800: '#1b274d',
+          900: '#131c38',
         },
         accent: {
-          DEFAULT: 'hsl(12, 75%, 55%)', // Terracotta accent
-          50: 'hsl(12, 75%, 95%)',
-          100: 'hsl(12, 75%, 90%)',
-          200: 'hsl(12, 75%, 80%)',
-          300: 'hsl(12, 75%, 70%)',
-          400: 'hsl(12, 75%, 60%)',
-          500: 'hsl(12, 75%, 55%)',
-          600: 'hsl(12, 75%, 45%)',
-          700: 'hsl(12, 75%, 40%)',
-          800: 'hsl(12, 75%, 30%)',
-          900: 'hsl(12, 75%, 20%)',
+          DEFAULT: '#1d3fbf',
+          50: '#eef1fc',
+          100: '#dfe4fa',
+          200: '#c3cdf6',
+          300: '#9faff0',
+          400: '#7289e6',
+          500: '#4d68d8',
+          600: '#1d3fbf',
+          700: '#1834a0',
+          800: '#142a7e',
+          900: '#101f5c',
         },
 
-        // Category color tokens for all 6 categories
-        'category-ai': 'hsl(270, 80%, 60%)', // Purple for AI articles
-        'category-developer': 'hsl(140, 70%, 45%)', // Green for Developer articles
-        'category-software': 'hsl(200, 80%, 55%)', // Light blue for Software articles
-        'category-automation': 'hsl(40, 85%, 55%)', // Yellow-orange for Automation articles
-        'category-experiments': 'hsl(330, 75%, 60%)', // Pink-red for Experiments articles
-        'category-insights': 'hsl(180, 70%, 50%)', // Teal for Insights articles
+        // Category tokens kept for legacy article pages.
+        'category-ai': 'hsl(270, 70%, 52%)',
+        'category-developer': 'hsl(150, 55%, 34%)',
+        'category-software': 'hsl(205, 72%, 42%)',
+        'category-automation': 'hsl(35, 75%, 42%)',
+        'category-experiments': 'hsl(335, 65%, 48%)',
+        'category-insights': 'hsl(185, 60%, 32%)',
 
-        // Background Colors
-        background: 'hsl(30, 20%, 97%)', // Warm off-white background
-        'background-dark': 'hsl(25, 15%, 10%)', // Deep warm gray background
-        surface: '#ffffff',
-        'surface-dark': 'hsl(25, 12%, 14%)', // Warm charcoal surface
+        background: '#f4f0e6',
+        'background-dark': '#141310',
+        surface: '#fbf8f1',
+        'surface-dark': '#1c1b18',
 
-        // Text Colors
-        'text-primary': 'hsl(25, 10%, 15%)',
-        'text-secondary': 'hsl(25, 8%, 40%)',
-        'text-muted': 'hsl(25, 6%, 55%)',
+        'text-primary': '#171614',
+        'text-secondary': '#3b3831',
+        'text-muted': '#6c6659',
 
-        // Legacy colors for backward compatibility (warm gray scale)
         gray: {
-          50: 'hsl(25, 20%, 98%)',
-          100: 'hsl(25, 15%, 95%)',
-          200: 'hsl(25, 10%, 85%)',
-          300: 'hsl(25, 10%, 75%)',
-          400: 'hsl(25, 10%, 65%)',
-          500: 'hsl(25, 10%, 50%)',
-          600: 'hsl(25, 15%, 35%)',
-          700: 'hsl(25, 15%, 25%)',
-          800: 'hsl(25, 20%, 15%)',
-          900: 'hsl(25, 25%, 10%)',
+          50: '#f9f6ee',
+          100: '#f1ece0',
+          200: '#e2dbc9',
+          300: '#cfc7b4',
+          400: '#a9a294',
+          500: '#807a6e',
+          600: '#5f5a50',
+          700: '#45413a',
+          800: '#2b2925',
+          900: '#171614',
         },
       },
       fontFamily: {
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         primary: ['Inter', 'sans-serif'],
+        serif: [
+          'Newsreader Variable',
+          'Newsreader',
+          'Iowan Old Style',
+          'Charter',
+          'Palatino Linotype',
+          'Georgia',
+          'serif',
+        ],
+        display: [
+          'Newsreader Variable',
+          'Newsreader',
+          'Iowan Old Style',
+          'Charter',
+          'Palatino Linotype',
+          'Georgia',
+          'serif',
+        ],
       },
       fontWeight: {
         normal: 400,
         medium: 500,
         semibold: 600,
         bold: 700,
+      },
+      letterSpacing: {
+        kicker: '0.16em',
+        headline: '-0.035em',
+      },
+      maxWidth: {
+        reading: '68ch',
+        newspaper: '1240px',
       },
       borderRadius: {
         sm: '0.5rem',
@@ -108,12 +146,12 @@ module.exports = {
         lg: '0 10px 15px rgba(0, 0, 0, 0.1)',
         xl: '0 20px 25px rgba(0, 0, 0, 0.1)',
         '2xl': '0 25px 50px rgba(0, 0, 0, 0.15)',
-        glow: '0 0 20px hsl(24, 90%, 55%)',
+        glow: '0 0 20px #1d3fbf',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, hsl(24, 90%, 55%), hsl(38, 85%, 50%))',
-        'gradient-hero': 'linear-gradient(135deg, hsl(24, 90%, 55%)/10%, transparent)',
-        'gradient-accent': 'linear-gradient(135deg, hsl(12, 75%, 55%), hsl(24, 90%, 55%))',
+        'gradient-primary': 'linear-gradient(135deg, #1d3fbf, #142f96)',
+        'gradient-hero': 'linear-gradient(135deg, #1d3fbf14, transparent)',
+        'gradient-accent': 'linear-gradient(135deg, #1d3fbf, #142f96)',
       },
     },
   },

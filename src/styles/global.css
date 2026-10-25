@@ -1,24 +1,36 @@
-/* Inter self-host via @fontsource (TEKAA-3 P2-13): menghilangkan rantai
-   DNS+TLS+CSS ke fonts.googleapis.com yang render-blocking. Vite me-resolve
-   import paket ini menjadi aset /_astro/* ber-hash (cache immutable).
-   Weight mengikuti pemakaian template: 400/500/600/700. */
+/* Inter untuk teks, Newsreader untuk judul — keduanya self-host via @fontsource. */
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
 @import '@fontsource/inter/700.css';
+@import '@fontsource-variable/newsreader/wght.css';
+@import '@fontsource-variable/newsreader/wght-italic.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Design System - Base Layer */
+:root {
+  --paper: #f4f0e6;
+  --paper-deep: #e9e2d2;
+  --paper-light: #fbf8f1;
+  --ink: #171614;
+  --ink-soft: #3b3831;
+  --ink-muted: #6c6659;
+  --rule: #cec6b4;
+  --cobalt: #1d3fbf;
+  --cobalt-dark: #142f96;
+  --font-serif:
+    'Newsreader Variable', 'Newsreader', 'Iowan Old Style', Charter, 'Palatino Linotype', Georgia,
+    serif;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* Enhanced font rendering with Inter */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -32,22 +44,23 @@
       sans-serif;
     font-weight: 400;
     line-height: 1.6;
-    background-color: hsl(30, 20%, 97%);
-    color: hsl(25, 10%, 15%);
+    background-color: var(--paper);
+    color: var(--ink);
     font-size: 16px;
   }
 
-  /* Typography improvements */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
     font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.025em;
-    color: hsl(25, 10%, 15%);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
   }
 
   h1 {
@@ -69,29 +82,95 @@
     font-size: 1rem;
   }
 
-  /* Reduce layout shifts */
   img {
     height: auto;
     max-width: 100%;
   }
 
-  /* Enhanced focus styles for accessibility */
   *:focus-visible {
-    outline: 2px solid hsl(24, 90%, 55%);
-    outline-offset: 2px;
-    border-radius: theme('borderRadius.sm');
+    outline: 2px solid var(--cobalt);
+    outline-offset: 3px;
+    border-radius: 1px;
   }
 
-  /* Selection styles */
   ::selection {
-    background-color: rgba(245, 124, 0, 0.2);
-    color: hsl(24, 90%, 55%);
+    background-color: var(--cobalt);
+    color: var(--paper-light);
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-/* Design System - Component Layer */
 @layer components {
-  /* Category badge styles */
+  .wrap {
+    @apply mx-auto w-full max-w-newspaper px-5 sm:px-8;
+  }
+
+  .kicker {
+    @apply font-sans text-[0.6875rem] font-semibold uppercase tracking-kicker;
+  }
+
+  .display-line {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+    letter-spacing: 0.02em;
+  }
+
+  .headline-balance {
+    text-wrap: balance;
+  }
+
+  .readlater-toggle {
+    @apply inline-flex items-center gap-2 border border-rule px-3 py-1.5 font-sans text-[0.6875rem] font-semibold uppercase tracking-kicker text-ink-soft transition-colors;
+  }
+
+  .readlater-toggle:hover {
+    @apply border-cobalt text-cobalt;
+  }
+
+  .readlater-toggle.is-saved {
+    @apply border-cobalt bg-cobalt text-paper-light;
+  }
+
+  .readlater-toggle svg {
+    @apply h-3.5 w-3.5;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+  }
+
+  .readlater-toggle.is-saved svg {
+    fill: currentColor;
+  }
+
+  .filter-chip {
+    @apply border border-transparent px-3 py-1.5 font-sans text-[0.6875rem] font-semibold uppercase tracking-kicker text-ink-muted transition-colors;
+  }
+
+  .filter-chip:hover {
+    @apply border-rule text-ink;
+  }
+
+  .filter-chip[aria-pressed='true'] {
+    @apply border-ink bg-ink text-paper-light;
+  }
+
+  /* Category badges stay available for legacy article routes. */
   .category-badge {
     @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
     @apply transition-colors duration-200;
@@ -116,7 +195,6 @@
     @apply bg-category-insights/10 text-category-insights hover:bg-category-insights/20;
   }
 
-  /* Card styles */
   .card {
     @apply rounded-lg border border-gray-200/50 bg-surface;
     @apply shadow-sm transition-all duration-300 hover:shadow-md;
@@ -127,7 +205,6 @@
     @apply shadow-lg hover:shadow-xl;
   }
 
-  /* Button styles */
   .btn-primary {
     @apply bg-primary font-medium text-white hover:bg-primary-hover;
     @apply rounded-lg px-6 py-3 transition-colors duration-200;
@@ -140,21 +217,152 @@
     @apply transition-all duration-200 hover:shadow-sm;
   }
 
-  /* Gradient backgrounds */
   .gradient-primary {
-    background: linear-gradient(135deg, hsl(24, 90%, 55%), hsl(38, 85%, 50%));
+    background: linear-gradient(135deg, #1d3fbf, #142f96);
   }
 
   .gradient-hero {
-    background: linear-gradient(135deg, hsl(24, 90%, 55% / 0.1), transparent);
+    background: linear-gradient(135deg, #1d3fbf14, transparent);
   }
 
   .gradient-accent {
-    background: linear-gradient(135deg, hsl(12, 75%, 55%), hsl(24, 90%, 55%));
+    background: linear-gradient(135deg, #1d3fbf, #142f96);
   }
 }
 
-/* Dark mode improvements - using Tailwind's class-based dark mode */
+/* Article body — serif reading measure with a cobalt drop cap. */
+.prose-news {
+  font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-size: 1.1875rem;
+  line-height: 1.72;
+  color: var(--ink-soft);
+}
+
+.prose-news > * + * {
+  margin-top: 1.35em;
+}
+
+.prose-news p {
+  margin: 0;
+}
+
+.prose-news > p:first-of-type {
+  font-size: 1.28rem;
+  line-height: 1.62;
+  color: var(--ink);
+}
+
+.prose-news > p:first-of-type::first-letter {
+  float: left;
+  padding-right: 0.08em;
+  padding-top: 0.06em;
+  font-family: var(--font-serif);
+  font-size: 4.4em;
+  font-weight: 600;
+  line-height: 0.76;
+  color: var(--cobalt);
+}
+
+.prose-news h2 {
+  margin-top: 2.3em;
+  margin-bottom: 0.5em;
+  font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+  line-height: 1.12;
+  color: var(--ink);
+}
+
+.prose-news h3 {
+  margin-top: 1.9em;
+  margin-bottom: 0.45em;
+  font-size: 1.35rem;
+  color: var(--ink);
+}
+
+.prose-news strong {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.prose-news em {
+  font-style: italic;
+}
+
+.prose-news a {
+  color: var(--cobalt);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.prose-news a:hover {
+  color: var(--cobalt-dark);
+}
+
+.prose-news blockquote {
+  margin: 2.2em 0;
+  border-left: 2px solid var(--cobalt);
+  padding-left: 1.35rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.42;
+  color: var(--ink);
+}
+
+.prose-news blockquote p {
+  margin: 0;
+}
+
+.prose-news ul,
+.prose-news ol {
+  padding-left: 1.4rem;
+}
+
+.prose-news ul {
+  list-style: disc;
+}
+
+.prose-news ol {
+  list-style: decimal;
+}
+
+.prose-news li + li {
+  margin-top: 0.4em;
+}
+
+.prose-news code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--paper-deep);
+  padding: 0.12em 0.32em;
+}
+
+.prose-news hr {
+  margin: 2.5em 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+/* Thin, paper-toned scrollbars. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(29, 63, 191, 0.3);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(29, 63, 191, 0.55);
+}
+
+/* Legacy dark-mode support for untouched routes. */
 .dark {
   color-scheme: dark;
 }
@@ -173,7 +381,6 @@
   color: hsl(25, 10%, 95%);
 }
 
-/* Dark mode category badge overrides — slightly higher opacity for better contrast */
 .dark .category-ai {
   @apply bg-category-ai/20 hover:bg-category-ai/30;
 }
@@ -191,36 +398,4 @@
 }
 .dark .category-insights {
   @apply bg-category-insights/20 hover:bg-category-insights/30;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: hsl(30, 20%, 97%);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(245, 124, 0, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 124, 0, 0.5);
-}
-
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-track {
-  background: hsl(25, 15%, 10%);
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(245, 124, 0, 0.4);
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(245, 124, 0, 0.6);
 }
