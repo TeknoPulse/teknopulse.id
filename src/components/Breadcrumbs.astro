@@ -8,9 +8,10 @@ import { getAuthorBySlug } from '../utils/authors';
 interface Props {
   postCategory?: string;
   postTitle?: string;
+  showNav?: boolean;
 }
 
-const { postCategory, postTitle } = Astro.props;
+const { postCategory, postTitle, showNav = true } = Astro.props;
 
 const pathname = Astro.url.pathname;
 const segments = pathname.split('/').filter((s) => s !== '');
@@ -75,6 +76,7 @@ const breadcrumbLd = {
 <nav
   class="container mx-auto px-4 py-2 text-sm text-gray-600 dark:text-gray-400"
   aria-label="breadcrumb"
+  hidden={!showNav}
 >
   <ol class="flex space-x-2">
     {
