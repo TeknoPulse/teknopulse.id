@@ -10,7 +10,7 @@ export interface FaqItem {
 interface Props {
   title?: string;
   description?: string;
-  image?: any; // Allow both string and image object
+  image?: string | { src: string }; // Allow both string and image object
   imageAlt?: string;
   article?: {
     publishedTime: string;
