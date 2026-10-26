@@ -1,8 +1,8 @@
 ---
-title: '3 Buku Klasik yang Wajib Dibaca Software Engineer di Era AI Coding: Refleksi Matt Pocock'
-slug: 'tiga-buku-wajib-software-engineer-era-ai-matt-pocock'
-summary: 'Di tengah maraknya coding agent, Matt Pocock justru kembali ke buku klasik. Dari konsep tactical tornado Ousterhout, jebakan under-specification Hunt & Thomas, hingga ubiquitous language Evans—prinsip dasar kini 10x lebih krusial.'
-metaDescription: 'Mengapa buku klasik pemrograman jadi senjata utama software engineer era AI: bedah A Philosophy of Software Design, The Pragmatic Programmer, dan DDD.'
+title: 'Dua Buku Rekayasa Perangkat Lunak untuk Engineer di Era AI'
+slug: 'buku-pilihan-pocock-era-ai-coding'
+summary: 'Dua buku tentang desain perangkat lunak dan praktik pemrograman memberi landasan berguna saat engineer bekerja dengan coding agent.'
+metaDescription: 'Kenali dua buku rekayasa perangkat lunak yang membahas desain sistem dan praktik pemrograman, serta relevansinya bagi engineer di era AI coding.'
 publishedAt: 2026-10-20
 category: Developer
 tags:
@@ -18,20 +18,21 @@ coverImage: '../../assets/images/tiga-buku-wajib-software-engineer-era-ai-matt-p
 coverImageAlt: 'Tiga buku teknik bersampul kain usang bertumpuk di meja kayu, ditemani laptop tertutup, kacamata, dan buku catatan'
 format: 'konteks'
 source:
-  - name: "AI Hero — 3 books I'd hand every engineer using AI"
-    url: 'https://www.aihero.dev/s/matt-bookshelf'
+  - name: 'John Ousterhout — A Philosophy of Software Design'
+    url: 'https://web.stanford.edu/~ouster/cgi-bin/book.php'
+    primary: true
+  - name: 'Pragmatic Bookshelf — The Pragmatic Programmer'
+    url: 'https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/'
     primary: true
 ---
 
-_Catatan: Esai reflektif ini disarikan dan dikembangkan dari buletin teknis Matt Pocock di AI Hero mengenai relevansi literatur klasik rekayasa perangkat lunak di tengah gelombang AI coding._
+_Catatan: Esai ini merangkum dua buku rekayasa perangkat lunak yang tersedia dari penerbit dan penulisnya. Tidak menyatakan bahwa Matt Pocock merekomendasikan kedua buku tersebut._
 
 Di era di mana asisten koding berbasis kecerdasan buatan (_AI coding agents_) mampu menulis ratusan baris kode dalam hitungan detik, banyak developer tergoda untuk meyakini bahwa keterampilan dasar ilmu komputer telah usang. Untuk apa bersusah payah mempelajari arsitektur piranti lunak jika model bahasa besar dapat menyusun kode untuk kita?
 
-Namun, bagi Matt Pocock—pencipta Total TypeScript dan figur di balik [AI Hero](https://www.aihero.dev/s/matt-bookshelf)—fakta di lapangan justru menunjukkan hal yang sebaliknya.
+Namun, prinsip desain dan praktik rekayasa perangkat lunak tetap penting ketika engineer menggunakan alat bantu AI.
 
-Sepanjang tahun 2026, di tengah fokus intensifnya mengeksplorasi batas-batas terdepan rekayasa AI, buku-buku yang paling berharga di rak kerjanya bukanlah buku baru tentang _prompt engineering_, melainkan **karya-karya klasik rekayasa perangkat lunak yang ditulis puluhan tahun silam**.
-
-Pocock merumuskan tiga buku esensial yang wajib dibaca oleh setiap _software engineer_ yang menggunakan alat bantu AI hari ini, lengkap dengan cara penerapannya di ruang kerja modern.
+Berikut dua buku klasik dan pokok bahasan yang dapat dipetik dari masing-masingnya—tanpa mengatribusikan rekomendasi kepada Pocock.
 
 ---
 
@@ -40,10 +41,6 @@ Pocock merumuskan tiga buku esensial yang wajib dibaca oleh setiap _software eng
 Dalam bukunya, Profesor John Ousterhout memperkenalkan istilah yang sangat berkesan: **"Tactical Tornado"**.
 
 _Tactical tornado_ adalah tipikal programmer yang sangat produktif memompa keluar fitur dengan kecepatan luar biasa tinggi, namun bekerja secara murni taktis tanpa pernah memikirkan masa depan arsitektur. Mereka mengirimkan kode dengan cepat (_ship fast_), tetapi meninggalkan jejak kehancuran (_wake of destruction_) yang harus dibersihkan oleh seluruh anggota tim lainnya.
-
-Pocock mencatat:
-
-> _"Bagi saya, itulah persisnya perilaku agen AI ketika dibiarkan berjalan sendiri tanpa kendali. Agen AI adalah tornado taktis sempurna: menghasilkan volume pekerjaan yang mencengangkan tanpa sedikit pun kepedulian terhadap pemeliharaan kode di masa depan."_
 
 ```
 Peran Software Engineer di Era AI:
@@ -66,9 +63,7 @@ Solusi dari Ousterhout adalah membangun **Deep Modules**—modul dengan antarmuk
 
 ## 2. The Pragmatic Programmer (Andy Hunt & Dave Thomas, 1999)
 
-Kutipan yang paling sering diulang Pocock dari buku legendaris ini adalah satu kalimat sederhana namun menghujam:
-
-> _"No one knows exactly what they want." (Tidak ada yang benar-benar tahu apa yang mereka inginkan)._
+Buku ini membahas siklus pengembangan, komunikasi, dan tanggung jawab profesional. Gagasan tentang kebutuhan yang berubah dapat menjadi pengingat untuk memperjelas spesifikasi sebelum meminta coding agent mengerjakan fitur.
 
 Ketika seorang agen AI membangun hal yang keliru, developer sering kali terburu-buru menyimpulkan bahwa model AI tersebut "salah paham" atau "berhalusinasi". Namun, kenyataannya jauh lebih mendasar: **kesalahan tersebut adalah gejala klasik dari ketiadaan spesifikasi yang jelas (_under-specification_)**.
 
@@ -78,22 +73,13 @@ Itulah mengapa Pocock mengadopsi alur kerja interaktif seperti `/grill-me`—di 
 
 ---
 
-## 3. Domain-Driven Design (Eric Evans, 2003)
+## Menghubungkan prinsip buku dengan kerja bersama AI
 
-Prinsip terpenting dari buku klasik Eric Evans adalah **Ubiquitous Language (Bahasa yang Ada di Mana-Mana)**: kata-kata yang digunakan oleh tim bisnis dalam rapat perencanaan harus menjadi kata-kata yang sama persis yang tertulis di dalam baris kode.
-
-Menamai variabel dan konsep bisnis adalah hal tersulit dalam ilmu komputer; menjaganya tetap konsisten di seluruh proyek adalah hal yang jauh lebih sulit lagi.
-
-Dengan AI, Pocock memanfaatkan pendekatan dokumentasi terstruktur (_doc-driven grilling_): alih-alih mendefinisikan istilah secara kaku di awal, glosarium bahasa bisnis dibiarkan muncul secara alami melalui diskusi awal bersama agen. Glosarium istilah yang konsisten inilah yang kemudian menjadi kompas penunjuk jalan bagi agen AI agar tidak melenceng dari konteks bisnis saat bekerja mandiri.
+Saat memakai coding agent, pemahaman atas desain modul dan praktik pemrograman membantu engineer menilai hasil, memperjelas kebutuhan, serta memutuskan bagian mana yang perlu ditinjau manusia. Ini adalah penerapan editorial atas tema buku, bukan kutipan atau rekomendasi Matt Pocock.
 
 ---
 
 ## Kesimpulan: Realitas Vibe Code
-
-Pocock menutup refleksinya dengan pandangan yang tajam dan provokatif:
-
-> _"A vibe-coded codebase is indistinguishable from a legacy codebase."_  
-> _(Basis kode hasil vibe-coding pada hakikatnya tidak bisa dibedakan dari legacy codebase)._
 
 Jika sebuah aplikasi sebagian besar kodenya ditulis oleh agen AI dan Anda sebagai insinyur tidak pernah benar-benar membaca dan memahami strukturnya secara mendalam, maka kode tersebut secara instan telah menjadi _legacy code_.
 
@@ -103,7 +89,6 @@ Buku-buku klasik di atas ditulis puluhan tahun sebelum era AI, namun masalah yan
 
 ## Sumber dan Rujukan Terkait
 
-- [AI Hero — 3 books I'd hand every engineer using AI](https://www.aihero.dev/s/matt-bookshelf)
 - [John Ousterhout — A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/book.php)
 - [Andrew Hunt & David Thomas — The Pragmatic Programmer (20th Anniversary Edition)](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
-- [Eric Evans — Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.domainlanguage.com/ddd/)
+- [Matt Pocock — tracer bullet untuk mengatasi AI code slop](https://teknopulse.id/posts/teknik-tracer-bullet-atasi-ai-code-slop-matt-pocock/)
