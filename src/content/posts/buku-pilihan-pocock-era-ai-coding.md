@@ -91,4 +91,4 @@ Buku-buku klasik di atas ditulis puluhan tahun sebelum era AI, namun masalah yan
 
 - [John Ousterhout — A Philosophy of Software Design](https://web.stanford.edu/~ouster/cgi-bin/book.php)
 - [Andrew Hunt & David Thomas — The Pragmatic Programmer (20th Anniversary Edition)](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/)
-- [Matt Pocock — tracer bullet untuk mengatasi AI code slop](https://teknopulse.id/posts/teknik-tracer-bullet-atasi-ai-code-slop-matt-pocock/)
+- [Matt Pocock — tracer bullet untuk mengatasi AI code slop](https://teknopulse.id/posts/teknik-tracer-bullet-atasi-ai-code-slop/)

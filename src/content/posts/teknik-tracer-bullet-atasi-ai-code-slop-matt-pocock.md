@@ -13,7 +13,7 @@ tags:
   - Best Practices
   - TypeScript
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
 coverImage: '../../assets/images/teknik-tracer-bullet-atasi-ai-code-slop-matt-pocock-16x9.png'
 coverImageAlt: 'Layar monitor menampilkan kode sumber dengan pewarnaan sintaks di atas latar gelap'
 format: 'konteks'
