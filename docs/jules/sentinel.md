@@ -9,3 +9,9 @@
 **Vulnerability:** The deployment to Cloudflare Pages lacked critical security headers, making the site susceptible to attacks like clickjacking and MIME-type sniffing.
 **Learning:** Even on static sites, failing to properly configure `public/_headers` means default protections aren't enforced by the server/CDN.
 **Prevention:** Always verify that security headers (like `X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`) are applied via the hosting configuration (e.g., `public/_headers` for Cloudflare Pages).
+
+## 2026-10-26 - XSS Vulnerability in JSON-LD script serialization
+
+**Vulnerability:** Directly serializing JSON-LD objects that contain potentially untrusted user content (e.g., titles, descriptions, questions) into `<script>` tags using `set:html={JSON.stringify(...)}` without escaping. This can allow an attacker to prematurely close the `<script>` tag by injecting `</script>` in the data and executing arbitrary HTML/XSS.
+**Learning:** Even when outputting JSON inside a `<script>` tag, the string `</script>` will be parsed by the browser as the end of the script tag, breaking the JSON structure and opening the door to XSS.
+**Prevention:** Always escape the `<` character when serializing data for inclusion in an inline `<script>` tag. Specifically, append `.replace(/</g, '\\u003c')` to the result of `JSON.stringify()`.

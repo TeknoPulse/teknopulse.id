@@ -191,4 +191,8 @@ if (article) {
 <meta name="language" content="Indonesian" />
 
 <!-- JSON-LD Structured Data -->
-{jsonLd.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+{
+  jsonLd.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  ))
+}
