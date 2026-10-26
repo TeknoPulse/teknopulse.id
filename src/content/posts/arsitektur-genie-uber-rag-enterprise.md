@@ -1,6 +1,6 @@
 ---
 title: 'Bagaimana Uber Membangun Genie: Arsitektur RAG Penjawab Pertanyaan Engineer Skala Masif'
-slug: 'arsitektur-genie-uber-rag-enterprise-skala-besar'
+slug: 'arsitektur-genie-uber-rag-enterprise'
 summary: 'Menangani 45.000 pertanyaan per bulan di Slack dan menghemat 13.000 jam kerja engineer, Uber membangun Genie. ByteByteGo membedah arsitektur ETL Spark, Sia vector DB, sitasi sub-konteks, dan evaluasi ganda berbasis LLM-as-a-judge.'
 metaDescription: 'Bedah arsitektur Genie Uber untuk on-call support copilot: integrasi Spark, Sia vector DB, pembagian sub-konteks, eskalasi Slack, dan evaluasi dokumen.'
 publishedAt: 2026-10-20
@@ -33,7 +33,7 @@ Di Uber, volume pertanyaan di kanal-kanal dukungan internal mencapai **45.000 pe
 
 Informasi untuk menjawab pertanyaan tersebut sebenarnya sudah ada, namun tercecer di berbagai silo: Engwiki (wiki internal Uber), Stack Overflow internal, dan dokumen desain sistem. Mencari dokumen yang tepat sering kali memakan waktu lebih lama daripada menanyakannya langsung ke rekan kerja.
 
-Untuk memecahkan kebuntuan ini, Uber meluncurkan **Genie**—asisten kecerdasan buatan berbasis _Retrieval-Augmented Generation_ (RAG) yang terintegrasi langsung di kanal Slack. Dalam laporan terbarunya, [ByteByteGo](https://blog.bytebytego.com/p/how-uber-built-a-genie-to-answer-051) membedah tumpukan teknologi di balik Genie yang berhasil menjawab **lebih dari 70.000 pertanyaan di 154 kanal Slack dan menghemat 13.000 jam kerja engineer**.
+Untuk memecahkan kebuntuan ini, Uber meluncurkan **Genie**—asisten kecerdasan buatan berbasis _Retrieval-Augmented Generation_ (RAG) yang terintegrasi langsung di kanal Slack. Pada tahun pertama setelah Genie dirilis pada September 2023, sistem ini menjawab **lebih dari 70.000 pertanyaan di 154 kanal Slack dan menghemat 13.000 jam kerja engineer**. Dalam laporannya, [ByteByteGo](https://blog.bytebytego.com/p/how-uber-built-a-genie-to-answer-051) membedah tumpukan teknologi di balik Genie.
 
 ---
 
