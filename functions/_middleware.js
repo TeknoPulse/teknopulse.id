@@ -158,7 +158,7 @@ export async function onRequest(context) {
     normalizedPath = pathname.slice(0, -1);
   }
   if (LEGACY_SLUGS.includes(normalizedPath)) {
-    const dest = `https://${CANONICAL_HOST}${normalizedPath}/${query}`;
+    const dest = `https://${CANONICAL_HOST}/posts${normalizedPath}/${query}`;
     return Response.redirect(dest, 301);
   }
 
