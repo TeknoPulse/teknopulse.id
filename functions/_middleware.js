@@ -13,7 +13,8 @@ const DUPLICATE_HOSTS = new Set(['www.teknopulse.id', 'teknopulse-id.pages.dev']
 // Dipindah dari _redirects karena _redirects tidak diproses di production
 // (middleware berjalan di edge sebelum static file serving).
 // 115 slug dari src/content/posts (termasuk draft).
-const LEGACY_SLUGS = new Set([
+// Menggunakan array + includes() untuk kompatibilitas.
+const LEGACY_SLUGS = [
   "/2026-08-03-claude-opus-5-anthropic-kuasai-puncak-peringkat-ai-global",
   "/2026-08-04-ai-kabur-dari-lab-bobol-platform-ai-global",
   "/2026-08-04-azure-ramai-100-miliar",
@@ -143,22 +144,22 @@ const LEGACY_SLUGS = new Set([
   "/teknik-tracer-bullet-atasi-ai-code-slop",
   "/tiga-model-ai-baru-kilo-desktop",
   "/tren-internal-vibe-coding-platforms",
-]);
+];
 
 export async function onRequest(context) {
   const url = new URL(context.request.url);
   const pathname = url.pathname;
+  const query = url.search || '';
 
-  // TEKAA-401: cek legacy slug redirect dulu (tanpa & dengan trailing slash)
-  // Ini dieksekusi sebelum host canonicalization karena redirect ini
-  // berlaku untuk SEMUA host (termasuk www & pages.dev preview).
-  const normalizedPath = pathname.endsWith('/')
-    ? pathname.slice(0, -1)  // hapus trailing slash
-    : pathname;
-  if (LEGACY_SLUGS.has(normalizedPath)) {
-    const dest = `${normalizedPath}/`;
-    const query = url.search || '';
-    return Response.redirect(`${dest}${query}`, 301);
+  // TEKAA-401: cek legacy slug redirect dulu
+  // Cek tanpa trailing slash dulu, lalu dengan trailing slash
+  let normalizedPath = pathname;
+  if (pathname.endsWith('/')) {
+    normalizedPath = pathname.slice(0, -1);
+  }
+  if (LEGACY_SLUGS.includes(normalizedPath)) {
+    const dest = `https://${CANONICAL_HOST}${normalizedPath}/${query}`;
+    return Response.redirect(dest, 301);
   }
 
   // TEKAA-3: host canonicalization
@@ -166,5 +167,5 @@ export async function onRequest(context) {
   if (!DUPLICATE_HOSTS.has(host)) {
     return context.next();
   }
-  return Response.redirect(`https://${CANONICAL_HOST}${pathname}${url.search}`, 301);
+  return Response.redirect(`https://${CANONICAL_HOST}${pathname}${query}`, 301);
 }
