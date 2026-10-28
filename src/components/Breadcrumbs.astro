@@ -96,4 +96,7 @@ const breadcrumbLd = {
   </ol>
 </nav>
 
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumbLd)} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbLd).replace(/</g, '\\u003c')}
+/>

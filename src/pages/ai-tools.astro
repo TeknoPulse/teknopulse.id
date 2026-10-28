@@ -724,7 +724,10 @@ const faqSchema = {
         </a>
       </section>
 
-      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(faqSchema).replace(/</g, '\\u003c')}
+      />
     </div>
 
     <NewsletterCTA />
