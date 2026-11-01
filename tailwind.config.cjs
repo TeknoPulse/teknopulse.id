@@ -63,7 +63,7 @@ module.exports = {
         },
 
         // Category tokens kept for legacy article pages.
-        'category-ai': 'hsl(270, 70%, 52%)',
+        'category-ai': 'hsl(270, 80%, 60%)',
         'category-developer': 'hsl(150, 55%, 34%)',
         'category-software': 'hsl(205, 72%, 42%)',
         'category-automation': 'hsl(35, 75%, 42%)',
