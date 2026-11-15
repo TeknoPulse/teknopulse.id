@@ -15,7 +15,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/fitur-baca-tab-chatgpt-otomasi-browser-dan-risiko-keamanan-16x9.png'
-coverImageAlt: 'Tampilan layar monitor dengan puluhan tab peramban web dan asisten AI virtual yang aktif menganalisis data'
+coverImageAlt: 'Laptop tertutup bergembok di atas meja kayu, kabel kusut, dan tanda pengenal kosong'
 format: 'konteks'
 source:
   - name: 'God of Prompt — ChatGPT can now see every tab you have open'
