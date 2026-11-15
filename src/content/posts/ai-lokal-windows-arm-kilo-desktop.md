@@ -2,7 +2,7 @@
 title: 'Menjalankan AI Lokal Asli di Windows on ARM: Kolaborasi Kilo Desktop dan Surface Laptop Ultra'
 slug: 'ai-lokal-windows-arm-kilo-desktop'
 coverImage: '../../assets/images/2026-10-10-ai-lokal-windows-arm-kilo-desktop-16x9.png'
-coverImageAlt: 'Ilustrasi abstrak chip prosesor dengan pin konektor di atas papan sirkuit biru tua'
+coverImageAlt: 'Laptop terbuka di meja dapur kayu tersambung ke SSD eksternal dan hub kecil, cangkir keramik dan buku catatan di sampingnya'
 summary: 'Analisis pengumuman Kilo Code dan Anaconda tentang dukungan native ARM64 di Windows on ARM: melenyapkan friksi emulasi Prism, menjalankan model lokal via OpenAI API, dan lingkungan Conda portabel.'
 metaDescription: 'Kilo Desktop dan Anaconda hadir native di Windows on ARM untuk Surface Laptop Ultra, memungkinkan eksekusi AI lokal bebas emulasi dan aman.'
 publishedAt: 2026-10-10

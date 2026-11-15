@@ -15,7 +15,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/delapan-strategi-chunking-rag-agen-ai-bytebytego-16x9.png'
-coverImageAlt: 'Visualisasi diagram arsitektur pemotongan teks dokumen ke dalam vektor embedding sistem RAG'
+coverImageAlt: 'Tumpukan kertas putih terpisah-pisah di atas meja kayu dengan penggaris dan klip kertas'
 format: 'konteks'
 source:
   - name: 'ByteByteGo — EP229: 8 Chunking strategies for RAG-based agents'
