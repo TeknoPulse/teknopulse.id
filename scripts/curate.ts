@@ -52,8 +52,9 @@ interface CurationOutput {
   }>;
 }
 
-function getTodayString(): string {
-  return new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+// Hanya tanggal (YYYY-MM-DD), dipakai sebagai nama file curation.
+function getTodayDate(): string {
+  return new Date().toISOString().split('T')[0];
 }
 
 async function scanWebinsight(manifest: Manifest): Promise<SourceFile[]> {
@@ -159,7 +160,7 @@ async function main(): Promise<void> {
     })),
   };
 
-  const outputPath = path.join(CURATION_DIR, `${getTodayString()}.json`);
+  const outputPath = path.join(CURATION_DIR, `${getTodayDate()}.json`);
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), 'utf-8');
 
   console.log(`\n📝 Output written to: ${outputPath}`);

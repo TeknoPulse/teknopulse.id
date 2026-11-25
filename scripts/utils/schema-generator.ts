@@ -3,6 +3,8 @@
  * Generate Guide and HowTo structured data from guide frontmatter
  */
 
+import { slugifyTitle } from './slug.js';
+
 export interface GuideFrontmatter {
   title: string;
   // Slug URL guide (`/guides/<slug>/`). Bila kosong, diturunkan dari title.
@@ -140,7 +142,7 @@ export function generateGuideSchema(
   sections?: Array<{ heading: string; content: string }>
 ): SchemaGuide {
   const baseUrl = 'https://teknopulse.id';
-  const guideUrl = `${baseUrl}/guides/${fm.slug ?? slugify(fm.title)}/`;
+  const guideUrl = `${baseUrl}/guides/${fm.slug ?? slugifyTitle(fm.title)}/`;
 
   const schema: SchemaGuide = {
     '@context': 'https://schema.org',
@@ -203,7 +205,7 @@ export function generateHowToSchema(
     '@type': 'HowTo',
     name: fm.title,
     description: fm.description,
-    url: `${baseUrl}/guides/${fm.slug ?? slugify(fm.title)}/`,
+    url: `${baseUrl}/guides/${fm.slug ?? slugifyTitle(fm.title)}/`,
     datePublished: normalizeDate(fm.publishedAt),
     dateModified: normalizeDate(fm.updatedAt),
     author: authorSchema(fm.author),
@@ -383,13 +385,4 @@ function authorSchema(name: string): SchemaGuide['author'] {
 function normalizeDate(date: Date | string): string {
   const d = typeof date === 'string' ? new Date(date) : date;
   return d.toISOString().split('T')[0]; // YYYY-MM-DD
-}
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
 }

@@ -4,6 +4,8 @@
  * Unit tests untuk logika murni pipeline webinsight → guide:
  *   - scripts/utils/schema-generator.ts (JSON-LD Guide/HowTo/FAQ)
  *   - scripts/utils/docx-parser.ts (deteksi evergreen + skor otoritas sumber)
+ *   - scripts/utils/slug.ts (slug nama file guide)
+ *   - src/utils/difficulty.ts (label & badge kesulitan)
  *
  * Mengikuti pola scripts/test-consent.mjs.
  * Run: node scripts/test-guides-pipeline.mjs
@@ -20,6 +22,14 @@ import {
   schemasToJsonLd,
 } from '../scripts/utils/schema-generator.ts';
 import { detectEvergreenTopic, scoreSourceAuthority } from '../scripts/utils/docx-parser.ts';
+import { slugifyTitle } from '../scripts/utils/slug.ts';
+import {
+  GUIDE_DIFFICULTIES,
+  difficultyBadge,
+  difficultyEmoji,
+  difficultyLabel,
+  parseDifficulty,
+} from '../src/utils/difficulty.ts';
 
 // ── Test runner ───────────────────────────────────────────────────────────────
 
@@ -223,6 +233,70 @@ test('scoreSourceAuthority → author dikenal dapat boost +1 (maks 10)', () => {
 
 test('scoreSourceAuthority → sumber tak dikenal dapat skor default 5', () => {
   assert.equal(scoreSourceAuthority('https://contoh-blog-lain.com/x', 'Penulis Anonim'), 5);
+});
+
+// ── slug.ts ──────────────────────────────────────────────────────────────────
+
+console.log('\n══════════════════════════════════════════════════════════');
+console.log('  pipeline guides — slug.ts (4 scenarios)');
+console.log('══════════════════════════════════════════════════════════\n');
+
+test('slugifyTitle → huruf kecil, spasi jadi strip', () => {
+  assert.equal(slugifyTitle('Decision Models untuk Agen AI'), 'decision-models-untuk-agen-ai');
+});
+
+test('slugifyTitle → tanda baca dibuang, strip ganda diringkas', () => {
+  assert.equal(slugifyTitle('Apa itu CVE? — Panduan!'), 'apa-itu-cve-panduan');
+});
+
+test('slugifyTitle → dipotong di batas panjang tanpa strip menggantung', () => {
+  const out = slugifyTitle('kata '.repeat(40), 20);
+  assert.ok(out.length <= 20, `panjang ${out.length} > 20`);
+  assert.ok(!out.endsWith('-'), `masih ada strip di akhir: ${out}`);
+});
+
+test('slugifyTitle → judul kosong jadi string kosong, bukan crash', () => {
+  assert.equal(slugifyTitle(''), '');
+});
+
+// ── src/utils/difficulty.ts ──────────────────────────────────────────────────
+
+console.log('\n══════════════════════════════════════════════════════════');
+console.log('  pipeline guides — difficulty.ts (6 scenarios)');
+console.log('══════════════════════════════════════════════════════════\n');
+
+test('difficultyEmoji → emoji per level', () => {
+  assert.equal(difficultyEmoji('pemula'), '🟢');
+  assert.equal(difficultyEmoji('menengah'), '🟡');
+  assert.equal(difficultyEmoji('lanjutan'), '🔴');
+});
+
+test('difficultyLabel → label berkapital per level', () => {
+  assert.equal(difficultyLabel('pemula'), 'Pemula');
+  assert.equal(difficultyLabel('menengah'), 'Menengah');
+  assert.equal(difficultyLabel('lanjutan'), 'Lanjutan');
+});
+
+test('difficultyBadge → emoji + spasi + label', () => {
+  assert.equal(difficultyBadge('pemula'), '🟢 Pemula');
+  assert.equal(difficultyBadge('lanjutan'), '🔴 Lanjutan');
+});
+
+test('GUIDE_DIFFICULTIES → tepat tiga level sesuai enum skema', () => {
+  assert.deepEqual([...GUIDE_DIFFICULTIES], ['pemula', 'menengah', 'lanjutan']);
+});
+
+test('parseDifficulty → nilai valid diteruskan, nilai asing jadi undefined', () => {
+  assert.equal(parseDifficulty('menengah'), 'menengah');
+  assert.equal(parseDifficulty('expert'), undefined);
+  assert.equal(parseDifficulty(''), undefined);
+  assert.equal(parseDifficulty(null), undefined);
+});
+
+test('difficultyBadge → semua level menghasilkan string tidak kosong', () => {
+  for (const d of GUIDE_DIFFICULTIES) {
+    assert.ok(difficultyBadge(d).includes(difficultyLabel(d)));
+  }
 });
 
 // ── Summary ───────────────────────────────────────────────────────────────────

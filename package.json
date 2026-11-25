@@ -26,7 +26,7 @@
     "post:new": "node scripts/new-post.js",
     "test:preservation": "node scripts/test-preservation-baseline.mjs",
     "test:consent": "tsx scripts/test-consent.mjs",
-    "test:guides": "node scripts/test-guides-pipeline.mjs",
+    "test:guides": "tsx scripts/test-guides-pipeline.mjs",
     "postbuild": "pagefind --site dist --output-path dist/pagefind",
     "curate": "tsx scripts/curate.ts",
     "draft:guide": "tsx scripts/draft-guide.ts",

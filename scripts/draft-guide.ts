@@ -10,6 +10,7 @@ import * as fsp from 'fs/promises';
 import * as path from 'path';
 import { generateResearchChecklist } from './utils/keyword-research.js';
 import { loadManifest, saveManifest } from './utils/manifest.js';
+import { slugifyTitle } from './utils/slug.js';
 
 const CURATION_DIR = path.resolve('../curation');
 const TEMPLATE_PATH = path.resolve('scripts/templates/guide-template.md');
@@ -63,8 +64,9 @@ interface GuideFrontmatter {
   readingTime: number;
 }
 
-function getTodayString(): string {
-  // Use ISO datetime with timezone like posts do
+// ISO 8601 lengkap dengan offset zona waktu lokal (dipakai untuk
+// publishedAt/updatedAt di frontmatter), bukan sekadar tanggal.
+function getTodayIso(): string {
   const now = new Date();
   const offset = now.getTimezoneOffset();
   const sign = offset <= 0 ? '+' : '-';
@@ -73,16 +75,6 @@ function getTodayString(): string {
   const minutes = pad(Math.abs(offset) % 60);
   const timezone = `${sign}${hours}:${minutes}`;
   return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}${timezone}`;
-}
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim()
-    .substring(0, 60);
 }
 
 // 200 wpm, sama dengan src/utils/readingTime.ts (SSOT). Ditulis ulang di sini
@@ -149,7 +141,7 @@ function buildFrontmatter(
   item: CurationItem,
   keywordData: { targetKeyword: string; secondaryKeywords: string[] }
 ): GuideFrontmatter {
-  const publishDate = getTodayString();
+  const publishDate = getTodayIso();
   const readingTime = estimateReadingTime(item.wordCount);
   const difficulty = inferDifficulty(item.wordCount, keywordData.targetKeyword);
   const tags = generateTags(
@@ -309,7 +301,7 @@ async function main(): Promise<void> {
     const body = renderTemplate(template, templateData);
     const content = yaml + '\n\n' + body;
 
-    const slug = slugify(item.title);
+    const slug = slugifyTitle(item.title);
     const outputPath = path.join(GUIDES_DIR, `${slug}.md`);
 
     await fsp.writeFile(outputPath, content, 'utf-8');

@@ -9,8 +9,11 @@ import { getAuthor, getAuthorUrl } from '../utils/authors';
 import { coverAlt } from '../utils/coverAlt';
 import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../utils/categories';
 import { getGuideUrl, getTagUrl, slugifyTag } from '../utils/urls.mjs';
+import { difficultyBadge } from '../utils/difficulty';
 import { formatDate } from '../utils/dates';
 import {
+  detectSchemaType,
+  extractStepsFromMarkdown,
   generateGuideSchema,
   generateHowToSchema,
   schemasToJsonLd,
@@ -62,28 +65,13 @@ const fmForSchema = {
   readingTime: readingTime,
 };
 
-let schemaJsonLd = '';
-// Detect if content is HowTo (has numbered steps) or Guide
-const isHowTo = /^##\s+(?:Langkah|Step)\s+\d+/m.test(guide.body);
-if (isHowTo) {
-  // Extract steps for HowTo schema
-  const steps = guide.body
-    .split('\n## ')
-    .slice(1)
-    .filter((s) => /^(?:Langkah|Step)\s+\d+/.test(s.trim()))
-    .map((step) => {
-      const lines = step.split('\n');
-      const name = lines[0].replace(/^(?:Langkah|Step)\s+\d+[:.]\s*/, '').trim();
-      const text = lines.slice(1).join('\n').trim().substring(0, 1000);
-      return { name, text };
-    });
-  if (steps.length >= 3) {
-    schemaJsonLd = schemasToJsonLd([generateHowToSchema(fmForSchema, steps, [], [], readingTime)]);
-  }
-}
-if (!schemaJsonLd) {
-  schemaJsonLd = schemasToJsonLd([generateGuideSchema(fmForSchema)]);
-}
+// Pilih Guide atau HowTo dari struktur badan artikel. Deteksi + ekstraksi
+// langkah memakai util bersama (sudah ada test-nya), bukan regex lokal.
+const steps = extractStepsFromMarkdown(guide.body);
+const schemaJsonLd =
+  detectSchemaType(guide.body) === 'HowTo' && steps.length >= 3
+    ? schemasToJsonLd([generateHowToSchema(fmForSchema, steps, [], [], readingTime)])
+    : schemasToJsonLd([generateGuideSchema(fmForSchema)]);
 // FAQPage TIDAK dibuat di sini: <Layout article={{ faq }}> sudah memicunya lewat
 // Seo.astro. Menambahkannya lagi menghasilkan dua FAQPage di halaman yang sama.
 ---
@@ -138,13 +126,7 @@ if (!schemaJsonLd) {
             <span
               class="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800"
             >
-              {
-                guide.data.difficulty === 'pemula'
-                  ? '🟢 Pemula'
-                  : guide.data.difficulty === 'menengah'
-                    ? '🟡 Menengah'
-                    : '🔴 Lanjutan'
-              }
+              {difficultyBadge(guide.data.difficulty)}
             </span>
           </p>
 
@@ -319,15 +301,7 @@ if (!schemaJsonLd) {
                   </div>
                   <div class="flex items-baseline justify-between gap-4 py-3">
                     <dt class="kicker text-ink-muted">Level</dt>
-                    <dd class="text-right text-ink">
-                      {
-                        guide.data.difficulty === 'pemula'
-                          ? '🟢 Pemula'
-                          : guide.data.difficulty === 'menengah'
-                            ? '🟡 Menengah'
-                            : '🔴 Lanjutan'
-                      }
-                    </dd>
+                    <dd class="text-right text-ink">{difficultyBadge(guide.data.difficulty)}</dd>
                   </div>
                   <div class="flex items-baseline justify-between gap-4 py-3">
                     <dt class="kicker text-ink-muted">Target keyword</dt>
