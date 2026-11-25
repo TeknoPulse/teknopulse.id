@@ -8,8 +8,12 @@ import OgTemplate from '../../components/og-template';
 // under Node during `astro build`; the emitted PNGs are served statically, so
 // no native addon ships to the runtime (Cloudflare Pages friendly).
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
-  return posts.filter((post) => !post.data.draft).map((post) => ({ params: { slug: post.slug } }));
+  // Sumber: posts + guides. Guide tanpa coverImage memakai /og/<slug>.png
+  // juga (lihat [slug].astro di guides), jadi koleksinya harus digabung.
+  const [posts, guides] = await Promise.all([getCollection('posts'), getCollection('guides')]);
+  return [...posts, ...guides]
+    .filter((entry) => !entry.data.draft)
+    .map((entry) => ({ params: { slug: entry.slug } }));
 }
 
 export async function GET({ params }: { params: { slug: string } }) {

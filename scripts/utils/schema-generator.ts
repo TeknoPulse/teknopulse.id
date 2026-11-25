@@ -150,11 +150,7 @@ export function generateGuideSchema(
     url: guideUrl,
     datePublished: normalizeDate(fm.publishedAt),
     dateModified: normalizeDate(fm.updatedAt),
-    author: {
-      '@type': 'Person',
-      name: 'TeknoPulse Redaksi',
-      url: 'https://teknopulse.id/authors/redaksi-teknopulse/',
-    },
+    author: authorSchema(fm.author),
     publisher: {
       '@type': 'Organization',
       name: 'TeknoPulse',
@@ -210,11 +206,7 @@ export function generateHowToSchema(
     url: `${baseUrl}/guides/${fm.slug ?? slugify(fm.title)}/`,
     datePublished: normalizeDate(fm.publishedAt),
     dateModified: normalizeDate(fm.updatedAt),
-    author: {
-      '@type': 'Person',
-      name: 'TeknoPulse Redaksi',
-      url: 'https://teknopulse.id/authors/redaksi-teknopulse/',
-    },
+    author: authorSchema(fm.author),
     publisher: {
       '@type': 'Organization',
       name: 'TeknoPulse',
@@ -369,6 +361,25 @@ export function schemasToJsonLd(schemas: Array<SchemaGuide | SchemaHowTo | Schem
 }
 
 // Helpers
+/**
+ * Byline JSON-LD dari nama penulis di frontmatter. URL profil hanya diisi
+ * untuk byline yang terdaftar di src/utils/authors.ts (slug-nya mengikuti
+ * pola `redaksi-teknopulse` → `/authors/redaksi-teknopulse/`).
+ */
+function authorSchema(name: string): SchemaGuide['author'] {
+  const slug = name
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+
+  return {
+    '@type': 'Person',
+    name,
+    url: slug ? `https://teknopulse.id/authors/${slug}/` : undefined,
+  };
+}
+
 function normalizeDate(date: Date | string): string {
   const d = typeof date === 'string' ? new Date(date) : date;
   return d.toISOString().split('T')[0]; // YYYY-MM-DD

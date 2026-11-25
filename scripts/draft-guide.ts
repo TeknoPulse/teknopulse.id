@@ -85,9 +85,12 @@ function slugify(text: string): string {
     .substring(0, 60);
 }
 
+// 200 wpm, sama dengan src/utils/readingTime.ts (SSOT). Ditulis ulang di sini
+// karena script ini hanya punya wordCount hasil parse .docx, bukan teks artikel.
+const WORDS_PER_MINUTE = 200;
+
 function estimateReadingTime(wordCount: number): number {
-  const wordsPerMinute = 200;
-  return Math.ceil(wordCount / wordsPerMinute);
+  return Math.ceil(wordCount / WORDS_PER_MINUTE);
 }
 
 function inferDifficulty(

@@ -29,7 +29,8 @@
     "test:guides": "node scripts/test-guides-pipeline.mjs",
     "postbuild": "pagefind --site dist --output-path dist/pagefind",
     "curate": "tsx scripts/curate.ts",
-    "draft:guide": "tsx scripts/draft-guide.ts"
+    "draft:guide": "tsx scripts/draft-guide.ts",
+    "publish:guide": "tsx scripts/publish-guide.ts"
   },
   "dependencies": {
     "@astrojs/react": "4.3.1",

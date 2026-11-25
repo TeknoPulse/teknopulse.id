@@ -6,7 +6,9 @@ import GuidePage from '../../components/GuidePage.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const guides = await getCollection('guides'); // Include all for now, filter in component if needed
+  // Draft tidak ikut di-build (selaras /posts): draft-guide.ts menulis
+  // draft: true, jadi file draf tidak bocor jadi URL hidup.
+  const guides = (await getCollection('guides')).filter(({ data }) => !data.draft);
 
   return guides.map((guide) => ({
     params: { slug: guide.slug },

@@ -1,7 +1,7 @@
 ---
 title: 'Decision Models untuk Agen AI: Panduan Memangkas Biaya 64% dengan Model Luaran Bertipe'
 description: 'Decision Models mengubah cara agen AI membuat keputusan: dari generasi teks lambat ke output terstruktur instan. Panduan ini bedah arsitektur, manfaat biaya, dan cara mulai pakai Decisions API, Cloudflare Clef, atau model open-source.'
-metaDescription: 'Pelajari Decision Models untuk agen AI: model luaran bertipe yang memangkas biaya 64%, mempercepat inferensi 10x, dan direvolusikan oleh TypeSafe Jev, OpenAI Decisions API, dan Cloudflare Clef.'
+metaDescription: 'Panduan Decision Models untuk agen AI: model luaran bertipe yang memangkas biaya inferensi 64% dan 10x lebih cepat. Bedah arsitektur dan cara memakainya.'
 publishedAt: 2026-10-11
 updatedAt: 2026-11-24
 tags: ['ai', 'decision-models', 'ai-agents', 'model-optimization', 'llm-cost-reduction']
@@ -33,8 +33,6 @@ faq:
   - question: 'Apakah Decision Model cocok untuk pemula yang baru belajar AI agent?'
     answer: 'Cocok banget untuk dipelajari awal karena konsepnya sederhana (input → structured output) tapi dampaknya besar. Mulai dari OpenAI Decisions API yang paling mudah aksesnya.'
 ---
-
-# Decision Models untuk Agen AI: Panduan Memangkas Biaya 64% dengan Model Luaran Bertipe
 
 > **TL;DR** Decision Models adalah kategori model AI baru yang mengembalikan output terstruktur (probabilitas, pilihan, skor) dalam satu forward pass — bukan teks berantai. Hasilnya: inferensi 10x lebih cepat, biaya turun 64%, dan jadi standar baru untuk arsitektur agen AI modern. Artikel ini bedah konsep, player besar (TypeSafe Jev, OpenAI Decisions API, Cloudflare Clef), dan cara mulai menggunakannya.
 

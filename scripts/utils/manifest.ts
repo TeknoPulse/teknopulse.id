@@ -12,7 +12,7 @@
 import * as fsp from 'fs/promises';
 import * as path from 'path';
 
-export type ManifestStatus = 'curated' | 'drafted' | 'published' | 'failed';
+export type ManifestStatus = 'new' | 'curated' | 'drafted' | 'published' | 'failed';
 
 export interface ManifestEntry {
   status: ManifestStatus;
@@ -58,4 +58,24 @@ export async function loadManifest(manifestPath: string): Promise<Manifest> {
 export async function saveManifest(manifestPath: string, manifest: Manifest): Promise<void> {
   await fsp.mkdir(path.dirname(manifestPath), { recursive: true });
   await fsp.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+}
+
+/**
+ * Tandai satu file sumber sebagai published. Dipanggil setelah PR digabung
+ * (issue 11 langkah 7): status published + publishedAt + prUrl.
+ *
+ * Usage: node --import tsx scripts/utils/manifest.ts # → lihat scripts/publish-guide.ts
+ */
+export function markPublished(
+  manifest: Manifest,
+  filename: string,
+  fields: { guideSlug: string; publishedAt: string; prUrl?: string }
+): void {
+  manifest.files[filename] = {
+    ...manifest.files[filename],
+    status: 'published',
+    publishedAt: fields.publishedAt,
+    prUrl: fields.prUrl,
+    guideSlug: fields.guideSlug,
+  };
 }

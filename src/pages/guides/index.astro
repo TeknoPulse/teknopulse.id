@@ -8,6 +8,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../../utils/categories';
 import { formatShortDate } from '../../utils/dates';
+import { calculateReadingTime } from '../../utils/readingTime';
 
 type Guide = CollectionEntry<'guides'>;
 
@@ -161,9 +162,7 @@ const hrefFor = (params: { cat?: string; diff?: string }) => {
                         </p>
                         <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-muted">
                           <span>
-                            {guide.data.readingTime ??
-                              Math.ceil(guide.body.split(/\s+/).length / 200)}{' '}
-                            menit baca
+                            {guide.data.readingTime ?? calculateReadingTime(guide.body)} menit baca
                           </span>
                           <span class="flex items-center gap-1">🎯 {guide.data.targetKeyword}</span>
                         </div>

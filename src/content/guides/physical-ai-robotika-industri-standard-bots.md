@@ -1,7 +1,7 @@
 ---
 title: 'Physical AI untuk Robotika Industri: Pelajaran Dari Standard Bots Bangun AI Andal di Pabrik'
 description: 'Standard Bots buktikan robot pabrik butuh AI kecil + data terarah, bukan model raksasa. Panduan ini bedah arsitektur Physical AI: inferensi edge on-premise, pisah persepsi vs gerak, dan ko-optimasi hardware-software.'
-metaDescription: 'Pelajari Physical AI dari Standard Bots: mengapa robotika industri pilih model kecil (miliaran param), inferensi edge lokal, dan data terarah 1M+ gambar industri. Cocok untuk engineer otomatisasi.'
+metaDescription: 'Pelajari Physical AI dari Standard Bots: robot pabrik butuh model kecil dan data terarah, bukan model raksasa. Bedah arsitektur inferensi edge di pabrik.'
 publishedAt: 2026-10-11
 updatedAt: 2026-11-24
 tags: ['ai', 'physical-ai', 'robotika-industri', 'edge-ai', 'manufaktur', 'standard-bots']
@@ -33,8 +33,6 @@ faq:
   - question: 'Bisakah arsitektur ini diterapkan untuk robot non-industri (humanoid, drone, dll)?'
     answer: 'Prinsipnya sama: pisah persepsi (AI) vs kontrol gerak (deterministik), prioritaskan edge inference, gunakan data terarah. Tapi humanoid butuh model lebih besar untuk generalisasi lingkungan tidak terstruktur.'
 ---
-
-# Physical AI untuk Robotika Industri: Pelajaran Dari Standard Bots Bangun AI Andal di Pabrik
 
 > **TL;DR** Standard Bots — startup robot AI-native terbesar AS (valuasi $1B, pelanggan NASA, Amazon, Lockheed) — membuktikan robot pabrik butuh **model kecil + data terarah**, bukan model raksasa. Arsitektur kunci: inferensi edge on-premise, pemisahan tegas persepsi (AI) vs gerak (deterministik), dan ko-optimasi hardware-software full stack. Panduan ini bedah pelajarannya untuk engineer otomatisasi.
 

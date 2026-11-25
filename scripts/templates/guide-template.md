@@ -1,7 +1,5 @@
 <!-- TEMPLATE START MARKER -->
 
-# {{TITLE}}
-
 > **TL;DR** {{DESCRIPTION}}
 
 ## Daftar Isi

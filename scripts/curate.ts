@@ -106,12 +106,17 @@ async function scanWebinsight(manifest: Manifest): Promise<SourceFile[]> {
 }
 
 function filterShortlist(files: SourceFile[]): SourceFile[] {
-  return files
-    .filter((f) => f.status === 'new')
-    .filter((f) => f.wordCount >= 800) // minimum length
-    .filter((f) => f.evergreen.isEvergreen)
-    .filter((f) => f.authorityScore >= 6) // minimum authority
-    .sort((a, b) => b.authorityScore - a.authorityScore); // highest authority first
+  return (
+    files
+      .filter((f) => f.status === 'new')
+      .filter((f) => f.wordCount >= 800) // minimum length
+      .filter((f) => f.evergreen.isEvergreen)
+      .filter((f) => f.authorityScore >= 6) // minimum authority
+      .sort((a, b) => b.authorityScore - a.authorityScore) // highest authority first
+      // Shortlist 5-8 kandidat per minggu (issue 08): ambil 8 teratas saja,
+      // biar review owner tetap ringkas.
+      .slice(0, 8)
+  );
 }
 
 async function main(): Promise<void> {

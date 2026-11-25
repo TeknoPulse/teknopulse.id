@@ -8,7 +8,7 @@ import { calculateReadingTime } from '../utils/readingTime';
 import { getAuthor, getAuthorUrl } from '../utils/authors';
 import { coverAlt } from '../utils/coverAlt';
 import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../utils/categories';
-import { getPostUrl, getTagUrl, slugifyTag } from '../utils/urls.mjs';
+import { getGuideUrl, getTagUrl, slugifyTag } from '../utils/urls.mjs';
 import { formatDate } from '../utils/dates';
 import {
   generateGuideSchema,
@@ -211,7 +211,7 @@ if (!schemaJsonLd) {
               <Content />
             </div>
 
-            <ShareButtons title={guide.data.title} url={getPostUrl(guide.slug)} />
+            <ShareButtons title={guide.data.title} url={getGuideUrl(guide.slug)} />
 
             {
               faq.length > 0 && (
