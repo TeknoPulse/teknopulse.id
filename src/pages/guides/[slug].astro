@@ -1,0 +1,25 @@
+---
+// src/pages/guides/[slug].astro
+import { getCollection, type CollectionEntry } from 'astro:content';
+import GuidePage from '../../components/GuidePage.astro';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides'); // Include all for now, filter in component if needed
+
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide, ogImage: guide.data.coverImage ?? `/og/${guide.slug}.png` },
+  }));
+}
+
+interface Props {
+  guide: CollectionEntry<'guides'>;
+  ogImage: CollectionEntry<'guides'>['data']['coverImage'] | string;
+}
+
+const { guide, ogImage } = Astro.props;
+---
+
+<GuidePage guide={guide} ogImage={ogImage} />

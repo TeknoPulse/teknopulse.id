@@ -26,7 +26,10 @@
     "post:new": "node scripts/new-post.js",
     "test:preservation": "node scripts/test-preservation-baseline.mjs",
     "test:consent": "tsx scripts/test-consent.mjs",
-    "postbuild": "pagefind --site dist --output-path dist/pagefind"
+    "test:guides": "node scripts/test-guides-pipeline.mjs",
+    "postbuild": "pagefind --site dist --output-path dist/pagefind",
+    "curate": "tsx scripts/curate.ts",
+    "draft:guide": "tsx scripts/draft-guide.ts"
   },
   "dependencies": {
     "@astrojs/react": "4.3.1",
@@ -38,6 +41,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
     "astro": "5.13.9",
+    "mammoth": "^1.9.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "satori": "^0.16.2",

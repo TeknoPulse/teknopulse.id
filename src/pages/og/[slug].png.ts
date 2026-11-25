@@ -67,7 +67,9 @@ export async function GET({ params }: { params: { slug: string } }) {
     });
 
     const pngData = resvg.render();
-    const pngBuffer = pngData.asPng();
+    // Buffer lolos di runtime tapi tidak cocok dengan BodyInit di lib DOM,
+    // jadi dibungkus Uint8Array agar `tsc --noEmit` bersih.
+    const pngBuffer = new Uint8Array(pngData.asPng());
 
     return new Response(pngBuffer, {
       headers: {

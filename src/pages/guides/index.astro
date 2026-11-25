@@ -1,0 +1,241 @@
+---
+// src/pages/guides/index.astro
+//
+// Indeks semua panduan evergreen. Statik penuh: filter kategori & level
+// dilewatkan sebagai query string dan disaring saat build (client-side JS
+// tidak perlu — filter hanya memuat ulang URL yang sama dengan ?cat=/?diff=).
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../../utils/categories';
+import { formatShortDate } from '../../utils/dates';
+
+type Guide = CollectionEntry<'guides'>;
+
+const guides = (await getCollection('guides'))
+  .filter(({ data }) => !data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const categories = [...getAllCategories()].sort((a, b) => a.name.localeCompare(b.name));
+
+// Filter aktif dari query string (?cat=ai, ?diff=pemula). Nilai tak dikenal
+// diabaikan (fallback ke tanpa filter), jadi URL abal-abal tidak 404.
+const activeCatSlug = Astro.url.searchParams.get('cat');
+const activeDiff = Astro.url.searchParams.get('diff');
+const activeCat = categories.find((c) => c.slug === activeCatSlug);
+const activeDifficulty = ['pemula', 'menengah', 'lanjutan'].includes(activeDiff ?? '')
+  ? (activeDiff as Guide['data']['difficulty'])
+  : undefined;
+
+const filtered = guides.filter(({ data }) => {
+  if (activeCat && data.category !== activeCat.name) return false;
+  if (activeDifficulty && data.difficulty !== activeDifficulty) return false;
+  return true;
+});
+
+const filterLabel =
+  activeCat?.name ??
+  (activeDifficulty
+    ? activeDifficulty.charAt(0).toUpperCase() + activeDifficulty.slice(1)
+    : undefined);
+
+const hrefFor = (params: { cat?: string; diff?: string }) => {
+  const q = new URLSearchParams();
+  if (params.cat) q.set('cat', params.cat);
+  if (params.diff) q.set('diff', params.diff);
+  const s = q.toString();
+  return s ? `/guides/?${s}` : '/guides/';
+};
+---
+
+<Layout
+  title="Panduan TeknoPulse"
+  description="Koleksi panduan teknologi praktis untuk orang awam: AI, coding, tools, tips & trik. Dilengkapi langkah-langkah jelas, FAQ, dan checklist."
+>
+  <main>
+    <header class="border-b-2 border-rule-strong">
+      <div class="wrap pt-12 pb-8 sm:pt-16">
+        <nav
+          aria-label="Remah roti"
+          class="kicker flex flex-wrap items-center gap-2 text-ink-muted"
+        >
+          <a href="/" class="hover:text-cobalt">Beranda</a>
+          <span aria-hidden="true" class="text-rule">/</span>
+          <span>Panduan</span>
+        </nav>
+
+        <h1
+          class="headline-balance mt-5 font-serif text-[clamp(2.4rem,5.6vw,4.6rem)] font-semibold leading-[0.94] tracking-headline"
+        >
+          Panduan TeknoPulse
+        </h1>
+
+        <p class="mt-4 max-w-3xl font-serif text-xl italic leading-snug text-ink-soft sm:text-2xl">
+          Panduan teknologi praktis untuk orang awam. AI, coding, tools, tips & trik — dilengkapi
+          langkah-langkah jelas, FAQ, dan checklist biar kamu bisa langsung praktek.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter kategori">
+          <a
+            href={hrefFor({ diff: activeDiff ?? undefined })}
+            class={`kicker px-3 py-1.5 rounded-full border transition-colors ${!activeCat ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
+            aria-pressed={!activeCat}
+          >
+            Semua
+          </a>
+          {
+            categories.map((cat) => (
+              <a
+                href={hrefFor({ cat: cat.slug, diff: activeDiff ?? undefined })}
+                class={`kicker rounded-full border px-3 py-1.5 transition-colors ${activeCat?.slug === cat.slug ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
+                aria-pressed={activeCat?.slug === cat.slug}
+              >
+                {cat.name}
+              </a>
+            ))
+          }
+        </div>
+
+        <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Filter level kesulitan">
+          <a
+            href={hrefFor({ cat: activeCat?.slug })}
+            class={`kicker px-3 py-1.5 rounded-full border transition-colors ${!activeDifficulty ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
+            aria-pressed={!activeDifficulty}
+          >
+            Semua level
+          </a>
+          {
+            (['pemula', 'menengah', 'lanjutan'] as const).map((diff) => (
+              <a
+                href={hrefFor({ cat: activeCat?.slug, diff })}
+                class={`kicker rounded-full border px-3 py-1.5 transition-colors ${activeDifficulty === diff ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
+                aria-pressed={activeDifficulty === diff}
+              >
+                {diff === 'pemula' ? '🟢' : diff === 'menengah' ? '🟡' : '🔴'}
+                {diff.charAt(0).toUpperCase() + diff.slice(1)}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap py-10 sm:py-14">
+      <div class="grid gap-8 lg:grid-cols-12 lg:gap-0">
+        <div class="lg:col-span-8 lg:pr-12">
+          {
+            filtered.length > 0 ? (
+              <>
+                <p class="kicker mb-4 text-ink-muted" aria-live="polite">
+                  {filtered.length} panduan{filterLabel ? ` — ${filterLabel}` : ''}
+                </p>
+                <ul class="divide-y divide-rule" role="list" aria-label="Daftar panduan">
+                  {filtered.map((guide) => (
+                    <li class="py-8">
+                      <article class="group">
+                        <p class="kicker flex items-center gap-2 text-cobalt">
+                          <a
+                            href={getCategoryUrl(guide.data.category)}
+                            class="hover:text-cobalt-dark"
+                          >
+                            {getCategoryLabel(guide.data.category)}
+                          </a>
+                          <span class="mx-1.5 text-rule">/</span>
+                          <time datetime={guide.data.publishedAt.toISOString()}>
+                            {formatShortDate(guide.data.publishedAt)}
+                          </time>
+                          <span class="inline-flex items-center gap-1 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-800">
+                            {guide.data.difficulty === 'pemula'
+                              ? '🟢'
+                              : guide.data.difficulty === 'menengah'
+                                ? '🟡'
+                                : '🔴'}
+                            {guide.data.difficulty.charAt(0).toUpperCase() +
+                              guide.data.difficulty.slice(1)}
+                          </span>
+                        </p>
+                        <h2 class="mt-2 font-serif text-2xl font-semibold leading-snug transition-colors group-hover:text-cobalt">
+                          <a href={`/guides/${guide.slug}/`}>{guide.data.title}</a>
+                        </h2>
+                        <p class="line-clamp-2 mt-3 text-sm leading-relaxed text-ink-muted">
+                          {guide.data.description}
+                        </p>
+                        <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-ink-muted">
+                          <span>
+                            {guide.data.readingTime ??
+                              Math.ceil(guide.body.split(/\s+/).length / 200)}{' '}
+                            menit baca
+                          </span>
+                          <span class="flex items-center gap-1">🎯 {guide.data.targetKeyword}</span>
+                        </div>
+                      </article>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <div class="py-16 text-center">
+                <p class="text-ink-muted">Belum ada panduan di filter ini.</p>
+                <a
+                  href="/guides/"
+                  class="kicker mt-3 inline-block text-cobalt hover:text-cobalt-dark"
+                >
+                  Lihat semua panduan →
+                </a>
+              </div>
+            )
+          }
+        </div>
+
+        <aside class="lg:col-span-4 lg:border-l lg:border-rule lg:pl-10">
+          <div class="lg:sticky lg:top-24">
+            <section aria-labelledby="tentang-panduan">
+              <div class="flex items-baseline justify-between border-b-2 border-rule-strong pb-2">
+                <h2 id="tentang-panduan" class="font-serif text-2xl font-semibold">
+                  Tentang Panduan
+                </h2>
+              </div>
+              <p class="mt-4 text-sm leading-relaxed text-ink-muted">
+                Panduan TeknoPulse dirancang untuk orang awam yang ingin belajar teknologi tanpa
+                jargon membingungkan. Setiap panduan punya:
+              </p>
+              <ul class="mt-3 space-y-2 text-sm leading-relaxed text-ink-muted">
+                <li class="flex items-start gap-2">
+                  <span class="text-cobalt">✓</span> TOC & TL;DR untuk navigasi cepat
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cobalt">✓</span> Langkah-langkah step-by-step dengan screenshot placeholder
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cobalt">✓</span> FAQ & Checklist ringkas di akhir
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cobalt">✓</span> Schema.org Guide/HowTo untuk SEO
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-cobalt">✓</span> Voice hangat "aku" khas TeknoPulse
+                </li>
+              </ul>
+            </section>
+
+            <section class="mt-8 border-t border-rule pt-5" aria-labelledby="level-kesulitan">
+              <h2 id="level-kesulitan" class="kicker text-ink-muted">Level Kesulitan</h2>
+              <div class="mt-3 space-y-2 text-sm">
+                {
+                  (['pemula', 'menengah', 'lanjutan'] as const).map((diff) => (
+                    <a
+                      href={hrefFor({ cat: activeCat?.slug, diff })}
+                      class="flex items-center gap-2 rounded border border-rule px-3 py-2 hover:border-cobalt hover:text-cobalt"
+                    >
+                      <span>{diff === 'pemula' ? '🟢' : diff === 'menengah' ? '🟡' : '🔴'}</span>
+                      {diff.charAt(0).toUpperCase() + diff.slice(1)}
+                    </a>
+                  ))
+                }
+              </div>
+            </section>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+</Layout>
