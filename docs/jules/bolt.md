@@ -12,3 +12,8 @@
 
 **Learning:** In Astro, performing heavy operations like `getCollection()` filtering and sorting inside the component body for dynamically prerendered routes (e.g., `[slug].astro`) repeats the work for every generated page.
 **Action:** Always perform expensive data fetching and array processing inside `getStaticPaths()`, passing down the computed results as props to optimize build times and prevent redundant resource allocations.
+
+## 2026-10-31 - Optimize Related Posts Array Filtering
+
+**Learning:** In Astro static generation, methods computing related content per post (`getRelatedPosts` and `getCategoryPosts`) were performing multiple `Array.filter()` passes over all articles. Since these run for every generated route, creating intermediate arrays caused significant redundant memory allocations and compute overhead.
+**Action:** Replaced chained `filter()` methods with a single iterating `for` loop that employs an early `break` once the required `limit` of related posts is met, dramatically reducing unnecessary array allocations during build time.
