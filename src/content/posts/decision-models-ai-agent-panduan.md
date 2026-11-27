@@ -72,16 +72,10 @@ Pemicunya: Oktober 2026, **TypeSafe** meluncurkan model **Jev** dan tembus **$10
 - Latency: hingga **10x lebih cepat** (tidak ada loop generasi token)
 - Biaya: **hanya input token** (OpenAI Decisions API: $0.10/1M input, **$0 output**)
 
-```mermaid
-graph LR
-    A[Input: Email] --> B{LLM Konvensional}
-    B --> C[Generasi token: 'Y-a...' 2 detik]
-    C --> D[Parse manual: 'Ya' = spam]
+Perbandingan alurnya untuk cek spam:
 
-    A --> E{Decision Model}
-    E --> F[Single pass: {label: 'spam', confidence: 0.97}]
-    F --> G[Langsung usable, 200ms]
-```
+- **LLM konvensional:** email masuk → model menulis jawaban token demi token ("Ya, ini spam karena…") → kode kamu masih harus mem-parsing teks itu.
+- **Decision Model:** email masuk → model menjawab dalam satu langkah (misalnya `is_spam` dengan probabilitas 0,97) → hasilnya langsung dipakai kode.
 
 ---
 
