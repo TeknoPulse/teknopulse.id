@@ -14,8 +14,8 @@ tags:
   - LLM
 author: 'TeknoPulse Redaksi'
 draft: true
-coverImage: '../../assets/images/arsitektur-genie-uber-rag-enterprise-skala-besar-16x9.png'
-coverImageAlt: 'Diagram arsitektur sistem retrieval-augmented generation dan orkestrasi bot cerdas enterprise'
+coverImage: '../../assets/images/arsitektur-genie-uber-rag-enterprise-16x9.png'
+coverImageAlt: 'Troli arsip logam penuh tumpukan dokumen di lorong rak penyimpanan yang remang'
 format: 'konteks'
 source:
   - name: 'ByteByteGo — How Uber Built a Genie to Answer Questions Correctly'

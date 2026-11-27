@@ -15,7 +15,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/psikologi-retensi-ai-companion-harvard-the-slow-ai-16x9.png'
-coverImageAlt: 'Ilustrasi konseptual seseorang berinteraksi dengan cermin digital kecerdasan buatan dalam suasana reflektif'
+coverImageAlt: 'Ponsel tengkurap, tisu kusut, dan segelas air di meja samping tempat tidur yang remang'
 format: 'konteks'
 source:
   - name: 'The Slow AI — AI Companions Are Built So You Cannot Leave'

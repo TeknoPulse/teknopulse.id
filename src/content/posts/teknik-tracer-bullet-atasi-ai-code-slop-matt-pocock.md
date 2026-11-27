@@ -15,7 +15,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/teknik-tracer-bullet-atasi-ai-code-slop-matt-pocock-16x9.png'
-coverImageAlt: 'Layar monitor menampilkan kode sumber dengan pewarnaan sintaks di atas latar gelap'
+coverImageAlt: 'Batang ulir baja menembus tumpukan balok kayu bercelah di atas meja kerja usang'
 format: 'konteks'
 source:
   - name: 'AI Hero — Tracer Bullets: Keeping AI Slop Under Control'

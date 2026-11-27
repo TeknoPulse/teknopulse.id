@@ -16,7 +16,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: false
 coverImage: '../../assets/images/simulator-karier-ai-solusi-utang-kuliah-16x9.png'
-coverImageAlt: 'Ilustrasi seorang profesional muda mengamati simulasi lingkungan kerja virtual interaktif'
+coverImageAlt: 'Laptop tanpa merek, mug keramik, dan buku catatan di meja kayu usang dekat jendela'
 format: 'konteks'
 source:
   - name: 'IdeaBrowser — A job simulator to save tuition debt + funnel swipe file (18 Oktober 2026)'
