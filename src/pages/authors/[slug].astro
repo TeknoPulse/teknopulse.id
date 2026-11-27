@@ -110,5 +110,5 @@ const personLd = {
       }
     </section>
   </main>
-  <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(personLd).replace(/</g, '\\u003c')} />
 </Layout>
