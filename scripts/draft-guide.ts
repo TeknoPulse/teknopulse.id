@@ -297,7 +297,6 @@ async function main(): Promise<void> {
       TAGS: JSON.stringify(fm.tags),
       CATEGORY: fm.category,
       SOURCES: JSON.stringify(fm.source),
-      FAQ: '[]',
       COVER_IMAGE: '',
       COVER_IMAGE_ALT: '',
       OG_IMAGE: '',
@@ -309,7 +308,6 @@ async function main(): Promise<void> {
       STEPS: '', // Will be filled manually
       TIPS: '',
       TROUBLESHOOTING: '',
-      FAQ_ITEMS: '',
       CHECKLIST: '',
     };
 
@@ -347,7 +345,7 @@ async function main(): Promise<void> {
 
   console.log('\n📋 NEXT STEPS:');
   console.log('1. Edit each .md file in web/src/content/posts/ to fill in content');
-  console.log('2. Add FAQ, steps, tips, troubleshooting, checklist');
+  console.log('2. Add FAQ (frontmatter `faq`), steps, tips, troubleshooting, checklist');
   console.log('3. Run antislop-copywriting checklist on each article');
   console.log('4. Set `draft: false` di frontmatter, lalu buka PR untuk review & merge');
   console.log('5. Setelah PR di-merge: `pnpm publish:guide <slug> --pr=<url>`');

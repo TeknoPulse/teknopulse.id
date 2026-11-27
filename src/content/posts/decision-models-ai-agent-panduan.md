@@ -37,7 +37,6 @@ faq:
 - [Peta Persaingan: TypeSafe Jev, OpenAI, Cloudflare, Microsoft](#peta-persaingan-typesafe-jev-openai-cloudflare-microsoft)
 - [Langkah Mulai: Coba OpenAI Decisions API Hari Ini](#langkah-mulai-coba-openai-decisions-api-hari-ini)
 - [Tips Lanjutan & Troubleshooting](#tips-lanjutan--troubleshooting)
-- [FAQ](#faq)
 - [Checklist Ringkas](#checklist-ringkas)
 
 ---
@@ -234,30 +233,6 @@ async function agentStep(state: AgentState) {
 - **Tip 4: Fallback strategy** — Selalu siapkan fallback ke LLM generatif kalau confidence < threshold atau Decision API error. Jangan biarkan agent stuck.
 - **Troubleshooting: "Model returns low confidence untuk input valid"** — Cek apakah `instructions` di question terlalu sempit atau `choices` kurang lengkap. Perjelas instruksi atau tambah opsi biar model punya ruang jawab.
 - **Troubleshooting: "Latency tetap tinggi"** — Pastikan pakai model Decisions-specific (`gpt-6-luna`), bukan chat model biasa. Chat model dengan structured output tetap pakai generasi token.
-
----
-
-## FAQ
-
-### Apa itu Decision Model dan bedanya dengan LLM biasa?
-
-Decision Model mengembalikan output terstruktur (probabilitas, pilihan kategorikal, skor) dalam satu forward pass, tanpa generasi token sekuensial. LLM biasa menghasilkan teks autoregresif yang lambat dan mahal untuk tugas keputusan biner.
-
-### Seberapa besar penghematan biaya pakai Decision Model?
-
-Angka 64% yang sering dikutip tidak berasal dari Decision Model: LangChain melaporkan median biaya per tugas di Open SWE turun 64% karena tiap tugas dirutekan ke model termurah yang masih memadai, alih-alih selalu memakai model frontier. Decision Model cocok untuk langkah routing seperti itu, tapi penghematannya sendiri belum diukur terpisah.
-
-### Kapan sebaiknya pakai Decision Model vs LLM generatif?
-
-Pakai Decision Model untuk tugas klasifikasi, routing, evaluasi pass/fail, dan pemilihan tool. Pakai LLM generatif untuk menulis kode, konten kreatif, reasoning kompleks, dan tugas butuh konteks panjang.
-
-### Apakah Decision Model bisa dijalankan on-premise?
-
-Ya. Cloudflare merilis clef-omni dengan bobot terbuka di Hugging Face. Komunitas open-source juga punya panduan melatih model kecil seperti Qwen3.5-4B via Unsloth menjadi model keputusan, cukup dengan GPU 8GB VRAM, sehingga bisa dijalankan sendiri di lingkungan air-gapped.
-
-### Apakah Decision Model cocok untuk pemula yang baru belajar AI agent?
-
-Cocok banget untuk dipelajari awal karena konsepnya sederhana (input → structured output) tapi dampaknya besar. Mulai dari OpenAI Decisions API yang paling mudah aksesnya.
 
 ---
 

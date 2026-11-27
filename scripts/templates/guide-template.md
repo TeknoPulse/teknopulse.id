@@ -10,7 +10,6 @@
 - [{{this.title}}](#{{this.slug}})
   {{/each}}
 - [Tips Lanjutan & Troubleshooting](#tips-lanjutan--troubleshooting)
-- [FAQ](#faq)
 - [Checklist Ringkas](#checklist-ringkas)
 
 ---
@@ -56,16 +55,6 @@
 
 - **{{this.error}}:** {{this.solution}}
   {{/each}}
-
-## FAQ
-
-{{#each FAQ_ITEMS}}
-
-### {{this.question}}
-
-{{this.answer}}
-
-{{/each}}
 
 ## Checklist Ringkas
 

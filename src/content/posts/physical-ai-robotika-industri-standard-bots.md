@@ -38,7 +38,6 @@ faq:
 - [Prinsip 4: Ko-Optimasi Hardware-Software Full Stack](#prinsip-4-ko-optimasi-hardware-software-full-stack)
 - [Langkah Mulai: Bangun Prototipe Physical AI Sederhana](#langkah-mulai-bangun-prototipe-physical-ai-sederhana)
 - [Tips Lanjutan & Troubleshooting](#tips-lanjutan--troubleshooting)
-- [FAQ](#faq)
 - [Checklist Ringkas](#checklist-ringkas)
 
 ---
@@ -285,30 +284,6 @@ trtexec --loadEngine=perception.trt --iterations=1000 --warmUp=500
 - **Troubleshooting: "Inference latency > 10ms di Jetson"** — Cek: (a) model terlalu besar, prune/quantize; (b) TensorRT engine tidak optimal, rebuild dengan `--fp16 --int8`; (c) thermal throttling, cek kipas Jetson.
 - **Troubleshooting: "Robot goyang saat transisi perception→control"** — Tambah smoothing/interpolasi di target pose. Atau naikkan perception Hz ke 60Hz kalau hardware kuat.
 - **Troubleshooting: "Zero-shot perception gagal di material baru"** — Kumpulkan 50-100 gambar material baru, fine-tune 1 epoch. Model base sudah punya representasi visual industri, adaptasi cepat.
-
----
-
-## FAQ
-
-### Apa itu Physical AI dan bedanya dengan AI biasa?
-
-Physical AI adalah tumpukan teknologi AI yang berinteraksi langsung dengan dunia fisik (robot, sensor, aktuator). Berbeda dengan AI digital (chatbot, analisis data), Physical AI butuh determinisme, keamanan, dan inferensi real-time di edge tanpa bergantung cloud.
-
-### Mengapa Standard Bots pakai model kecil (miliaran parameter) bukan model raksasa?
-
-Di pabrik, robot butuh pemahaman visual spasial presisi, bukan pengetahuan umum. Model kecil dilatih data industri terarah (1 miliar+ gambar) outperform model raksasa untuk tugas spesifik, plus lebih cepat, murah, dan bisa jalan di edge hardware terbatas.
-
-### Apa itu 'zero-shot perception' dalam konteks robot industri?
-
-Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1 miliar+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.
-
-### Mengapa inferensi edge on-premise wajib untuk robot pabrik?
-
-Pabrik sering air-gapped (tanpa internet), koneksi tidak stabil, dan butuh latency sub-10ms untuk safety. Cloud inference gagal di semua tiga syarat ini. Edge inference = deterministik, aman, independen jaringan.
-
-### Bisakah arsitektur ini diterapkan untuk robot non-industri (humanoid, drone, dll)?
-
-Prinsipnya sama: pisah persepsi (AI) vs kontrol gerak (deterministik), prioritaskan edge inference, gunakan data terarah. Tapi humanoid butuh model lebih besar untuk generalisasi lingkungan tidak terstruktur.
 
 ---
 
