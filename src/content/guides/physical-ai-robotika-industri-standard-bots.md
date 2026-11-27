@@ -25,9 +25,9 @@ faq:
   - question: 'Apa itu Physical AI dan bedanya dengan AI biasa?'
     answer: 'Physical AI adalah tumpukan teknologi AI yang berinteraksi langsung dengan dunia fisik (robot, sensor, aktuator). Berbeda dengan AI digital (chatbot, analisis data), Physical AI butuh determinisme, keamanan, dan inferensi real-time di edge tanpa bergantung cloud.'
   - question: 'Mengapa Standard Bots pakai model kecil (miliaran parameter) bukan model raksasa?'
-    answer: 'Di pabrik, robot butuh pemahaman visual spasial presisi, bukan pengetahuan umum. Model kecil dilatih data industri terarah (1M+ gambar) outperform model raksasa untuk tugas spesifik, plus lebih cepat, murah, dan bisa jalan di edge hardware terbatas.'
+    answer: 'Di pabrik, robot butuh pemahaman visual spasial presisi, bukan pengetahuan umum. Model kecil dilatih data industri terarah (1 miliar+ gambar) outperform model raksasa untuk tugas spesifik, plus lebih cepat, murah, dan bisa jalan di edge hardware terbatas.'
   - question: "Apa itu 'zero-shot perception' dalam konteks robot industri?"
-    answer: 'Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1M+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.'
+    answer: 'Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1 miliar+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.'
   - question: 'Mengapa inferensi edge on-premise wajib untuk robot pabrik?'
     answer: 'Pabrik sering air-gapped (tanpa internet), koneksi tidak stabil, dan butuh latency sub-10ms untuk safety. Cloud inference gagal di ketiga syarat ini. Edge inference = deterministik, aman, independen jaringan.'
   - question: 'Bisakah arsitektur ini diterapkan untuk robot non-industri (humanoid, drone, dll)?'
@@ -80,7 +80,7 @@ Leif Jentoft (Head of AI Standard Bots) tegaskan:
 ### Kenapa berhasil?
 
 - Robot pabrik **tidak perlu tahu puisi Shakespeare** — butuh bedakan logam vs plastik, deteksi orientasi 0.1 derajat, ignore pencahayaan berubah
-- Model base dilatih 1M+ gambar industri → **zero-shot perception**: langsung kerja di task baru tanpa retraining
+- Model base dilatih 1 miliar+ gambar industri → **zero-shot perception**: langsung kerja di task baru tanpa retraining
 - Ukuran kecil = **inferensi <10ms di edge hardware** (Jetson Orin, dll), cocok real-time control loop
 
 ---
@@ -167,6 +167,8 @@ Standard Bots **desain hardware & software beriringan** — bukan beli robot off
 
 ### Langkah 1: Siapkan Model Persepsi (Object Detection + Pose)
 
+> **Catatan:** Kode di Langkah 1 dan 2 adalah kerangka (pseudocode), bukan prototipe siap jalan. `postprocess`, `inverse_kinematics`, dan SDK robot harus kamu implementasikan sendiri, dan uji hanya di simulator sampai safety check nyata selesai.
+
 ```python
 # perception_model.py
 import onnxruntime as ort
@@ -193,7 +195,7 @@ class IndustrialPerception:
         return self.postprocess(outputs[0], frame.shape[:2])
 
     def postprocess(self, output: np.ndarray, orig_shape: tuple) -> list:
-        # YOLO-style postprocess: NMS, confidence threshold, scale ke original size
+        # PSEUDOCODE: implementasikan NMS + scaling sesuai format output model kamu
         detections = []
         # ... implement NMS, scaling ...
         return detections  # [{class_id, confidence, bbox, pose_estimate}]
@@ -209,8 +211,11 @@ from perception_model import IndustrialPerception
 # from your_robot_sdk import RobotArm, inverse_kinematics
 
 class HybridController:
-    def __init__(self, robot, perception_model_path):
+    # Hanya untuk simulator: jangan sambungkan ke robot fisik sebelum safety_check diimplementasikan.
+    def __init__(self, robot, camera, perception_model_path):
         self.robot = robot
+        self.camera = camera
+        self.running = False
         self.perception = IndustrialPerception(perception_model_path)
         self.perception_hz = 30
         self.control_hz = 1000
@@ -259,8 +264,8 @@ class HybridController:
         return max(workpieces, key=lambda x: x['confidence']) if workpieces else None
 
     def safety_check(self, target_joints, current_state):
-        # Joint limits, velocity limits, collision check
-        return True  # Implement proper checks
+        # Fail closed: tolak semua target sampai joint-limit, velocity, dan collision check nyata diimplementasikan.
+        return False
 ```
 
 ### Langkah 3: Deploy ke Edge (Jetson Orin)
@@ -272,13 +277,8 @@ python export_onnx.py --model best.pt --output perception.onnx
 # 2. Optimize dengan TensorRT (di Jetson)
 trtexec --onnx=perception.onnx --saveEngine=perception.trt --fp16 --workspace=1024
 
-# 3. Jalankan inference test
-python -c "
-import tensorrt as trt
-import pycuda.autoinit
-import numpy as np
-# Load engine, run inference, benchmark latency
-"
+# 3. Benchmark latency engine: lihat "GPU Compute Time" (mean & p99) dan bandingkan dengan target latency persepsi di atas (sub-10ms; loop persepsi 30Hz)
+trtexec --loadEngine=perception.trt --iterations=1000 --warmUp=500
 ```
 
 ---
@@ -303,11 +303,11 @@ Physical AI adalah tumpukan teknologi AI yang berinteraksi langsung dengan dunia
 
 ### Mengapa Standard Bots pakai model kecil (miliaran parameter) bukan model raksasa?
 
-Di pabrik, robot butuh pemahaman visual spasial presisi, bukan pengetahuan umum. Model kecil dilatih data industri terarah (1M+ gambar) outperform model raksasa untuk tugas spesifik, plus lebih cepat, murah, dan bisa jalan di edge hardware terbatas.
+Di pabrik, robot butuh pemahaman visual spasial presisi, bukan pengetahuan umum. Model kecil dilatih data industri terarah (1 miliar+ gambar) outperform model raksasa untuk tugas spesifik, plus lebih cepat, murah, dan bisa jalan di edge hardware terbatas.
 
 ### Apa itu 'zero-shot perception' dalam konteks robot industri?
 
-Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1M+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.
+Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1 miliar+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.
 
 ### Mengapa inferensi edge on-premise wajib untuk robot pabrik?
 

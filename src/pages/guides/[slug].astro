@@ -12,7 +12,10 @@ export async function getStaticPaths() {
 
   return guides.map((guide) => ({
     params: { slug: guide.slug },
-    props: { guide, ogImage: guide.data.coverImage ?? `/og/${guide.slug}.png` },
+    props: {
+      guide,
+      ogImage: guide.data.ogImage ?? guide.data.coverImage ?? `/og/${guide.slug}.png`,
+    },
   }));
 }
 

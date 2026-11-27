@@ -161,16 +161,35 @@ async function main(): Promise<void> {
   };
 
   const outputPath = path.join(CURATION_DIR, `${getTodayDate()}.json`);
+
+  // Re-run di hari yang sama tidak boleh menimpa review owner: gabungkan
+  // dengan file curation yang sudah ada — item lama utuh (approved/notes
+  // terjaga), item baru ditambahkan kalau filename-nya belum ada.
+  try {
+    const existingRaw = await fs.readFile(outputPath, 'utf-8');
+    const existing = JSON.parse(existingRaw) as CurationOutput;
+    const known = new Set(existing.shortlisted.map((item) => item.filename));
+    const merged = [
+      ...existing.shortlisted,
+      ...output.shortlisted.filter((item) => !known.has(item.filename)),
+    ];
+    output.shortlisted = merged;
+    console.log(`🔁 Merged dengan curation yang ada: ${outputPath}`);
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code !== 'ENOENT') throw err;
+  }
+
   await fs.writeFile(outputPath, JSON.stringify(output, null, 2), 'utf-8');
 
   console.log(`\n📝 Output written to: ${outputPath}`);
   console.log('\n📋 NEXT STEPS:');
   console.log('1. Open the JSON file and set "approved": true for topics you want to proceed with');
   console.log('2. Add any "notes" for the drafting phase');
-  console.log('3. Run: pnpm draft-guide');
+  console.log('3. Run: pnpm draft:guide');
 
-  // Update manifest with new files
-  for (const f of newFiles) {
+  // Update manifest: hanya file yang lolos shortlist dicatat 'curated'.
+  // File baru yang tidak terpilih tetap 'new' supaya ikut discan run berikutnya.
+  for (const f of shortlisted) {
     manifest.files[f.filename] = {
       status: 'curated',
       curatedAt: new Date().toISOString(),
@@ -183,4 +202,7 @@ async function main(): Promise<void> {
   await saveManifest(MANIFEST_PATH, manifest);
 }
 
-main().catch(console.error);
+main().catch((e) => {
+  console.error(e);
+  process.exitCode = 1;
+});

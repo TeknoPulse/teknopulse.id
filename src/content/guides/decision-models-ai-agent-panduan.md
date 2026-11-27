@@ -1,7 +1,7 @@
 ---
-title: 'Decision Models untuk Agen AI: Panduan Memangkas Biaya 64% dengan Model Luaran Bertipe'
+title: 'Decision Models untuk Agen AI: Panduan Model Luaran Bertipe yang Cepat dan Murah'
 description: 'Decision Models mengubah cara agen AI membuat keputusan: dari generasi teks lambat ke output terstruktur instan. Panduan ini bedah arsitektur, manfaat biaya, dan cara mulai pakai Decisions API, Cloudflare Clef, atau model open-source.'
-metaDescription: 'Panduan Decision Models untuk agen AI: model luaran bertipe yang memangkas biaya inferensi 64% dan 10x lebih cepat. Bedah arsitektur dan cara memakainya.'
+metaDescription: 'Panduan Decision Models untuk agen AI: model yang menjawab ya/tidak, pilihan, atau skor hingga 10x lebih cepat. Cara kerja dan cara memakainya.'
 publishedAt: 2026-10-11
 updatedAt: 2026-11-24
 tags: ['ai', 'decision-models', 'ai-agents', 'model-optimization', 'llm-cost-reduction']
@@ -25,7 +25,7 @@ faq:
   - question: 'Apa itu Decision Model dan bedanya dengan LLM biasa?'
     answer: 'Decision Model mengembalikan output terstruktur (probabilitas, pilihan kategorikal, skor) dalam satu forward pass, tanpa generasi token sekuensial. LLM biasa menghasilkan teks autoregresif yang lambat dan mahal untuk tugas keputusan biner.'
   - question: 'Seberapa besar penghematan biaya pakai Decision Model?'
-    answer: 'Riset industri (LangChain, Open SWE Bench) menunjukkan median penghematan 64% biaya per tugas saat memindahkan evaluasi dan routing dari LLM generik ke Decision Model.'
+    answer: 'Angka 64% yang sering dikutip tidak berasal dari Decision Model: LangChain melaporkan median biaya per tugas di Open SWE turun 64% karena tiap tugas dirutekan ke model termurah yang masih memadai, alih-alih selalu memakai model frontier. Decision Model cocok untuk langkah routing seperti itu, tapi penghematannya sendiri belum diukur terpisah.'
   - question: 'Kapan sebaiknya pakai Decision Model vs LLM generatif?'
     answer: 'Pakai Decision Model untuk tugas klasifikasi, routing, evaluasi pass/fail, dan pemilihan tool. Pakai LLM generatif untuk menulis kode, konten kreatif, reasoning kompleks, dan tugas butuh konteks panjang.'
   - question: 'Apakah Decision Model bisa dijalankan on-premise?'
@@ -34,7 +34,7 @@ faq:
     answer: 'Cocok banget untuk dipelajari awal karena konsepnya sederhana (input → structured output) tapi dampaknya besar. Mulai dari OpenAI Decisions API yang paling mudah aksesnya.'
 ---
 
-> **TL;DR** Decision Models adalah kategori model AI baru yang mengembalikan output terstruktur (probabilitas, pilihan, skor) dalam satu forward pass — bukan teks berantai. Hasilnya: inferensi 10x lebih cepat, biaya turun 64%, dan jadi standar baru untuk arsitektur agen AI modern. Artikel ini bedah konsep, player besar (TypeSafe Jev, OpenAI Decisions API, Cloudflare Clef), dan cara mulai menggunakannya.
+> **TL;DR** Decision Models adalah kategori model AI baru yang mengembalikan output terstruktur (probabilitas, pilihan, skor) dalam satu forward pass — bukan teks berantai. OpenAI mengklaim Decisions API hingga 10x lebih cepat dibanding API obrolan biasa, tanpa biaya token output. Artikel ini bedah konsep, player besar (TypeSafe Jev, OpenAI Decisions API, Cloudflare Clef), dan cara mulai menggunakannya.
 
 ## Daftar Isi
 
@@ -106,7 +106,7 @@ Kalau kita pecah workflow agen AI typical, mayoritas langkah bukan "nulis esai" 
 | Ringkas laporan panjang                 | Summarization         | ❌ Butuh LLM generatif             |
 | Reasoning multi-step kompleks           | Chain-of-thought      | ❌ Butuh LLM generatif             |
 
-**Data nyata:** Riset LangChain di benchmark _Open SWE Bench_ buktikan migrasi evaluasi + routing ke Decision Model **memangkas median biaya per tugas 64%**.
+**Data nyata:** LangChain melaporkan median biaya per tugas di _Open SWE_ turun **64%** dengan merutekan tiap tugas ke model termurah yang masih memadai, alih-alih selalu memakai model frontier. Decision Model cocok untuk langkah routing seperti itu.
 
 Artinya: biarkan LLM generatif (Claude, GPT-4, dll) handle tugas kreatif & reasoning. Serahkan semua _classification, routing, scoring, validation_ ke Decision Model. Arsitektur hybrid inilah yang jadi best practice 2026.
 
@@ -119,7 +119,7 @@ Artinya: biarkan LLM generatif (Claude, GPT-4, dll) handle tugas kreatif & reaso
 | **TypeSafe**   | Jev                        | Pionir kategori; >$100M ARR 3 pekan setelah rilis, valuasi $7,5 miliar  |
 | **OpenAI**     | Decisions API (GPT-6 Luna) | Tanpa biaya token output, $0,10 per 1 juta token input, 10x lebih cepat |
 | **Cloudflare** | clef-omni                  | Multimodal (audio/video/gambar/teks), bobot terbuka di Hugging Face     |
-| **Microsoft**  | Microsoft-Decision-1       | Diumumkan di hari yang sama; detail belum dipublikasikan di sumber kami |
+| **Microsoft**  | Microsoft-Decision-1       | Diposisikan untuk LLM judge dan screening hipotesis ilmiah              |
 | **Perplexity** | pplx-decider (27B)         | 94,5% di Decision Bench (1.071 kasus uji), $0,017 per 1.000 keputusan   |
 
 ### Rekomendasi TeknoPulse untuk Pemula
@@ -155,41 +155,27 @@ import OpenAI from 'openai';
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 async function checkSpam(emailContent: string) {
-  const decision = await client.chat.decisions.create({
-    model: 'gpt-6-luna-decisions', // Decisions API model
-    messages: [
+  const decision = await client.decisions.create({
+    model: 'gpt-6-luna',
+    input: emailContent,
+    questions: [
       {
-        role: 'system',
-        content: 'Klasifikasikan email ini: spam atau tidak spam. Output: label + confidence.',
+        type: 'predicate',
+        name: 'is_spam',
+        instructions: 'Apakah email ini spam, penipuan, atau promosi yang tidak diminta?',
       },
-      { role: 'user', content: emailContent },
     ],
-    // Schema output terstruktur
-    response_format: {
-      type: 'json_schema',
-      json_schema: {
-        name: 'spam_check',
-        schema: {
-          type: 'object',
-          properties: {
-            label: { type: 'string', enum: ['spam', 'not_spam'] },
-            confidence: { type: 'number', minimum: 0, maximum: 1 },
-            reasoning: { type: 'string' },
-          },
-          required: ['label', 'confidence', 'reasoning'],
-          additionalProperties: false,
-        },
-      },
-    },
   });
 
-  return JSON.parse(decision.choices[0].message.content);
+  const answer = decision.answers[0];
+  if (answer.type !== 'predicate') throw new Error(`Tidak ada jawaban untuk ${answer.name}`);
+  return { isSpam: answer.probability >= 0.5, probability: answer.probability };
 }
 
 // Test
 const result = await checkSpam('Congratulations! You won $1,000,000. Click here to claim!');
 console.log(result);
-// { label: 'spam', confidence: 0.99, reasoning: 'Classic advance-fee scam pattern...' }
+// contoh: { isSpam: true, probability: 0.98 }
 ```
 
 ### Langkah 3: Contoh Routing Tool Selection
@@ -197,32 +183,22 @@ console.log(result);
 ```typescript
 // decision-tool-router.ts
 async function pickTool(task: string, availableTools: string[]) {
-  const decision = await client.chat.decisions.create({
-    model: 'gpt-6-luna-decisions',
-    messages: [
+  const decision = await client.decisions.create({
+    model: 'gpt-6-luna',
+    input: task,
+    questions: [
       {
-        role: 'system',
-        content: `Pilih tool terbaik untuk tugas ini. Tools: ${availableTools.join(', ')}`,
+        type: 'choice',
+        name: 'tool',
+        instructions: 'Tool mana yang paling tepat untuk mengerjakan tugas ini?',
+        choices: availableTools.map((tool) => ({ value: tool, description: `Pakai tool ${tool}` })),
       },
-      { role: 'user', content: task },
     ],
-    response_format: {
-      type: 'json_schema',
-      json_schema: {
-        name: 'tool_picker',
-        schema: {
-          type: 'object',
-          properties: {
-            selected_tool: { type: 'string', enum: availableTools },
-            confidence: { type: 'number', minimum: 0, maximum: 1 },
-            reason: { type: 'string' },
-          },
-          required: ['selected_tool', 'confidence', 'reason'],
-        },
-      },
-    },
   });
-  return JSON.parse(decision.choices[0].message.content);
+
+  const answer = decision.answers[0];
+  if (answer.type !== 'choice') throw new Error(`Tidak ada jawaban untuk ${answer.name}`);
+  return { selectedTool: answer.choice, confidence: answer.confidence };
 }
 ```
 
@@ -242,7 +218,7 @@ async function agentStep(state: AgentState) {
   }
 
   // 2. Eksekusi tool yang dipilih
-  const result = await executeTool(route.selected_tool, state);
+  const result = await executeTool(route.selectedTool, state);
 
   // 3. Decision Model untuk validasi output (cepat, murah)
   const validation = await validateOutput(result, state.expectedSchema);
@@ -263,8 +239,8 @@ async function agentStep(state: AgentState) {
 - **Tip 2: Cache hasil decision** — Untuk input yang sering muncul (misal: cek tipe error yang sama), cache decision hasilnya. Decision Model deterministik untuk input identik.
 - **Tip 3: Kalibrasi confidence threshold** — Jangan pakai default 0.5. Test di data production kamu, cari threshold yang balance precision/recall. Untuk safety-critical, naikkan ke 0.8+.
 - **Tip 4: Fallback strategy** — Selalu siapkan fallback ke LLM generatif kalau confidence < threshold atau Decision API error. Jangan biarkan agent stuck.
-- **Troubleshooting: "Model returns low confidence untuk input valid"** — Cek apakah schema response_format terlalu ketat. Longgarakan enum atau tambah field `reasoning` biar model punya ruang justify.
-- **Troubleshooting: "Latency tetap tinggi"** — Pastikan pakai model Decisions-specific (`gpt-6-luna-decisions`), bukan chat model biasa. Chat model dengan `response_format` tetap pakai generasi token.
+- **Troubleshooting: "Model returns low confidence untuk input valid"** — Cek apakah `instructions` di question terlalu sempit atau `choices` kurang lengkap. Perjelas instruksi atau tambah opsi biar model punya ruang jawab.
+- **Troubleshooting: "Latency tetap tinggi"** — Pastikan pakai model Decisions-specific (`gpt-6-luna`), bukan chat model biasa. Chat model dengan structured output tetap pakai generasi token.
 
 ---
 
@@ -276,7 +252,7 @@ Decision Model mengembalikan output terstruktur (probabilitas, pilihan kategorik
 
 ### Seberapa besar penghematan biaya pakai Decision Model?
 
-Riset industri (LangChain, Open SWE Bench) menunjukkan median penghematan 64% biaya per tugas saat memindahkan evaluasi dan routing dari LLM generik ke Decision Model.
+Angka 64% yang sering dikutip tidak berasal dari Decision Model: LangChain melaporkan median biaya per tugas di Open SWE turun 64% karena tiap tugas dirutekan ke model termurah yang masih memadai, alih-alih selalu memakai model frontier. Decision Model cocok untuk langkah routing seperti itu, tapi penghematannya sendiri belum diukur terpisah.
 
 ### Kapan sebaiknya pakai Decision Model vs LLM generatif?
 

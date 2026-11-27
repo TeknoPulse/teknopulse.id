@@ -10,6 +10,7 @@ import * as fsp from 'fs/promises';
 import * as path from 'path';
 import { generateResearchChecklist } from './utils/keyword-research.js';
 import { loadManifest, saveManifest } from './utils/manifest.js';
+import { fitMetaDescription } from './utils/meta-description.js';
 import { slugifyTitle } from './utils/slug.js';
 
 const CURATION_DIR = path.resolve('../curation');
@@ -150,10 +151,17 @@ function buildFrontmatter(
     keywordData.secondaryKeywords
   );
 
+  const keywordParts = [
+    keywordData.targetKeyword,
+    keywordData.secondaryKeywords.slice(0, 2).join(', '),
+  ].filter((part) => part.length > 0);
+
   return {
     title: item.title,
     description: `Panduan lengkap ${item.title.toLowerCase()} untuk pemula hingga menengah. ${item.notes || 'Termasuk langkah-langkah praktis, tips, dan troubleshooting.'}`,
-    metaDescription: `Belajar ${item.title.toLowerCase()} dengan panduan step-by-step TeknoPulse. ${keywordData.targetKeyword} + ${keywordData.secondaryKeywords.slice(0, 2).join(', ')}. Cocok untuk pemula.`,
+    metaDescription: fitMetaDescription(
+      `Belajar ${item.title.toLowerCase()} dengan panduan step-by-step TeknoPulse. ${keywordParts.join(' + ')}. Cocok untuk pemula.`
+    ),
     publishedAt: publishDate,
     updatedAt: publishDate,
     tags,
@@ -237,7 +245,37 @@ async function main(): Promise<void> {
   const template = loadTemplate();
   const manifest = await loadManifest(MANIFEST_PATH);
 
-  for (const item of approved) {
+  // Yang sudah drafted/published tidak disentuh lagi — status & file-nya final.
+  const pending = approved.filter((item) => {
+    const status = manifest.files[item.filename]?.status;
+    if (status === 'drafted' || status === 'published') {
+      console.log(`  ⏭️  Skip ${item.filename}: sudah ${status}`);
+      return false;
+    }
+    return true;
+  });
+
+  // Slug dihitung untuk SEMUA item sebelum ada file yang ditulis: dua item
+  // dengan slug sama adalah kolisi — resolusi manual, semuanya diskip.
+  const slugByFilename = new Map(pending.map((item) => [item.filename, slugifyTitle(item.title)]));
+  const slugCount = new Map<string, number>();
+  for (const slug of slugByFilename.values()) {
+    slugCount.set(slug, (slugCount.get(slug) ?? 0) + 1);
+  }
+  const colliding = new Set(
+    [...slugCount.entries()].filter(([, n]) => n > 1).map(([slug]) => slug)
+  );
+  for (const slug of colliding) {
+    const names = pending.filter((item) => slugByFilename.get(item.filename) === slug);
+    console.error(`  ❌ Kolisi slug "${slug}": ${names.map((n) => n.filename).join(', ')}`);
+    console.error('     Perlu resolusi manual (rename judul / set slug di frontmatter).');
+  }
+
+  for (const item of pending) {
+    const slug = slugByFilename.get(item.filename)!;
+    if (colliding.has(slug)) continue;
+
+    console.log(`\n📄 Drafting: ${item.title}`);
     console.log(`\n📄 Drafting: ${item.title}`);
 
     // Check if keyword data exists in notes or prompt for it
@@ -301,10 +339,19 @@ async function main(): Promise<void> {
     const body = renderTemplate(template, templateData);
     const content = yaml + '\n\n' + body;
 
-    const slug = slugifyTitle(item.title);
     const outputPath = path.join(GUIDES_DIR, `${slug}.md`);
 
-    await fsp.writeFile(outputPath, content, 'utf-8');
+    // 'wx': gagal kalau file sudah ada — draf lama tidak boleh ditimpa,
+    // dan manifest tidak diubah untuk item yang diskip.
+    try {
+      await fsp.writeFile(outputPath, content, { encoding: 'utf-8', flag: 'wx' });
+    } catch (err) {
+      if ((err as NodeJS.ErrnoException).code === 'EEXIST') {
+        console.log(`  ⏭️  Skip ${item.filename}: ${outputPath} sudah ada`);
+        continue;
+      }
+      throw err;
+    }
     console.log(`  ✅ Written: ${outputPath}`);
 
     // Update manifest
@@ -325,8 +372,11 @@ async function main(): Promise<void> {
   console.log('1. Edit each .md file in web/src/content/guides/ to fill in content');
   console.log('2. Add FAQ, steps, tips, troubleshooting, checklist');
   console.log('3. Run antislop-copywriting checklist on each article');
-  console.log('4. Create PR for review');
-  console.log('5. After merge, run `pnpm curate` again to update manifest to published');
+  console.log('4. Set `draft: false` di frontmatter, lalu buka PR untuk review & merge');
+  console.log('5. Setelah PR di-merge: `pnpm publish:guide <slug> --pr=<url>`');
 }
 
-main().catch(console.error);
+main().catch((e) => {
+  console.error(e);
+  process.exitCode = 1;
+});

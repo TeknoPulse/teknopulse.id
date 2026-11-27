@@ -193,13 +193,7 @@ export function generateResearchChecklist(topic: string): string {
 
 ## Output Format (copy ke curation JSON):
 {
-  "targetKeyword": "...",
-  "secondaryKeywords": [
-    {"keyword": "...", "source": "autocomplete", "intent": "informational"},
-    {"keyword": "...", "source": "related", "intent": "informational"},
-    {"keyword": "...", "source": "gsc", "intent": "informational"}
-  ],
-  "notes": ["..."]
+  "notes": "kw: target keyword | secondary1, secondary2"
 }
 `.trim();
 }

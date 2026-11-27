@@ -27,8 +27,11 @@ const GUIDES_DIR = path.resolve('src/content/guides');
 async function guideIsLive(slug: string): Promise<boolean> {
   try {
     const raw = await fs.readFile(path.join(GUIDES_DIR, `${slug}.md`), 'utf-8');
-    // Draft tidak di-build, jadi belum bisa disebut published.
-    return /^draft:\s*false\s*$/m.test(raw);
+    // Draft tidak di-build, jadi belum bisa disebut published. Cek HANYA di
+    // frontmatter — teks "draft: false" di body tidak boleh dihitung.
+    const fm = /^---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1];
+    if (!fm) return false;
+    return /^draft:\s*false\s*$/m.test(fm);
   } catch {
     return false;
   }

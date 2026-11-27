@@ -1,5 +1,5 @@
 // src/pages/og/[slug].png.ts
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import OgTemplate from '../../components/og-template';
@@ -13,20 +13,19 @@ export async function getStaticPaths() {
   const [posts, guides] = await Promise.all([getCollection('posts'), getCollection('guides')]);
   return [...posts, ...guides]
     .filter((entry) => !entry.data.draft)
-    .map((entry) => ({ params: { slug: entry.slug } }));
+    .map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
 }
 
-export async function GET({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export async function GET({
+  props,
+}: {
+  props: { entry: CollectionEntry<'posts'> | CollectionEntry<'guides'> };
+}) {
+  // posts & guides punya field yang sama yang dipakai template OG
+  // (title, category, author, publishedAt), jadi tidak perlu dibedakan.
+  const post = props.entry;
 
   try {
-    const posts = await getCollection('posts');
-    const post = posts.find((p) => p.slug === slug);
-
-    if (!post) {
-      return new Response('Post not found', { status: 404 });
-    }
-
     // ✅ URL tanpa spasi
     const fontUrls = {
       regular:

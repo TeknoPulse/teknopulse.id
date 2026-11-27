@@ -96,17 +96,19 @@ export async function parseDocx(filePath: string): Promise<DocxParseResult> {
   const result = await mammoth.convertToHtml({ buffer });
 
   const html = result.value;
-  const rawText = html
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  // Batas paragraf/heading/list/<br> jadi newline dulu supaya struktur baris
+  // dokumen terjaga — judul & metadata hidup di baris-baris awal.
+  const lines = html
+    .replace(/<\/(p|h[1-6]|li)>/gi, '\n')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<[^>]*>/g, '')
+    .split('\n')
+    .map((l) => l.replace(/\s+/g, ' ').trim())
+    .filter((l) => l.length > 0);
+  const rawText = lines.join(' ');
   const wordCount = rawText.split(/\s+/).filter((w) => w.length > 0).length;
 
   // Extract metadata from first few paragraphs
-  const lines = rawText
-    .split('\n')
-    .map((l) => l.trim())
-    .filter((l) => l.length > 0);
   const headerText = lines.slice(0, 10).join('\n');
 
   let title = '';
@@ -116,10 +118,24 @@ export async function parseDocx(filePath: string): Promise<DocxParseResult> {
   let category = 'AI';
 
   // Try to extract title from first non-empty line
-  for (const line of lines) {
-    if (line.length > 10 && line.length < 200) {
-      title = line;
-      break;
+  const fmTitle = lines
+    .map((l) => /^title:\s*(.+)$/i.exec(l)?.[1].trim())
+    .find((t): t is string => Boolean(t));
+  if (fmTitle) {
+    // Sebagian docx menyimpan seluruh frontmatter dalam satu paragraf:
+    // potong di key frontmatter berikutnya, lalu buang kutip/escape pembungkus.
+    title = fmTitle
+      .split(
+        /\s+(?:slug|summary|description|metaDescription|publishedAt|pubDate|date|category|tags|author|draft|source|sourceUrl|coverImage):\s/
+      )[0]
+      .replace(/\\"/g, '"')
+      .replace(/^["'\s]+|["'\s]+$/g, '');
+  } else {
+    for (const line of lines) {
+      if (line.length > 10 && line.length < 200) {
+        title = line;
+        break;
+      }
     }
   }
 
@@ -284,10 +300,20 @@ export function scoreSourceAuthority(sourceUrl: string, author: string): number 
   };
 
   let score = 5; // default
-  for (const [domain, s] of Object.entries(authorityDomains)) {
-    if (sourceUrl.includes(domain)) {
-      score = s;
-      break;
+  // Cocokkan HOST, bukan substring URL — 'evil.com/?u=latent.space' tidak
+  // boleh kebaca sebagai latent.space. URL tidak valid → skor default.
+  let host = '';
+  try {
+    host = new URL(sourceUrl).hostname.toLowerCase().replace(/^www\./, '');
+  } catch {
+    host = '';
+  }
+  if (host) {
+    for (const [domain, s] of Object.entries(authorityDomains)) {
+      if (host === domain || host.endsWith('.' + domain)) {
+        score = s;
+        break;
+      }
     }
   }
 

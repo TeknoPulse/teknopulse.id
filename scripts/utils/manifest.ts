@@ -39,25 +39,71 @@ export function emptyManifest(): Manifest {
   return { version: 1, files: {} };
 }
 
+const VALID_STATUSES: readonly ManifestStatus[] = [
+  'new',
+  'curated',
+  'drafted',
+  'published',
+  'failed',
+];
+
+const isPlainObject = (v: unknown): v is Record<string, unknown> =>
+  typeof v === 'object' && v !== null && !Array.isArray(v);
+
 export async function loadManifest(manifestPath: string): Promise<Manifest> {
+  let data: string;
   try {
-    const data = await fsp.readFile(manifestPath, 'utf-8');
-    const parsed: unknown = JSON.parse(data);
-    if (typeof parsed !== 'object' || parsed === null) return emptyManifest();
-    const candidate = parsed as Partial<Manifest>;
-    return {
-      version: candidate.version ?? 1,
-      lastSync: candidate.lastSync,
-      files: candidate.files ?? {},
-    };
-  } catch {
-    return emptyManifest();
+    data = await fsp.readFile(manifestPath, 'utf-8');
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === 'ENOENT') return emptyManifest();
+    throw err;
   }
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(data);
+  } catch (err) {
+    throw new Error(`Manifest ${manifestPath} bukan JSON valid: ${(err as Error).message}`);
+  }
+
+  if (!isPlainObject(parsed)) {
+    throw new Error(`Manifest ${manifestPath} tidak valid: root harus objek`);
+  }
+  const candidate = parsed as Partial<Manifest>;
+
+  const files = candidate.files ?? {};
+  if (!isPlainObject(files)) {
+    throw new Error(`Manifest ${manifestPath} tidak valid: "files" harus objek`);
+  }
+  for (const [filename, entry] of Object.entries(files)) {
+    if (!isPlainObject(entry)) {
+      throw new Error(`Manifest ${manifestPath} tidak valid: entry "${filename}" harus objek`);
+    }
+    const status = (entry as ManifestEntry).status;
+    if (!VALID_STATUSES.includes(status)) {
+      throw new Error(
+        `Manifest ${manifestPath} tidak valid: entry "${filename}" punya status "${status}"`
+      );
+    }
+  }
+
+  return {
+    version: candidate.version ?? 1,
+    lastSync: candidate.lastSync,
+    files: files as Record<string, ManifestEntry>,
+  };
 }
 
 export async function saveManifest(manifestPath: string, manifest: Manifest): Promise<void> {
   await fsp.mkdir(path.dirname(manifestPath), { recursive: true });
-  await fsp.writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+  const tmpPath = `${manifestPath}.${process.pid}.${Date.now()}.tmp`;
+  try {
+    await fsp.writeFile(tmpPath, JSON.stringify(manifest, null, 2), 'utf-8');
+    await fsp.rename(tmpPath, manifestPath);
+  } catch (err) {
+    await fsp.unlink(tmpPath).catch(() => {});
+    throw err;
+  }
 }
 
 /**
