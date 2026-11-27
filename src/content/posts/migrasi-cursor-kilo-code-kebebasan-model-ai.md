@@ -15,7 +15,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/migrasi-cursor-kilo-code-kebebasan-model-ai-16x9.png'
-coverImageAlt: 'Visualisasi antarmuka editor kode dengan grafik perutean multi-model AI terdistribusi'
+coverImageAlt: 'Laptop lama tertutup dan laptop terbuka di meja kerja kayu, kabel USB-C digulung rapi, kotak kardus berisi adaptor daya dan buku catatan'
 format: 'konteks'
 source:
   - name: 'Kilo Code — Leaving Cursor? Kilo Enterprise is free for up to a year'

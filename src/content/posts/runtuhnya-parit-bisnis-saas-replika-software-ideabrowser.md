@@ -15,7 +15,7 @@ tags:
 author: 'TeknoPulse Redaksi'
 draft: true
 coverImage: '../../assets/images/runtuhnya-parit-bisnis-saas-replika-software-ideabrowser-16x9.png'
-coverImageAlt: 'Ilustrasi konseptual benteng digital runtuh dengan jaringan komputasi open-source di sekitarnya'
+coverImageAlt: 'Dinding beton tua yang retak dan ditumbuhi lumut di tepi jalan berbatu'
 format: 'konteks'
 source:
   - name: 'IdeaBrowser — App removes stress from gift giving (local marketplace idea)'
