@@ -1,26 +1,19 @@
 ---
 title: 'Physical AI untuk Robotika Industri: Pelajaran Dari Standard Bots Bangun AI Andal di Pabrik'
-description: 'Standard Bots buktikan robot pabrik butuh AI kecil + data terarah, bukan model raksasa. Panduan ini bedah arsitektur Physical AI: inferensi edge on-premise, pisah persepsi vs gerak, dan ko-optimasi hardware-software.'
+summary: 'Standard Bots buktikan robot pabrik butuh AI kecil + data terarah, bukan model raksasa. Panduan ini bedah arsitektur Physical AI: inferensi edge on-premise, pisah persepsi vs gerak, dan ko-optimasi hardware-software.'
 metaDescription: 'Pelajari Physical AI dari Standard Bots: robot pabrik butuh model kecil dan data terarah, bukan model raksasa. Bedah arsitektur inferensi edge di pabrik.'
 publishedAt: 2026-10-11
 updatedAt: 2026-11-24
 tags: ['ai', 'physical-ai', 'robotika-industri', 'edge-ai', 'manufaktur', 'standard-bots']
 category: 'Automation'
-difficulty: 'menengah'
 readingTime: 14
 author: 'TeknoPulse Redaksi'
-draft: false
-targetKeyword: 'ai robotika industri tutorial'
-secondaryKeywords:
-  - 'physical ai robotika'
-  - 'standard bots ai arsitektur'
-  - 'edge ai manufaktur'
-  - 'robot industri inferensi lokal'
-sources:
-  - title: 'Latent Space — Building AI for Reliable Execution: Lessons From Industrial Robotics'
+draft: true
+format: 'panduan-pembaca'
+source:
+  - name: 'Latent Space — Building AI for Reliable Execution: Lessons From Industrial Robotics'
     url: 'https://www.latent.space/p/standard-bots'
-    author: 'Evan Beard & Leif Jentoft'
-    date: '2026-10-11'
+    primary: true
 faq:
   - question: 'Apa itu Physical AI dan bedanya dengan AI biasa?'
     answer: 'Physical AI adalah tumpukan teknologi AI yang berinteraksi langsung dengan dunia fisik (robot, sensor, aktuator). Berbeda dengan AI digital (chatbot, analisis data), Physical AI butuh determinisme, keamanan, dan inferensi real-time di edge tanpa bergantung cloud.'

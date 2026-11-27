@@ -1,26 +1,19 @@
 ---
 title: 'Decision Models untuk Agen AI: Panduan Model Luaran Bertipe yang Cepat dan Murah'
-description: 'Decision Models mengubah cara agen AI membuat keputusan: dari generasi teks lambat ke output terstruktur instan. Panduan ini bedah arsitektur, manfaat biaya, dan cara mulai pakai Decisions API, Cloudflare Clef, atau model open-source.'
+summary: 'Decision Models mengubah cara agen AI membuat keputusan: dari generasi teks lambat ke output terstruktur instan. Panduan ini bedah arsitektur, manfaat biaya, dan cara mulai pakai Decisions API, Cloudflare Clef, atau model open-source.'
 metaDescription: 'Panduan Decision Models untuk agen AI: model yang menjawab ya/tidak, pilihan, atau skor hingga 10x lebih cepat. Cara kerja dan cara memakainya.'
 publishedAt: 2026-10-11
 updatedAt: 2026-11-24
 tags: ['ai', 'decision-models', 'ai-agents', 'model-optimization', 'llm-cost-reduction']
 category: 'AI'
-difficulty: 'menengah'
 readingTime: 12
 author: 'TeknoPulse Redaksi'
-draft: false
-targetKeyword: 'decision models ai agent'
-secondaryKeywords:
-  - 'model keputusan ai'
-  - 'decision models tutorial indonesia'
-  - 'memangkas biaya agen ai'
-  - 'openai decisions api'
-sources:
-  - title: 'Latent Space / AINews — TypeSafe/Jev at >$100M ARR, $7.5B valuation'
+draft: true
+format: 'panduan-pembaca'
+source:
+  - name: 'Latent Space / AINews — TypeSafe/Jev at >$100M ARR, $7.5B valuation'
     url: 'https://www.latent.space/p/ainews-typesafejev-at-100m-arr-75b'
-    author: 'Latent Space'
-    date: '2026-10-11'
+    primary: true
 faq:
   - question: 'Apa itu Decision Model dan bedanya dengan LLM biasa?'
     answer: 'Decision Model mengembalikan output terstruktur (probabilitas, pilihan kategorikal, skor) dalam satu forward pass, tanpa generasi token sekuensial. LLM biasa menghasilkan teks autoregresif yang lambat dan mahal untuk tugas keputusan biner.'

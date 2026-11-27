@@ -6,7 +6,6 @@
  *   - scripts/utils/slug.ts (slug nama file guide)
  *   - scripts/utils/manifest.ts (load/save .webinsight/manifest.json)
  *   - scripts/utils/meta-description.ts (fitMetaDescription 120–155)
- *   - src/utils/difficulty.ts (label & badge kesulitan)
  *
  * Mengikuti pola scripts/test-consent.mjs.
  * Run: pnpm test:guides
@@ -20,7 +19,6 @@ import { detectEvergreenTopic, scoreSourceAuthority } from '../scripts/utils/doc
 import { emptyManifest, loadManifest, saveManifest } from '../scripts/utils/manifest.ts';
 import { fitMetaDescription } from '../scripts/utils/meta-description.ts';
 import { slugifyTitle } from '../scripts/utils/slug.ts';
-import { difficultyBadge } from '../src/utils/difficulty.ts';
 
 // ── Test runner ───────────────────────────────────────────────────────────────
 
@@ -102,23 +100,6 @@ await test('slugifyTitle → dipotong di batas panjang tanpa strip menggantung',
 
 await test('slugifyTitle → judul kosong jadi string kosong, bukan crash', () => {
   assert.equal(slugifyTitle(''), '');
-});
-
-// ── src/utils/difficulty.ts ──────────────────────────────────────────────────
-
-console.log('\n══════════════════════════════════════════════════════════');
-console.log('  pipeline guides — difficulty.ts (2 scenarios)');
-console.log('══════════════════════════════════════════════════════════\n');
-
-await test('difficultyBadge → emoji + spasi + label', () => {
-  assert.equal(difficultyBadge('pemula'), '🟢 Pemula');
-  assert.equal(difficultyBadge('lanjutan'), '🔴 Lanjutan');
-});
-
-await test('difficultyBadge → semua level menghasilkan string tidak kosong', () => {
-  for (const d of ['pemula', 'menengah', 'lanjutan']) {
-    assert.ok(difficultyBadge(d).length > 0);
-  }
 });
 
 // ── scoreSourceAuthority — hostname matching ─────────────────────────────────

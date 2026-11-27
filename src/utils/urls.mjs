@@ -56,15 +56,6 @@ export function getPostUrl(slug) {
 }
 
 /**
- * `/guides/<slug>/`
- * @param {string} slug
- * @returns {string}
- */
-export function getGuideUrl(slug) {
-  return withTrailingSlash(`/guides/${slug}`);
-}
-
-/**
  * `/category/<slug>/` atau `/category/<slug>/<page>/`.
  * Halaman 1 = tanpa segmen nomor (kanonik), selaras `paginate`.
  * @param {string} categorySlug

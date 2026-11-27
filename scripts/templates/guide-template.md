@@ -25,7 +25,6 @@
 
 - **Prasyarat:** {{PREREQUISITES}}
 - **Waktu estimasi:** {{ESTIMATED_TIME}}
-- **Level kesulitan:** {{DIFFICULTY_LABEL}}
 
 {{#each STEPS}}
 

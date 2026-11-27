@@ -15,7 +15,7 @@ import { slugifyTitle } from './utils/slug.js';
 
 const CURATION_DIR = path.resolve('../curation');
 const TEMPLATE_PATH = path.resolve('scripts/templates/guide-template.md');
-const GUIDES_DIR = path.resolve('src/content/guides');
+const POSTS_DIR = path.resolve('src/content/posts');
 const MANIFEST_PATH = path.resolve('../.webinsight/manifest.json');
 
 interface CurationItem {
@@ -41,7 +41,7 @@ interface CurationFile {
 
 interface GuideFrontmatter {
   title: string;
-  description: string;
+  summary: string;
   metaDescription: string;
   publishedAt: string;
   updatedAt: string;
@@ -49,14 +49,11 @@ interface GuideFrontmatter {
   category: string;
   author: string;
   draft: boolean;
-  difficulty: 'pemula' | 'menengah' | 'lanjutan';
-  targetKeyword: string;
-  secondaryKeywords: string[];
-  sources: Array<{
-    title: string;
+  format: 'panduan-pembaca';
+  source: Array<{
+    name: string;
     url: string;
-    author?: string;
-    date?: string;
+    primary: boolean;
   }>;
   faq?: Array<{ question: string; answer: string }>;
   coverImage?: string;
@@ -84,18 +81,6 @@ const WORDS_PER_MINUTE = 200;
 
 function estimateReadingTime(wordCount: number): number {
   return Math.ceil(wordCount / WORDS_PER_MINUTE);
-}
-
-function inferDifficulty(
-  wordCount: number,
-  targetKeyword: string
-): 'pemula' | 'menengah' | 'lanjutan' {
-  const lower = targetKeyword.toLowerCase();
-  if (/\b(pemula|dasar|basic|intro|pengenalan)\b/.test(lower)) return 'pemula';
-  if (/\b(lanjutan|advanced|optimasi|optimization|arsitektur|architecture)\b/.test(lower))
-    return 'lanjutan';
-  if (wordCount > 2500) return 'menengah';
-  return 'pemula';
 }
 
 function generateTags(
@@ -144,7 +129,6 @@ function buildFrontmatter(
 ): GuideFrontmatter {
   const publishDate = getTodayIso();
   const readingTime = estimateReadingTime(item.wordCount);
-  const difficulty = inferDifficulty(item.wordCount, keywordData.targetKeyword);
   const tags = generateTags(
     item.category,
     keywordData.targetKeyword,
@@ -158,7 +142,7 @@ function buildFrontmatter(
 
   return {
     title: item.title,
-    description: `Panduan lengkap ${item.title.toLowerCase()} untuk pemula hingga menengah. ${item.notes || 'Termasuk langkah-langkah praktis, tips, dan troubleshooting.'}`,
+    summary: `Panduan lengkap ${item.title.toLowerCase()} untuk pemula hingga menengah. ${item.notes || 'Termasuk langkah-langkah praktis, tips, dan troubleshooting.'}`,
     metaDescription: fitMetaDescription(
       `Belajar ${item.title.toLowerCase()} dengan panduan step-by-step TeknoPulse. ${keywordParts.join(' + ')}. Cocok untuk pemula.`
     ),
@@ -168,15 +152,12 @@ function buildFrontmatter(
     category: item.category,
     author: 'TeknoPulse Redaksi',
     draft: true,
-    difficulty,
-    targetKeyword: keywordData.targetKeyword,
-    secondaryKeywords: keywordData.secondaryKeywords,
-    sources: [
+    format: 'panduan-pembaca',
+    source: [
       {
-        title: item.title,
+        name: item.title,
         url: item.sourceUrl,
-        author: item.author,
-        date: item.date,
+        primary: true,
       },
     ],
     faq: undefined, // Will be filled manually
@@ -223,7 +204,7 @@ function frontmatterToYaml(fm: GuideFrontmatter): string {
 async function main(): Promise<void> {
   console.log('📝 Starting guide drafting...');
 
-  await fsp.mkdir(GUIDES_DIR, { recursive: true });
+  await fsp.mkdir(POSTS_DIR, { recursive: true });
 
   const curationPath = await findLatestCuration();
   if (!curationPath) {
@@ -265,6 +246,11 @@ async function main(): Promise<void> {
   const colliding = new Set(
     [...slugCount.entries()].filter(([, n]) => n > 1).map(([slug]) => slug)
   );
+  // Slug yang sudah punya file di src/content/posts/ juga kolisi — jangan
+  // ada yang ditulis setengah-setengah (flag 'wx' tetap jadi safety net).
+  for (const slug of slugByFilename.values()) {
+    if (fs.existsSync(path.join(POSTS_DIR, `${slug}.md`))) colliding.add(slug);
+  }
   for (const slug of colliding) {
     const names = pending.filter((item) => slugByFilename.get(item.filename) === slug);
     console.error(`  ❌ Kolisi slug "${slug}": ${names.map((n) => n.filename).join(', ')}`);
@@ -304,22 +290,13 @@ async function main(): Promise<void> {
     // Prepare template data
     const templateData: Record<string, string> = {
       TITLE: item.title,
-      DESCRIPTION: fm.description,
+      DESCRIPTION: fm.summary,
       META_DESCRIPTION: fm.metaDescription,
       PUBLISH_DATE: fm.publishedAt,
       UPDATE_DATE: fm.updatedAt,
       TAGS: JSON.stringify(fm.tags),
       CATEGORY: fm.category,
-      DIFFICULTY: fm.difficulty,
-      DIFFICULTY_LABEL:
-        fm.difficulty === 'pemula'
-          ? 'Pemula'
-          : fm.difficulty === 'menengah'
-            ? 'Menengah'
-            : 'Lanjutan',
-      TARGET_KEYWORD: fm.targetKeyword,
-      SECONDARY_KEYWORDS: JSON.stringify(fm.secondaryKeywords),
-      SOURCES: JSON.stringify(fm.sources),
+      SOURCES: JSON.stringify(fm.source),
       FAQ: '[]',
       COVER_IMAGE: '',
       COVER_IMAGE_ALT: '',
@@ -339,7 +316,7 @@ async function main(): Promise<void> {
     const body = renderTemplate(template, templateData);
     const content = yaml + '\n\n' + body;
 
-    const outputPath = path.join(GUIDES_DIR, `${slug}.md`);
+    const outputPath = path.join(POSTS_DIR, `${slug}.md`);
 
     // 'wx': gagal kalau file sudah ada — draf lama tidak boleh ditimpa,
     // dan manifest tidak diubah untuk item yang diskip.
@@ -360,8 +337,8 @@ async function main(): Promise<void> {
       status: 'drafted',
       draftedAt: new Date().toISOString(),
       guideSlug: slug,
-      targetKeyword: fm.targetKeyword,
-      secondaryKeywords: fm.secondaryKeywords,
+      targetKeyword: keywordData.targetKeyword,
+      secondaryKeywords: keywordData.secondaryKeywords,
       outputPath,
     };
   }
@@ -369,7 +346,7 @@ async function main(): Promise<void> {
   await saveManifest(MANIFEST_PATH, manifest);
 
   console.log('\n📋 NEXT STEPS:');
-  console.log('1. Edit each .md file in web/src/content/guides/ to fill in content');
+  console.log('1. Edit each .md file in web/src/content/posts/ to fill in content');
   console.log('2. Add FAQ, steps, tips, troubleshooting, checklist');
   console.log('3. Run antislop-copywriting checklist on each article');
   console.log('4. Set `draft: false` di frontmatter, lalu buka PR untuk review & merge');
