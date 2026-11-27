@@ -29,7 +29,7 @@ faq:
   - question: "Apa itu 'zero-shot perception' dalam konteks robot industri?"
     answer: 'Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1M+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.'
   - question: 'Mengapa inferensi edge on-premise wajib untuk robot pabrik?'
-    answer: 'Pabrik sering air-gapped (tanpa internet), koneksi tidak stabil, dan butuh latency sub-10ms untuk safety. Cloud inference gagal di semua तीन syarat ini. Edge inference = deterministik, aman, independen jaringan.'
+    answer: 'Pabrik sering air-gapped (tanpa internet), koneksi tidak stabil, dan butuh latency sub-10ms untuk safety. Cloud inference gagal di ketiga syarat ini. Edge inference = deterministik, aman, independen jaringan.'
   - question: 'Bisakah arsitektur ini diterapkan untuk robot non-industri (humanoid, drone, dll)?'
     answer: 'Prinsipnya sama: pisah persepsi (AI) vs kontrol gerak (deterministik), prioritaskan edge inference, gunakan data terarah. Tapi humanoid butuh model lebih besar untuk generalisasi lingkungan tidak terstruktur.'
 ---

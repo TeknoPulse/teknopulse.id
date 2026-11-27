@@ -11,13 +11,6 @@ import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../utils/cat
 import { getGuideUrl, getTagUrl, slugifyTag } from '../utils/urls.mjs';
 import { difficultyBadge } from '../utils/difficulty';
 import { formatDate } from '../utils/dates';
-import {
-  detectSchemaType,
-  extractStepsFromMarkdown,
-  generateGuideSchema,
-  generateHowToSchema,
-  schemasToJsonLd,
-} from '../../scripts/utils/schema-generator';
 
 interface Props {
   guide: CollectionEntry<'guides'>;
@@ -47,31 +40,6 @@ const categoryUrl = getCategoryUrl(guide.data.category);
 const categories = getAllCategories().sort((a, b) => a.name.localeCompare(b.name));
 const sources = guide.data.sources ?? [];
 
-// Generate schema.org JSON-LD
-const fmForSchema = {
-  title: guide.data.title,
-  slug: guide.slug,
-  description: guide.data.description,
-  publishedAt: guide.data.publishedAt,
-  updatedAt: guide.data.updatedAt,
-  tags: guide.data.tags,
-  category: guide.data.category,
-  author: authorName,
-  targetKeyword: guide.data.targetKeyword,
-  secondaryKeywords: guide.data.secondaryKeywords,
-  sources: guide.data.sources,
-  faq: guide.data.faq,
-  coverImage: guide.data.coverImage?.src,
-  readingTime: readingTime,
-};
-
-// Pilih Guide atau HowTo dari struktur badan artikel. Deteksi + ekstraksi
-// langkah memakai util bersama (sudah ada test-nya), bukan regex lokal.
-const steps = extractStepsFromMarkdown(guide.body);
-const schemaJsonLd =
-  detectSchemaType(guide.body) === 'HowTo' && steps.length >= 3
-    ? schemasToJsonLd([generateHowToSchema(fmForSchema, steps, [], [], readingTime)])
-    : schemasToJsonLd([generateGuideSchema(fmForSchema)]);
 // FAQPage TIDAK dibuat di sini: <Layout article={{ faq }}> sudah memicunya lewat
 // Seo.astro. Menambahkannya lagi menghasilkan dua FAQPage di halaman yang sama.
 ---
@@ -95,8 +63,6 @@ const schemaJsonLd =
   }}
   showBreadcrumbs={false}
 >
-  <Fragment set:html={schemaJsonLd} />
-
   <main>
     <Breadcrumbs postCategory={guide.data.category} postTitle={guide.data.title} showNav={false} />
 

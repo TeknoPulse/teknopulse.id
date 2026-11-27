@@ -1,50 +1,18 @@
 ---
 // src/pages/guides/index.astro
 //
-// Indeks semua panduan evergreen. Statik penuh: filter kategori & level
-// dilewatkan sebagai query string dan disaring saat build (client-side JS
-// tidak perlu — filter hanya memuat ulang URL yang sama dengan ?cat=/?diff=).
+// Indeks semua panduan evergreen. Statik penuh: semua guide non-draft
+// ditampilkan terurut terbaru — tidak ada filter.
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getAllCategories, getCategoryLabel, getCategoryUrl } from '../../utils/categories';
+import { getCategoryLabel, getCategoryUrl } from '../../utils/categories';
 import { formatShortDate } from '../../utils/dates';
 import { calculateReadingTime } from '../../utils/readingTime';
-import {
-  GUIDE_DIFFICULTIES,
-  difficultyBadge,
-  difficultyEmoji,
-  difficultyLabel,
-  parseDifficulty,
-} from '../../utils/difficulty';
+import { difficultyBadge } from '../../utils/difficulty';
 
 const guides = (await getCollection('guides'))
   .filter(({ data }) => !data.draft)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-
-const categories = [...getAllCategories()].sort((a, b) => a.name.localeCompare(b.name));
-
-// Filter aktif dari query string (?cat=ai, ?diff=pemula). Nilai tak dikenal
-// diabaikan (fallback ke tanpa filter), jadi URL abal-abal tidak 404.
-const activeCatSlug = Astro.url.searchParams.get('cat');
-const activeCat = categories.find((c) => c.slug === activeCatSlug);
-const activeDifficulty = parseDifficulty(Astro.url.searchParams.get('diff'));
-
-const filtered = guides.filter(({ data }) => {
-  if (activeCat && data.category !== activeCat.name) return false;
-  if (activeDifficulty && data.difficulty !== activeDifficulty) return false;
-  return true;
-});
-
-const filterLabel =
-  activeCat?.name ?? (activeDifficulty ? difficultyLabel(activeDifficulty) : undefined);
-
-const hrefFor = (params: { cat?: string; diff?: string }) => {
-  const q = new URLSearchParams();
-  if (params.cat) q.set('cat', params.cat);
-  if (params.diff) q.set('diff', params.diff);
-  const s = q.toString();
-  return s ? `/guides/?${s}` : '/guides/';
-};
 ---
 
 <Layout
@@ -73,49 +41,6 @@ const hrefFor = (params: { cat?: string; diff?: string }) => {
           Panduan teknologi praktis untuk orang awam. AI, coding, tools, tips & trik — dilengkapi
           langkah-langkah jelas, FAQ, dan checklist biar kamu bisa langsung praktek.
         </p>
-
-        <div class="mt-8 flex flex-wrap gap-2" role="group" aria-label="Filter kategori">
-          <a
-            href={hrefFor({ diff: activeDifficulty })}
-            class={`kicker px-3 py-1.5 rounded-full border transition-colors ${!activeCat ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
-            aria-pressed={!activeCat}
-          >
-            Semua
-          </a>
-          {
-            categories.map((cat) => (
-              <a
-                href={hrefFor({ cat: cat.slug, diff: activeDifficulty })}
-                class={`kicker rounded-full border px-3 py-1.5 transition-colors ${activeCat?.slug === cat.slug ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
-                aria-pressed={activeCat?.slug === cat.slug}
-              >
-                {cat.name}
-              </a>
-            ))
-          }
-        </div>
-
-        <div class="mt-3 flex flex-wrap gap-2" role="group" aria-label="Filter level kesulitan">
-          <a
-            href={hrefFor({ cat: activeCat?.slug })}
-            class={`kicker px-3 py-1.5 rounded-full border transition-colors ${!activeDifficulty ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
-            aria-pressed={!activeDifficulty}
-          >
-            Semua level
-          </a>
-          {
-            GUIDE_DIFFICULTIES.map((diff) => (
-              <a
-                href={hrefFor({ cat: activeCat?.slug, diff })}
-                class={`kicker rounded-full border px-3 py-1.5 transition-colors ${activeDifficulty === diff ? 'border-cobalt bg-cobalt text-white' : 'border-rule text-ink-soft hover:border-cobalt hover:text-cobalt'}`}
-                aria-pressed={activeDifficulty === diff}
-              >
-                {difficultyEmoji(diff)}
-                {diff.charAt(0).toUpperCase() + diff.slice(1)}
-              </a>
-            ))
-          }
-        </div>
       </div>
     </header>
 
@@ -123,13 +48,13 @@ const hrefFor = (params: { cat?: string; diff?: string }) => {
       <div class="grid gap-8 lg:grid-cols-12 lg:gap-0">
         <div class="lg:col-span-8 lg:pr-12">
           {
-            filtered.length > 0 ? (
+            guides.length > 0 ? (
               <>
                 <p class="kicker mb-4 text-ink-muted" aria-live="polite">
-                  {filtered.length} panduan{filterLabel ? ` — ${filterLabel}` : ''}
+                  {guides.length} panduan
                 </p>
                 <ul class="divide-y divide-rule" role="list" aria-label="Daftar panduan">
-                  {filtered.map((guide) => (
+                  {guides.map((guide) => (
                     <li class="py-8">
                       <article class="group">
                         <p class="kicker flex items-center gap-2 text-cobalt">
@@ -166,13 +91,7 @@ const hrefFor = (params: { cat?: string; diff?: string }) => {
               </>
             ) : (
               <div class="py-16 text-center">
-                <p class="text-ink-muted">Belum ada panduan di filter ini.</p>
-                <a
-                  href="/guides/"
-                  class="kicker mt-3 inline-block text-cobalt hover:text-cobalt-dark"
-                >
-                  Lihat semua panduan →
-                </a>
+                <p class="text-ink-muted">Belum ada panduan.</p>
               </div>
             )
           }
@@ -195,35 +114,15 @@ const hrefFor = (params: { cat?: string; diff?: string }) => {
                   <span class="text-cobalt">✓</span> TOC & TL;DR untuk navigasi cepat
                 </li>
                 <li class="flex items-start gap-2">
-                  <span class="text-cobalt">✓</span> Langkah-langkah step-by-step dengan screenshot placeholder
+                  <span class="text-cobalt">✓</span> Langkah-langkah step-by-step yang jelas
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-cobalt">✓</span> FAQ & Checklist ringkas di akhir
                 </li>
                 <li class="flex items-start gap-2">
-                  <span class="text-cobalt">✓</span> Schema.org Guide/HowTo untuk SEO
-                </li>
-                <li class="flex items-start gap-2">
                   <span class="text-cobalt">✓</span> Voice hangat "aku" khas TeknoPulse
                 </li>
               </ul>
-            </section>
-
-            <section class="mt-8 border-t border-rule pt-5" aria-labelledby="level-kesulitan">
-              <h2 id="level-kesulitan" class="kicker text-ink-muted">Level Kesulitan</h2>
-              <div class="mt-3 space-y-2 text-sm">
-                {
-                  GUIDE_DIFFICULTIES.map((diff) => (
-                    <a
-                      href={hrefFor({ cat: activeCat?.slug, diff })}
-                      class="flex items-center gap-2 rounded border border-rule px-3 py-2 hover:border-cobalt hover:text-cobalt"
-                    >
-                      <span>{difficultyEmoji(diff)}</span>
-                      {diff.charAt(0).toUpperCase() + diff.slice(1)}
-                    </a>
-                  ))
-                }
-              </div>
             </section>
           </div>
         </aside>

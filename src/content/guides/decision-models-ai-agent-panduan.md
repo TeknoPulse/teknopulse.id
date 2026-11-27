@@ -29,7 +29,7 @@ faq:
   - question: 'Kapan sebaiknya pakai Decision Model vs LLM generatif?'
     answer: 'Pakai Decision Model untuk tugas klasifikasi, routing, evaluasi pass/fail, dan pemilihan tool. Pakai LLM generatif untuk menulis kode, konten kreatif, reasoning kompleks, dan tugas butuh konteks panjang.'
   - question: 'Apakah Decision Model bisa dijalankan on-premise?'
-    answer: 'Ya. Cloudflare Clef (clef-omni) rilis bobot terbuka di Hugging Face. Microsoft Decision-1 dan model open-source seperti Jev-kenalkan juga bisa di-self-host untuk lingkungan air-gapped.'
+    answer: 'Ya. Cloudflare merilis clef-omni dengan bobot terbuka di Hugging Face. Komunitas open-source juga punya panduan melatih model kecil seperti Qwen3.5-4B via Unsloth menjadi model keputusan, cukup dengan GPU 8GB VRAM, sehingga bisa dijalankan sendiri di lingkungan air-gapped.'
   - question: 'Apakah Decision Model cocok untuk pemula yang baru belajar AI agent?'
     answer: 'Cocok banget untuk dipelajari awal karena konsepnya sederhana (input → structured output) tapi dampaknya besar. Mulai dari OpenAI Decisions API yang paling mudah aksesnya.'
 ---
@@ -114,19 +114,19 @@ Artinya: biarkan LLM generatif (Claude, GPT-4, dll) handle tugas kreatif & reaso
 
 ## Peta Persaingan: TypeSafe Jev, OpenAI, Cloudflare, Microsoft
 
-| Provider       | Model/Produk               | Keunggulan Utama                                                            | Pricing Model     | Akses                     |
-| -------------- | -------------------------- | --------------------------------------------------------------------------- | ----------------- | ------------------------- |
-| **TypeSafe**   | Jev                        | Pioneer, $100M ARR 3 pekan, valuasi $7.5B                                   | Enterprise/API    | Waitlist/Partner          |
-| **OpenAI**     | Decisions API (GPT-6 Luna) | **$0 output cost**, $0.10/1M input, 10x speed                               | Pay-per-input     | Public API                |
-| **Cloudflare** | clef-omni                  | Multimodal (audio/video/gambar/teks), open weights di HF, 2x faster/cheaper | Free tier + usage | Hugging Face / Workers AI |
-| **Microsoft**  | Microsoft-Decision-1       | Enterprise integration, Azure-native                                        | Azure pricing     | Azure AI Studio           |
-| **Perplexity** | pplx-decider               | Search-augmented decisions                                                  | Perplexity Pro    | Perplexity platform       |
+| Provider       | Model/Produk               | Yang diklaim (per Oktober 2026)                                         |
+| -------------- | -------------------------- | ----------------------------------------------------------------------- |
+| **TypeSafe**   | Jev                        | Pionir kategori; >$100M ARR 3 pekan setelah rilis, valuasi $7,5 miliar  |
+| **OpenAI**     | Decisions API (GPT-6 Luna) | Tanpa biaya token output, $0,10 per 1 juta token input, 10x lebih cepat |
+| **Cloudflare** | clef-omni                  | Multimodal (audio/video/gambar/teks), bobot terbuka di Hugging Face     |
+| **Microsoft**  | Microsoft-Decision-1       | Diumumkan di hari yang sama; detail belum dipublikasikan di sumber kami |
+| **Perplexity** | pplx-decider (27B)         | 94,5% di Decision Bench (1.071 kasus uji), $0,017 per 1.000 keputusan   |
 
 ### Rekomendasi TeknoPulse untuk Pemula
 
-1. **Mulai dengan OpenAI Decisions API** — paling mudah akses, dokumentasi lengkap, $0 output cost bikin eksperimen murah
+1. **Mulai dengan OpenAI Decisions API** — API publik tanpa biaya token output, jadi eksperimen murah
 2. **Evaluasi Cloudflare clef-omni** kalau butuh multimodal atau self-host (bobot terbuka di Hugging Face)
-3. **Pantau TypeSafe Jev** untuk enterprise-grade — performa terbaik tapi akses terbatas
+3. **Pantau TypeSafe Jev** — pionir kategori ini, layak diikuti perkembangannya
 
 ---
 
@@ -284,7 +284,7 @@ Pakai Decision Model untuk tugas klasifikasi, routing, evaluasi pass/fail, dan p
 
 ### Apakah Decision Model bisa dijalankan on-premise?
 
-Ya. Cloudflare Clef (clef-omni) rilis bobot terbuka di Hugging Face. Microsoft Decision-1 dan model open-source seperti Jev-kenalkan juga bisa di-self-host untuk lingkungan air-gapped.
+Ya. Cloudflare merilis clef-omni dengan bobot terbuka di Hugging Face. Komunitas open-source juga punya panduan melatih model kecil seperti Qwen3.5-4B via Unsloth menjadi model keputusan, cukup dengan GPU 8GB VRAM, sehingga bisa dijalankan sendiri di lingkungan air-gapped.
 
 ### Apakah Decision Model cocok untuk pemula yang baru belajar AI agent?
 
