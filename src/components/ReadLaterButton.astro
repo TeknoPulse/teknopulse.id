@@ -12,7 +12,11 @@ const { id, title, compact = false, iconOnly = false, class: className } = Astro
 
 <button
   type="button"
-  class:list={['readlater-toggle', compact && 'px-2', className]}
+  class:list={[
+    'readlater-toggle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cobalt focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
+    compact && 'px-2',
+    className,
+  ]}
   data-readlater-toggle={id}
   data-title={title}
   aria-pressed="false"
