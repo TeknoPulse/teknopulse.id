@@ -8,7 +8,9 @@ tags: ['ai', 'physical-ai', 'robotika-industri', 'edge-ai', 'manufaktur', 'stand
 category: 'Automation'
 readingTime: 14
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
+coverImage: '../../assets/images/physical-ai-robotika-industri-standard-bots-16x9.png'
+coverImageAlt: 'Lengan robot industri bekerja di stasiun CNC pada lantai pabrik, dikelilingi rak part logam'
 format: 'panduan-pembaca'
 source:
   - name: 'Latent Space — Building AI for Reliable Execution: Lessons From Industrial Robotics'

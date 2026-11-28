@@ -8,7 +8,9 @@ tags: ['ai', 'decision-models', 'ai-agents', 'model-optimization', 'llm-cost-red
 category: 'AI'
 readingTime: 12
 author: 'TeknoPulse Redaksi'
-draft: true
+draft: false
+coverImage: '../../assets/images/decision-models-ai-agent-panduan-16x9.png'
+coverImageAlt: 'Ban berjalan di pusat distribusi memecah kotak kardus ke tiga jalur berbeda'
 format: 'panduan-pembaca'
 source:
   - name: 'Latent Space / AINews — TypeSafe/Jev at >$100M ARR, $7.5B valuation'
