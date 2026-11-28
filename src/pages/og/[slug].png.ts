@@ -1,5 +1,5 @@
 // src/pages/og/[slug].png.ts
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import OgTemplate from '../../components/og-template';
@@ -9,20 +9,15 @@ import OgTemplate from '../../components/og-template';
 // no native addon ships to the runtime (Cloudflare Pages friendly).
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.filter((post) => !post.data.draft).map((post) => ({ params: { slug: post.slug } }));
+  return posts
+    .filter((entry) => !entry.data.draft)
+    .map((entry) => ({ params: { slug: entry.slug }, props: { entry } }));
 }
 
-export async function GET({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export async function GET({ props }: { props: { entry: CollectionEntry<'posts'> } }) {
+  const post = props.entry;
 
   try {
-    const posts = await getCollection('posts');
-    const post = posts.find((p) => p.slug === slug);
-
-    if (!post) {
-      return new Response('Post not found', { status: 404 });
-    }
-
     // ✅ URL tanpa spasi
     const fontUrls = {
       regular:
@@ -67,7 +62,9 @@ export async function GET({ params }: { params: { slug: string } }) {
     });
 
     const pngData = resvg.render();
-    const pngBuffer = pngData.asPng();
+    // Buffer lolos di runtime tapi tidak cocok dengan BodyInit di lib DOM,
+    // jadi dibungkus Uint8Array agar `tsc --noEmit` bersih.
+    const pngBuffer = new Uint8Array(pngData.asPng());
 
     return new Response(pngBuffer, {
       headers: {

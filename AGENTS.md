@@ -20,8 +20,13 @@ TeknoPulse — a production Tech & AI news site (Indonesian locale, `id-ID`) bui
 | Audit cover image (temuan + exit code) | `pnpm covers:audit`                                  |
 | Cover: rencana → generate → apply      | `pnpm covers:plan` → `covers:fetch` → `covers:apply` |
 | Verifikasi cover (struktural/build)    | `pnpm covers:verify [--build]`                       |
+| Guide: shortlist sumber webinsight     | `pnpm curate`                                        |
+| Guide: draft dari item approved        | `pnpm draft:guide`                                   |
+| Guide: tandai published di manifest    | `pnpm publish:guide <slug> [--pr=<url>]`             |
+| Test unit pipeline guide               | `pnpm test:guides`                                   |
+| Test unit consent                      | `pnpm test:consent`                                  |
 
-There is **no test framework** and **no separate typecheck script** — type errors surface via `astro check`/`astro build`. `pnpm build` is the canonical correctness gate.
+There is **no test framework** and **no separate typecheck script** — type errors surface via `astro check`/`astro build`. `pnpm build` is the canonical correctness gate. The two `test:*` scripts are plain-Node assertion runners (see `scripts/test-consent.mjs` for the pattern), not a framework.
 
 Build pipeline: `astro build` → `postbuild` runs `pagefind --site dist --output-path dist/pagefind` to generate the client-side search index. Do not remove `pagefind` from `vite.optimizeDeps.exclude` in `astro.config.mjs` — it must stay unbundled.
 
@@ -78,7 +83,19 @@ Rujukan Terkait`, …) so a page never shows two source lists; JSON-LD `citation
 
 ### Self-maintaining generated routes
 
-`src/pages/rss.xml.ts`, `feed.json.ts`, `news-sitemap.xml.ts`, `llms-full.txt.ts`, and `og/[slug].png.ts` all read the `posts` collection, drop drafts, sort newest-first, and regenerate on every build. **Never hand-edit their output**; edit the source post instead. The curated `public/llms.txt` is hand-maintained and separate from the generated `llms-full.txt`.
+`src/pages/rss.xml.ts`, `feed.json.ts`, `news-sitemap.xml.ts`, and `llms-full.txt.ts` all read the `posts` collection, drop drafts, sort newest-first, and regenerate on every build. **Never hand-edit their output**; edit the source post instead. The curated `public/llms.txt` is hand-maintained and separate from the generated `llms-full.txt`.
+
+### Webinsight → evergreen article pipeline
+
+Weekly-ish flow that turns curated `.docx` source articles into evergreen articles — ordinary posts, not a separate collection. Source `webinsight/` and state `.webinsight/manifest.json` live **one level above `web/`** (repo root); scripts resolve them via `path.resolve('..')`.
+
+1. `pnpm curate` — scans `../webinsight/*.docx`, scores source authority + evergreen signals, writes `../curation/YYYY-MM-DD.json` (shortlist capped at 8). Manifest entries go to `curated`.
+2. Owner sets `approved: true` and adds `notes: "kw: target keyword | secondary1, secondary2"` in that JSON.
+3. `pnpm draft:guide` — renders `scripts/templates/guide-template.md` into `src/content/posts/<slug>.md` with `draft: true` and `format: 'panduan-pembaca'` (the format keeps evergreen articles out of the news sitemap). Manifest → `drafted`.
+4. Review the draft. Covers are required before setting `draft: false` — the usual cover rules apply (`coverImage`, real PNG 1280×720, unique per article). Then flip `draft: false` and open a PR.
+5. After the PR is merged **and deployed**: `pnpm publish:guide <slug> --pr=<url>` — records `published` + `publishedAt` + `prUrl` in the manifest. Nothing else writes that status.
+
+Scripts live in `scripts/` with shared helpers in `scripts/utils/` (`docx-parser`, `keyword-research`, `manifest`, `slug`, `meta-description`). Article bodies must follow the same rules as posts: no leading `# Title`, `metaDescription` 120–155 chars.
 
 ### Page structure
 
