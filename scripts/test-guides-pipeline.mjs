@@ -15,7 +15,11 @@ import assert from 'node:assert/strict';
 import * as fs from 'node:fs/promises';
 import * as os from 'node:os';
 import * as path from 'node:path';
-import { detectEvergreenTopic, scoreSourceAuthority } from '../scripts/utils/docx-parser.ts';
+import {
+  detectEvergreenTopic,
+  extractFrontmatterTitle,
+  scoreSourceAuthority,
+} from '../scripts/utils/docx-parser.ts';
 import { emptyManifest, loadManifest, saveManifest } from '../scripts/utils/manifest.ts';
 import { fitMetaDescription } from '../scripts/utils/meta-description.ts';
 import { slugifyTitle } from '../scripts/utils/slug.ts';
@@ -104,7 +108,7 @@ await test('slugifyTitle → judul kosong jadi string kosong, bukan crash', () =
 
 // ── scoreSourceAuthority — hostname matching ─────────────────────────────────
 
-test('scoreSourceAuthority → subdomain host cocok, URL spoof tidak', () => {
+await test('scoreSourceAuthority → subdomain host cocok, URL spoof tidak', () => {
   assert.equal(scoreSourceAuthority('https://newsletter.pragmaticengineer.com/p/x', ''), 10);
   assert.equal(scoreSourceAuthority('https://www.latent.space/p/x', ''), 10);
   assert.equal(scoreSourceAuthority('https://evil.com/?u=latent.space', ''), 5);
@@ -114,15 +118,15 @@ test('scoreSourceAuthority → subdomain host cocok, URL spoof tidak', () => {
 // ── meta-description.ts ──────────────────────────────────────────────────────
 
 console.log('\n══════════════════════════════════════════════════════════');
-console.log('  pipeline guides — meta-description.ts (3 scenarios)');
+console.log('  pipeline guides — meta-description.ts (5 scenarios)');
 console.log('══════════════════════════════════════════════════════════\n');
 
-test('fitMetaDescription → input pendek dipad ke rentang 120–155', () => {
+await test('fitMetaDescription → input pendek dipad ke rentang 120–155', () => {
   const out = fitMetaDescription('Belajar tips singkat.');
   assert.ok(out.length >= 120 && out.length <= 155, `panjang ${out.length}`);
 });
 
-test('fitMetaDescription → input panjang dipotong 120–155 & diakhiri titik', () => {
+await test('fitMetaDescription → input panjang dipotong 120–155 & diakhiri titik', () => {
   const out = fitMetaDescription(
     'Panduan sangat panjang tentang topik yang amat kompleks dan penuh detail teknis ' +
       'yang seharusnya tidak muat dalam batas seratus lima puluh lima karakter meta.'
@@ -131,11 +135,25 @@ test('fitMetaDescription → input panjang dipotong 120–155 & diakhiri titik',
   assert.ok(out.endsWith('.'));
 });
 
-test('fitMetaDescription → input sudah di rentang tidak diubah', () => {
+await test('fitMetaDescription → input sudah di rentang tidak diubah', () => {
   const ok =
     'Panduan Decision Models untuk agen AI: model yang menjawab ya/tidak, pilihan, atau ' +
     'skor hingga 10x lebih cepat. Cara kerja dan cara memakainya.';
   assert.equal(fitMetaDescription(ok), ok);
+});
+
+await test('fitMetaDescription → kata tunggal 200 karakter dipotong keras ke 120–155', () => {
+  const out = fitMetaDescription('a'.repeat(200));
+  assert.ok(out.length >= 120 && out.length <= 155, `panjang ${out.length}`);
+  assert.ok(out.endsWith('.'));
+});
+
+await test('fitMetaDescription → spasi terakhir terlalu awal tetap 120–155', () => {
+  // Spasi terakhir ≤154 ada di posisi ~100 lalu diikuti kata sangat panjang:
+  // potong-di-spasi akan menghasilkan <120, jadi fallback potong keras.
+  const out = fitMetaDescription(`${'b'.repeat(100)} ${'c'.repeat(100)}`);
+  assert.ok(out.length >= 120 && out.length <= 155, `panjang ${out.length}`);
+  assert.ok(out.endsWith('.'));
 });
 
 // ── manifest.ts ──────────────────────────────────────────────────────────────
@@ -177,6 +195,24 @@ await test('saveManifest → round-trip valid & tidak menyisakan file .tmp', asy
   assert.equal(loaded.files['a.docx'].status, 'curated');
   const leftovers = (await fs.readdir(dir)).filter((f) => f.endsWith('.tmp'));
   assert.equal(leftovers.length, 0);
+});
+
+// ── docx-parser.ts — extractFrontmatterTitle ─────────────────────────────────
+
+console.log('\n══════════════════════════════════════════════════════════');
+console.log('  pipeline guides — extractFrontmatterTitle (3 scenarios)');
+console.log('══════════════════════════════════════════════════════════\n');
+
+await test('extractFrontmatterTitle → frontmatter satu paragraf, potong di key berikutnya', () => {
+  assert.equal(extractFrontmatterTitle(['title: "A: B" description: "x"', 'body']), 'A: B');
+});
+
+await test('extractFrontmatterTitle → blok --- mengambil title di dalam blok saja', () => {
+  assert.equal(extractFrontmatterTitle(['---', 'title: X', '---', 'title: Y']), 'X');
+});
+
+await test('extractFrontmatterTitle → title di body bukan frontmatter', () => {
+  assert.equal(extractFrontmatterTitle(['Heading', 'title: Later']), undefined);
 });
 
 // ── Summary ───────────────────────────────────────────────────────────────────

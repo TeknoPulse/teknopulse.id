@@ -19,7 +19,13 @@ export function fitMetaDescription(text: string): string {
 
   if (out.length > 155) {
     const cut = out.lastIndexOf(' ', 154);
-    out = out.slice(0, cut > 0 ? cut : 154).replace(/[\s.,;:!?—–-]+$/, '') + '.';
+    const candidate = out.slice(0, cut).replace(/[\s.,;:!?—–-]+$/, '') + '.';
+    // Potong di spasi terakhir kalau hasilnya masih ≥120; kalau tidak (kata
+    // sangat panjang di awal), potong keras di 154 supaya tetap di rentang.
+    out =
+      cut > 0 && candidate.length >= 120
+        ? candidate
+        : out.slice(0, 154).replace(/[\s.,;:!?—–-]+$/, '') + '.';
   }
 
   return out;

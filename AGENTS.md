@@ -93,7 +93,7 @@ Weekly-ish flow that turns curated `.docx` source articles into evergreen articl
 2. Owner sets `approved: true` and adds `notes: "kw: target keyword | secondary1, secondary2"` in that JSON.
 3. `pnpm draft:guide` — renders `scripts/templates/guide-template.md` into `src/content/posts/<slug>.md` with `draft: true` and `format: 'panduan-pembaca'` (the format keeps evergreen articles out of the news sitemap). Manifest → `drafted`.
 4. Review the draft. Covers are required before setting `draft: false` — the usual cover rules apply (`coverImage`, real PNG 1280×720, unique per article). Then flip `draft: false` and open a PR.
-5. `pnpm publish:guide <slug> --pr=<url>` — records `published` + `publishedAt` + `prUrl` in the manifest. Nothing else writes that status.
+5. After the PR is merged **and deployed**: `pnpm publish:guide <slug> --pr=<url>` — records `published` + `publishedAt` + `prUrl` in the manifest. Nothing else writes that status.
 
 Scripts live in `scripts/` with shared helpers in `scripts/utils/` (`docx-parser`, `keyword-research`, `manifest`, `slug`, `meta-description`). Article bodies must follow the same rules as posts: no leading `# Title`, `metaDescription` 120–155 chars.
 

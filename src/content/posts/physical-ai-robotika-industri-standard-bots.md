@@ -22,7 +22,7 @@ faq:
   - question: 'Mengapa Standard Bots pakai model kecil (miliaran parameter) bukan model raksasa?'
     answer: 'Di pabrik, robot butuh pemahaman visual spasial presisi, bukan pengetahuan umum. Model kecil dilatih data industri terarah (1 miliar+ gambar) outperform model raksasa untuk tugas spesifik, plus lebih cepat, murah, dan bisa jalan di edge hardware terbatas.'
   - question: "Apa itu 'zero-shot perception' dalam konteks robot industri?"
-    answer: 'Kemampuan model mengenali objek, orientasi, dan anomali tanpa dilatih spesifik untuk objek tersebut. Model base Standard Bots dilatih 1 miliar+ gambar industri jadi bisa generalisasi ke benda kerja baru tanpa retraining.'
+    answer: 'Dalam sistem machine tending Standard Bots, zero-shot perception berarti model bisa mengenali dan menemukan part yang kamu sebutkan tanpa dilatih khusus untuk part itu, berkat backbone yang dilatih pada lebih dari 1 miliar gambar industri. Itu baru bagian persepsi: gerakan robot tetap diprogram konvensional, dan untuk tugas baru pelanggan mengadaptasi model dasar lewat demonstrasi dan fine-tuning.'
   - question: 'Mengapa inferensi edge on-premise wajib untuk robot pabrik?'
     answer: 'Pabrik sering air-gapped (tanpa internet), koneksi tidak stabil, dan butuh latency sub-10ms untuk safety. Cloud inference gagal di ketiga syarat ini. Edge inference = deterministik, aman, independen jaringan.'
   - question: 'Bisakah arsitektur ini diterapkan untuk robot non-industri (humanoid, drone, dll)?'
@@ -74,7 +74,7 @@ Leif Jentoft (Head of AI Standard Bots) tegaskan:
 ### Kenapa berhasil?
 
 - Robot pabrik **tidak perlu tahu puisi Shakespeare** — butuh bedakan logam vs plastik, deteksi orientasi 0.1 derajat, ignore pencahayaan berubah
-- Model base dilatih 1 miliar+ gambar industri → **zero-shot perception**: langsung kerja di task baru tanpa retraining
+- Model base dilatih 1 miliar+ gambar industri → **zero-shot perception** untuk machine tending: model bisa mengenali dan menemukan part yang kamu sebutkan (membedakan kondisi cahaya, jenis material, dan objek vs latar belakang) tanpa dilatih ulang. Gerakan robot tetap diprogram konvensional, dan adaptasi ke tugas baru tetap lewat demonstrasi dan fine-tuning.
 - Ukuran kecil = **inferensi <10ms di edge hardware** (Jetson Orin, dll), cocok real-time control loop
 
 ---

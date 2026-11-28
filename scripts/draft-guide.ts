@@ -50,7 +50,7 @@ interface GuideFrontmatter {
   author: string;
   draft: boolean;
   format: 'panduan-pembaca';
-  source: Array<{
+  source?: Array<{
     name: string;
     url: string;
     primary: boolean;
@@ -123,6 +123,32 @@ async function findLatestCuration(): Promise<string | null> {
   return jsonFiles[0] ? path.join(CURATION_DIR, jsonFiles[0]) : null;
 }
 
+// Parse `notes` curation ("kw: target | secondary1, secondary2") → keyword.
+function parseKeywordNotes(notes: string): {
+  targetKeyword: string;
+  secondaryKeywords: string[];
+} {
+  const kwMatch = notes.match(/kw:\s*([^|]+)(?:\|\s*(.+))?/i);
+  return {
+    targetKeyword: kwMatch ? kwMatch[1].trim() : '',
+    secondaryKeywords: kwMatch?.[2] ? kwMatch[2].split(',').map((s) => s.trim()) : [],
+  };
+}
+
+// Baca frontmatter file markdown garis-per-garis: true kalau blok `source:`
+// memuat `url:` yang sama — dipakai untuk mengenali draft milik item ini.
+function frontmatterHasSourceUrl(filePath: string, sourceUrl: string): boolean {
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  const fm = /^---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1];
+  if (!fm) return false;
+  const sourceBlock = /^source:\s*\r?\n((?:[ \t]+.*(?:\r?\n|$))+)/m.exec(fm)?.[1];
+  if (!sourceBlock) return false;
+  return sourceBlock.split('\n').some((line) => {
+    const m = /^\s*url:\s*['"]?([^'"\s]+)['"]?\s*$/.exec(line);
+    return m?.[1] === sourceUrl;
+  });
+}
+
 function buildFrontmatter(
   item: CurationItem,
   keywordData: { targetKeyword: string; secondaryKeywords: string[] }
@@ -153,13 +179,19 @@ function buildFrontmatter(
     author: 'TeknoPulse Redaksi',
     draft: true,
     format: 'panduan-pembaca',
-    source: [
-      {
-        name: item.title,
-        url: item.sourceUrl,
-        primary: true,
-      },
-    ],
+    // `source.url` harus URL valid di skema posts — kalau sumber tidak punya
+    // URL, field-nya dihilangkan sama sekali, bukan ditulis kosong.
+    ...(item.sourceUrl?.trim()
+      ? {
+          source: [
+            {
+              name: item.title,
+              url: item.sourceUrl,
+              primary: true,
+            },
+          ],
+        }
+      : {}),
     faq: undefined, // Will be filled manually
     coverImage: undefined,
     coverImageAlt: undefined,
@@ -246,10 +278,37 @@ async function main(): Promise<void> {
   const colliding = new Set(
     [...slugCount.entries()].filter(([, n]) => n > 1).map(([slug]) => slug)
   );
-  // Slug yang sudah punya file di src/content/posts/ juga kolisi — jangan
-  // ada yang ditulis setengah-setengah (flag 'wx' tetap jadi safety net).
-  for (const slug of slugByFilename.values()) {
-    if (fs.existsSync(path.join(POSTS_DIR, `${slug}.md`))) colliding.add(slug);
+  // Slug yang sudah punya file di src/content/posts/ biasanya kolisi. Satu
+  // pengecualian: file itu adalah draft milik item ini sendiri (tulis
+  // berhasil, proses mati sebelum manifest tersimpan) — dikenali dari
+  // `source.url` yang sama. Dipulihkan ke manifest, tidak ditulis ulang.
+  const recoveredNow = new Date().toISOString();
+  const recovered = new Set<string>();
+  for (const item of pending) {
+    const slug = slugByFilename.get(item.filename)!;
+    const outputPath = path.join(POSTS_DIR, `${slug}.md`);
+    if (!fs.existsSync(outputPath)) continue;
+
+    if (item.sourceUrl?.trim() && frontmatterHasSourceUrl(outputPath, item.sourceUrl.trim())) {
+      const kw = parseKeywordNotes(item.notes);
+      manifest.files[item.filename] = {
+        ...manifest.files[item.filename],
+        status: 'drafted',
+        draftedAt: recoveredNow,
+        guideSlug: slug,
+        ...(kw.targetKeyword
+          ? { targetKeyword: kw.targetKeyword, secondaryKeywords: kw.secondaryKeywords }
+          : {}),
+        outputPath,
+      };
+      recovered.add(item.filename);
+      console.log(
+        `  ♻️  Recovered ${item.filename} → ${slug} (file sudah ada, manifest dihubungkan)`
+      );
+      continue;
+    }
+
+    colliding.add(slug);
   }
   for (const slug of colliding) {
     const names = pending.filter((item) => slugByFilename.get(item.filename) === slug);
@@ -257,98 +316,94 @@ async function main(): Promise<void> {
     console.error('     Perlu resolusi manual (rename judul / set slug di frontmatter).');
   }
 
-  for (const item of pending) {
-    const slug = slugByFilename.get(item.filename)!;
-    if (colliding.has(slug)) continue;
+  try {
+    for (const item of pending) {
+      const slug = slugByFilename.get(item.filename)!;
+      if (colliding.has(slug)) continue;
+      if (recovered.has(item.filename)) continue;
 
-    console.log(`\n📄 Drafting: ${item.title}`);
-    console.log(`\n📄 Drafting: ${item.title}`);
+      console.log(`\n📄 Drafting: ${item.title}`);
 
-    // Check if keyword data exists in notes or prompt for it
-    let targetKeyword = '';
-    let secondaryKeywords: string[] = [];
+      // Check if keyword data exists in notes or prompt for it
+      const { targetKeyword, secondaryKeywords } = parseKeywordNotes(item.notes);
 
-    // Try to parse from notes (format: "kw: target | secondary1, secondary2")
-    const kwMatch = item.notes.match(/kw:\s*([^|]+)(?:\|\s*(.+))?/i);
-    if (kwMatch) {
-      targetKeyword = kwMatch[1].trim();
-      secondaryKeywords = kwMatch[2] ? kwMatch[2].split(',').map((s) => s.trim()) : [];
-    }
-
-    if (!targetKeyword) {
-      console.log(`  ⚠️  No keyword data in notes. Please add to curation JSON:`);
-      console.log(`     "notes": "kw: your-target-keyword | secondary1, secondary2"`);
-      console.log(`  💡 Or run keyword research checklist:`);
-      console.log(generateResearchChecklist(item.title));
-      continue;
-    }
-
-    const keywordData = { targetKeyword, secondaryKeywords };
-    const fm = buildFrontmatter(item, keywordData);
-    const yaml = frontmatterToYaml(fm);
-
-    // Prepare template data
-    const templateData: Record<string, string> = {
-      TITLE: item.title,
-      DESCRIPTION: fm.summary,
-      META_DESCRIPTION: fm.metaDescription,
-      PUBLISH_DATE: fm.publishedAt,
-      UPDATE_DATE: fm.updatedAt,
-      TAGS: JSON.stringify(fm.tags),
-      CATEGORY: fm.category,
-      SOURCES: JSON.stringify(fm.source),
-      COVER_IMAGE: '',
-      COVER_IMAGE_ALT: '',
-      OG_IMAGE: '',
-      READING_TIME: fm.readingTime.toString(),
-      PAIN_POINT: `Banyak orang awam bingung soal ${item.title.toLowerCase()}. Artikel berbahasa Inggris terlalu teknis, tutorial YouTube terlalu cepat, dan dokumentasi resmi membingungkan.`,
-      PERSONAL_NOTE: `Aku sendiri pernah stuck di sini — jadi aku tulis panduan ini biar kamu nggak perlu trial-error lama.`,
-      PREREQUISITES: 'Akun Google/GitHub (gratis), koneksi internet, 15-30 menit waktu',
-      ESTIMATED_TIME: `${fm.readingTime} menit bacaan + 30-60 menit praktek`,
-      STEPS: '', // Will be filled manually
-      TIPS: '',
-      TROUBLESHOOTING: '',
-      CHECKLIST: '',
-    };
-
-    const body = renderTemplate(template, templateData);
-    const content = yaml + '\n\n' + body;
-
-    const outputPath = path.join(POSTS_DIR, `${slug}.md`);
-
-    // 'wx': gagal kalau file sudah ada — draf lama tidak boleh ditimpa,
-    // dan manifest tidak diubah untuk item yang diskip.
-    try {
-      await fsp.writeFile(outputPath, content, { encoding: 'utf-8', flag: 'wx' });
-    } catch (err) {
-      if ((err as NodeJS.ErrnoException).code === 'EEXIST') {
-        console.log(`  ⏭️  Skip ${item.filename}: ${outputPath} sudah ada`);
+      if (!targetKeyword) {
+        console.log(`  ⚠️  No keyword data in notes. Please add to curation JSON:`);
+        console.log(`     "notes": "kw: your-target-keyword | secondary1, secondary2"`);
+        console.log(`  💡 Or run keyword research checklist:`);
+        console.log(generateResearchChecklist(item.title));
         continue;
       }
-      throw err;
+
+      const keywordData = { targetKeyword, secondaryKeywords };
+      const fm = buildFrontmatter(item, keywordData);
+      const yaml = frontmatterToYaml(fm);
+
+      // Prepare template data
+      const templateData: Record<string, string> = {
+        TITLE: item.title,
+        DESCRIPTION: fm.summary,
+        META_DESCRIPTION: fm.metaDescription,
+        PUBLISH_DATE: fm.publishedAt,
+        UPDATE_DATE: fm.updatedAt,
+        TAGS: JSON.stringify(fm.tags),
+        CATEGORY: fm.category,
+        SOURCES: JSON.stringify(fm.source ?? []),
+        COVER_IMAGE: '',
+        COVER_IMAGE_ALT: '',
+        OG_IMAGE: '',
+        READING_TIME: fm.readingTime.toString(),
+        PAIN_POINT: `Banyak orang awam bingung soal ${item.title.toLowerCase()}. Artikel berbahasa Inggris terlalu teknis, tutorial YouTube terlalu cepat, dan dokumentasi resmi membingungkan.`,
+        PERSONAL_NOTE: `Aku sendiri pernah stuck di sini — jadi aku tulis panduan ini biar kamu nggak perlu trial-error lama.`,
+        PREREQUISITES: 'Akun Google/GitHub (gratis), koneksi internet, 15-30 menit waktu',
+        ESTIMATED_TIME: `${fm.readingTime} menit bacaan + 30-60 menit praktek`,
+        STEPS: '', // Will be filled manually
+        TIPS: '',
+        TROUBLESHOOTING: '',
+        CHECKLIST: '',
+      };
+
+      const body = renderTemplate(template, templateData);
+      const content = yaml + '\n\n' + body;
+
+      const outputPath = path.join(POSTS_DIR, `${slug}.md`);
+
+      // 'wx': gagal kalau file sudah ada — draf lama tidak boleh ditimpa,
+      // dan manifest tidak diubah untuk item yang diskip.
+      try {
+        await fsp.writeFile(outputPath, content, { encoding: 'utf-8', flag: 'wx' });
+      } catch (err) {
+        if ((err as NodeJS.ErrnoException).code === 'EEXIST') {
+          console.log(`  ⏭️  Skip ${item.filename}: ${outputPath} sudah ada`);
+          continue;
+        }
+        throw err;
+      }
+      console.log(`  ✅ Written: ${outputPath}`);
+
+      // Update manifest
+      manifest.files[item.filename] = {
+        ...manifest.files[item.filename],
+        status: 'drafted',
+        draftedAt: new Date().toISOString(),
+        guideSlug: slug,
+        targetKeyword: keywordData.targetKeyword,
+        secondaryKeywords: keywordData.secondaryKeywords,
+        outputPath,
+      };
     }
-    console.log(`  ✅ Written: ${outputPath}`);
-
-    // Update manifest
-    manifest.files[item.filename] = {
-      ...manifest.files[item.filename],
-      status: 'drafted',
-      draftedAt: new Date().toISOString(),
-      guideSlug: slug,
-      targetKeyword: keywordData.targetKeyword,
-      secondaryKeywords: keywordData.secondaryKeywords,
-      outputPath,
-    };
+  } finally {
+    // Simpan progress meski ada draft yang gagal di tengah loop — entri
+    // yang sudah ditandai 'drafted' jangan hilang saat error.
+    await saveManifest(MANIFEST_PATH, manifest);
   }
-
-  await saveManifest(MANIFEST_PATH, manifest);
 
   console.log('\n📋 NEXT STEPS:');
   console.log('1. Edit each .md file in web/src/content/posts/ to fill in content');
   console.log('2. Add FAQ (frontmatter `faq`), steps, tips, troubleshooting, checklist');
   console.log('3. Run antislop-copywriting checklist on each article');
   console.log('4. Set `draft: false` di frontmatter, lalu buka PR untuk review & merge');
-  console.log('5. Setelah PR di-merge: `pnpm publish:guide <slug> --pr=<url>`');
+  console.log('5. Setelah PR di-merge dan ter-deploy: `pnpm publish:guide <slug> --pr=<url>`');
 }
 
 main().catch((e) => {

@@ -117,19 +117,11 @@ export async function parseDocx(filePath: string): Promise<DocxParseResult> {
   let date = '';
   let category = 'AI';
 
-  // Try to extract title from first non-empty line
-  const fmTitle = lines
-    .map((l) => /^title:\s*(.+)$/i.exec(l)?.[1].trim())
-    .find((t): t is string => Boolean(t));
+  // Try to extract title from the leading frontmatter block only — a
+  // `title:` key later in the body is not metadata.
+  const fmTitle = extractFrontmatterTitle(lines);
   if (fmTitle) {
-    // Sebagian docx menyimpan seluruh frontmatter dalam satu paragraf:
-    // potong di key frontmatter berikutnya, lalu buang kutip/escape pembungkus.
-    title = fmTitle
-      .split(
-        /\s+(?:slug|summary|description|metaDescription|publishedAt|pubDate|date|category|tags|author|draft|source|sourceUrl|coverImage):\s/
-      )[0]
-      .replace(/\\"/g, '"')
-      .replace(/^["'\s]+|["'\s]+$/g, '');
+    title = fmTitle;
   } else {
     for (const line of lines) {
       if (line.length > 10 && line.length < 200) {
@@ -336,4 +328,39 @@ export function scoreSourceAuthority(sourceUrl: string, author: string): number 
   }
 
   return score;
+}
+
+/**
+ * Baca `title:` dari blok frontmatter di AWAL dokumen saja.
+ *
+ * Dua bentuk sumber yang didukung:
+ *   - frontmatter inline satu paragraf: `title: "A: B" description: "x"`
+ *   - blok `---` YAML: baris `---` lalu deretan `key: value`.
+ *
+ * Berhenti di baris pertama yang bukan `key:` atau di `---` berikutnya.
+ * `title:` di badan dokumen tidak pernah dibaca (mengembalikan undefined).
+ */
+export function extractFrontmatterTitle(lines: string[]): string | undefined {
+  let i = lines[0] === '---' ? 1 : 0;
+  let raw: string | undefined;
+  for (; i < lines.length; i++) {
+    const line = lines[i];
+    if (line === '---' || !/^[A-Za-z_][\w-]*:/.test(line)) break;
+    const m = /^title:\s*(.+)$/i.exec(line);
+    if (m) {
+      raw = m[1].trim();
+      break;
+    }
+  }
+  if (!raw) return undefined;
+
+  // Sebagian docx menyimpan seluruh frontmatter dalam satu paragraf:
+  // potong di key frontmatter berikutnya, lalu buang kutip/escape pembungkus.
+  const title = raw
+    .split(
+      /\s+(?:slug|summary|description|metaDescription|publishedAt|pubDate|date|category|tags|author|draft|source|sourceUrl|coverImage):\s/
+    )[0]
+    .replace(/\\"/g, '"')
+    .replace(/^["'\s]+|["'\s]+$/g, '');
+  return title || undefined;
 }

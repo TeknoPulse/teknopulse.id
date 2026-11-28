@@ -198,7 +198,13 @@ Ganti pemanggilan LLM generatif untuk tugas klasifikasi/routing dengan Decisions
 // Hybrid agent workflow
 async function agentStep(state: AgentState) {
   // 1. Decision Model untuk routing (cepat, murah)
-  const route = await pickTool(state.currentTask, ['search', 'code', 'analyze', 'write']);
+  let route;
+  try {
+    route = await pickTool(state.currentTask, ['search', 'code', 'analyze', 'write']);
+  } catch {
+    // Refusal atau error API: jangan berhenti, lanjut ke LLM generatif
+    return await llmReasoning(state);
+  }
 
   if (route.confidence < 0.7) {
     // Fallback ke LLM generatif untuk reasoning kompleks

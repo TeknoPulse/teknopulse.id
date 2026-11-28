@@ -31,7 +31,7 @@ async function guideIsLive(slug: string): Promise<boolean> {
     // frontmatter — teks "draft: false" di body tidak boleh dihitung.
     const fm = /^---\r?\n([\s\S]*?)\r?\n---/.exec(raw)?.[1];
     if (!fm) return false;
-    return /^draft:\s*false\s*$/m.test(fm);
+    return /^draft:\s*false(?:\s+#.*)?\s*$/m.test(fm);
   } catch {
     return false;
   }
