@@ -22,10 +22,12 @@ export function fitMetaDescription(text: string): string {
     const candidate = out.slice(0, cut).replace(/[\s.,;:!?—–-]+$/, '') + '.';
     // Potong di spasi terakhir kalau hasilnya masih ≥120; kalau tidak (kata
     // sangat panjang di awal), potong keras di 154 supaya tetap di rentang.
+    const hardCut = out.slice(0, 154);
+    const trimmed = hardCut.replace(/[\s.,;:!?—–-]+$/, '');
     out =
       cut > 0 && candidate.length >= 120
         ? candidate
-        : out.slice(0, 154).replace(/[\s.,;:!?—–-]+$/, '') + '.';
+        : (trimmed.length >= 119 ? trimmed : hardCut) + '.';
   }
 
   return out;

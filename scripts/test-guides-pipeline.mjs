@@ -215,6 +215,19 @@ await test('extractFrontmatterTitle → title di body bukan frontmatter', () => 
   assert.equal(extractFrontmatterTitle(['Heading', 'title: Later']), undefined);
 });
 
+await test('extractFrontmatterTitle → titik dua di dalam judul berkutip tidak memotong', () => {
+  assert.equal(
+    extractFrontmatterTitle(['title: "Panduan AI tags: dasar" description: "x"']),
+    'Panduan AI tags: dasar'
+  );
+});
+
+await test('fitMetaDescription → hard-cut tetap ≥120 walau ekornya tanda baca', () => {
+  const out = fitMetaDescription('a'.repeat(100) + '.'.repeat(80));
+  assert.ok(out.length >= 120 && out.length <= 155, `len=${out.length}`);
+  assert.ok(out.endsWith('.'));
+});
+
 // ── Summary ───────────────────────────────────────────────────────────────────
 
 console.log('\n══════════════════════════════════════════════════════════');

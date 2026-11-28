@@ -286,6 +286,7 @@ async function main(): Promise<void> {
   const recovered = new Set<string>();
   for (const item of pending) {
     const slug = slugByFilename.get(item.filename)!;
+    if (colliding.has(slug)) continue;
     const outputPath = path.join(POSTS_DIR, `${slug}.md`);
     if (!fs.existsSync(outputPath)) continue;
 

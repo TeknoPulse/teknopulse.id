@@ -356,10 +356,15 @@ export function extractFrontmatterTitle(lines: string[]): string | undefined {
 
   // Sebagian docx menyimpan seluruh frontmatter dalam satu paragraf:
   // potong di key frontmatter berikutnya, lalu buang kutip/escape pembungkus.
+  // Judul berkutip: batasnya hanya key yang tepat setelah kutip penutup, supaya
+  // "…: …" di dalam judul tidak ikut memotong.
+  const keys =
+    'slug|summary|description|metaDescription|publishedAt|pubDate|date|category|tags|author|draft|source|sourceUrl|coverImage';
+  const boundary = /^["']/.test(raw)
+    ? new RegExp(`(?<=["'])\\s+(?:${keys}):\\s`)
+    : new RegExp(`\\s+(?:${keys}):\\s`);
   const title = raw
-    .split(
-      /\s+(?:slug|summary|description|metaDescription|publishedAt|pubDate|date|category|tags|author|draft|source|sourceUrl|coverImage):\s/
-    )[0]
+    .split(boundary)[0]
     .replace(/\\"/g, '"')
     .replace(/^["'\s]+|["'\s]+$/g, '');
   return title || undefined;
